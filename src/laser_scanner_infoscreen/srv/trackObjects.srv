@@ -1,0 +1,16 @@
+float32 angle_min        # start angle of the scan [rad]
+float32 angle_max        # end angle of the scan [rad]
+float32 angle_increment  # angular distance between measurements [rad]
+
+float32 time_increment   # time between measurements [seconds]
+float32 scan_time        # time between scans [seconds]
+
+float32[] ranges
+---
+float32[] mobiles_x      # Positions of mobiles
+float32[] mobiles_y
+float32[] mobiles_dir    # Predicted direction of mobile
+float32[] mobiles_spd    # Predicted speed of mobile
+
+float32[] statics_x      # Positions of statics
+float32[] statics_y
