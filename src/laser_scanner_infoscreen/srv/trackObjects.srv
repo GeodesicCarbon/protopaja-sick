@@ -9,8 +9,8 @@ float32[] ranges
 ---
 float32[] mobiles_x      # Positions of mobiles
 float32[] mobiles_y
-float32[] mobiles_dir    # Predicted direction of mobile
-float32[] mobiles_spd    # Predicted speed of mobile
+#float32[] mobiles_dir    # Predicted direction of mobile
+#float32[] mobiles_spd    # Predicted speed of mobile
 
-float32[] statics_x      # Positions of statics
-float32[] statics_y
+#float32[] statics_x      # Positions of statics
+#float32[] statics_y
