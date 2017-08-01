@@ -21,22 +21,67 @@ class trackObjectsRequest {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
-      this.a = null;
+      this.angle_min = null;
+      this.angle_max = null;
+      this.angle_increment = null;
+      this.time_increment = null;
+      this.scan_time = null;
+      this.ranges = null;
     }
     else {
-      if (initObj.hasOwnProperty('a')) {
-        this.a = initObj.a
+      if (initObj.hasOwnProperty('angle_min')) {
+        this.angle_min = initObj.angle_min
       }
       else {
-        this.a = 0.0;
+        this.angle_min = 0.0;
+      }
+      if (initObj.hasOwnProperty('angle_max')) {
+        this.angle_max = initObj.angle_max
+      }
+      else {
+        this.angle_max = 0.0;
+      }
+      if (initObj.hasOwnProperty('angle_increment')) {
+        this.angle_increment = initObj.angle_increment
+      }
+      else {
+        this.angle_increment = 0.0;
+      }
+      if (initObj.hasOwnProperty('time_increment')) {
+        this.time_increment = initObj.time_increment
+      }
+      else {
+        this.time_increment = 0.0;
+      }
+      if (initObj.hasOwnProperty('scan_time')) {
+        this.scan_time = initObj.scan_time
+      }
+      else {
+        this.scan_time = 0.0;
+      }
+      if (initObj.hasOwnProperty('ranges')) {
+        this.ranges = initObj.ranges
+      }
+      else {
+        this.ranges = [];
       }
     }
   }
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type trackObjectsRequest
-    // Serialize message field [a]
-    bufferOffset = _serializer.float32(obj.a, buffer, bufferOffset);
+    // Serialize message field [angle_min]
+    bufferOffset = _serializer.float32(obj.angle_min, buffer, bufferOffset);
+    // Serialize message field [angle_max]
+    bufferOffset = _serializer.float32(obj.angle_max, buffer, bufferOffset);
+    // Serialize message field [angle_increment]
+    bufferOffset = _serializer.float32(obj.angle_increment, buffer, bufferOffset);
+    // Serialize message field [time_increment]
+    bufferOffset = _serializer.float32(obj.time_increment, buffer, bufferOffset);
+    // Serialize message field [scan_time]
+    bufferOffset = _serializer.float32(obj.scan_time, buffer, bufferOffset);
+    // Serialize message field [ranges]
+    bufferOffset = _arraySerializer.float32(obj.ranges, buffer, bufferOffset, null);
     return bufferOffset;
   }
 
@@ -44,13 +89,25 @@ class trackObjectsRequest {
     //deserializes a message object of type trackObjectsRequest
     let len;
     let data = new trackObjectsRequest(null);
-    // Deserialize message field [a]
-    data.a = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [angle_min]
+    data.angle_min = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [angle_max]
+    data.angle_max = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [angle_increment]
+    data.angle_increment = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [time_increment]
+    data.time_increment = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [scan_time]
+    data.scan_time = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [ranges]
+    data.ranges = _arrayDeserializer.float32(buffer, bufferOffset, null)
     return data;
   }
 
   static getMessageSize(object) {
-    return 4;
+    let length = 0;
+    length += 4 * object.ranges.length;
+    return length + 24;
   }
 
   static datatype() {
@@ -60,22 +117,21 @@ class trackObjectsRequest {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '3a9a8ccf1ae2be3477477819c0d93b4e';
+    return 'cc1394f89117c0bbb3cdb3982efc44b7';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    float32 a
     
+    float32 angle_min
+    float32 angle_max
+    float32 angle_increment
     
+    float32 time_increment
+    float32 scan_time
     
-    
-    
-    
-    
-    
-    
+    float32[] ranges
     
     `;
   }
@@ -86,11 +142,46 @@ class trackObjectsRequest {
       msg = {};
     }
     const resolved = new trackObjectsRequest(null);
-    if (msg.a !== undefined) {
-      resolved.a = msg.a;
+    if (msg.angle_min !== undefined) {
+      resolved.angle_min = msg.angle_min;
     }
     else {
-      resolved.a = 0.0
+      resolved.angle_min = 0.0
+    }
+
+    if (msg.angle_max !== undefined) {
+      resolved.angle_max = msg.angle_max;
+    }
+    else {
+      resolved.angle_max = 0.0
+    }
+
+    if (msg.angle_increment !== undefined) {
+      resolved.angle_increment = msg.angle_increment;
+    }
+    else {
+      resolved.angle_increment = 0.0
+    }
+
+    if (msg.time_increment !== undefined) {
+      resolved.time_increment = msg.time_increment;
+    }
+    else {
+      resolved.time_increment = 0.0
+    }
+
+    if (msg.scan_time !== undefined) {
+      resolved.scan_time = msg.scan_time;
+    }
+    else {
+      resolved.scan_time = 0.0
+    }
+
+    if (msg.ranges !== undefined) {
+      resolved.ranges = msg.ranges;
+    }
+    else {
+      resolved.ranges = []
     }
 
     return resolved;
@@ -101,22 +192,31 @@ class trackObjectsResponse {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
-      this.b = null;
+      this.mobiles_x = null;
+      this.mobiles_y = null;
     }
     else {
-      if (initObj.hasOwnProperty('b')) {
-        this.b = initObj.b
+      if (initObj.hasOwnProperty('mobiles_x')) {
+        this.mobiles_x = initObj.mobiles_x
       }
       else {
-        this.b = 0.0;
+        this.mobiles_x = [];
+      }
+      if (initObj.hasOwnProperty('mobiles_y')) {
+        this.mobiles_y = initObj.mobiles_y
+      }
+      else {
+        this.mobiles_y = [];
       }
     }
   }
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type trackObjectsResponse
-    // Serialize message field [b]
-    bufferOffset = _serializer.float32(obj.b, buffer, bufferOffset);
+    // Serialize message field [mobiles_x]
+    bufferOffset = _arraySerializer.float32(obj.mobiles_x, buffer, bufferOffset, null);
+    // Serialize message field [mobiles_y]
+    bufferOffset = _arraySerializer.float32(obj.mobiles_y, buffer, bufferOffset, null);
     return bufferOffset;
   }
 
@@ -124,13 +224,18 @@ class trackObjectsResponse {
     //deserializes a message object of type trackObjectsResponse
     let len;
     let data = new trackObjectsResponse(null);
-    // Deserialize message field [b]
-    data.b = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [mobiles_x]
+    data.mobiles_x = _arrayDeserializer.float32(buffer, bufferOffset, null)
+    // Deserialize message field [mobiles_y]
+    data.mobiles_y = _arrayDeserializer.float32(buffer, bufferOffset, null)
     return data;
   }
 
   static getMessageSize(object) {
-    return 4;
+    let length = 0;
+    length += 4 * object.mobiles_x.length;
+    length += 4 * object.mobiles_y.length;
+    return length + 8;
   }
 
   static datatype() {
@@ -140,15 +245,14 @@ class trackObjectsResponse {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'b2fa35766f3759aa2164b5f04811b518';
+    return '706cc8f892a2bed9fff523be2ea368ba';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    float32 b
-    
-    
+    float32[] mobiles_x
+    float32[] mobiles_y
     
     
     
@@ -165,11 +269,18 @@ class trackObjectsResponse {
       msg = {};
     }
     const resolved = new trackObjectsResponse(null);
-    if (msg.b !== undefined) {
-      resolved.b = msg.b;
+    if (msg.mobiles_x !== undefined) {
+      resolved.mobiles_x = msg.mobiles_x;
     }
     else {
-      resolved.b = 0.0
+      resolved.mobiles_x = []
+    }
+
+    if (msg.mobiles_y !== undefined) {
+      resolved.mobiles_y = msg.mobiles_y;
+    }
+    else {
+      resolved.mobiles_y = []
     }
 
     return resolved;
@@ -179,6 +290,6 @@ class trackObjectsResponse {
 module.exports = {
   Request: trackObjectsRequest,
   Response: trackObjectsResponse,
-  md5sum() { return 'fc0fbe0c395760faa36f1f99eb1a88b3'; },
+  md5sum() { return '78b943e796437bdf7a8b6d34c2700469'; },
   datatype() { return 'laser_scanner_infoscreen/trackObjects'; }
 };

@@ -24,17 +24,42 @@ struct trackObjectsRequest_
   typedef trackObjectsRequest_<ContainerAllocator> Type;
 
   trackObjectsRequest_()
-    : a(0.0)  {
+    : angle_min(0.0)
+    , angle_max(0.0)
+    , angle_increment(0.0)
+    , time_increment(0.0)
+    , scan_time(0.0)
+    , ranges()  {
     }
   trackObjectsRequest_(const ContainerAllocator& _alloc)
-    : a(0.0)  {
+    : angle_min(0.0)
+    , angle_max(0.0)
+    , angle_increment(0.0)
+    , time_increment(0.0)
+    , scan_time(0.0)
+    , ranges(_alloc)  {
   (void)_alloc;
     }
 
 
 
-   typedef float _a_type;
-  _a_type a;
+   typedef float _angle_min_type;
+  _angle_min_type angle_min;
+
+   typedef float _angle_max_type;
+  _angle_max_type angle_max;
+
+   typedef float _angle_increment_type;
+  _angle_increment_type angle_increment;
+
+   typedef float _time_increment_type;
+  _time_increment_type time_increment;
+
+   typedef float _scan_time_type;
+  _scan_time_type scan_time;
+
+   typedef std::vector<float, typename ContainerAllocator::template rebind<float>::other >  _ranges_type;
+  _ranges_type ranges;
 
 
 
@@ -69,7 +94,7 @@ namespace message_traits
 
 
 
-// BOOLTRAITS {'IsFixedSize': True, 'IsMessage': True, 'HasHeader': False}
+// BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': False}
 // {'std_msgs': ['/opt/ros/lunar/share/std_msgs/cmake/../msg'], 'geometry_msgs': ['/opt/ros/lunar/share/geometry_msgs/cmake/../msg'], 'sensor_msgs': ['/opt/ros/lunar/share/sensor_msgs/cmake/../msg']}
 
 // !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
@@ -79,12 +104,12 @@ namespace message_traits
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::laser_scanner_infoscreen::trackObjectsRequest_<ContainerAllocator> >
-  : TrueType
+  : FalseType
   { };
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::laser_scanner_infoscreen::trackObjectsRequest_<ContainerAllocator> const>
-  : TrueType
+  : FalseType
   { };
 
 template <class ContainerAllocator>
@@ -113,12 +138,12 @@ struct MD5Sum< ::laser_scanner_infoscreen::trackObjectsRequest_<ContainerAllocat
 {
   static const char* value()
   {
-    return "3a9a8ccf1ae2be3477477819c0d93b4e";
+    return "cc1394f89117c0bbb3cdb3982efc44b7";
   }
 
   static const char* value(const ::laser_scanner_infoscreen::trackObjectsRequest_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x3a9a8ccf1ae2be34ULL;
-  static const uint64_t static_value2 = 0x77477819c0d93b4eULL;
+  static const uint64_t static_value1 = 0xcc1394f89117c0bbULL;
+  static const uint64_t static_value2 = 0xb3cdb3982efc44b7ULL;
 };
 
 template<class ContainerAllocator>
@@ -137,16 +162,15 @@ struct Definition< ::laser_scanner_infoscreen::trackObjectsRequest_<ContainerAll
 {
   static const char* value()
   {
-    return "float32 a\n\
+    return "\n\
+float32 angle_min\n\
+float32 angle_max\n\
+float32 angle_increment\n\
 \n\
+float32 time_increment\n\
+float32 scan_time\n\
 \n\
-\n\
-\n\
-\n\
-\n\
-\n\
-\n\
-\n\
+float32[] ranges\n\
 ";
   }
 
@@ -165,7 +189,12 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.a);
+      stream.next(m.angle_min);
+      stream.next(m.angle_max);
+      stream.next(m.angle_increment);
+      stream.next(m.time_increment);
+      stream.next(m.scan_time);
+      stream.next(m.ranges);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -184,8 +213,22 @@ struct Printer< ::laser_scanner_infoscreen::trackObjectsRequest_<ContainerAlloca
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::laser_scanner_infoscreen::trackObjectsRequest_<ContainerAllocator>& v)
   {
-    s << indent << "a: ";
-    Printer<float>::stream(s, indent + "  ", v.a);
+    s << indent << "angle_min: ";
+    Printer<float>::stream(s, indent + "  ", v.angle_min);
+    s << indent << "angle_max: ";
+    Printer<float>::stream(s, indent + "  ", v.angle_max);
+    s << indent << "angle_increment: ";
+    Printer<float>::stream(s, indent + "  ", v.angle_increment);
+    s << indent << "time_increment: ";
+    Printer<float>::stream(s, indent + "  ", v.time_increment);
+    s << indent << "scan_time: ";
+    Printer<float>::stream(s, indent + "  ", v.scan_time);
+    s << indent << "ranges[]" << std::endl;
+    for (size_t i = 0; i < v.ranges.size(); ++i)
+    {
+      s << indent << "  ranges[" << i << "]: ";
+      Printer<float>::stream(s, indent + "  ", v.ranges[i]);
+    }
   }
 };
 
