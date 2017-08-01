@@ -35,15 +35,17 @@ bool track(laser_scanner_infoscreen::trackObjects::Request  &req,
 			ranges.push_back(range);
 			end_angle = end_angle + angle_increment;
 		} else {
-			float sum_x = 0;
-			float sum_y = 0;
-			for (int i = 0; i < ranges.size(); i++) {
-				sum_x += -ranges[i] * sin(beg_angle + i*angle_increment);
-				sum_y += ranges[i] * cos(beg_angle + i*angle_increment);
+			if(ranges.size() > 20 && ranges.size() < 100) {
+				float sum_x = 0;
+				float sum_y = 0;
+				for (int i = 0; i < ranges.size(); i++) {
+					sum_x += -ranges[i] * sin(beg_angle + i*angle_increment);
+					sum_y += ranges[i] * cos(beg_angle + i*angle_increment);
+				}
+				mob_x.push_back(sum_x / ranges.size());
+				mob_y.push_back(sum_y / ranges.size());
+				ROS_INFO("found object at: [%f, %f]", (float)sum_x / ranges.size(), (float)sum_y / ranges.size());
 			}
-			mob_x.push_back(sum_x / ranges.size());
-			mob_y.push_back(sum_y / ranges.size());
-			ROS_INFO("found object at: [%f, %f]", (float)sum_x / ranges.size(), (float)sum_y / ranges.size());
 			beg_angle = end_angle + angle_increment;
 			end_angle = beg_angle;
 			beg_arc = range;

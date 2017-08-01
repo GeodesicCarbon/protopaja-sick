@@ -39,7 +39,7 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 	  points.color.a = 1.0;
 		for (int i = 0; i < srv.response.mobiles_x.size(); i++) {
 			geometry_msgs::Point p;
-			p.z = 1.0;
+			p.z = 0;
 			p.x = srv.response.mobiles_x[i];
 			p.y = srv.response.mobiles_y[i];
 			points.points.push_back(p);
