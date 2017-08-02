@@ -10,6 +10,7 @@ project(laser_scanner_infoscreen)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
+  topic
   sensor_msgs
   std_msgs
   message_generation
@@ -50,11 +51,10 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   Message1.msg
-#   Message2.msg
-# )
+ add_message_files(
+   FILES
+   biometrics.msg
+ )
 
 ## Generate services in the 'srv' folder
  add_service_files(
@@ -209,3 +209,7 @@ add_dependencies(track_objects_server laser_scanner_infoscreen_gencpp)
 add_executable(track_objects_client src/track_objects_client.cpp)
 target_link_libraries(track_objects_client ${catkin_LIBRARIES})
 add_dependencies(track_objects_client laser_scanner_infoscreen_gencpp)
+
+add_executable(measure_biometrics src/measure_biometrics.cpp)
+target_link_libraries(measure_biometrics ${catkin_LIBRARIES})
+add_dependencies(measure_biometrics laser_scanner_infoscreen_gencpp)

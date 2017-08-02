@@ -1,8 +1,11 @@
 #include "ros/ros.h"
 #include "laser_scanner_infoscreen/trackObjects.h"
+#include <visualization_msgs/Marker.h>
 #include <vector>
 #include <cmath>
 #include <utility>
+
+ros::Publisher *marker_pub_pointer;
 
 //struct laser_object_t
 //{
