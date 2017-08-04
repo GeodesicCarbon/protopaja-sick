@@ -24,14 +24,14 @@ void biometrics_callback(const laser_scanner_infoscreen::biometrics::ConstPtr& p
   float high = 2.2;
   int low_index;
   int high_index;
-  sensor_msgs::LaserScan scan;
-  const std::string lasertopic ("scan");
+  boost::shared_ptr<sensor_msgs::LaserScan> scan;
+  const std::string *lasertopic = new std::string("scan");
   for (int i = 0; i < binary_depth; i++) {
     float mid = (low + high)/2;
     int hit_count = 0;
     ROS_INFO("Testing for h = %f", mid);
     set_tilt_uppper_scanner(acos(mid - sensor_pos[2]));
-    scan = *(ros::topic::waitForMessage(lasertopic, *node_pointer));
+    scan = ros::topic::waitForMessage(*lasertopic, *node_pointer);
     low_index =  scan->ranges.size()/2-10;
     high_index = low_index + 20;
     for (int j = low_index; j <= high_index; j++) {
