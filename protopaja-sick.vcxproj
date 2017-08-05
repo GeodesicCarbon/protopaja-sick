@@ -98,7 +98,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\laser_scanner_infoscreen\src\measure_biometrics.cpp" />
+    <ClCompile Include="src\laser_scanner_infoscreen\src\track_objects_client.cpp" />
     <ClCompile Include="src\laser_scanner_infoscreen\src\track_objects_server.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="devel\include\laser_scanner_infoscreen\biometrics.h" />
+    <ClInclude Include="devel\include\laser_scanner_infoscreen\trackObjects.h" />
+    <ClInclude Include="devel\include\laser_scanner_infoscreen\trackObjectsRequest.h" />
+    <ClInclude Include="devel\include\laser_scanner_infoscreen\trackObjectsResponse.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

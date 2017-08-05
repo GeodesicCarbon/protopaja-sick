@@ -21,6 +21,7 @@ ros::Publisher *marker_pub_pointer;
 bool track(laser_scanner_infoscreen::trackObjects::Request  &req,
 	laser_scanner_infoscreen::trackObjects::Response &res)
 {
+	visualization_msgs::Marker line_list;
 	float beg_arc, end_arc;
 	float beg_angle, end_angle;
 	float angle_increment = req.angle_increment;
@@ -28,6 +29,16 @@ bool track(laser_scanner_infoscreen::trackObjects::Request  &req,
 	std::vector<float> mob_x;
 	std::vector<float> mob_y;
 
+	line_list.header.frame_id = "/laser";
+	line_list.header.stamp = ros::Time::now();
+	line_list.ns = "points_and_lines";
+	line_list.action = visualization_msgs::Marker:ADD;
+	line_list.pose.orientation.w = 0.5;
+	line_list.id = 1;
+	line_list.type = visualization_msgs::Marker::line_list;
+	line_list.scale.x = 0.1;
+	line_list.color.b = 1.0;
+	line_list.color.a = 0.3;
 	beg_angle = end_angle = req.angle_min;
 	beg_arc = req.ranges[0];
 	end_arc = req.ranges[0];
@@ -39,12 +50,21 @@ bool track(laser_scanner_infoscreen::trackObjects::Request  &req,
 			end_angle = end_angle + angle_increment;
 		} else {
 			if(ranges.size() > 20 && ranges.size() < 100) {
+				geometry_msgs::Point p;
+				p.z = 0;
+				p.x = -ranges[i] * sin(beg_angle);
+				p.y = ranges[i] * cos(beg_angle);
+				line_list.points.push_back(p);
+				p.x = -ranges[i] * sin(beg_angle + (ranges.size()-1)*angle_increment);
+				p.y = ranges[i] * cos(beg_angle + (ranges.size() - 1)*angle_increment);
+
 				float sum_x = 0;
 				float sum_y = 0;
 				for (int i = 0; i < ranges.size(); i++) {
 					sum_x += -ranges[i] * sin(beg_angle + i*angle_increment);
 					sum_y += ranges[i] * cos(beg_angle + i*angle_increment);
 				}
+				
 				mob_x.push_back(sum_x / ranges.size());
 				mob_y.push_back(sum_y / ranges.size());
 				ROS_INFO("found object at: [%f, %f]", (float)sum_x / ranges.size(), (float)sum_y / ranges.size());
@@ -72,6 +92,8 @@ int main(int argc, char **argv)
 
 	ros::ServiceServer service = n.advertiseService("track_objects", track);
 	ROS_INFO("Ready to track objects.");
+	ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("vizualization_objects", 10);
+	marker_pub_pointer = &marker_pub;
 	ros::spin();
 
 	return 0;

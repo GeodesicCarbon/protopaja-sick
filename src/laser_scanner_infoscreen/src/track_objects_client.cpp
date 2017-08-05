@@ -60,7 +60,7 @@ int main(int argc, char **argv)
 	ros::ServiceClient client = node_pointer->serviceClient<laser_scanner_infoscreen::trackObjects>("track_objects");
 	client_pointer = &client;
 	ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 10);
-marker_pub_pointer = &marker_pub;
+	marker_pub_pointer = &marker_pub;
 	ros::Subscriber sub = n.subscribe("scan", 1000, tracker_callback);
 	laser_scanner_infoscreen::trackObjects srv;
 	ros::spin();
