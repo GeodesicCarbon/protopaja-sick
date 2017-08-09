@@ -4,38 +4,31 @@
 #include <vector>
 #include <cmath>
 #include <utility>
+#include <armadillo>
+#include "laser_objects.hpp"
 
 ros::Publisher *marker_pub_pointer;
-
-//struct laser_object_t
-//{
-//	float start_angle;
-//	float end_angle;
-//	std::vector<float> ranges;
-//	std::pair<float, float> pos_centerofmass;
-//	std::pair<float, float> vel_centerofmass;
-//};
-//
-//std::vector<struct laser_object_t> objects;
+laser_objects *repository = NULL;
 
 bool track(laser_scanner_infoscreen::trackObjects::Request  &req,
 	laser_scanner_infoscreen::trackObjects::Response &res)
 {
+	if (!repository) {
+		repository = new laser_objects(req.time_increment);
+	}
 	visualization_msgs::Marker line_list;
 	float beg_arc, end_arc;
 	float beg_angle, end_angle;
 	float angle_increment = req.angle_increment;
 	std::vector<float> ranges;
-	std::vector<float> mob_x;
-	std::vector<float> mob_y;
 
 	line_list.header.frame_id = "/laser";
 	line_list.header.stamp = ros::Time::now();
 	line_list.ns = "points_and_lines";
-	line_list.action = visualization_msgs::Marker:ADD;
+	line_list.action = visualization_msgs::Marker::ADD;
 	line_list.pose.orientation.w = 0.5;
 	line_list.id = 1;
-	line_list.type = visualization_msgs::Marker::line_list;
+	line_list.type = visualization_msgs::Marker::LINE_LIST;
 	line_list.scale.x = 0.1;
 	line_list.color.b = 1.0;
 	line_list.color.a = 0.3;
@@ -44,30 +37,31 @@ bool track(laser_scanner_infoscreen::trackObjects::Request  &req,
 	end_arc = req.ranges[0];
 	ranges.push_back(beg_arc);
 	for (float range : req.ranges) {
-		if (end_arc - range < 0.05){
+		if (std::abs(end_arc - range) < 0.25){
 			end_arc = range;
 			ranges.push_back(range);
 			end_angle = end_angle + angle_increment;
 		} else {
-			if(ranges.size() > 20 && ranges.size() < 100) {
+			if(ranges.size() > 15 && ranges.size() < 100) {
 				geometry_msgs::Point p;
 				p.z = 0;
-				p.x = -ranges[i] * sin(beg_angle);
-				p.y = ranges[i] * cos(beg_angle);
+				p.x = -ranges[0] * sin(beg_angle);
+				p.y = ranges[0] * cos(beg_angle);
 				line_list.points.push_back(p);
-				p.x = -ranges[i] * sin(beg_angle + (ranges.size()-1)*angle_increment);
-				p.y = ranges[i] * cos(beg_angle + (ranges.size() - 1)*angle_increment);
-
-				float sum_x = 0;
-				float sum_y = 0;
+				p.x = -ranges[ranges.size() - 1] * sin(end_angle);
+				p.y = ranges[ranges.size() - 1] * cos(end_angle);
+				line_list.points.push_back(p);
+				float sum_x = 0.0;
+				float sum_y = 0.0;
 				for (int i = 0; i < ranges.size(); i++) {
-					sum_x += -ranges[i] * sin(beg_angle + i*angle_increment);
+					sum_x += ranges[i] * -sin(beg_angle + i*angle_increment);
 					sum_y += ranges[i] * cos(beg_angle + i*angle_increment);
 				}
-				
-				mob_x.push_back(sum_x / ranges.size());
-				mob_y.push_back(sum_y / ranges.size());
-				ROS_INFO("found object at: [%f, %f]", (float)sum_x / ranges.size(), (float)sum_y / ranges.size());
+				if (sum_x) {
+					marker_pub_pointer->publish(line_list);
+					repository->update(std::make_pair(sum_x/ranges.size(), sum_y/ranges.size()));
+				}
+				//ROS_INFO("found object at: [%f, %f]", (float)sum_x / ranges.size(), (float)sum_y / ranges.size());
 			}
 			beg_angle = end_angle + angle_increment;
 			end_angle = beg_angle;
@@ -75,13 +69,14 @@ bool track(laser_scanner_infoscreen::trackObjects::Request  &req,
 			end_arc = beg_arc;
 			ranges.clear();
 			ranges.push_back(range);
-			/*laser_object new_object = { beg_angle, end_angle, ranges, std::make_pair(sum_x / ranges.size, sum_y / ranges.size), std::make_pair(0,0) };
-			objects.push_back(new_object);*/
 		}
 
 	}
-	res.mobiles_x = mob_x;
-	res.mobiles_y = mob_y;
+	repository->update_repository();
+	res.mobiles_x = repository->get_mobiles_x();
+	res.mobiles_y = repository->get_mobiles_y();
+	res.statics_x = repository->get_statics_x();
+	res.statics_y = repository->get_statics_y();
 	return true;
 }
 

@@ -171,10 +171,10 @@
   "laser_scanner_infoscreen/trackObjectsRequest")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<trackObjects-request>)))
   "Returns md5sum for a message object of type '<trackObjects-request>"
-  "78b943e796437bdf7a8b6d34c2700469")
+  "38f224ce5c574709b4afb6c1105a6437")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'trackObjects-request)))
   "Returns md5sum for a message object of type 'trackObjects-request"
-  "78b943e796437bdf7a8b6d34c2700469")
+  "38f224ce5c574709b4afb6c1105a6437")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<trackObjects-request>)))
   "Returns full string definition for message of type '<trackObjects-request>"
   (cl:format cl:nil "~%float32 angle_min~%float32 angle_max~%float32 angle_increment~%~%float32 time_increment~%float32 scan_time~%~%float32[] ranges~%~%~%"))
@@ -212,6 +212,16 @@
     :reader mobiles_y
     :initarg :mobiles_y
     :type (cl:vector cl:float)
+   :initform (cl:make-array 0 :element-type 'cl:float :initial-element 0.0))
+   (statics_x
+    :reader statics_x
+    :initarg :statics_x
+    :type (cl:vector cl:float)
+   :initform (cl:make-array 0 :element-type 'cl:float :initial-element 0.0))
+   (statics_y
+    :reader statics_y
+    :initarg :statics_y
+    :type (cl:vector cl:float)
    :initform (cl:make-array 0 :element-type 'cl:float :initial-element 0.0)))
 )
 
@@ -232,6 +242,16 @@
 (cl:defmethod mobiles_y-val ((m <trackObjects-response>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader laser_scanner_infoscreen-srv:mobiles_y-val is deprecated.  Use laser_scanner_infoscreen-srv:mobiles_y instead.")
   (mobiles_y m))
+
+(cl:ensure-generic-function 'statics_x-val :lambda-list '(m))
+(cl:defmethod statics_x-val ((m <trackObjects-response>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader laser_scanner_infoscreen-srv:statics_x-val is deprecated.  Use laser_scanner_infoscreen-srv:statics_x instead.")
+  (statics_x m))
+
+(cl:ensure-generic-function 'statics_y-val :lambda-list '(m))
+(cl:defmethod statics_y-val ((m <trackObjects-response>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader laser_scanner_infoscreen-srv:statics_y-val is deprecated.  Use laser_scanner_infoscreen-srv:statics_y instead.")
+  (statics_y m))
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <trackObjects-response>) ostream)
   "Serializes a message object of type '<trackObjects-response>"
   (cl:let ((__ros_arr_len (cl:length (cl:slot-value msg 'mobiles_x))))
@@ -256,6 +276,28 @@
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream)))
    (cl:slot-value msg 'mobiles_y))
+  (cl:let ((__ros_arr_len (cl:length (cl:slot-value msg 'statics_x))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) __ros_arr_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) __ros_arr_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) __ros_arr_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) __ros_arr_len) ostream))
+  (cl:map cl:nil #'(cl:lambda (ele) (cl:let ((bits (roslisp-utils:encode-single-float-bits ele)))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream)))
+   (cl:slot-value msg 'statics_x))
+  (cl:let ((__ros_arr_len (cl:length (cl:slot-value msg 'statics_y))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) __ros_arr_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) __ros_arr_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) __ros_arr_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) __ros_arr_len) ostream))
+  (cl:map cl:nil #'(cl:lambda (ele) (cl:let ((bits (roslisp-utils:encode-single-float-bits ele)))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream)))
+   (cl:slot-value msg 'statics_y))
 )
 (cl:defmethod roslisp-msg-protocol:deserialize ((msg <trackObjects-response>) istream)
   "Deserializes a message object of type '<trackObjects-response>"
@@ -287,6 +329,34 @@
       (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
     (cl:setf (cl:aref vals i) (roslisp-utils:decode-single-float-bits bits))))))
+  (cl:let ((__ros_arr_len 0))
+    (cl:setf (cl:ldb (cl:byte 8 0) __ros_arr_len) (cl:read-byte istream))
+    (cl:setf (cl:ldb (cl:byte 8 8) __ros_arr_len) (cl:read-byte istream))
+    (cl:setf (cl:ldb (cl:byte 8 16) __ros_arr_len) (cl:read-byte istream))
+    (cl:setf (cl:ldb (cl:byte 8 24) __ros_arr_len) (cl:read-byte istream))
+  (cl:setf (cl:slot-value msg 'statics_x) (cl:make-array __ros_arr_len))
+  (cl:let ((vals (cl:slot-value msg 'statics_x)))
+    (cl:dotimes (i __ros_arr_len)
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:aref vals i) (roslisp-utils:decode-single-float-bits bits))))))
+  (cl:let ((__ros_arr_len 0))
+    (cl:setf (cl:ldb (cl:byte 8 0) __ros_arr_len) (cl:read-byte istream))
+    (cl:setf (cl:ldb (cl:byte 8 8) __ros_arr_len) (cl:read-byte istream))
+    (cl:setf (cl:ldb (cl:byte 8 16) __ros_arr_len) (cl:read-byte istream))
+    (cl:setf (cl:ldb (cl:byte 8 24) __ros_arr_len) (cl:read-byte istream))
+  (cl:setf (cl:slot-value msg 'statics_y) (cl:make-array __ros_arr_len))
+  (cl:let ((vals (cl:slot-value msg 'statics_y)))
+    (cl:dotimes (i __ros_arr_len)
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:aref vals i) (roslisp-utils:decode-single-float-bits bits))))))
   msg
 )
 (cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<trackObjects-response>)))
@@ -297,26 +367,30 @@
   "laser_scanner_infoscreen/trackObjectsResponse")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<trackObjects-response>)))
   "Returns md5sum for a message object of type '<trackObjects-response>"
-  "78b943e796437bdf7a8b6d34c2700469")
+  "38f224ce5c574709b4afb6c1105a6437")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'trackObjects-response)))
   "Returns md5sum for a message object of type 'trackObjects-response"
-  "78b943e796437bdf7a8b6d34c2700469")
+  "38f224ce5c574709b4afb6c1105a6437")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<trackObjects-response>)))
   "Returns full string definition for message of type '<trackObjects-response>"
-  (cl:format cl:nil "float32[] mobiles_x~%float32[] mobiles_y~%~%~%~%~%~%~%~%~%"))
+  (cl:format cl:nil "float32[] mobiles_x~%float32[] mobiles_y~%~%~%~%float32[] statics_x~%float32[] statics_y~%~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'trackObjects-response)))
   "Returns full string definition for message of type 'trackObjects-response"
-  (cl:format cl:nil "float32[] mobiles_x~%float32[] mobiles_y~%~%~%~%~%~%~%~%~%"))
+  (cl:format cl:nil "float32[] mobiles_x~%float32[] mobiles_y~%~%~%~%float32[] statics_x~%float32[] statics_y~%~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <trackObjects-response>))
   (cl:+ 0
      4 (cl:reduce #'cl:+ (cl:slot-value msg 'mobiles_x) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 4)))
      4 (cl:reduce #'cl:+ (cl:slot-value msg 'mobiles_y) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 4)))
+     4 (cl:reduce #'cl:+ (cl:slot-value msg 'statics_x) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 4)))
+     4 (cl:reduce #'cl:+ (cl:slot-value msg 'statics_y) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 4)))
 ))
 (cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <trackObjects-response>))
   "Converts a ROS message object to a list"
   (cl:list 'trackObjects-response
     (cl:cons ':mobiles_x (mobiles_x msg))
     (cl:cons ':mobiles_y (mobiles_y msg))
+    (cl:cons ':statics_x (statics_x msg))
+    (cl:cons ':statics_y (statics_y msg))
 ))
 (cl:defmethod roslisp-msg-protocol:service-request-type ((msg (cl:eql 'trackObjects)))
   'trackObjects-request)

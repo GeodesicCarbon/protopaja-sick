@@ -120,17 +120,21 @@
 
 (defclass laser_scanner_infoscreen::trackObjectsResponse
   :super ros::object
-  :slots (_mobiles_x _mobiles_y ))
+  :slots (_mobiles_x _mobiles_y _statics_x _statics_y ))
 
 (defmethod laser_scanner_infoscreen::trackObjectsResponse
   (:init
    (&key
     ((:mobiles_x __mobiles_x) (make-array 0 :initial-element 0.0 :element-type :float))
     ((:mobiles_y __mobiles_y) (make-array 0 :initial-element 0.0 :element-type :float))
+    ((:statics_x __statics_x) (make-array 0 :initial-element 0.0 :element-type :float))
+    ((:statics_y __statics_y) (make-array 0 :initial-element 0.0 :element-type :float))
     )
    (send-super :init)
    (setq _mobiles_x __mobiles_x)
    (setq _mobiles_y __mobiles_y)
+   (setq _statics_x __statics_x)
+   (setq _statics_y __statics_y)
    self)
   (:mobiles_x
    (&optional __mobiles_x)
@@ -138,6 +142,12 @@
   (:mobiles_y
    (&optional __mobiles_y)
    (if __mobiles_y (setq _mobiles_y __mobiles_y)) _mobiles_y)
+  (:statics_x
+   (&optional __statics_x)
+   (if __statics_x (setq _statics_x __statics_x)) _statics_x)
+  (:statics_y
+   (&optional __statics_y)
+   (if __statics_y (setq _statics_y __statics_y)) _statics_y)
   (:serialization-length
    ()
    (+
@@ -145,6 +155,10 @@
     (* 4    (length _mobiles_x)) 4
     ;; float32[] _mobiles_y
     (* 4    (length _mobiles_y)) 4
+    ;; float32[] _statics_x
+    (* 4    (length _statics_x)) 4
+    ;; float32[] _statics_y
+    (* 4    (length _statics_y)) 4
     ))
   (:serialize
    (&optional strm)
@@ -159,6 +173,16 @@
      (write-long (length _mobiles_y) s)
      (dotimes (i (length _mobiles_y))
        (sys::poke (elt _mobiles_y i) (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+       )
+     ;; float32[] _statics_x
+     (write-long (length _statics_x) s)
+     (dotimes (i (length _statics_x))
+       (sys::poke (elt _statics_x i) (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+       )
+     ;; float32[] _statics_y
+     (write-long (length _statics_y) s)
+     (dotimes (i (length _statics_y))
+       (sys::poke (elt _statics_y i) (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
        )
      ;;
      (if (null strm) (get-output-stream-string s))))
@@ -178,6 +202,20 @@
      (dotimes (i n)
      (setf (elt _mobiles_y i) (sys::peek buf ptr- :float)) (incf ptr- 4)
      ))
+   ;; float32[] _statics_x
+   (let (n)
+     (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     (setq _statics_x (instantiate float-vector n))
+     (dotimes (i n)
+     (setf (elt _statics_x i) (sys::peek buf ptr- :float)) (incf ptr- 4)
+     ))
+   ;; float32[] _statics_y
+   (let (n)
+     (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     (setq _statics_y (instantiate float-vector n))
+     (dotimes (i n)
+     (setf (elt _statics_y i) (sys::peek buf ptr- :float)) (incf ptr- 4)
+     ))
    ;;
    self)
   )
@@ -186,7 +224,7 @@
   :super ros::object
   :slots ())
 
-(setf (get laser_scanner_infoscreen::trackObjects :md5sum-) "78b943e796437bdf7a8b6d34c2700469")
+(setf (get laser_scanner_infoscreen::trackObjects :md5sum-) "38f224ce5c574709b4afb6c1105a6437")
 (setf (get laser_scanner_infoscreen::trackObjects :datatype-) "laser_scanner_infoscreen/trackObjects")
 (setf (get laser_scanner_infoscreen::trackObjects :request) laser_scanner_infoscreen::trackObjectsRequest)
 (setf (get laser_scanner_infoscreen::trackObjects :response) laser_scanner_infoscreen::trackObjectsResponse)
@@ -194,7 +232,7 @@
 (defmethod laser_scanner_infoscreen::trackObjectsRequest
   (:response () (instance laser_scanner_infoscreen::trackObjectsResponse :init)))
 
-(setf (get laser_scanner_infoscreen::trackObjectsRequest :md5sum-) "78b943e796437bdf7a8b6d34c2700469")
+(setf (get laser_scanner_infoscreen::trackObjectsRequest :md5sum-) "38f224ce5c574709b4afb6c1105a6437")
 (setf (get laser_scanner_infoscreen::trackObjectsRequest :datatype-) "laser_scanner_infoscreen/trackObjectsRequest")
 (setf (get laser_scanner_infoscreen::trackObjectsRequest :definition-)
       "
@@ -212,12 +250,12 @@ float32[] mobiles_y
 
 
 
-
-
+float32[] statics_x
+float32[] statics_y
 
 ")
 
-(setf (get laser_scanner_infoscreen::trackObjectsResponse :md5sum-) "78b943e796437bdf7a8b6d34c2700469")
+(setf (get laser_scanner_infoscreen::trackObjectsResponse :md5sum-) "38f224ce5c574709b4afb6c1105a6437")
 (setf (get laser_scanner_infoscreen::trackObjectsResponse :datatype-) "laser_scanner_infoscreen/trackObjectsResponse")
 (setf (get laser_scanner_infoscreen::trackObjectsResponse :definition-)
       "
@@ -235,13 +273,13 @@ float32[] mobiles_y
 
 
 
-
-
+float32[] statics_x
+float32[] statics_y
 
 ")
 
 
 
-(provide :laser_scanner_infoscreen/trackObjects "78b943e796437bdf7a8b6d34c2700469")
+(provide :laser_scanner_infoscreen/trackObjects "38f224ce5c574709b4afb6c1105a6437")
 
 

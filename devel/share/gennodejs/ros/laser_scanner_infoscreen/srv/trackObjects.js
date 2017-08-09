@@ -194,6 +194,8 @@ class trackObjectsResponse {
       // initObj === null is a special case for deserialization where we don't initialize fields
       this.mobiles_x = null;
       this.mobiles_y = null;
+      this.statics_x = null;
+      this.statics_y = null;
     }
     else {
       if (initObj.hasOwnProperty('mobiles_x')) {
@@ -208,6 +210,18 @@ class trackObjectsResponse {
       else {
         this.mobiles_y = [];
       }
+      if (initObj.hasOwnProperty('statics_x')) {
+        this.statics_x = initObj.statics_x
+      }
+      else {
+        this.statics_x = [];
+      }
+      if (initObj.hasOwnProperty('statics_y')) {
+        this.statics_y = initObj.statics_y
+      }
+      else {
+        this.statics_y = [];
+      }
     }
   }
 
@@ -217,6 +231,10 @@ class trackObjectsResponse {
     bufferOffset = _arraySerializer.float32(obj.mobiles_x, buffer, bufferOffset, null);
     // Serialize message field [mobiles_y]
     bufferOffset = _arraySerializer.float32(obj.mobiles_y, buffer, bufferOffset, null);
+    // Serialize message field [statics_x]
+    bufferOffset = _arraySerializer.float32(obj.statics_x, buffer, bufferOffset, null);
+    // Serialize message field [statics_y]
+    bufferOffset = _arraySerializer.float32(obj.statics_y, buffer, bufferOffset, null);
     return bufferOffset;
   }
 
@@ -228,6 +246,10 @@ class trackObjectsResponse {
     data.mobiles_x = _arrayDeserializer.float32(buffer, bufferOffset, null)
     // Deserialize message field [mobiles_y]
     data.mobiles_y = _arrayDeserializer.float32(buffer, bufferOffset, null)
+    // Deserialize message field [statics_x]
+    data.statics_x = _arrayDeserializer.float32(buffer, bufferOffset, null)
+    // Deserialize message field [statics_y]
+    data.statics_y = _arrayDeserializer.float32(buffer, bufferOffset, null)
     return data;
   }
 
@@ -235,7 +257,9 @@ class trackObjectsResponse {
     let length = 0;
     length += 4 * object.mobiles_x.length;
     length += 4 * object.mobiles_y.length;
-    return length + 8;
+    length += 4 * object.statics_x.length;
+    length += 4 * object.statics_y.length;
+    return length + 16;
   }
 
   static datatype() {
@@ -245,7 +269,7 @@ class trackObjectsResponse {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '706cc8f892a2bed9fff523be2ea368ba';
+    return '2855158969d60cc17322353cb754d289';
   }
 
   static messageDefinition() {
@@ -256,8 +280,8 @@ class trackObjectsResponse {
     
     
     
-    
-    
+    float32[] statics_x
+    float32[] statics_y
     
     
     `;
@@ -283,6 +307,20 @@ class trackObjectsResponse {
       resolved.mobiles_y = []
     }
 
+    if (msg.statics_x !== undefined) {
+      resolved.statics_x = msg.statics_x;
+    }
+    else {
+      resolved.statics_x = []
+    }
+
+    if (msg.statics_y !== undefined) {
+      resolved.statics_y = msg.statics_y;
+    }
+    else {
+      resolved.statics_y = []
+    }
+
     return resolved;
     }
 };
@@ -290,6 +328,6 @@ class trackObjectsResponse {
 module.exports = {
   Request: trackObjectsRequest,
   Response: trackObjectsResponse,
-  md5sum() { return '78b943e796437bdf7a8b6d34c2700469'; },
+  md5sum() { return '38f224ce5c574709b4afb6c1105a6437'; },
   datatype() { return 'laser_scanner_infoscreen/trackObjects'; }
 };

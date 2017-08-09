@@ -40,7 +40,7 @@ template<>
 struct MD5Sum< ::laser_scanner_infoscreen::trackObjects > {
   static const char* value()
   {
-    return "78b943e796437bdf7a8b6d34c2700469";
+    return "38f224ce5c574709b4afb6c1105a6437";
   }
 
   static const char* value(const ::laser_scanner_infoscreen::trackObjects&) { return value(); }

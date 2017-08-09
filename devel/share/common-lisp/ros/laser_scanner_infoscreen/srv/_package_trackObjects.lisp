@@ -15,4 +15,8 @@
           MOBILES_X
           MOBILES_Y-VAL
           MOBILES_Y
+          STATICS_X-VAL
+          STATICS_X
+          STATICS_Y-VAL
+          STATICS_Y
 ))

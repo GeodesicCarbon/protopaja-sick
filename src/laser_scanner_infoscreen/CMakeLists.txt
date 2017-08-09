@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(laser_scanner_infoscreen)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
- add_compile_options(-std=c++11)
+ add_compile_options(-std=c++11 -O2 -larmadillo -g)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -104,7 +104,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
+  INCLUDE_DIRS include
 #  LIBRARIES laser_scanner_infoscreen
   CATKIN_DEPENDS roscpp rospy sensor_msgs std_msgs message_runtime
 #  DEPENDS system_lib
@@ -201,8 +201,9 @@ include_directories(
 
 include_directories(include ${catkin_INCLUDE_DIRS})
 
-add_executable(track_objects_server src/track_objects_server.cpp)
+add_executable(track_objects_server src/track_objects_server.cpp src/laser_objects.cpp)
 target_link_libraries(track_objects_server ${catkin_LIBRARIES})
+target_link_libraries(track_objects_server armadillo)
 add_dependencies(track_objects_server laser_scanner_infoscreen_gencpp)
 
 add_executable(track_objects_client src/track_objects_client.cpp)

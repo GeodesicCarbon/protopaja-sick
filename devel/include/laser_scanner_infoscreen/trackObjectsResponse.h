@@ -25,11 +25,15 @@ struct trackObjectsResponse_
 
   trackObjectsResponse_()
     : mobiles_x()
-    , mobiles_y()  {
+    , mobiles_y()
+    , statics_x()
+    , statics_y()  {
     }
   trackObjectsResponse_(const ContainerAllocator& _alloc)
     : mobiles_x(_alloc)
-    , mobiles_y(_alloc)  {
+    , mobiles_y(_alloc)
+    , statics_x(_alloc)
+    , statics_y(_alloc)  {
   (void)_alloc;
     }
 
@@ -40,6 +44,12 @@ struct trackObjectsResponse_
 
    typedef std::vector<float, typename ContainerAllocator::template rebind<float>::other >  _mobiles_y_type;
   _mobiles_y_type mobiles_y;
+
+   typedef std::vector<float, typename ContainerAllocator::template rebind<float>::other >  _statics_x_type;
+  _statics_x_type statics_x;
+
+   typedef std::vector<float, typename ContainerAllocator::template rebind<float>::other >  _statics_y_type;
+  _statics_y_type statics_y;
 
 
 
@@ -75,7 +85,7 @@ namespace message_traits
 
 
 // BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': False}
-// {'std_msgs': ['/opt/ros/lunar/share/std_msgs/cmake/../msg'], 'geometry_msgs': ['/opt/ros/lunar/share/geometry_msgs/cmake/../msg'], 'sensor_msgs': ['/opt/ros/lunar/share/sensor_msgs/cmake/../msg'], 'laser_scanner_infoscreen': ['/home/vadim/catkin_ws/src/laser_scanner_infoscreen/msg']}
+// {'std_msgs': ['/opt/ros/lunar/share/std_msgs/cmake/../msg'], 'geometry_msgs': ['/opt/ros/lunar/share/geometry_msgs/cmake/../msg'], 'sensor_msgs': ['/opt/ros/lunar/share/sensor_msgs/cmake/../msg'], 'laser_scanner_infoscreen': ['/home/kira/catkin_ws/src/laser_scanner_infoscreen/msg']}
 
 // !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
@@ -118,12 +128,12 @@ struct MD5Sum< ::laser_scanner_infoscreen::trackObjectsResponse_<ContainerAlloca
 {
   static const char* value()
   {
-    return "706cc8f892a2bed9fff523be2ea368ba";
+    return "2855158969d60cc17322353cb754d289";
   }
 
   static const char* value(const ::laser_scanner_infoscreen::trackObjectsResponse_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x706cc8f892a2bed9ULL;
-  static const uint64_t static_value2 = 0xfff523be2ea368baULL;
+  static const uint64_t static_value1 = 0x2855158969d60cc1ULL;
+  static const uint64_t static_value2 = 0x7322353cb754d289ULL;
 };
 
 template<class ContainerAllocator>
@@ -147,8 +157,8 @@ float32[] mobiles_y\n\
 \n\
 \n\
 \n\
-\n\
-\n\
+float32[] statics_x\n\
+float32[] statics_y\n\
 \n\
 ";
   }
@@ -170,6 +180,8 @@ namespace serialization
     {
       stream.next(m.mobiles_x);
       stream.next(m.mobiles_y);
+      stream.next(m.statics_x);
+      stream.next(m.statics_y);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -199,6 +211,18 @@ struct Printer< ::laser_scanner_infoscreen::trackObjectsResponse_<ContainerAlloc
     {
       s << indent << "  mobiles_y[" << i << "]: ";
       Printer<float>::stream(s, indent + "  ", v.mobiles_y[i]);
+    }
+    s << indent << "statics_x[]" << std::endl;
+    for (size_t i = 0; i < v.statics_x.size(); ++i)
+    {
+      s << indent << "  statics_x[" << i << "]: ";
+      Printer<float>::stream(s, indent + "  ", v.statics_x[i]);
+    }
+    s << indent << "statics_y[]" << std::endl;
+    for (size_t i = 0; i < v.statics_y.size(); ++i)
+    {
+      s << indent << "  statics_y[" << i << "]: ";
+      Printer<float>::stream(s, indent + "  ", v.statics_y[i]);
     }
   }
 };
