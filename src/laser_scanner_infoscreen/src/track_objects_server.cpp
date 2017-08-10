@@ -11,7 +11,7 @@ ros::Publisher *marker_pub_pointer;
 laser_objects *repository = NULL;
 
 bool track(laser_scanner_infoscreen::trackObjects::Request  &req,
-	laser_scanner_infoscreen::trackObjects::Response &res)
+           laser_scanner_infoscreen::trackObjects::Response &res)
 {
 	if (!repository) {
 		repository = new laser_objects(req.time_increment);
@@ -37,7 +37,7 @@ bool track(laser_scanner_infoscreen::trackObjects::Request  &req,
 	end_arc = req.ranges[0];
 	ranges.push_back(beg_arc);
 	for (float range : req.ranges) {
-		if (std::abs(end_arc - range) < 0.25){
+		if (std::abs(end_arc - range) < 0.25) {
 			end_arc = range;
 			ranges.push_back(range);
 			end_angle = end_angle + angle_increment;
