@@ -30,7 +30,7 @@ void biometrics_callback(const laser_scanner_infoscreen::biometrics::ConstPtr& p
     int hit_count = 0;
     ROS_INFO("Testing for h = %f", mid);
     set_tilt_uppper_scanner(acos(mid - sensor_pos[2]));
-    scan = ros::topic::waitForMessage<sensor_msgs::LaserScan>("/scan", *node_pointer);
+    scan = ros::topic::waitForMessage<sensor_msgs::LaserScan>("/scan_upper", *node_pointer);
     low_index =  scan->ranges.size()/2-10;
     high_index = low_index + 20;
     for (int j = low_index; j <= high_index; j++) {
@@ -38,6 +38,7 @@ void biometrics_callback(const laser_scanner_infoscreen::biometrics::ConstPtr& p
         hit_count++;
       }
     }
+    ROS_INFO("hit count %d", hit_count);
     if (hit_count > 5) {
       high = mid;
     } else {
@@ -54,7 +55,8 @@ int main(int argc, char **argv)
 	node_pointer = &n;
 	ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 10);
   marker_pub_pointer = &marker_pub;
-	ros::Subscriber sub = n.subscribe("biometrics", 1000, biometrics_callback);
+  ROS_INFO("HELLO THERE");
+  ros::Subscriber sub = n.subscribe("biometrics", 1000, biometrics_callback);
 	ros::spin();
 	return 0;
 }
