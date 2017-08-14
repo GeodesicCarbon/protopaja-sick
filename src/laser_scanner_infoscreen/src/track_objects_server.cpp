@@ -27,16 +27,29 @@ bool track(laser_scanner_infoscreen::trackObjects::Request  &req,
 	line_list.ns = "points_and_lines";
 	line_list.action = visualization_msgs::Marker::ADD;
 	line_list.pose.orientation.w = 0.5;
-	line_list.id = 1;
+	line_list.id = 5;
 	line_list.type = visualization_msgs::Marker::LINE_LIST;
 	line_list.scale.x = 0.1;
 	line_list.color.b = 1.0;
 	line_list.color.a = 0.3;
-	beg_angle = end_angle = req.angle_min;
-	beg_arc = req.ranges[0];
-	end_arc = req.ranges[0];
+	int start_index = 0;
+	while(start_index * angle_increment + req.angle_min < -(1.0/3.0)*M_PI) {
+		start_index++;
+	}
+	int end_index = start_index;
+	while(end_index * angle_increment + req.angle_min < (1.0/3.0)*M_PI) {
+		end_index++;
+	}
+	std::vector<float> front_ranges(req.ranges.begin()+start_index, req.ranges.begin()+end_index);
+	// beg_angle = end_angle = req.angle_min;
+	beg_angle = end_angle = req.angle_min + start_index*angle_increment;
+	beg_arc = front_ranges[0];
+	end_arc = front_ranges[0];
+	// beg_arc = req.ranges[0];
+	// end_arc = req.ranges[0];
 	ranges.push_back(beg_arc);
-	for (float range : req.ranges) {
+	// for (float range : req.ranges) {
+	for (float range : front_ranges) {
 		if (std::abs(end_arc - range) < 0.25) {
 			end_arc = range;
 			ranges.push_back(range);
@@ -45,8 +58,8 @@ bool track(laser_scanner_infoscreen::trackObjects::Request  &req,
 			if(ranges.size() > 15 && ranges.size() < 100) {
 				geometry_msgs::Point p;
 				p.z = 0;
-				p.x = -ranges[0] * sin(beg_angle);
-				p.y = ranges[0] * cos(beg_angle);
+				p.x = -ranges[0] * cos(beg_angle);
+				p.y = ranges[0] * sin(beg_angle);
 				line_list.points.push_back(p);
 				p.x = -ranges[ranges.size() - 1] * sin(end_angle);
 				p.y = ranges[ranges.size() - 1] * cos(end_angle);
@@ -54,8 +67,8 @@ bool track(laser_scanner_infoscreen::trackObjects::Request  &req,
 				float sum_x = 0.0;
 				float sum_y = 0.0;
 				for (int i = 0; i < ranges.size(); i++) {
-					sum_x += ranges[i] * -sin(beg_angle + i*angle_increment);
-					sum_y += ranges[i] * cos(beg_angle + i*angle_increment);
+					sum_x += ranges[i] * cos(beg_angle + i*angle_increment);
+					sum_y += ranges[i] * sin(beg_angle + i*angle_increment);
 				}
 				if (sum_x) {
 					marker_pub_pointer->publish(line_list);

@@ -149,7 +149,7 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 {
 	laser_scanner_infoscreen::trackObjects srv;
 	srv.request.angle_min = scan->angle_min;
-	srv.request.angle_min = scan->angle_max;
+	srv.request.angle_max = scan->angle_max;
 	srv.request.angle_increment = scan->angle_increment;
 
 	srv.request.time_increment = scan->time_increment;
@@ -260,17 +260,17 @@ int main(int argc, char **argv)
 	c.r = 1.0f;
 	c.g = 1.0f;
 	std::string area_name("Area 1");
-	area_t a1(2.0f, 1.0f, 3.0f, 0.0f, c, area_name);
+	area_t a1(3.0f, 0.0f, 2.0f, 1.0f, c, area_name);
 	area_repository.push_back(a1);
 	c.r = 0.0f;
 	c.b = 1.0f;
 	area_name.assign("Area 2");
-	area_t a2(0.5f, -0.5f, 3.0f, 0.0f, c, area_name);
+	area_t a2(3.0f, 0.0f, 0.5f, -0.5f, c, area_name);
 	area_repository.push_back(a2);
 	c.g = 0.0f;
 	c.r = 1.0f;
 	area_name.assign("Area 3");
-	area_t a3(-1.0f, -2.0f, 3.0f, 0.0f, c, area_name);
+	area_t a3( 3.0f, 0.0f, -1.0f, -2.0f,c, area_name);
 	area_repository.push_back(a3);
 	ros::init(argc, argv, "track_objects_client");
 	ros::NodeHandle n;
