@@ -11,9 +11,9 @@
 
 using namespace arma;
 
-#define immobile_timeout 5
+#define immobile_timeout 2
 #define object_threshold 0.3
-#define immobile_threshold 10.0
+#define immobile_threshold 1000.0f
 
 
 static fmat Q = fmat(4,4).eye(); //TODO:change real values
@@ -82,7 +82,7 @@ void laser_object_t::run_kalman_filter(std::pair<float,float> new_pos, float dt)
 	   std::abs(this->vel_centerofmass.second) < immobile_threshold) {
 		this->immobile_time = std::min(this->immobile_time + dt, 10.0f);
 	} else {
-		this->immobile_time = std::max(this->immobile_time - 2*dt, 0.0f);
+		this->immobile_time = std::max(this->immobile_time - dt, 0.0f);
 		this->is_mobile = true;
 	}
 	this->test_mobile();

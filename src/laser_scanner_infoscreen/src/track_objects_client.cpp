@@ -4,6 +4,7 @@
 #include "laser_scanner_infoscreen/biometrics.h"
 #include "laser_scanner_infoscreen/biometrics_results.h"
 #include "laser_scanner_infoscreen/stepper_control.h"
+#include "std_msgs/Int16.h"
 #include <cstdlib>
 #include <cmath>
 #include <visualization_msgs/Marker.h>
@@ -227,10 +228,12 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 		c.g = 0.6f;
 		c.a = 1.0f;
 		if (main_poi) {
-			laser_scanner_infoscreen::stepper_control sc_msg;
-			sc_msg.screen_angle = angle_of_point(main_poi->poi_pos);
-			stepper_control_pointer->publish(sc_msg);
-			
+			std_msgs::Int16 angle;
+			// laser_scanner_infoscreen::stepper_control sc_msg;
+			// sc_msg.screen_angle = angle_of_point(main_poi->poi_pos);
+			angle.data = std::min(1,std::max(-1, (int)(2.0* angle_of_point(main_poi->poi_pos))));
+			// stepper_control_pointer->publish(angle);
+ROS_INFO("raw %f casted %d", angle_of_point(main_poi->poi_pos), angle.data);
 			if(!biometrics_lock && main_poi->height == 0.0f) {
 				laser_scanner_infoscreen::biometrics bio_msg;
 				bio_msg.poi_angle = angle_of_point(main_poi->poi_pos);
@@ -240,7 +243,7 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 				biometrics_pointer->publish(bio_msg);
 				biometrics_lock = true;
 			}
-			
+
 			geometry_msgs::Point p_poi;
 			p_poi.z =0;
 			p_poi.x = main_poi->poi_pos.first;
@@ -315,7 +318,7 @@ int main(int argc, char **argv)
 	marker_pub_pointer = &marker_pub;
 	ros::Subscriber sub = n.subscribe("scan", 1000, tracker_callback);
 	laser_scanner_infoscreen::trackObjects srv;
-	ros::Publisher stepper_pub = n.advertise<laser_scanner_infoscreen::stepper_control>("stepper_control", 10);
+	ros::Publisher stepper_pub = n.advertise<std_msgs::Int16>("stepper", 10);
 	ros::Publisher biometrics = n.advertise<laser_scanner_infoscreen::biometrics>("biometrics", 10);
 	biometrics_pointer = &biometrics;
 	ros::Subscriber bio_sub = n.subscribe("biometrics_results", 10, biometrics_callback);

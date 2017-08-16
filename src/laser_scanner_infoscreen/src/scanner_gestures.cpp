@@ -57,7 +57,7 @@ void Scanner_gestures::update_score(float angle_increment)
 std::pair<int, int> Scanner_gestures::create_slice_indices(float angle_start, float angle_increment)
 {
 	float alpha = atan(GESTURE_TRACKING_WIDTH / (2 * this->poi_range));
-	int increments = ceil(alpha / angle_increment);
+	int increments = ceil(alpha / angle_increment);https://github.com/ros-drivers/rosserial.git
 	int poi_index = ceil((this->poi_angle - angle_start) / angle_increment);
 	return std::make_pair(poi_index - increments, poi_index + increments);
 }
@@ -73,6 +73,7 @@ void Scanner_gestures::parse_sensor_data(std::vector<float> range, float angle_s
 
 gest_e Scanner_gestures::get_gesture(float threshold)
 {
+	ROS_INFO("right score %f left score %f", this->right_score, this->left_score);
 	if (this->right_score > this->left_score && this->right_score > threshold) {
 		return RIGHT_GESTURE;
 	}
