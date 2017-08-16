@@ -25,11 +25,13 @@ struct biometrics_
 
   biometrics_()
     : poi_range(0.0)
-    , poi_angle(0.0)  {
+    , poi_angle(0.0)
+    , id(0)  {
     }
   biometrics_(const ContainerAllocator& _alloc)
     : poi_range(0.0)
-    , poi_angle(0.0)  {
+    , poi_angle(0.0)
+    , id(0)  {
   (void)_alloc;
     }
 
@@ -40,6 +42,9 @@ struct biometrics_
 
    typedef float _poi_angle_type;
   _poi_angle_type poi_angle;
+
+   typedef int16_t _id_type;
+  _id_type id;
 
 
 
@@ -75,7 +80,7 @@ namespace message_traits
 
 
 // BOOLTRAITS {'IsFixedSize': True, 'IsMessage': True, 'HasHeader': False}
-// {'std_msgs': ['/opt/ros/lunar/share/std_msgs/cmake/../msg'], 'geometry_msgs': ['/opt/ros/lunar/share/geometry_msgs/cmake/../msg'], 'sensor_msgs': ['/opt/ros/lunar/share/sensor_msgs/cmake/../msg'], 'laser_scanner_infoscreen': ['/home/proto/catkin_ws/src/laser_scanner_infoscreen/msg']}
+// {'std_msgs': ['/opt/ros/lunar/share/std_msgs/cmake/../msg'], 'geometry_msgs': ['/opt/ros/lunar/share/geometry_msgs/cmake/../msg'], 'sensor_msgs': ['/opt/ros/lunar/share/sensor_msgs/cmake/../msg'], 'laser_scanner_infoscreen': ['/home/vadim/catkin_ws/src/laser_scanner_infoscreen/msg']}
 
 // !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
@@ -118,12 +123,12 @@ struct MD5Sum< ::laser_scanner_infoscreen::biometrics_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "843f8ba22bd226dde30b856c2778cd05";
+    return "8719a8c69b6a97970947f537100edb07";
   }
 
   static const char* value(const ::laser_scanner_infoscreen::biometrics_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x843f8ba22bd226ddULL;
-  static const uint64_t static_value2 = 0xe30b856c2778cd05ULL;
+  static const uint64_t static_value1 = 0x8719a8c69b6a9797ULL;
+  static const uint64_t static_value2 = 0x0947f537100edb07ULL;
 };
 
 template<class ContainerAllocator>
@@ -144,6 +149,7 @@ struct Definition< ::laser_scanner_infoscreen::biometrics_<ContainerAllocator> >
   {
     return "float32 poi_range\n\
 float32 poi_angle\n\
+int16 id\n\
 ";
   }
 
@@ -164,6 +170,7 @@ namespace serialization
     {
       stream.next(m.poi_range);
       stream.next(m.poi_angle);
+      stream.next(m.id);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -186,6 +193,8 @@ struct Printer< ::laser_scanner_infoscreen::biometrics_<ContainerAllocator> >
     Printer<float>::stream(s, indent + "  ", v.poi_range);
     s << indent << "poi_angle: ";
     Printer<float>::stream(s, indent + "  ", v.poi_angle);
+    s << indent << "id: ";
+    Printer<int16_t>::stream(s, indent + "  ", v.id);
   }
 };
 

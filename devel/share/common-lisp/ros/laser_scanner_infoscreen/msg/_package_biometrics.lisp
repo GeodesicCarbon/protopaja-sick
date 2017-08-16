@@ -3,4 +3,6 @@
           POI_RANGE
           POI_ANGLE-VAL
           POI_ANGLE
+          ID-VAL
+          ID
 ))

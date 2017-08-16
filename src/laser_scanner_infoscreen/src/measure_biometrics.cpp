@@ -2,12 +2,15 @@
 #include "ros/topic.h"
 #include "sensor_msgs/LaserScan.h"
 #include "laser_scanner_infoscreen/biometrics.h"
+#include "laser_scanner_infoscreen/biometrics_results.h"
+#include "laser_scanner_infoscreen/servo_control.h"
 #include <cstdlib>
 #include <visualization_msgs/Marker.h>
 #include <math.h>
 
 static ros::NodeHandle *node_pointer;
 ros::Publisher *marker_pub_pointer;
+ros::Publisher *servo_control_pointer;
 static int binary_depth = 5;
 static std::vector<float> sensor_pos = {0.0,0.0,1.7}; // upper sensor offset in {x,y,z}
 

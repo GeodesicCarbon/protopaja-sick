@@ -1,0 +1,2 @@
+float32 servo_angle
+float32 servo_speed

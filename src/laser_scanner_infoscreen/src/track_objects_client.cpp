@@ -1,6 +1,9 @@
 #include "ros/ros.h"
 #include "laser_scanner_infoscreen/trackObjects.h"
 #include "sensor_msgs/LaserScan.h"
+#include "laser_scanner_infoscreen/biometrics.h"
+#include "laser_scanner_infoscreen/biometrics_results.h"
+#include "laser_scanner_infoscreen/stepper_control.h"
 #include <cstdlib>
 #include <cmath>
 #include <visualization_msgs/Marker.h>
@@ -10,15 +13,18 @@
 #define poi_thershold 0.4f
 static int poi_constructed = 0;
 static int poi_destructed = 0;
+static int biometrics_id_count = 0;
 
 struct poi_t {
 	std::pair<float,float> poi_pos;
 	float timeout;
 	float height;
+	int biometrics_id;
 	poi_t(std::pair<float,float> pos) :
 		poi_pos(pos),
 		timeout(0.0f),
-		height(0.0f)
+		height(0.0f),
+		biometrics_id(-1)
 	{
 		poi_constructed++;
 	};
@@ -49,7 +55,7 @@ struct area_t {
 		    && poi.poi_pos.second > this->y_min && poi.poi_pos.second < this->y_max) {
 			this->is_active = true;
 			return true;
-			ROS_INFO("Activated area %s", this->name.c_str());
+			ROS_DEBUG("Activated area %s", this->name.c_str());
 		} else {
 			this->is_active = false;
 			return false;
@@ -60,7 +66,9 @@ struct area_t {
 static ros::NodeHandle *node_pointer;
 ros::ServiceClient *client_pointer;
 ros::Publisher *marker_pub_pointer;
-
+ros::Publisher *stepper_control_pointer;
+ros::Publisher *biometrics_pointer;
+static bool biometrics_lock = false;
 
 poi_t *main_poi;
 poi_t *secondary_poi;
@@ -145,6 +153,10 @@ int index_of_shortest_to_point(std::vector<float> vector_x,
 	return smallest_index;
 }
 
+float angle_of_point(std::pair<float, float> point) {
+	return atan(point.second/point.first);
+}
+
 void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 {
 	laser_scanner_infoscreen::trackObjects srv;
@@ -158,8 +170,8 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 	srv.request.ranges = scan->ranges;
 	if (client_pointer->call(srv))
 	{
-		// ROS_INFO("Found %d objects", (int) srv.response.mobiles_x.size());
-		ROS_INFO("Found %d mobile and %d static objects", (int) srv.response.mobiles_x.size(), (int) srv.response.statics_x.size());
+		// ROS_DEBUG("Found %d objects", (int) srv.response.mobiles_x.size());
+		ROS_DEBUG("Found %d mobile and %d static objects", (int) srv.response.mobiles_x.size(), (int) srv.response.statics_x.size());
 		visualization_msgs::Marker points;
 		std_msgs::ColorRGBA c;
 		if (srv.response.mobiles_x.size() > 0) {
@@ -170,7 +182,7 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 				if(!main_poi) {
 					main_poi = new poi_t(closest_pos);
 				} else if ( point_distance (closest_pos,main_poi->poi_pos) < poi_thershold) {
-					ROS_INFO("test: [%.2f %.2f]", main_poi->poi_pos.first,
+					ROS_DEBUG("test: [%.2f %.2f]", main_poi->poi_pos.first,
 					         main_poi->poi_pos.second);
 					main_poi->poi_pos = closest_pos;
 					main_poi->timeout = 0.0f;
@@ -215,6 +227,20 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 		c.g = 0.6f;
 		c.a = 1.0f;
 		if (main_poi) {
+			laser_scanner_infoscreen::stepper_control sc_msg;
+			sc_msg.screen_angle = angle_of_point(main_poi->poi_pos);
+			stepper_control_pointer->publish(sc_msg);
+			
+			if(!biometrics_lock && main_poi->height == 0.0f) {
+				laser_scanner_infoscreen::biometrics bio_msg;
+				bio_msg.poi_angle = angle_of_point(main_poi->poi_pos);
+				bio_msg.poi_range = point_distance(main_poi->poi_pos, std::make_pair(0.0f, 0.0f));
+				main_poi->biometrics_id = biometrics_id_count++;
+				bio_msg.id = main_poi->biometrics_id;
+				biometrics_pointer->publish(bio_msg);
+				biometrics_lock = true;
+			}
+			
 			geometry_msgs::Point p_poi;
 			p_poi.z =0;
 			p_poi.x = main_poi->poi_pos.first;
@@ -251,7 +277,15 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 	{
 		ROS_ERROR("Failed to call service track_objects");
 	}
-	ROS_INFO("constructed: %d, destructed: %d", poi_constructed, poi_destructed);
+	ROS_DEBUG("constructed: %d, destructed: %d", poi_constructed, poi_destructed);
+}
+
+void biometrics_callback(const laser_scanner_infoscreen::biometrics_results::ConstPtr& msg)
+{
+	if (main_poi && main_poi->biometrics_id == msg->id) {
+		main_poi->height = msg->height;
+		biometrics_lock = false;
+	}
 }
 
 int main(int argc, char **argv)
@@ -281,6 +315,16 @@ int main(int argc, char **argv)
 	marker_pub_pointer = &marker_pub;
 	ros::Subscriber sub = n.subscribe("scan", 1000, tracker_callback);
 	laser_scanner_infoscreen::trackObjects srv;
-	ros::spin();
+	ros::Publisher stepper_pub = n.advertise<laser_scanner_infoscreen::stepper_control>("stepper_control", 10);
+	ros::Publisher biometrics = n.advertise<laser_scanner_infoscreen::biometrics>("biometrics", 10);
+	biometrics_pointer = &biometrics;
+	ros::Subscriber bio_sub = n.subscribe("biometrics_results", 10, biometrics_callback);
+	stepper_control_pointer = &stepper_pub;
+	while(ros::ok()) {
+		ros::spinOnce();
+	}
+	delete main_poi;
+	delete secondary_poi;
+	delete biometrics_pointer;
 	return 0;
 }

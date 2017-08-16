@@ -53,6 +53,11 @@ find_package(catkin REQUIRED COMPONENTS
  add_message_files(
    FILES
    biometrics.msg
+   biometrics_results.msg
+   servo_control.msg
+   servo_feedback.msg
+   stepper_control.msg
+   stepper_feedback.msg
  )
 
 ## Generate services in the 'srv' folder
