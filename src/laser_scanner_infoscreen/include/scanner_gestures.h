@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SCANNER_GESTURES_H
+#define SCANNER_GESTURES_H
 #include "ros/ros.h"
 
 #define GESTURE_TRACKING_WIDTH 2.0f
@@ -22,6 +23,10 @@ private:
 	std::pair<int, int> create_slice_indices(float angle_start, float angle_increment);
 	void update_score(float angle_increment);
 public:
+	Scanner_gestures();
 	void parse_sensor_data(std::vector<float> range, float angle_start, float angle_increment, float poi_range, float poi_angle);
+	void set_tracking(bool is_tracking);
+	bool get_tracking();
 	gest_e get_gesture(float threshold);
 };
+#endif

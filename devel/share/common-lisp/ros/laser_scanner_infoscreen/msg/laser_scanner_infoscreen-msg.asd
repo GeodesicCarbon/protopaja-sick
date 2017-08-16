@@ -6,4 +6,6 @@
   :components ((:file "_package")
     (:file "biometrics" :depends-on ("_package_biometrics"))
     (:file "_package_biometrics" :depends-on ("_package"))
+    (:file "gesture_call" :depends-on ("_package_gesture_call"))
+    (:file "_package_gesture_call" :depends-on ("_package"))
   ))

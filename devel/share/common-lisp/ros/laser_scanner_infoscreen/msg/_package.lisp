@@ -3,5 +3,7 @@
   (:export
    "<BIOMETRICS>"
    "BIOMETRICS"
+   "<GESTURE_CALL>"
+   "GESTURE_CALL"
   ))
 
