@@ -24,6 +24,12 @@
     <ClCompile Include="src\laser_scanner_infoscreen\src\measure_biometrics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\laser_scanner_infoscreen\src\scanner_gestures.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\laser_scanner_infoscreen\src\laser_objects.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="devel\include\laser_scanner_infoscreen\biometrics.h">
@@ -36,6 +42,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="devel\include\laser_scanner_infoscreen\trackObjectsResponse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\laser_scanner_infoscreen\include\scanner_gestures.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

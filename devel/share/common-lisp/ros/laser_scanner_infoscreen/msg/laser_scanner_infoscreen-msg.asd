@@ -8,6 +8,8 @@
     (:file "_package_biometrics" :depends-on ("_package"))
     (:file "biometrics_results" :depends-on ("_package_biometrics_results"))
     (:file "_package_biometrics_results" :depends-on ("_package"))
+    (:file "gesture_call" :depends-on ("_package_gesture_call"))
+    (:file "_package_gesture_call" :depends-on ("_package"))
     (:file "servo_control" :depends-on ("_package_servo_control"))
     (:file "_package_servo_control" :depends-on ("_package"))
     (:file "servo_feedback" :depends-on ("_package_servo_feedback"))

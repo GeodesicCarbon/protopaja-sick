@@ -58,7 +58,8 @@ find_package(catkin REQUIRED COMPONENTS
    servo_feedback.msg
    stepper_control.msg
    stepper_feedback.msg
- )
+   gesture_call.msg
+)
 
 ## Generate services in the 'srv' folder
  add_service_files(
@@ -210,6 +211,10 @@ add_executable(track_objects_server src/track_objects_server.cpp src/laser_objec
 target_link_libraries(track_objects_server ${catkin_LIBRARIES})
 target_link_libraries(track_objects_server armadillo)
 add_dependencies(track_objects_server laser_scanner_infoscreen_gencpp)
+
+add_executable(gesture_control src/gesture_control.cpp src/scanner_gestures.cpp)
+target_link_libraries(gesture_control ${catkin_LIBRARIES})
+add_dependencies(gesture_control laser_scanner_infoscreen_gencpp)
 
 add_executable(track_objects_client src/track_objects_client.cpp)
 target_link_libraries(track_objects_client ${catkin_LIBRARIES})

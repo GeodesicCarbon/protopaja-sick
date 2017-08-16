@@ -6,6 +6,7 @@ let biometrics = require('./biometrics.js');
 let stepper_control = require('./stepper_control.js');
 let stepper_feedback = require('./stepper_feedback.js');
 let biometrics_results = require('./biometrics_results.js');
+let gesture_call = require('./gesture_call.js');
 let servo_control = require('./servo_control.js');
 
 module.exports = {
@@ -14,5 +15,6 @@ module.exports = {
   stepper_control: stepper_control,
   stepper_feedback: stepper_feedback,
   biometrics_results: biometrics_results,
+  gesture_call: gesture_call,
   servo_control: servo_control,
 };
