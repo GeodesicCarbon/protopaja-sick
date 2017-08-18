@@ -326,8 +326,11 @@ int main(int argc, char **argv)
 	while(ros::ok()) {
 		ros::spinOnce();
 	}
-	delete main_poi;
-	delete secondary_poi;
-	delete biometrics_pointer;
+	if(main_poi) {
+		delete main_poi;
+	}
+	if(secondary_poi) {
+		delete secondary_poi;
+	}
 	return 0;
 }

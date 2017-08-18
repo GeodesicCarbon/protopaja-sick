@@ -28,5 +28,7 @@ public:
 	void set_tracking(bool is_tracking);
 	bool get_tracking();
 	gest_e get_gesture(float threshold);
+	std::pair<float, float> get_right_closest();
+	std::pair<float, float> get_left_closest();
 };
 #endif
