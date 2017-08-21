@@ -83,7 +83,7 @@ void laser_object_t::run_kalman_filter(std::pair<float,float> new_pos, float dt)
 	   std::abs(this->vel_centerofmass.second) < immobile_threshold) {
 		this->immobile_time = std::min(this->immobile_time + dt, 10.0f);
 	} else {
-		this->immobile_time = std::max(this->immobile_time - dt, 0.0f);
+		this->immobile_time = std::max(this->immobile_time - dt*10, 0.0f);
 		this->is_mobile = true;
 	}
 	this->test_mobile();
@@ -172,15 +172,15 @@ void laser_objects::update_repository() {
 			       }),
 	        laser_object_repository.end());
 	//ROS_INFO("Objects after cull: %d", (int)this->laser_object_repository.size());
-	/*std::string s("Pos of objects: ");
+	std::string s("Vel of mobiles: ");
 	   char c[50];
 	   for (auto laser_object : laser_object_repository) {
 	   if(laser_object.get_is_mobile()) {
-	    sprintf(c, " [%.2f %.2f], ", (float) laser_object.get_pos_centerofmass().first,(float) laser_object.get_pos_centerofmass().second);
+	    sprintf(c, " [%.2f %.2f], ", (float) laser_object.get_vel_centerofmass().first,(float) laser_object.get_vel_centerofmass().second);
 	    s.append(c);
 	   }
 	   }
-	   ROS_INFO("%s", s.c_str()); */
+	   ROS_INFO("%s", s.c_str()); 
 }
 
 

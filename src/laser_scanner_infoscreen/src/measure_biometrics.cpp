@@ -16,7 +16,11 @@ ros::Publisher *servo_control_pointer;
 static int binary_depth = 5;
 static std::vector<float> sensor_pos = {0.0,-0.5,1.7}; // upper sensor offset in {x,y,z}
 
-
+float calculate_range( float angle_h, float low_range) {
+  return std::sqrt(std::pow(low_range * sin(angle_h) + sensor_pos[0],2) + 
+                    std::pow(low_range * cos(angle_h) + sensor_pos[1],2) +
+                    std::pow(sensor_pos[2],2));
+}
 
 int set_tilt_uppper_scanner(float rad) {
   laser_scanner_infoscreen::servo_control msg;
@@ -38,17 +42,19 @@ void biometrics_callback(const laser_scanner_infoscreen::biometrics::ConstPtr& p
     float mid = (low + high)/2;
     int hit_count = 0;
     ROS_INFO("Testing for h = %f", mid);
-    set_tilt_uppper_scanner(acos(mid - sensor_pos[2]));
+    float scan_range = calculate_range(poi->poi_angle, poi->poi_range);
+    set_tilt_uppper_scanner(asin(mid - sensor_pos[2]));
     scan = ros::topic::waitForMessage<sensor_msgs::LaserScan>("/scan_upper", *node_pointer);
-    low_index =  scan->ranges.size()/2-10;
-    high_index = low_index + 20;
+    int d_index = std::ceil(1.0f/(scan_range*2));
+    low_index =  std::ceil((poi->poi_angle  - scan->angle_min)/scan->angle_increment) - d_index;
+    high_index = low_index + d_index;
     for (int j = low_index; j <= high_index; j++) {
-      if (abs(scan->ranges[j] - poi->poi_angle) < 0.2) {
+      if (abs(scan->ranges[j] - scan_range) < 0.2) {
         hit_count++;
       }
     }
     ROS_INFO("hit count %d", hit_count);
-    if (hit_count > 5) {
+    if (hit_count < 5) {
       high = mid;
     } else {
       low = mid;

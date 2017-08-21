@@ -18,6 +18,8 @@ ros::Publisher *marker_pub_pointer;
 ros::Publisher *servo_control_pointer;
 ros::Subscriber *gesture_control_pointer;
 
+static std::vector<float> sensor_pos = {0.0,-0.5,1.7};
+
 struct poi_t {
   float poi_range;
   float poi_angle;
@@ -77,7 +79,9 @@ void gestures_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 
 void control_callback(const laser_scanner_infoscreen::gesture_call& msg)
 {
-  poi.poi_range = msg.poi_range;
+  poi.poi_range = std::sqrt(std::pow(msg.poi_range * sin(msg.poi_angle) + sensor_pos[0],2) + 
+                            std::pow(msg.poi_range * cos(msg.poi_angle) + sensor_pos[1],2) +
+                            std::pow(sensor_pos[2],2));
   poi.poi_angle = msg.poi_angle;
   gestures->set_tracking(msg.is_tracking);
 }

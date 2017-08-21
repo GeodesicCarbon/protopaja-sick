@@ -227,13 +227,10 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 		c.g = 0.6f;
 		c.a = 1.0f;
 		if (main_poi) {
-			std_msgs::Int16 angle;
-			// laser_scanner_infoscreen::stepper_control sc_msg;
-			// sc_msg.screen_angle = angle_of_point(main_poi->poi_pos);
-			angle.data = std::min(1,std::max(-1, (int)(2.0* angle_of_point(main_poi->poi_pos))));
-			// stepper_control_pointer->publish(angle);
-ROS_INFO("raw %f casted %d", angle_of_point(main_poi->poi_pos), angle.data);
-			if(!biometrics_lock && main_poi->height == 0.0f) {
+			 laser_scanner_infoscreen::stepper_control sc_msg;
+			 sc_msg.screen_angle = angle_of_point(main_poi->poi_pos);
+			 stepper_control_pointer->publish(sc_msg);
+			if(!biometrics_lock && main_poi->height == 0.0f && false) {
 				laser_scanner_infoscreen::biometrics bio_msg;
 				bio_msg.poi_angle = angle_of_point(main_poi->poi_pos);
 				bio_msg.poi_range = point_distance(main_poi->poi_pos, std::make_pair(0.0f, 0.0f));

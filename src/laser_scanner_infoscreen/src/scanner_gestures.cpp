@@ -42,7 +42,7 @@ void Scanner_gestures::update_score(float angle_increment)
 		}
 	}
 	float left_dh = delta_h(angle_increment, left_closest_i);
-	this->left_score = std::max(0.0f, this->left_score + std::max(0.0f, this->left_closest.first - left_dh)*DIST_MULTI - DECAY_CONST);
+	this->left_score = std::max(0.0f, this->left_score + std::max(0.0f, std::log(this->left_closest.first - left_dh))*DIST_MULTI - DECAY_CONST);
 	this->left_closest = std::make_pair(left_dh, left_closest*cos((left_closest_i - mid_i)*angle_increment));
 
 	int right_closest_i = mid_i;
@@ -55,7 +55,7 @@ void Scanner_gestures::update_score(float angle_increment)
 	}
 	float right_dh = delta_h(angle_increment, right_closest_i);
 	ROS_INFO("l_dh: %f, r_dh: %f", left_dh, right_dh);
-	this->right_score = std::max(0.0f, this->right_score + std::max(0.0f, right_dh - this->right_closest.first)*DIST_MULTI - DECAY_CONST);
+	this->right_score = std::max(0.0f, this->right_score + std::max(0.0f, std::log(right_dh - this->right_closest.first))*DIST_MULTI - DECAY_CONST);
 	this->right_closest = std::make_pair(right_dh, right_closest*cos((right_closest_i - mid_i)*angle_increment));
 }
 
