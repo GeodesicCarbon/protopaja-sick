@@ -24,21 +24,21 @@ struct servo_control_
   typedef servo_control_<ContainerAllocator> Type;
 
   servo_control_()
-    : servo_angle(0.0)
-    , servo_speed(0.0)  {
+    : servo_angle(0)
+    , servo_speed(0)  {
     }
   servo_control_(const ContainerAllocator& _alloc)
-    : servo_angle(0.0)
-    , servo_speed(0.0)  {
+    : servo_angle(0)
+    , servo_speed(0)  {
   (void)_alloc;
     }
 
 
 
-   typedef float _servo_angle_type;
+   typedef int16_t _servo_angle_type;
   _servo_angle_type servo_angle;
 
-   typedef float _servo_speed_type;
+   typedef int16_t _servo_speed_type;
   _servo_speed_type servo_speed;
 
 
@@ -118,12 +118,12 @@ struct MD5Sum< ::laser_scanner_infoscreen::servo_control_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "d40719365f052936ed347d15907ec2c2";
+    return "c262244dcf1e02f10031616c618a6285";
   }
 
   static const char* value(const ::laser_scanner_infoscreen::servo_control_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xd40719365f052936ULL;
-  static const uint64_t static_value2 = 0xed347d15907ec2c2ULL;
+  static const uint64_t static_value1 = 0xc262244dcf1e02f1ULL;
+  static const uint64_t static_value2 = 0x0031616c618a6285ULL;
 };
 
 template<class ContainerAllocator>
@@ -142,8 +142,8 @@ struct Definition< ::laser_scanner_infoscreen::servo_control_<ContainerAllocator
 {
   static const char* value()
   {
-    return "float32 servo_angle\n\
-float32 servo_speed\n\
+    return "int16 servo_angle\n\
+int16 servo_speed\n\
 ";
   }
 
@@ -183,9 +183,9 @@ struct Printer< ::laser_scanner_infoscreen::servo_control_<ContainerAllocator> >
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::laser_scanner_infoscreen::servo_control_<ContainerAllocator>& v)
   {
     s << indent << "servo_angle: ";
-    Printer<float>::stream(s, indent + "  ", v.servo_angle);
+    Printer<int16_t>::stream(s, indent + "  ", v.servo_angle);
     s << indent << "servo_speed: ";
-    Printer<float>::stream(s, indent + "  ", v.servo_speed);
+    Printer<int16_t>::stream(s, indent + "  ", v.servo_speed);
   }
 };
 

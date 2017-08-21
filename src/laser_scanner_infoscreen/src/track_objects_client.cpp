@@ -11,7 +11,7 @@
 #include <string>
 
 #define timeout_limit  4
-#define poi_thershold 0.4f
+#define poi_threshold 0.4f
 static int poi_constructed = 0;
 static int poi_destructed = 0;
 static int biometrics_id_count = 0;
@@ -71,8 +71,8 @@ ros::Publisher *stepper_control_pointer;
 ros::Publisher *biometrics_pointer;
 static bool biometrics_lock = false;
 
-poi_t *main_poi;
-poi_t *secondary_poi;
+poi_t *main_poi = NULL;
+poi_t *secondary_poi = NULL;
 std::vector<poi_t> poi_repository;
 std::vector<area_t> area_repository;
 
@@ -116,7 +116,7 @@ void visualize_areas() {
 }
 
 float point_distance(std::pair<float,float> from, std::pair <float,float> to){
-	return std::sqrt(std::pow(from.first + to.first,2) + std::pow(from.second + to.second,2));
+	return std::sqrt(std::pow(from.first - to.first,2) + std::pow(from.second - to.second,2));
 }
 
 int index_of_shortest_to_sensor (std::vector<float> vector_x, std::vector<float> vector_y) {
@@ -148,7 +148,7 @@ int index_of_shortest_to_point(std::vector<float> vector_x,
 			smallest_distance = cur_distance;
 		}
 	}
-	if(smallest_distance > poi_thershold) {
+	if(smallest_distance > poi_threshold) {
 		return -1;
 	}
 	return smallest_index;
@@ -182,20 +182,22 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 				                                    srv.response.mobiles_y[smallest_index]);
 				if(!main_poi) {
 					main_poi = new poi_t(closest_pos);
-				} else if ( point_distance (closest_pos,main_poi->poi_pos) < poi_thershold) {
-					ROS_DEBUG("test: [%.2f %.2f]", main_poi->poi_pos.first,
+				} else if ( point_distance (closest_pos,main_poi->poi_pos) < poi_threshold) {
+					ROS_INFO("test: [%.2f %.2f]", main_poi->poi_pos.first,
 					         main_poi->poi_pos.second);
 					main_poi->poi_pos = closest_pos;
 					main_poi->timeout = 0.0f;
 				} else {
+					ROS_INFO("main_poi not closest, closest d %f, timeout %f", point_distance (closest_pos,main_poi->poi_pos), main_poi->timeout);
 					if (!secondary_poi || point_distance(closest_pos, secondary_poi->poi_pos)
-				    	> poi_thershold) {
+				    	> poi_threshold) {
 						if (secondary_poi) {
 							delete secondary_poi;
 						}
 						secondary_poi = new poi_t(closest_pos);
+						ROS_INFO("new secondary_poi, d = %f",point_distance(closest_pos, secondary_poi->poi_pos));
 						main_poi->timeout = 0.0f;
-					} else if (point_distance(closest_pos, secondary_poi->poi_pos) < poi_thershold) {
+					} else if (point_distance(closest_pos, secondary_poi->poi_pos) < poi_threshold) {
 						secondary_poi->poi_pos = closest_pos;
 					}
 					int main_poi_index = index_of_shortest_to_point(srv.response.mobiles_x,
@@ -207,7 +209,7 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 					} else {
 						std::pair<float,float> closest_main_pos (srv.response.mobiles_x[main_poi_index],
 						                                         srv.response.mobiles_y[main_poi_index]);
-						main_poi->timeout += scan->time_increment;
+						main_poi->timeout += scan->scan_time;
 					}
 					for(auto & area : area_repository) {
 						area.test_poi(*main_poi);
@@ -229,7 +231,7 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 		if (main_poi) {
 			 laser_scanner_infoscreen::stepper_control sc_msg;
 			 sc_msg.screen_angle = angle_of_point(main_poi->poi_pos);
-			 stepper_control_pointer->publish(sc_msg);
+			 //stepper_control_pointer->publish(sc_msg);
 			if(!biometrics_lock && main_poi->height == 0.0f && false) {
 				laser_scanner_infoscreen::biometrics bio_msg;
 				bio_msg.poi_angle = angle_of_point(main_poi->poi_pos);

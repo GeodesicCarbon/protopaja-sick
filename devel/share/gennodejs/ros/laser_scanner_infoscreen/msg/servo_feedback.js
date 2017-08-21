@@ -25,7 +25,7 @@ class servo_feedback {
         this.servo_angle = initObj.servo_angle
       }
       else {
-        this.servo_angle = 0.0;
+        this.servo_angle = 0;
       }
     }
   }
@@ -33,7 +33,7 @@ class servo_feedback {
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type servo_feedback
     // Serialize message field [servo_angle]
-    bufferOffset = _serializer.float32(obj.servo_angle, buffer, bufferOffset);
+    bufferOffset = _serializer.int16(obj.servo_angle, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -42,12 +42,12 @@ class servo_feedback {
     let len;
     let data = new servo_feedback(null);
     // Deserialize message field [servo_angle]
-    data.servo_angle = _deserializer.float32(buffer, bufferOffset);
+    data.servo_angle = _deserializer.int16(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    return 4;
+    return 2;
   }
 
   static datatype() {
@@ -57,13 +57,14 @@ class servo_feedback {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '82562d66b31318cfc6166f3f528b3869';
+    return '0222859f8ba1a8cb50469304425de862';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    float32 servo_angle
+    int16 servo_angle
+    
     `;
   }
 
@@ -77,7 +78,7 @@ class servo_feedback {
       resolved.servo_angle = msg.servo_angle;
     }
     else {
-      resolved.servo_angle = 0.0
+      resolved.servo_angle = 0
     }
 
     return resolved;

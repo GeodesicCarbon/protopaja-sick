@@ -18,7 +18,7 @@ bool track(laser_scanner_infoscreen::trackObjects::Request  &req,
            laser_scanner_infoscreen::trackObjects::Response &res)
 {
 	if (!repository) {
-		repository = new laser_objects(req.time_increment);
+		repository = new laser_objects(req.scan_time);
 	}
 	visualization_msgs::Marker line_list;
 	float beg_arc, end_arc;
@@ -54,7 +54,7 @@ bool track(laser_scanner_infoscreen::trackObjects::Request  &req,
 	ranges.push_back(beg_arc);
 	// for (float range : req.ranges) {
 	for (float range : front_ranges) {
-		if (std::abs(end_arc - range) < 0.17) {
+		if (std::abs(end_arc - range) < 0.10) {
 			end_arc = range;
 			ranges.push_back(range);
 			end_angle = end_angle + angle_increment;
@@ -64,7 +64,7 @@ bool track(laser_scanner_infoscreen::trackObjects::Request  &req,
       float y1 = ranges[0] * sin(beg_angle);
       float y2 = ranges.back() * sin(beg_angle + angle_increment * ranges.size());
       float width = cart_dist(x1, x2, y1, y2);
-			if(width > 0.9f && width < 1.1f) {
+			if(width > 0.3f && width < 0.7f) {
 				geometry_msgs::Point p;
 				p.z = 0;
 				p.x = ranges[0] * cos(beg_angle);

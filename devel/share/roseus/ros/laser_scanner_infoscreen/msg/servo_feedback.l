@@ -19,10 +19,10 @@
 (defmethod laser_scanner_infoscreen::servo_feedback
   (:init
    (&key
-    ((:servo_angle __servo_angle) 0.0)
+    ((:servo_angle __servo_angle) 0)
     )
    (send-super :init)
-   (setq _servo_angle (float __servo_angle))
+   (setq _servo_angle (round __servo_angle))
    self)
   (:servo_angle
    (&optional __servo_angle)
@@ -30,33 +30,34 @@
   (:serialization-length
    ()
    (+
-    ;; float32 _servo_angle
-    4
+    ;; int16 _servo_angle
+    2
     ))
   (:serialize
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; float32 _servo_angle
-       (sys::poke _servo_angle (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; int16 _servo_angle
+       (write-word _servo_angle s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; float32 _servo_angle
-     (setq _servo_angle (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; int16 _servo_angle
+     (setq _servo_angle (sys::peek buf ptr- :short)) (incf ptr- 2)
    ;;
    self)
   )
 
-(setf (get laser_scanner_infoscreen::servo_feedback :md5sum-) "82562d66b31318cfc6166f3f528b3869")
+(setf (get laser_scanner_infoscreen::servo_feedback :md5sum-) "0222859f8ba1a8cb50469304425de862")
 (setf (get laser_scanner_infoscreen::servo_feedback :datatype-) "laser_scanner_infoscreen/servo_feedback")
 (setf (get laser_scanner_infoscreen::servo_feedback :definition-)
-      "float32 servo_angle
+      "int16 servo_angle
+
 ")
 
 
 
-(provide :laser_scanner_infoscreen/servo_feedback "82562d66b31318cfc6166f3f528b3869")
+(provide :laser_scanner_infoscreen/servo_feedback "0222859f8ba1a8cb50469304425de862")
 
 

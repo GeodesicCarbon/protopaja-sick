@@ -26,13 +26,13 @@ class servo_control {
         this.servo_angle = initObj.servo_angle
       }
       else {
-        this.servo_angle = 0.0;
+        this.servo_angle = 0;
       }
       if (initObj.hasOwnProperty('servo_speed')) {
         this.servo_speed = initObj.servo_speed
       }
       else {
-        this.servo_speed = 0.0;
+        this.servo_speed = 0;
       }
     }
   }
@@ -40,9 +40,9 @@ class servo_control {
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type servo_control
     // Serialize message field [servo_angle]
-    bufferOffset = _serializer.float32(obj.servo_angle, buffer, bufferOffset);
+    bufferOffset = _serializer.int16(obj.servo_angle, buffer, bufferOffset);
     // Serialize message field [servo_speed]
-    bufferOffset = _serializer.float32(obj.servo_speed, buffer, bufferOffset);
+    bufferOffset = _serializer.int16(obj.servo_speed, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -51,14 +51,14 @@ class servo_control {
     let len;
     let data = new servo_control(null);
     // Deserialize message field [servo_angle]
-    data.servo_angle = _deserializer.float32(buffer, bufferOffset);
+    data.servo_angle = _deserializer.int16(buffer, bufferOffset);
     // Deserialize message field [servo_speed]
-    data.servo_speed = _deserializer.float32(buffer, bufferOffset);
+    data.servo_speed = _deserializer.int16(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    return 8;
+    return 4;
   }
 
   static datatype() {
@@ -68,14 +68,15 @@ class servo_control {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'd40719365f052936ed347d15907ec2c2';
+    return 'c262244dcf1e02f10031616c618a6285';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    float32 servo_angle
-    float32 servo_speed
+    int16 servo_angle
+    int16 servo_speed
+    
     `;
   }
 
@@ -89,14 +90,14 @@ class servo_control {
       resolved.servo_angle = msg.servo_angle;
     }
     else {
-      resolved.servo_angle = 0.0
+      resolved.servo_angle = 0
     }
 
     if (msg.servo_speed !== undefined) {
       resolved.servo_speed = msg.servo_speed;
     }
     else {
-      resolved.servo_speed = 0.0
+      resolved.servo_speed = 0
     }
 
     return resolved;

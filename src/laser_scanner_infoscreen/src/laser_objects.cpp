@@ -11,15 +11,16 @@
 
 using namespace arma;
 
-#define immobile_timeout 2
-#define object_threshold 0.3
-#define immobile_threshold 1000.0f
+#define immobile_timeout 10.0f
+#define object_threshold 0.4
+#define immobile_threshold 100.0f
+#define CULLING_TIME 5
 
 
 static fmat Q = fmat(4,4).eye(); //TODO:change real values
 
-static fmat R = fmat(4,4).eye() * 10.0;
-static fmat H = fmat(4,4).eye() * 2.0;
+static fmat R = fmat(4,4).eye() * 0.8;
+static fmat H = fmat(4,4).eye() * 0.8;
 static fmat F = fmat(4,4).eye();
 
 
@@ -168,7 +169,7 @@ void laser_objects::update_repository() {
 	laser_object_repository.erase(
 	        std::remove_if(laser_object_repository.begin(), laser_object_repository.end(),
 	                       [] (laser_object_t &laser_object){
-	                               return (laser_object.get_last_active() + ros::Duration(20)) < ros::Time::now();
+	                               return (laser_object.get_last_active() + ros::Duration(CULLING_TIME)) < ros::Time::now();
 			       }),
 	        laser_object_repository.end());
 	//ROS_INFO("Objects after cull: %d", (int)this->laser_object_repository.size());
@@ -180,7 +181,7 @@ void laser_objects::update_repository() {
 	    s.append(c);
 	   }
 	   }
-	   ROS_INFO("%s", s.c_str()); 
+	   //ROS_INFO("%s", s.c_str());
 }
 
 
@@ -196,6 +197,6 @@ void laser_objects::update_repository() {
 laser_objects::laser_objects(float scanner_dt) :
 	dt(scanner_dt)
 {
-	F(0,2) = dt;
-	F(1,3) = dt;
+	F(0,2) = dt/10;
+	F(1,3) = dt/10;
 };

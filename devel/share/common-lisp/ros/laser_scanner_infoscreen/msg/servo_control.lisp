@@ -10,13 +10,13 @@
   ((servo_angle
     :reader servo_angle
     :initarg :servo_angle
-    :type cl:float
-    :initform 0.0)
+    :type cl:fixnum
+    :initform 0)
    (servo_speed
     :reader servo_speed
     :initarg :servo_speed
-    :type cl:float
-    :initform 0.0))
+    :type cl:fixnum
+    :initform 0))
 )
 
 (cl:defclass servo_control (<servo_control>)
@@ -38,31 +38,25 @@
   (servo_speed m))
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <servo_control>) ostream)
   "Serializes a message object of type '<servo_control>"
-  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'servo_angle))))
-    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
-  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'servo_speed))))
-    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:let* ((signed (cl:slot-value msg 'servo_angle)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 65536) signed)))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) unsigned) ostream)
+    )
+  (cl:let* ((signed (cl:slot-value msg 'servo_speed)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 65536) signed)))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) unsigned) ostream)
+    )
 )
 (cl:defmethod roslisp-msg-protocol:deserialize ((msg <servo_control>) istream)
   "Deserializes a message object of type '<servo_control>"
-    (cl:let ((bits 0))
-      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
-    (cl:setf (cl:slot-value msg 'servo_angle) (roslisp-utils:decode-single-float-bits bits)))
-    (cl:let ((bits 0))
-      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
-    (cl:setf (cl:slot-value msg 'servo_speed) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:let ((unsigned 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'servo_angle) (cl:if (cl:< unsigned 32768) unsigned (cl:- unsigned 65536))))
+    (cl:let ((unsigned 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'servo_speed) (cl:if (cl:< unsigned 32768) unsigned (cl:- unsigned 65536))))
   msg
 )
 (cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<servo_control>)))
@@ -73,20 +67,20 @@
   "laser_scanner_infoscreen/servo_control")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<servo_control>)))
   "Returns md5sum for a message object of type '<servo_control>"
-  "d40719365f052936ed347d15907ec2c2")
+  "c262244dcf1e02f10031616c618a6285")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'servo_control)))
   "Returns md5sum for a message object of type 'servo_control"
-  "d40719365f052936ed347d15907ec2c2")
+  "c262244dcf1e02f10031616c618a6285")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<servo_control>)))
   "Returns full string definition for message of type '<servo_control>"
-  (cl:format cl:nil "float32 servo_angle~%float32 servo_speed~%~%"))
+  (cl:format cl:nil "int16 servo_angle~%int16 servo_speed~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'servo_control)))
   "Returns full string definition for message of type 'servo_control"
-  (cl:format cl:nil "float32 servo_angle~%float32 servo_speed~%~%"))
+  (cl:format cl:nil "int16 servo_angle~%int16 servo_speed~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <servo_control>))
   (cl:+ 0
-     4
-     4
+     2
+     2
 ))
 (cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <servo_control>))
   "Converts a ROS message object to a list"

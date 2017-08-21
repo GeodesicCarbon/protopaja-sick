@@ -1,10 +1,7 @@
 <launch>
   <param name="robot_description" command="$(find xacro)/xacro.py '$(find sick_tim)/urdf/example.urdf.xacro'" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
-   <node pkg="laser_scanner_infoscreen" name="tracking_client" type="track_objects_client" output="screen"/>
-  <node pkg="laser_scanner_infoscreen" name="tracking_server" type="track_objects_server" output="screen"/>
   <node pkg="laser_scanner_infoscreen" name="measure_biometrics" type="measure_biometrics" output="screen"/>
-<node pkg="laser_scanner_infoscreen" name="gesture_control" type="gesture_control" output="screen"/>
   <node name="sick_tim561_lower" pkg="sick_tim" type="sick_tim551_2050001" respawn="false" output="screen">
   <param name="hostname" type="string" value="192.168.0.43" />
        <param name="port" type="string" value="2112" />

@@ -24,16 +24,16 @@ struct servo_feedback_
   typedef servo_feedback_<ContainerAllocator> Type;
 
   servo_feedback_()
-    : servo_angle(0.0)  {
+    : servo_angle(0)  {
     }
   servo_feedback_(const ContainerAllocator& _alloc)
-    : servo_angle(0.0)  {
+    : servo_angle(0)  {
   (void)_alloc;
     }
 
 
 
-   typedef float _servo_angle_type;
+   typedef int16_t _servo_angle_type;
   _servo_angle_type servo_angle;
 
 
@@ -113,12 +113,12 @@ struct MD5Sum< ::laser_scanner_infoscreen::servo_feedback_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "82562d66b31318cfc6166f3f528b3869";
+    return "0222859f8ba1a8cb50469304425de862";
   }
 
   static const char* value(const ::laser_scanner_infoscreen::servo_feedback_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x82562d66b31318cfULL;
-  static const uint64_t static_value2 = 0xc6166f3f528b3869ULL;
+  static const uint64_t static_value1 = 0x0222859f8ba1a8cbULL;
+  static const uint64_t static_value2 = 0x50469304425de862ULL;
 };
 
 template<class ContainerAllocator>
@@ -137,7 +137,7 @@ struct Definition< ::laser_scanner_infoscreen::servo_feedback_<ContainerAllocato
 {
   static const char* value()
   {
-    return "float32 servo_angle\n\
+    return "int16 servo_angle\n\
 ";
   }
 
@@ -176,7 +176,7 @@ struct Printer< ::laser_scanner_infoscreen::servo_feedback_<ContainerAllocator> 
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::laser_scanner_infoscreen::servo_feedback_<ContainerAllocator>& v)
   {
     s << indent << "servo_angle: ";
-    Printer<float>::stream(s, indent + "  ", v.servo_angle);
+    Printer<int16_t>::stream(s, indent + "  ", v.servo_angle);
   }
 };
 

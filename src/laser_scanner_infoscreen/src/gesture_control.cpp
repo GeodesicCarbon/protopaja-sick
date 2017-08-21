@@ -1,6 +1,6 @@
 #include "ros/ros.h"
-// #include "laser_scanner_infoscreen/servo_control.h"
-// #include "laser_scanner_infoscreen/servo_feedback.h"
+#include "laser_scanner_infoscreen/servo_control.h"
+#include "laser_scanner_infoscreen/servo_feedback.h"
 #include "scanner_gestures.h"
 #include "laser_scanner_infoscreen/gesture_call.h"
 #include "sensor_msgs/LaserScan.h"
@@ -11,6 +11,7 @@
 
 #define timeout_limit  4
 #define gesture_score_threshold 1.0f
+#define servo_speed_const 5235
 
 static Scanner_gestures* gestures;
 static ros::NodeHandle *node_pointer;
@@ -18,12 +19,16 @@ ros::Publisher *marker_pub_pointer;
 ros::Publisher *servo_control_pointer;
 ros::Subscriber *gesture_control_pointer;
 
-static std::vector<float> sensor_pos = {0.0,-0.5,1.7};
+static std::vector<float> sensor_pos = {0.0,-0.2,0.72};
 
 struct poi_t {
   float poi_range;
   float poi_angle;
 } poi;
+
+struct servo_t {
+  bool is_readable = false;
+} servo;
 
 void gestures_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 {
@@ -39,10 +44,10 @@ void gestures_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 	points.scale.x = 0.2;
 	points.scale.y = 0.2;
 
-  ROS_INFO("Tracking enabled: %d", (int) gestures->get_tracking());
+  ROS_DEBUG("Tracking enabled: %d", (int) gestures->get_tracking());
   if (gestures->get_tracking()) {
     gestures->parse_sensor_data(scan->ranges, scan->angle_min, scan->angle_increment, poi.poi_range, poi.poi_angle);
-    ROS_INFO("right_closest: (%.3f, %.3f), left_closest: (%.3f, %.3f)",
+     ROS_DEBUG("right_closest: (%.3f, %.3f), left_closest: (%.3f, %.3f)",
               gestures->get_right_closest().first,
               gestures->get_right_closest().second,
               gestures->get_left_closest().first,
@@ -79,11 +84,22 @@ void gestures_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 
 void control_callback(const laser_scanner_infoscreen::gesture_call& msg)
 {
-  poi.poi_range = std::sqrt(std::pow(msg.poi_range * sin(msg.poi_angle) + sensor_pos[0],2) + 
-                            std::pow(msg.poi_range * cos(msg.poi_angle) + sensor_pos[1],2) +
+  poi.poi_range = std::sqrt(std::pow(msg.poi_range * sin(msg.poi_angle) - sensor_pos[0],2) +
+                            std::pow(msg.poi_range * cos(msg.poi_angle) - sensor_pos[1],2) +
                             std::pow(sensor_pos[2],2));
+  ROS_DEBUG("poi_range: %.3f", poi.poi_range);
   poi.poi_angle = msg.poi_angle;
+  laser_scanner_infoscreen::servo_control move;
+  move.servo_angle = std::ceil(asin(-sensor_pos[2]/poi.poi_range)*1000);
+  move.servo_speed = servo_speed_const;
+
+  servo_control_pointer->publish(move);
   gestures->set_tracking(msg.is_tracking);
+}
+
+void servo_feedback_callback(const laser_scanner_infoscreen::servo_feedback& msg)
+{
+  servo.is_readable = true;
 }
 
 int main(int argc, char **argv)
@@ -94,10 +110,13 @@ int main(int argc, char **argv)
   gestures = new Scanner_gestures();
 
 	ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_gesture", 10);
-	marker_pub_pointer = &marker_pub;
+  ros::Publisher servo_pub = n.advertise<laser_scanner_infoscreen::servo_control>("servo_control", 10);
+  servo_control_pointer = &servo_pub;
+  marker_pub_pointer = &marker_pub;
 	 ros::Subscriber sub = n.subscribe("scan_upper", 1000, gestures_callback);
    ros::Subscriber gesture_control = n.subscribe("gesture_control", 100, control_callback);
-	ros::spin();
+   ros::Subscriber servo_feedback = n.subscribe("servo_position", 100, servo_feedback_callback);
+  ros::spin();
   delete gestures;
 	return 0;
 }

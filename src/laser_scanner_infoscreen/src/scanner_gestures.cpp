@@ -41,9 +41,13 @@ void Scanner_gestures::update_score(float angle_increment)
 			left_closest = this->slice[i];
 		}
 	}
-	float left_dh = delta_h(angle_increment, left_closest_i);
-	this->left_score = std::max(0.0f, this->left_score + std::max(0.0f, std::log(this->left_closest.first - left_dh))*DIST_MULTI - DECAY_CONST);
-	this->left_closest = std::make_pair(left_dh, left_closest*cos((left_closest_i - mid_i)*angle_increment));
+	if(left_closest < 10.0) {
+		float left_dh = delta_h(angle_increment, left_closest_i);
+		this->left_score = std::max(0.0f, this->left_score + std::max(0.0f, std::min(this->left_closest.first - left_dh, 1.0f))*DIST_MULTI - DECAY_CONST);
+		this->left_closest = std::make_pair(left_dh, left_closest*cos((left_closest_i - mid_i)*angle_increment));
+	} else {
+		this->left_score = std::max(0.0f, this->left_score - DECAY_CONST);
+	}
 
 	int right_closest_i = mid_i;
 	float right_closest = 10000;
@@ -53,10 +57,14 @@ void Scanner_gestures::update_score(float angle_increment)
 			right_closest = this->slice[i];
 		}
 	}
-	float right_dh = delta_h(angle_increment, right_closest_i);
-	ROS_INFO("l_dh: %f, r_dh: %f", left_dh, right_dh);
-	this->right_score = std::max(0.0f, this->right_score + std::max(0.0f, std::log(right_dh - this->right_closest.first))*DIST_MULTI - DECAY_CONST);
-	this->right_closest = std::make_pair(right_dh, right_closest*cos((right_closest_i - mid_i)*angle_increment));
+	if (right_closest < 10.0) {
+		float right_dh = delta_h(angle_increment, right_closest_i);
+		// ROS_DEBUG("l_dh: %f, r_dh: %f", left_dh, right_dh);
+		this->right_score = std::max(0.0f, this->right_score + std::max(0.0f, std::min(right_dh - this->right_closest.first, 1.0f))*DIST_MULTI - DECAY_CONST);
+		this->right_closest = std::make_pair(right_dh, right_closest*cos((right_closest_i - mid_i)*angle_increment));
+	} else {
+		this->right_score = std::max(0.0f, this->right_score - DECAY_CONST);
+	}
 }
 
 std::pair<int, int> Scanner_gestures::create_slice_indices(float angle_start, float angle_increment)
@@ -64,6 +72,7 @@ std::pair<int, int> Scanner_gestures::create_slice_indices(float angle_start, fl
 	float alpha = atan(GESTURE_TRACKING_WIDTH / (2 * this->poi_range));
 	int increments = ceil(alpha / angle_increment);
 	int poi_index = ceil((this->poi_angle - angle_start) / angle_increment);
+	ROS_DEBUG("poi_index: %d, increments %d", poi_index, increments);
 	return std::make_pair(poi_index - increments, poi_index + increments);
 }
 
@@ -79,7 +88,7 @@ void Scanner_gestures::parse_sensor_data(std::vector<float> range, float angle_s
 
 gest_e Scanner_gestures::get_gesture(float threshold)
 {
-	ROS_INFO("right score %f left score %f", this->right_score, this->left_score);
+	 ROS_DEBUG("right score %f left score %f", this->right_score, this->left_score);
 	if (this->right_score > this->left_score && this->right_score > threshold) {
 		return RIGHT_GESTURE;
 	}

@@ -4,31 +4,45 @@
 #include "laser_scanner_infoscreen/biometrics.h"
 #include "laser_scanner_infoscreen/biometrics_results.h"
 #include "laser_scanner_infoscreen/servo_control.h"
+#include "laser_scanner_infoscreen/servo_feedback.h"
 #include <cstdlib>
 #include <visualization_msgs/Marker.h>
 #include <math.h>
+#include <chrono>
+#include <thread>
 
-#define servo_speed_const 5.235f
+#define servo_speed_const 5235
 
 static ros::NodeHandle *node_pointer;
 ros::Publisher *marker_pub_pointer;
 ros::Publisher *servo_control_pointer;
 static int binary_depth = 5;
-static std::vector<float> sensor_pos = {0.0,-0.5,1.7}; // upper sensor offset in {x,y,z}
+static float level_offset_z = 0.85;
+static std::vector<float> sensor_pos = {0.0,-0.2,0.75}; // upper sensor offset in {x,y,z}
+struct servo_angle_t {
+  bool is_read = 0;
+  float angle = 0.0f;
+} servo_angle;
+
 
 float calculate_range( float angle_h, float low_range) {
-  return std::sqrt(std::pow(low_range * sin(angle_h) + sensor_pos[0],2) + 
+  return std::sqrt(std::pow(low_range * sin(angle_h) + sensor_pos[0],2) +
                     std::pow(low_range * cos(angle_h) + sensor_pos[1],2) +
-                    std::pow(sensor_pos[2],2));
+                    std::pow(sensor_pos[2] + level_offset_z,2));
 }
 
-int set_tilt_uppper_scanner(float rad) {
+float set_tilt_uppper_scanner(float rad) {
   laser_scanner_infoscreen::servo_control msg;
-  msg.servo_angle = rad;
+  msg.servo_angle = std::ceil(rad*1000);
   msg.servo_speed = servo_speed_const;
   servo_control_pointer->publish(msg);
-  getchar();
-  return -1;
+  ROS_INFO("Waiting for servo");
+  if (servo_angle.is_read) {
+    usleep(10);
+  }
+  servo_angle.is_read = true;
+  ROS_INFO("Received servo angle");
+  return servo_angle.angle;
 }
 
 void biometrics_callback(const laser_scanner_infoscreen::biometrics::ConstPtr& poi)
@@ -41,11 +55,11 @@ void biometrics_callback(const laser_scanner_infoscreen::biometrics::ConstPtr& p
   for (int i = 0; i < binary_depth; i++) {
     float mid = (low + high)/2;
     int hit_count = 0;
-    ROS_INFO("Testing for h = %f", mid);
+    ROS_INFO("Testing for h = %f", mid+ level_offset_z);
     float scan_range = calculate_range(poi->poi_angle, poi->poi_range);
-    set_tilt_uppper_scanner(asin(mid - sensor_pos[2]));
+    mid = sin(set_tilt_uppper_scanner(asin((mid - sensor_pos[2])/scan_range)))*scan_range;
     scan = ros::topic::waitForMessage<sensor_msgs::LaserScan>("/scan_upper", *node_pointer);
-    int d_index = std::ceil(1.0f/(scan_range*2));
+    int d_index = std::ceil(1.0f/(scan_range*2*scan->angle_increment));
     low_index =  std::ceil((poi->poi_angle  - scan->angle_min)/scan->angle_increment) - d_index;
     high_index = low_index + d_index;
     for (int j = low_index; j <= high_index; j++) {
@@ -59,8 +73,14 @@ void biometrics_callback(const laser_scanner_infoscreen::biometrics::ConstPtr& p
     } else {
       low = mid;
     }
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
   }
-  ROS_INFO("Measured height = %f", high);
+  ROS_INFO("Measured height = %f", high + level_offset_z);
+}
+
+void servo_feedback_callback(const laser_scanner_infoscreen::servo_feedback& msg) {
+  servo_angle.angle = msg.servo_angle/1000.0f;
+  servo_angle.is_read = false;
 }
 
 int main(int argc, char **argv)
@@ -69,7 +89,8 @@ int main(int argc, char **argv)
 	ros::NodeHandle n;
 	node_pointer = &n;
 	ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 10);
-  ros::Publisher servo_pub = n.advertise<laser_scanner_infoscreen::biometrics>("servo_control", 10);
+  ros::Publisher servo_pub = n.advertise<laser_scanner_infoscreen::servo_control>("servo_control", 10);
+  ros::Subscriber servo_feedback = n.subscribe("servo_position", 100, servo_feedback_callback);
   marker_pub_pointer = &marker_pub;
   servo_control_pointer = &servo_pub;
   ROS_INFO("HELLO THERE");

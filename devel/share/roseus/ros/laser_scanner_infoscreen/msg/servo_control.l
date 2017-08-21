@@ -19,12 +19,12 @@
 (defmethod laser_scanner_infoscreen::servo_control
   (:init
    (&key
-    ((:servo_angle __servo_angle) 0.0)
-    ((:servo_speed __servo_speed) 0.0)
+    ((:servo_angle __servo_angle) 0)
+    ((:servo_speed __servo_speed) 0)
     )
    (send-super :init)
-   (setq _servo_angle (float __servo_angle))
-   (setq _servo_speed (float __servo_speed))
+   (setq _servo_angle (round __servo_angle))
+   (setq _servo_speed (round __servo_speed))
    self)
   (:servo_angle
    (&optional __servo_angle)
@@ -35,40 +35,41 @@
   (:serialization-length
    ()
    (+
-    ;; float32 _servo_angle
-    4
-    ;; float32 _servo_speed
-    4
+    ;; int16 _servo_angle
+    2
+    ;; int16 _servo_speed
+    2
     ))
   (:serialize
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; float32 _servo_angle
-       (sys::poke _servo_angle (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
-     ;; float32 _servo_speed
-       (sys::poke _servo_speed (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; int16 _servo_angle
+       (write-word _servo_angle s)
+     ;; int16 _servo_speed
+       (write-word _servo_speed s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; float32 _servo_angle
-     (setq _servo_angle (sys::peek buf ptr- :float)) (incf ptr- 4)
-   ;; float32 _servo_speed
-     (setq _servo_speed (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; int16 _servo_angle
+     (setq _servo_angle (sys::peek buf ptr- :short)) (incf ptr- 2)
+   ;; int16 _servo_speed
+     (setq _servo_speed (sys::peek buf ptr- :short)) (incf ptr- 2)
    ;;
    self)
   )
 
-(setf (get laser_scanner_infoscreen::servo_control :md5sum-) "d40719365f052936ed347d15907ec2c2")
+(setf (get laser_scanner_infoscreen::servo_control :md5sum-) "c262244dcf1e02f10031616c618a6285")
 (setf (get laser_scanner_infoscreen::servo_control :datatype-) "laser_scanner_infoscreen/servo_control")
 (setf (get laser_scanner_infoscreen::servo_control :definition-)
-      "float32 servo_angle
-float32 servo_speed
+      "int16 servo_angle
+int16 servo_speed
+
 ")
 
 
 
-(provide :laser_scanner_infoscreen/servo_control "d40719365f052936ed347d15907ec2c2")
+(provide :laser_scanner_infoscreen/servo_control "c262244dcf1e02f10031616c618a6285")
 
 

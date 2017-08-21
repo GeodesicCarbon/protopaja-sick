@@ -1,2 +1,2 @@
-float32 servo_angle
-float32 servo_speed
+int16 servo_angle
+int16 servo_speed
