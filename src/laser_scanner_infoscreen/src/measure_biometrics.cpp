@@ -8,20 +8,20 @@
 #include <visualization_msgs/Marker.h>
 #include <math.h>
 
-#define servo_speed 5.235
+#define servo_speed_const 5.235f
 
 static ros::NodeHandle *node_pointer;
 ros::Publisher *marker_pub_pointer;
 ros::Publisher *servo_control_pointer;
 static int binary_depth = 5;
-static std::vector<float> sensor_pos = {0.0,0.0,1.7}; // upper sensor offset in {x,y,z}
+static std::vector<float> sensor_pos = {0.0,-0.5,1.7}; // upper sensor offset in {x,y,z}
 
 
 
 int set_tilt_uppper_scanner(float rad) {
   laser_scanner_infoscreen::servo_control msg;
   msg.servo_angle = rad;
-  msg.servo_speed = servo_speed;
+  msg.servo_speed = servo_speed_const;
   servo_control_pointer->publish(msg);
   getchar();
   return -1;
@@ -63,7 +63,7 @@ int main(int argc, char **argv)
 	ros::NodeHandle n;
 	node_pointer = &n;
 	ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 10);
-  ros::Publisher servo_pub = n.advertise<laser_scanner_infoscreen::biometrics>("servo_control");
+  ros::Publisher servo_pub = n.advertise<laser_scanner_infoscreen::biometrics>("servo_control", 10);
   marker_pub_pointer = &marker_pub;
   servo_control_pointer = &servo_pub;
   ROS_INFO("HELLO THERE");

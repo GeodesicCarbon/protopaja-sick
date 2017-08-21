@@ -10,6 +10,10 @@
 ros::Publisher *marker_pub_pointer;
 laser_objects *repository = NULL;
 
+float cart_dist(float x1, float x2, float y1, float y2) {
+  return std::sqrt( std::pow(x2-x1,2) + std::pow(y2-y1,2));
+}
+
 bool track(laser_scanner_infoscreen::trackObjects::Request  &req,
            laser_scanner_infoscreen::trackObjects::Response &res)
 {
@@ -50,19 +54,24 @@ bool track(laser_scanner_infoscreen::trackObjects::Request  &req,
 	ranges.push_back(beg_arc);
 	// for (float range : req.ranges) {
 	for (float range : front_ranges) {
-		if (std::abs(end_arc - range) < 0.25) {
+		if (std::abs(end_arc - range) < 0.17) {
 			end_arc = range;
 			ranges.push_back(range);
 			end_angle = end_angle + angle_increment;
 		} else {
-			if(ranges.size() > 15 && ranges.size() < 100) {
+      float x1 = ranges[0] * cos(beg_angle);
+      float x2 = ranges.back() * cos(beg_angle + angle_increment * ranges.size());
+      float y1 = ranges[0] * sin(beg_angle);
+      float y2 = ranges.back() * sin(beg_angle + angle_increment * ranges.size());
+      float width = cart_dist(x1, x2, y1, y2);
+			if(width > 0.9f && width < 1.1f) {
 				geometry_msgs::Point p;
 				p.z = 0;
-				p.x = -ranges[0] * cos(beg_angle);
+				p.x = ranges[0] * cos(beg_angle);
 				p.y = ranges[0] * sin(beg_angle);
 				line_list.points.push_back(p);
-				p.x = -ranges[ranges.size() - 1] * sin(end_angle);
-				p.y = ranges[ranges.size() - 1] * cos(end_angle);
+				p.x = ranges[ranges.size() - 1] * cos(end_angle);
+				p.y = ranges[ranges.size() - 1] * sin(end_angle);
 				line_list.points.push_back(p);
 				float sum_x = 0.0;
 				float sum_y = 0.0;

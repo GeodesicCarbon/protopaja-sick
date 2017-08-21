@@ -17,8 +17,9 @@ using namespace arma;
 
 
 static fmat Q = fmat(4,4).eye(); //TODO:change real values
-static fmat R = fmat(4,4).eye();
-static fmat H = fmat(4,4).eye();
+
+static fmat R = fmat(4,4).eye() * 10.0;
+static fmat H = fmat(4,4).eye() * 2.0;
 static fmat F = fmat(4,4).eye();
 
 
