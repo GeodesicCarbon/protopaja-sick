@@ -188,10 +188,9 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 					main_poi->poi_pos = closest_pos;
 					main_poi->timeout = 0.0f;
 				} else {
-					if (!secondary_poi ||
-					    point_distance(closest_pos, secondary_poi->poi_pos)
-					    > poi_thershold) {
-						if (!secondary_poi) {
+					if (!secondary_poi || point_distance(closest_pos, secondary_poi->poi_pos)
+				    	> poi_thershold) {
+						if (secondary_poi) {
 							delete secondary_poi;
 						}
 						secondary_poi = new poi_t(closest_pos);
@@ -202,7 +201,7 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 					int main_poi_index = index_of_shortest_to_point(srv.response.mobiles_x,
 					                                                srv.response.mobiles_y,
 					                                                *main_poi);
-					if(main_poi_index == -1 || main_poi->timeout > timeout_limit) {
+					if(main_poi_index == -1 && main_poi->timeout > timeout_limit) {
 						delete main_poi;
 						main_poi = secondary_poi;
 					} else {
