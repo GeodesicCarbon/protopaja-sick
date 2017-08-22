@@ -17,10 +17,14 @@ using namespace arma;
 #define CULLING_TIME 5
 
 
-static fmat Q = fmat(4,4).eye(); //TODO:change real values
-
-static fmat R = fmat(4,4).eye() * 0.8;
-static fmat H = fmat(4,4).eye() * 0.8;
+fmat Q  = { {0.1f, 0.0f, 0.0f, 0.0f},
+            {0.0f, 0.1f, 0.0f, 0.0f},
+            {0.0f, 0.0f, 1.0f, 0.0f}, //TODO:change real values
+            {0.0f, 0.0f, 0.0f, 1.0f}  };
+static fmat R = fmat(4,4).eye() * 1.0f;
+static fmat H = fmat(4,4).eye() * 1.0f;
+// static fmat H = { {1.0f, 0.0f, 0.0f, 0.0f},
+            // {0.0f, 1.0f, 0.0f, 0.0f} };
 static fmat F = fmat(4,4).eye();
 
 
@@ -57,11 +61,12 @@ void laser_object_t::run_kalman_filter(std::pair<float,float> new_pos, float dt)
 	fmat Z = fmat({new_pos.first, new_pos.second,
 	               (new_pos.first - this->pos_centerofmass.first)/dt,
 	               (new_pos.second - this->pos_centerofmass.second)/dt}).t();
+  // fmat Z = fmat({new_pos.first, new_pos.second});
 	//Z.print("Z: ");
 	// predict step
 	//this->X.print("start X: ");
 	this->X = F * this->X;
-	this->P = (F * this->P) * F.t(); +Q;
+	this->P = (F * this->P) * F.t() +Q;
 	//this->X.print("predict X: ");
 
 	// kalman gain
@@ -197,6 +202,6 @@ void laser_objects::update_repository() {
 laser_objects::laser_objects(float scanner_dt) :
 	dt(scanner_dt)
 {
-	F(0,2) = dt/10;
-	F(1,3) = dt/10;
+	F(0,2) = dt;
+	F(1,3) = dt;
 };

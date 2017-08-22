@@ -12,6 +12,8 @@
 
 #define timeout_limit  4
 #define poi_threshold 0.4f
+#define BIOMETRICS_FLAG true
+
 static int poi_constructed = 0;
 static int poi_destructed = 0;
 static int biometrics_id_count = 0;
@@ -70,6 +72,8 @@ ros::Publisher *marker_pub_pointer;
 ros::Publisher *stepper_control_pointer;
 ros::Publisher *biometrics_pointer;
 static bool biometrics_lock = false;
+bool &biometrics_lock_ref = biometrics_lock;
+
 
 poi_t *main_poi = NULL;
 poi_t *secondary_poi = NULL;
@@ -183,12 +187,12 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 				if(!main_poi) {
 					main_poi = new poi_t(closest_pos);
 				} else if ( point_distance (closest_pos,main_poi->poi_pos) < poi_threshold) {
-					ROS_INFO("test: [%.2f %.2f]", main_poi->poi_pos.first,
-					         main_poi->poi_pos.second);
+					// ROS_INFO("test: [%.2f %.2f]", main_poi->poi_pos.first,
+					//          main_poi->poi_pos.second);
 					main_poi->poi_pos = closest_pos;
 					main_poi->timeout = 0.0f;
 				} else {
-					ROS_INFO("main_poi not closest, closest d %f, timeout %f", point_distance (closest_pos,main_poi->poi_pos), main_poi->timeout);
+					// ROS_INFO("main_poi not closest, closest d %f, timeout %f", point_distance (closest_pos,main_poi->poi_pos), main_poi->timeout);
 					if (!secondary_poi || point_distance(closest_pos, secondary_poi->poi_pos)
 				    	> poi_threshold) {
 						if (secondary_poi) {
@@ -232,14 +236,14 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 			 laser_scanner_infoscreen::stepper_control sc_msg;
 			 sc_msg.screen_angle = angle_of_point(main_poi->poi_pos);
 			 //stepper_control_pointer->publish(sc_msg);
-			if(!biometrics_lock && main_poi->height == 0.0f && false) {
+			if((!biometrics_lock_ref && main_poi->height == 0.0f) && BIOMETRICS_FLAG) {
 				laser_scanner_infoscreen::biometrics bio_msg;
 				bio_msg.poi_angle = angle_of_point(main_poi->poi_pos);
 				bio_msg.poi_range = point_distance(main_poi->poi_pos, std::make_pair(0.0f, 0.0f));
 				main_poi->biometrics_id = biometrics_id_count++;
 				bio_msg.id = main_poi->biometrics_id;
 				biometrics_pointer->publish(bio_msg);
-				biometrics_lock = true;
+				biometrics_lock_ref = true;
 			}
 
 			geometry_msgs::Point p_poi;
@@ -285,7 +289,8 @@ void biometrics_callback(const laser_scanner_infoscreen::biometrics_results::Con
 {
 	if (main_poi && main_poi->biometrics_id == msg->id) {
 		main_poi->height = msg->height;
-		biometrics_lock = false;
+		biometrics_lock_ref = false;
+		ROS_INFO("Biometrics lock released: biometrics_lock_ref: %d", biometrics_lock_ref);
 	}
 }
 

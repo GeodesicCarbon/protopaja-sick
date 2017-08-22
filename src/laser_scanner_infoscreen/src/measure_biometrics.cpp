@@ -16,9 +16,10 @@
 static ros::NodeHandle *node_pointer;
 ros::Publisher *marker_pub_pointer;
 ros::Publisher *servo_control_pointer;
+ros::Publisher *biometrics_results_pointer;
 static int binary_depth = 5;
-static float level_offset_z = 0.85;
-static std::vector<float> sensor_pos = {0.0,-0.2,0.75}; // upper sensor offset in {x,y,z}
+static float level_offset_z = 0.85f;
+static std::vector<float> sensor_pos = {0.0,-0.2,0.65}; // upper sensor offset in {x,y,z}
 struct servo_angle_t {
   bool is_read = 0;
   float angle = 0.0f;
@@ -27,8 +28,8 @@ struct servo_angle_t {
 
 float calculate_range( float angle_h, float low_range) {
   return std::sqrt(std::pow(low_range * sin(angle_h) + sensor_pos[0],2) +
-                    std::pow(low_range * cos(angle_h) + sensor_pos[1],2) +
-                    std::pow(sensor_pos[2] + level_offset_z,2));
+                   std::pow(low_range * cos(angle_h) + sensor_pos[1],2) +
+                    std::pow(sensor_pos[2],2));
 }
 
 float set_tilt_uppper_scanner(float rad) {
@@ -36,13 +37,13 @@ float set_tilt_uppper_scanner(float rad) {
   msg.servo_angle = std::ceil(rad*1000);
   msg.servo_speed = servo_speed_const;
   servo_control_pointer->publish(msg);
-  ROS_INFO("Waiting for servo");
-  if (servo_angle.is_read) {
-    usleep(10);
-  }
-  servo_angle.is_read = true;
-  ROS_INFO("Received servo angle");
-  return servo_angle.angle;
+  // ROS_INFO("Waiting for servo");
+  // if (servo_angle.is_read) {
+  //   usleep(10);
+  // }
+  // servo_angle.is_read = true;
+  // ROS_INFO("Reclevel_offset_zeived servo angle");
+  // return servo_angle.angle;
 }
 
 void biometrics_callback(const laser_scanner_infoscreen::biometrics::ConstPtr& poi)
@@ -52,12 +53,15 @@ void biometrics_callback(const laser_scanner_infoscreen::biometrics::ConstPtr& p
   int low_index;
   int high_index;
   sensor_msgs::LaserScan::ConstPtr scan;
+  float h_neutral = sensor_pos[2] + level_offset_z;
   for (int i = 0; i < binary_depth; i++) {
     float mid = (low + high)/2;
     int hit_count = 0;
-    ROS_INFO("Testing for h = %f", mid+ level_offset_z);
+    ROS_INFO("Testing for h = %f", mid);
     float scan_range = calculate_range(poi->poi_angle, poi->poi_range);
-    mid = sin(set_tilt_uppper_scanner(asin((mid - sensor_pos[2])/scan_range)))*scan_range;
+    float angle = asin((mid - h_neutral)/scan_range);
+    ROS_INFO("low %.3f, high %.3f, mid %.3f angle %.5f", low, mid, high, angle);
+    set_tilt_uppper_scanner(angle);
     scan = ros::topic::waitForMessage<sensor_msgs::LaserScan>("/scan_upper", *node_pointer);
     int d_index = std::ceil(1.0f/(scan_range*2*scan->angle_increment));
     low_index =  std::ceil((poi->poi_angle  - scan->angle_min)/scan->angle_increment) - d_index;
@@ -73,9 +77,14 @@ void biometrics_callback(const laser_scanner_infoscreen::biometrics::ConstPtr& p
     } else {
       low = mid;
     }
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    std::this_thread::sleep_for(std::chrono::milliseconds(300/(5-i)));
   }
-  ROS_INFO("Measured height = %f", high + level_offset_z);
+  laser_scanner_infoscreen::biometrics_results bio_msg;
+  bio_msg.height = (high+low)/2;
+  bio_msg.id = poi->id;
+  biometrics_results_pointer->publish(bio_msg);
+  ROS_INFO("Measured height = %f", (high+low)/2);
+
 }
 
 void servo_feedback_callback(const laser_scanner_infoscreen::servo_feedback& msg) {
@@ -90,9 +99,11 @@ int main(int argc, char **argv)
 	node_pointer = &n;
 	ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 10);
   ros::Publisher servo_pub = n.advertise<laser_scanner_infoscreen::servo_control>("servo_control", 10);
+  ros::Publisher bio_pub = n.advertise<laser_scanner_infoscreen::biometrics_results>("biometrics_results", 10);
   ros::Subscriber servo_feedback = n.subscribe("servo_position", 100, servo_feedback_callback);
   marker_pub_pointer = &marker_pub;
   servo_control_pointer = &servo_pub;
+  biometrics_results_pointer = &bio_pub;
   ROS_INFO("HELLO THERE");
   ros::Subscriber sub = n.subscribe("biometrics", 1000, biometrics_callback);
 	ros::spin();
