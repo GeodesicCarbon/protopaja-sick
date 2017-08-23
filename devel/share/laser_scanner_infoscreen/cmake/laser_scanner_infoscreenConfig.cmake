@@ -67,14 +67,14 @@ set(laser_scanner_infoscreen_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(laser_scanner_infoscreen_SOURCE_PREFIX /home/proto/catkin_ws/src/laser_scanner_infoscreen)
-  set(laser_scanner_infoscreen_DEVEL_PREFIX /home/proto/catkin_ws/devel)
+  set(laser_scanner_infoscreen_SOURCE_PREFIX /home/vadim/catkin_ws/src/laser_scanner_infoscreen)
+  set(laser_scanner_infoscreen_DEVEL_PREFIX /home/vadim/catkin_ws/devel)
   set(laser_scanner_infoscreen_INSTALL_PREFIX "")
   set(laser_scanner_infoscreen_PREFIX ${laser_scanner_infoscreen_DEVEL_PREFIX})
 else()
   set(laser_scanner_infoscreen_SOURCE_PREFIX "")
   set(laser_scanner_infoscreen_DEVEL_PREFIX "")
-  set(laser_scanner_infoscreen_INSTALL_PREFIX /home/proto/catkin_ws/install)
+  set(laser_scanner_infoscreen_INSTALL_PREFIX /home/vadim/catkin_ws/install)
   set(laser_scanner_infoscreen_PREFIX ${laser_scanner_infoscreen_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(laser_scanner_infoscreen_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/proto/catkin_ws/devel/include;/home/proto/catkin_ws/src/laser_scanner_infoscreen/include " STREQUAL " ")
+if(NOT "/home/vadim/catkin_ws/devel/include;/home/vadim/catkin_ws/src/laser_scanner_infoscreen/include " STREQUAL " ")
   set(laser_scanner_infoscreen_INCLUDE_DIRS "")
-  set(_include_dirs "/home/proto/catkin_ws/devel/include;/home/proto/catkin_ws/src/laser_scanner_infoscreen/include")
+  set(_include_dirs "/home/vadim/catkin_ws/devel/include;/home/vadim/catkin_ws/src/laser_scanner_infoscreen/include")
   foreach(idir ${_include_dirs})
     if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
       set(include ${idir})
@@ -103,7 +103,7 @@ if(NOT "/home/proto/catkin_ws/devel/include;/home/proto/catkin_ws/src/laser_scan
         message(FATAL_ERROR "Project 'laser_scanner_infoscreen' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  Ask the maintainer 'vadim <vadim@todo.todo>' to fix it.")
       endif()
     else()
-      message(FATAL_ERROR "Project 'laser_scanner_infoscreen' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/proto/catkin_ws/src/laser_scanner_infoscreen/${idir}'.  Ask the maintainer 'vadim <vadim@todo.todo>' to fix it.")
+      message(FATAL_ERROR "Project 'laser_scanner_infoscreen' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/vadim/catkin_ws/src/laser_scanner_infoscreen/${idir}'.  Ask the maintainer 'vadim <vadim@todo.todo>' to fix it.")
     endif()
     _list_append_unique(laser_scanner_infoscreen_INCLUDE_DIRS ${include})
   endforeach()
@@ -122,7 +122,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/proto/catkin_ws/devel/lib;/home/proto/catkin_ws/devel/lib;/opt/ros/lunar/lib)
+    foreach(path /home/vadim/catkin_ws/devel/lib;/opt/ros/lunar/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

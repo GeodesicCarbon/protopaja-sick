@@ -59,6 +59,7 @@ find_package(catkin REQUIRED COMPONENTS
    stepper_control.msg
    stepper_feedback.msg
    gesture_call.msg
+   external_control.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -223,3 +224,7 @@ add_dependencies(track_objects_client laser_scanner_infoscreen_gencpp)
 add_executable(measure_biometrics src/measure_biometrics.cpp)
 target_link_libraries(measure_biometrics ${catkin_LIBRARIES})
 add_dependencies(measure_biometrics laser_scanner_infoscreen_gencpp)
+
+add_executable(control_tcp_socket src/control_tcp_socket.cpp)
+target_link_libraries(control_tcp_socket ${catkin_LIBRARIES})
+add_dependencies(control_tcp_socket control_tcp_socket_gencpp)
