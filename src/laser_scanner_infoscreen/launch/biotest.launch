@@ -7,6 +7,9 @@
        <param name="port" type="string" value="2112" />
        <param name="timelimit" type="int" value="5" />
   </node>
+  <node pkg="rosserial_python" name="servo" type="serial_node.py">
+    <param name="port" type="string" value="/dev/ttyACM1" />
+  </node>
   <node name="sick_tim561_upper" pkg="sick_tim" type="sick_tim551_2050001" respawn="false" output="screen">
   <!-- default values: -->
   <!--

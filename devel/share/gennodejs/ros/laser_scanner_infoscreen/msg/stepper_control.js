@@ -25,7 +25,7 @@ class stepper_control {
         this.screen_angle = initObj.screen_angle
       }
       else {
-        this.screen_angle = 0.0;
+        this.screen_angle = 0;
       }
     }
   }
@@ -33,7 +33,7 @@ class stepper_control {
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type stepper_control
     // Serialize message field [screen_angle]
-    bufferOffset = _serializer.float32(obj.screen_angle, buffer, bufferOffset);
+    bufferOffset = _serializer.int16(obj.screen_angle, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -42,12 +42,12 @@ class stepper_control {
     let len;
     let data = new stepper_control(null);
     // Deserialize message field [screen_angle]
-    data.screen_angle = _deserializer.float32(buffer, bufferOffset);
+    data.screen_angle = _deserializer.int16(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    return 4;
+    return 2;
   }
 
   static datatype() {
@@ -57,13 +57,14 @@ class stepper_control {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '400631f2b01dbd17dd32daf8906e9197';
+    return '67c8601b38ae609d91115c61abc12a33';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    float32 screen_angle
+    int16 screen_angle
+    
     `;
   }
 
@@ -77,7 +78,7 @@ class stepper_control {
       resolved.screen_angle = msg.screen_angle;
     }
     else {
-      resolved.screen_angle = 0.0
+      resolved.screen_angle = 0
     }
 
     return resolved;

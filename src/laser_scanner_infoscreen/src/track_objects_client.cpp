@@ -4,19 +4,27 @@
 #include "laser_scanner_infoscreen/biometrics.h"
 #include "laser_scanner_infoscreen/biometrics_results.h"
 #include "laser_scanner_infoscreen/stepper_control.h"
+#include "laser_scanner_infoscreen/gesture_call.h"
+#include "laser_scanner_infoscreen/external_control.h"
 #include "std_msgs/Int16.h"
 #include <cstdlib>
 #include <cmath>
 #include <visualization_msgs/Marker.h>
 #include <string>
+#include <chrono>
+#include <thread>
 
 #define timeout_limit  4
 #define poi_threshold 0.4f
 #define BIOMETRICS_FLAG true
+#define HAS_SCREEN_CONTROL true
+#define GESTURES_ENABLED true
 
 static int poi_constructed = 0;
 static int poi_destructed = 0;
 static int biometrics_id_count = 0;
+static int stepper_filter = 0;
+static int area_last_active_id;
 
 struct poi_t {
 	std::pair<float,float> poi_pos;
@@ -37,25 +45,30 @@ struct poi_t {
 	}
 };
 
+
 struct area_t {
-	float x_max, x_min, y_max, y_min;
+	float r_min, r_max, th_min, th_max;
+	int id;
 	std_msgs::ColorRGBA c;
 	std::string name;
 	bool is_active;
-	area_t(float draw_x_max, float draw_x_min, float draw_y_max, float draw_y_min,
-	       std_msgs::ColorRGBA area_c, std::string area_name) :
-		x_max(draw_x_max),
-		x_min(draw_x_min),
-		y_max(draw_y_max),
-		y_min(draw_y_min),
+	area_t(float draw_r_min, float draw_r_max, float draw_th_min, float draw_th_max,
+	       std_msgs::ColorRGBA area_c, std::string area_name, int area_id) :
+		r_max(draw_r_max),
+		r_min(draw_r_min),
+		th_max(draw_th_max),
+		th_min(draw_th_min),
 		c(area_c),
 		name(area_name),
+		id(area_id),
 		is_active(false)
 	{
 	};
 	bool test_poi(poi_t &poi) {
-		if (poi.poi_pos.first > this->x_min && poi.poi_pos.first < this->x_max
-		    && poi.poi_pos.second > this->y_min && poi.poi_pos.second < this->y_max) {
+		float angle = atan(poi.poi_pos.second / poi.poi_pos.first);
+		float range = sqrt(pow(poi.poi_pos.second,2) + pow(poi.poi_pos.first,2));
+		if (range > this->r_min && range < this->r_max
+		    && angle > this->th_min && angle < this->th_max) {
 			this->is_active = true;
 			return true;
 			ROS_DEBUG("Activated area %s", this->name.c_str());
@@ -71,6 +84,8 @@ ros::ServiceClient *client_pointer;
 ros::Publisher *marker_pub_pointer;
 ros::Publisher *stepper_control_pointer;
 ros::Publisher *biometrics_pointer;
+ros::Publisher *gestures_pointer;
+ros::Publisher *external_control_pointer;
 static bool biometrics_lock = false;
 bool &biometrics_lock_ref = biometrics_lock;
 
@@ -79,6 +94,8 @@ poi_t *main_poi = NULL;
 poi_t *secondary_poi = NULL;
 std::vector<poi_t> poi_repository;
 std::vector<area_t> area_repository;
+
+
 
 void visualize_areas() {
 	int id = 2;
@@ -100,20 +117,20 @@ void visualize_areas() {
 		}
 		geometry_msgs::Point p;
 		p.z = 0;
-		p.x = area.x_min;
-		p.y = area.y_min;
+		p.x = area.r_min * cos(area.th_min);
+		p.y = area.r_min * sin(area.th_min);
 		line_strip.points.push_back(p);
-		p.x = area.x_max;
-		p.y = area.y_min;
+		p.x = area.r_min * cos(area.th_max);
+		p.y = area.r_min * sin(area.th_max);
 		line_strip.points.push_back(p);
-		p.x = area.x_max;
-		p.y = area.y_max;
+		p.x = area.r_max * cos(area.th_max);
+		p.y = area.r_max * sin(area.th_max);
 		line_strip.points.push_back(p);
-		p.x = area.x_min;
-		p.y = area.y_max;
+		p.x = area.r_max * cos(area.th_min);
+		p.y = area.r_max * sin(area.th_min);
 		line_strip.points.push_back(p);
-		p.x = area.x_min;
-		p.y = area.y_min;
+		p.x = area.r_min * cos(area.th_min);
+		p.y = area.r_min * sin(area.th_min);
 		line_strip.points.push_back(p);
 		marker_pub_pointer->publish(line_strip);
 	}
@@ -159,7 +176,7 @@ int index_of_shortest_to_point(std::vector<float> vector_x,
 }
 
 float angle_of_point(std::pair<float, float> point) {
-	return atan(point.second/point.first);
+	return std::ceil(atan(point.second/point.first)*1000);
 }
 
 void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
@@ -192,7 +209,7 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 					main_poi->poi_pos = closest_pos;
 					main_poi->timeout = 0.0f;
 				} else {
-					// ROS_INFO("main_poi not closest, closest d %f, timeout %f", point_distance (closest_pos,main_poi->poi_pos), main_poi->timeout);
+					ROS_INFO("main_poi not closest, closest d %f, timeout %f", point_distance (closest_pos,main_poi->poi_pos), main_poi->timeout);
 					if (!secondary_poi || point_distance(closest_pos, secondary_poi->poi_pos)
 				    	> poi_threshold) {
 						if (secondary_poi) {
@@ -207,7 +224,7 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 					int main_poi_index = index_of_shortest_to_point(srv.response.mobiles_x,
 					                                                srv.response.mobiles_y,
 					                                                *main_poi);
-					if(main_poi_index == -1 && main_poi->timeout > timeout_limit) {
+					if(main_poi_index == -1 || (main_poi->timeout > timeout_limit && secondary_poi)) {
 						delete main_poi;
 						main_poi = secondary_poi;
 					} else {
@@ -215,8 +232,17 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 						                                         srv.response.mobiles_y[main_poi_index]);
 						main_poi->timeout += scan->scan_time;
 					}
-					for(auto & area : area_repository) {
-						area.test_poi(*main_poi);
+
+				}
+				for(auto & area : area_repository) {
+					area.test_poi(*main_poi);
+					if(area.is_active && area.id != area_last_active_id) {
+						area_last_active_id = area.id;
+						laser_scanner_infoscreen::external_control ex_msg;
+						ex_msg.zoom_level = 0; // not implemented (yet)
+						ex_msg.area_active = area.id;
+						ex_msg.gesture = 0;
+						external_control_pointer->publish(ex_msg);
 					}
 				}
 		}
@@ -232,11 +258,19 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 		c.r = 1.0f;
 		c.g = 0.6f;
 		c.a = 1.0f;
+		ROS_INFO("biometrics_lock: %d", (int) biometrics_lock_ref);
 		if (main_poi) {
-			 laser_scanner_infoscreen::stepper_control sc_msg;
-			 sc_msg.screen_angle = angle_of_point(main_poi->poi_pos);
-			 //stepper_control_pointer->publish(sc_msg);
-			if((!biometrics_lock_ref && main_poi->height == 0.0f) && BIOMETRICS_FLAG) {
+			if(HAS_SCREEN_CONTROL && (stepper_filter % 3) == 0) {
+			 std_msgs::Int16 sc_msg;
+			 sc_msg.data = -angle_of_point(main_poi->poi_pos);
+			//  ROS_INFO("angle %d", sc_msg.data);
+			 stepper_control_pointer->publish(sc_msg);
+			 stepper_filter = 0;
+		 } else {
+			 stepper_filter++;
+		 }
+
+			if((!biometrics_lock_ref && main_poi->height < 0.1f) && BIOMETRICS_FLAG) {
 				laser_scanner_infoscreen::biometrics bio_msg;
 				bio_msg.poi_angle = angle_of_point(main_poi->poi_pos);
 				bio_msg.poi_range = point_distance(main_poi->poi_pos, std::make_pair(0.0f, 0.0f));
@@ -244,6 +278,13 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 				bio_msg.id = main_poi->biometrics_id;
 				biometrics_pointer->publish(bio_msg);
 				biometrics_lock_ref = true;
+			}
+			if(GESTURES_ENABLED && !biometrics_lock_ref) {
+				laser_scanner_infoscreen::gesture_call g_msg;
+				g_msg.poi_angle = angle_of_point(main_poi->poi_pos)/1000.0f;
+				g_msg.poi_range = point_distance(main_poi->poi_pos, std::make_pair(0.0f, 0.0f));
+				g_msg.is_tracking = (int) g_msg.poi_range > 0.5 && g_msg.poi_range < 3;
+				gestures_pointer->publish(g_msg);
 			}
 
 			geometry_msgs::Point p_poi;
@@ -289,28 +330,31 @@ void biometrics_callback(const laser_scanner_infoscreen::biometrics_results::Con
 {
 	if (main_poi && main_poi->biometrics_id == msg->id) {
 		main_poi->height = msg->height;
-		biometrics_lock_ref = false;
 		ROS_INFO("Biometrics lock released: biometrics_lock_ref: %d", biometrics_lock_ref);
 	}
+	biometrics_lock_ref = false;
 }
 
 int main(int argc, char **argv)
 {
+	std::this_thread::sleep_for(std::chrono::milliseconds(4500));
 	std_msgs::ColorRGBA c;
 	c.r = 1.0f;
 	c.g = 1.0f;
-	std::string area_name("Area 1");
-	area_t a1(3.0f, 0.0f, 2.0f, 1.0f, c, area_name);
+	std::string area_name("servo_and_steppers");
+	float r_min = 1.0f;
+	float r_max = 2.0f;
+	area_t a1(r_min, r_max, -M_PI/3.0f, -M_PI/9.0f, c, area_name, 1);
 	area_repository.push_back(a1);
 	c.r = 0.0f;
 	c.b = 1.0f;
-	area_name.assign("Area 2");
-	area_t a2(3.0f, 0.0f, 0.5f, -0.5f, c, area_name);
+	area_name.assign("3D_print");
+	area_t a2(r_min, r_max, -M_PI/9.0f, M_PI/9.0f, c, area_name, 2);
 	area_repository.push_back(a2);
 	c.g = 0.0f;
 	c.r = 1.0f;
-	area_name.assign("Area 3");
-	area_t a3( 3.0f, 0.0f, -1.0f, -2.0f,c, area_name);
+	area_name.assign("laser_scanners");
+	area_t a3(r_min, r_max, M_PI/9.0f, M_PI/3.0f,c, area_name, 3);
 	area_repository.push_back(a3);
 	ros::init(argc, argv, "track_objects_client");
 	ros::NodeHandle n;
@@ -323,7 +367,11 @@ int main(int argc, char **argv)
 	laser_scanner_infoscreen::trackObjects srv;
 	ros::Publisher stepper_pub = n.advertise<std_msgs::Int16>("stepper", 10);
 	ros::Publisher biometrics = n.advertise<laser_scanner_infoscreen::biometrics>("biometrics", 10);
+	ros::Publisher gestures = n.advertise<laser_scanner_infoscreen::gesture_call>("gesture_control", 10);
+	ros::Publisher external_control = n.advertise<laser_scanner_infoscreen::external_control>("external_control",10);
 	biometrics_pointer = &biometrics;
+	gestures_pointer = &gestures;
+	external_control_pointer = &external_control;
 	ros::Subscriber bio_sub = n.subscribe("biometrics_results", 10, biometrics_callback);
 	stepper_control_pointer = &stepper_pub;
 	while(ros::ok()) {

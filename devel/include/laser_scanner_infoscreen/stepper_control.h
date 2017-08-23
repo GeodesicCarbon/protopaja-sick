@@ -24,16 +24,16 @@ struct stepper_control_
   typedef stepper_control_<ContainerAllocator> Type;
 
   stepper_control_()
-    : screen_angle(0.0)  {
+    : screen_angle(0)  {
     }
   stepper_control_(const ContainerAllocator& _alloc)
-    : screen_angle(0.0)  {
+    : screen_angle(0)  {
   (void)_alloc;
     }
 
 
 
-   typedef float _screen_angle_type;
+   typedef int16_t _screen_angle_type;
   _screen_angle_type screen_angle;
 
 
@@ -113,12 +113,12 @@ struct MD5Sum< ::laser_scanner_infoscreen::stepper_control_<ContainerAllocator> 
 {
   static const char* value()
   {
-    return "400631f2b01dbd17dd32daf8906e9197";
+    return "67c8601b38ae609d91115c61abc12a33";
   }
 
   static const char* value(const ::laser_scanner_infoscreen::stepper_control_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x400631f2b01dbd17ULL;
-  static const uint64_t static_value2 = 0xdd32daf8906e9197ULL;
+  static const uint64_t static_value1 = 0x67c8601b38ae609dULL;
+  static const uint64_t static_value2 = 0x91115c61abc12a33ULL;
 };
 
 template<class ContainerAllocator>
@@ -137,7 +137,7 @@ struct Definition< ::laser_scanner_infoscreen::stepper_control_<ContainerAllocat
 {
   static const char* value()
   {
-    return "float32 screen_angle\n\
+    return "int16 screen_angle\n\
 ";
   }
 
@@ -176,7 +176,7 @@ struct Printer< ::laser_scanner_infoscreen::stepper_control_<ContainerAllocator>
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::laser_scanner_infoscreen::stepper_control_<ContainerAllocator>& v)
   {
     s << indent << "screen_angle: ";
-    Printer<float>::stream(s, indent + "  ", v.screen_angle);
+    Printer<int16_t>::stream(s, indent + "  ", v.screen_angle);
   }
 };
 

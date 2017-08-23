@@ -95,8 +95,10 @@ void servo_feedback_callback(const laser_scanner_infoscreen::servo_feedback& msg
 int main(int argc, char **argv)
 {
 	ros::init(argc, argv, "measure_biometrics");
+  // std::this_thread::sleep_for(std::chrono::milliseconds(3000));
 	ros::NodeHandle n;
 	node_pointer = &n;
+  ros::Subscriber sub = n.subscribe("biometrics", 1000, biometrics_callback);
 	ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 10);
   ros::Publisher servo_pub = n.advertise<laser_scanner_infoscreen::servo_control>("servo_control", 10);
   ros::Publisher bio_pub = n.advertise<laser_scanner_infoscreen::biometrics_results>("biometrics_results", 10);
@@ -105,7 +107,6 @@ int main(int argc, char **argv)
   servo_control_pointer = &servo_pub;
   biometrics_results_pointer = &bio_pub;
   ROS_INFO("HELLO THERE");
-  ros::Subscriber sub = n.subscribe("biometrics", 1000, biometrics_callback);
 	ros::spin();
 	return 0;
 }

@@ -19,10 +19,10 @@
 (defmethod laser_scanner_infoscreen::stepper_control
   (:init
    (&key
-    ((:screen_angle __screen_angle) 0.0)
+    ((:screen_angle __screen_angle) 0)
     )
    (send-super :init)
-   (setq _screen_angle (float __screen_angle))
+   (setq _screen_angle (round __screen_angle))
    self)
   (:screen_angle
    (&optional __screen_angle)
@@ -30,33 +30,34 @@
   (:serialization-length
    ()
    (+
-    ;; float32 _screen_angle
-    4
+    ;; int16 _screen_angle
+    2
     ))
   (:serialize
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; float32 _screen_angle
-       (sys::poke _screen_angle (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; int16 _screen_angle
+       (write-word _screen_angle s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; float32 _screen_angle
-     (setq _screen_angle (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; int16 _screen_angle
+     (setq _screen_angle (sys::peek buf ptr- :short)) (incf ptr- 2)
    ;;
    self)
   )
 
-(setf (get laser_scanner_infoscreen::stepper_control :md5sum-) "400631f2b01dbd17dd32daf8906e9197")
+(setf (get laser_scanner_infoscreen::stepper_control :md5sum-) "67c8601b38ae609d91115c61abc12a33")
 (setf (get laser_scanner_infoscreen::stepper_control :datatype-) "laser_scanner_infoscreen/stepper_control")
 (setf (get laser_scanner_infoscreen::stepper_control :definition-)
-      "float32 screen_angle
+      "int16 screen_angle
+
 ")
 
 
 
-(provide :laser_scanner_infoscreen/stepper_control "400631f2b01dbd17dd32daf8906e9197")
+(provide :laser_scanner_infoscreen/stepper_control "67c8601b38ae609d91115c61abc12a33")
 
 

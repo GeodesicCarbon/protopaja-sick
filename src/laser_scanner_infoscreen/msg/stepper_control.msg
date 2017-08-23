@@ -1,1 +1,1 @@
-float32 screen_angle
+int16 screen_angle

@@ -15,9 +15,11 @@
 #define timeout_limit  4
 #define gesture_score_threshold 1.0f
 #define servo_speed_const 5235
+#define servo_loop_len 5
 
 // Offset of the upper sensor in the relation of lower sensor
-static std::vector<float> sensor_pos = {0.0,-0.2,0.72};
+static std::vector<float> sensor_pos = {0.0,-0.22,0.72};
+int loop_count = 0;
 
 // Initializing global objects
 static Scanner_gestures* gestures;
@@ -25,6 +27,8 @@ static ros::NodeHandle *node_pointer;
 ros::Publisher *marker_pub_pointer;
 ros::Publisher *servo_control_pointer;
 ros::Subscriber *gesture_control_pointer;
+
+
 
 // Parameters of the person of inrerest.
 struct poi_t {
@@ -38,10 +42,10 @@ struct servo_t {
 } servo;
 
 
-// Scanner is read by default. If tracking is disabled, the data is discarded. 
+// Scanner is read by default. If tracking is disabled, the data is discarded.
 void gestures_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 {
-  // Visualization 
+  // Visualization
   visualization_msgs::Marker points;
 	std_msgs::ColorRGBA c;
 	points.header.frame_id ="/laser";
@@ -62,7 +66,7 @@ void gestures_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
               gestures->get_right_closest().second,
               gestures->get_left_closest().first,
               gestures->get_left_closest().second);
-              
+
     // Visualization of gesture tracking points.
     c.r = 1.0f;
   	c.a = 1.0f;
@@ -96,7 +100,7 @@ void gestures_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 }
 
 /* Servo control logic. If tracking is enabled servo is moved into gesture read
-position. The angle of the upper scanner is kept so that the beam approximately 
+position. The angle of the upper scanner is kept so that the beam approximately
 intersects with the lower scanner at the position of POI*/
 void control_callback(const laser_scanner_infoscreen::gesture_call& msg)
 {
@@ -108,8 +112,12 @@ void control_callback(const laser_scanner_infoscreen::gesture_call& msg)
   laser_scanner_infoscreen::servo_control move;
   move.servo_angle = std::ceil(asin(-sensor_pos[2]/poi.poi_range)*1000);
   move.servo_speed = servo_speed_const;
-  servo.is_readable = false;  // Locks servo for readjusting
-  servo_control_pointer->publish(move);
+  if (loop_count % servo_loop_len == 0) {
+    servo.is_readable = false;  // Locks servo for readjusting
+    servo_control_pointer->publish(move);
+    loop_count = 0;
+  }
+  loop_count++;
   gestures->set_tracking(msg.is_tracking);
 }
 

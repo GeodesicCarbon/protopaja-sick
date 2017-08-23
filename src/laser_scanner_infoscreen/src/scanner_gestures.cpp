@@ -36,7 +36,9 @@ void Scanner_gestures::update_score(float angle_increment)
 	float left_closest = 10000;
 	int mid_i = this->slice.size() / 2;
 	for (int i = 0; i < mid_i; i++) {
-		if (this->slice[i] < left_closest && is_in_tracking_area(i) ) {
+		if (this->slice[i] < left_closest && is_in_tracking_area(i) &&
+				std::abs(this->slice[std::max(0, i - 1)] - this->slice[i]) < 0.05 &&
+			std::abs(this->slice[std::min(i + 1, mid_i)] - this->slice[i]) < 0.05)  {
 			left_closest_i = i;
 			left_closest = this->slice[i];
 		}
@@ -52,7 +54,9 @@ void Scanner_gestures::update_score(float angle_increment)
 	int right_closest_i = mid_i;
 	float right_closest = 10000;
 	for (int i = right_closest_i + 1 ; i < this->slice.size(); i++) {
-		if (this->slice[i] < right_closest && is_in_tracking_area(i) ) {
+		if (this->slice[i] < right_closest && is_in_tracking_area(i)  &&
+				std::abs(this->slice[std::max(i - 1, mid_i)] - this->slice[i]) < 0.05 &&
+			std::abs(this->slice[std::min(i + 1, mid_i*2-1)] - this->slice[i]) < 0.05) {
 			right_closest_i = i;
 			right_closest = this->slice[i];
 		}
@@ -71,8 +75,9 @@ std::pair<int, int> Scanner_gestures::create_slice_indices(float angle_start, fl
 {
 	float alpha = atan(GESTURE_TRACKING_WIDTH / (2 * this->poi_range));
 	int increments = ceil(alpha / angle_increment);
+	ROS_INFO("poi_angle: %.3f, angle_start %.3f", this->poi_angle, angle_start);
 	int poi_index = ceil((this->poi_angle - angle_start) / angle_increment);
-	ROS_DEBUG("poi_index: %d, increments %d", poi_index, increments);
+	// ROS_INFO("poi_index: %d, increments %d", poi_index, increments);
 	return std::make_pair(poi_index - increments, poi_index + increments);
 }
 
@@ -81,6 +86,7 @@ void Scanner_gestures::parse_sensor_data(std::vector<float> range, float angle_s
 	this->poi_range = poi_range;
 	this->poi_angle = poi_angle;
 	std::pair<int, int> slice_i = this->create_slice_indices(angle_start, angle_increment);
+	//ROS_INFO("slice_i: %d %d", slice_i.first, slice_i.second);
 	this->slice.assign(range.begin() + slice_i.first, range.begin() + slice_i.second);
 	this->is_tracking = true;
 	this->update_score(angle_increment);
