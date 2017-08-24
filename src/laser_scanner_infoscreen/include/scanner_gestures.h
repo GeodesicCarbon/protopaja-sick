@@ -4,13 +4,12 @@
 
 #define GESTURE_TRACKING_WIDTH 1.2f
 #define GESTURE_TRACKING_LENGTH 0.9f
-
-enum gest_e
-{
-	NO_GESTURE,
-	LEFT_GESTURE,
-	RIGHT_GESTURE
-};
+	enum gest_e
+	{
+		NO_GESTURE,
+		LEFT_GESTURE,
+		RIGHT_GESTURE
+	};
 
 class Scanner_gestures {
 private:

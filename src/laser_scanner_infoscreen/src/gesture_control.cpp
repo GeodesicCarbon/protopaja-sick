@@ -1,6 +1,7 @@
 #include "ros/ros.h"
 #include "laser_scanner_infoscreen/servo_control.h"
 #include "laser_scanner_infoscreen/servo_feedback.h"
+#include "laser_scanner_infoscreen/external_control.h"
 #include "scanner_gestures.h"
 #include "laser_scanner_infoscreen/gesture_call.h"
 #include "sensor_msgs/LaserScan.h"
@@ -27,7 +28,8 @@ static ros::NodeHandle *node_pointer;
 ros::Publisher *marker_pub_pointer;
 ros::Publisher *servo_control_pointer;
 ros::Subscriber *gesture_control_pointer;
-
+ros::Publisher *external_control_pointer;
+static ros::Time timelock;
 
 
 // Parameters of the person of inrerest.
@@ -89,13 +91,31 @@ void gestures_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
     marker_pub_pointer->publish(points);
   }
   // Actions upon score exceeding threshold score
-  switch (gestures->get_gesture(gesture_score_threshold)) {
-    case LEFT_GESTURE : ROS_INFO("Detected left gesture");
-                                          break;
-    case RIGHT_GESTURE : ROS_INFO("Detected left gesture");
-                                          break;
-    case NO_GESTURE :
-                                          break;
+  /* Due to miscomminication the gestures are reversed */
+  if(timelock + ros::Duration(timeout_limit) < ros::Time::now()) {
+    laser_scanner_infoscreen::external_control ex_msg;
+    switch (gestures->get_gesture(gesture_score_threshold)) {
+      case LEFT_GESTURE :
+        ROS_INFO("Detected right gesture");
+        timelock = ros::Time::now();
+        ex_msg.zoom_level = 0; // not implemented (yet)
+        ex_msg.area_active = 5;
+        ex_msg.gesture = 1;
+        external_control_pointer->publish(ex_msg);
+        break;
+      case RIGHT_GESTURE :
+        ROS_INFO("Detected left gesture");
+        timelock = ros::Time::now();
+        ex_msg.zoom_level = 0; // not implemented (yet)
+        ex_msg.area_active = 5;
+        ex_msg.gesture = 2;
+        external_control_pointer->publish(ex_msg);
+        break;
+      case 0 :
+        break;
+      default :
+        break;
+    }
   }
 }
 
@@ -135,8 +155,10 @@ int main(int argc, char **argv)
 
 	ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_gesture", 10);
   ros::Publisher servo_pub = n.advertise<laser_scanner_infoscreen::servo_control>("servo_control", 10);
+  ros::Publisher external_control = n.advertise<laser_scanner_infoscreen::external_control>("external_control",10);
   servo_control_pointer = &servo_pub;
   marker_pub_pointer = &marker_pub;
+  external_control_pointer = &external_control;
 	 ros::Subscriber sub = n.subscribe("scan_upper", 1000, gestures_callback);
    ros::Subscriber gesture_control = n.subscribe("gesture_control", 100, control_callback);
    ros::Subscriber servo_feedback = n.subscribe("servo_position", 100, servo_feedback_callback);
