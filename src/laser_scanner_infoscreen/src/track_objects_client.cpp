@@ -232,8 +232,11 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 					                                                srv.response.mobiles_y,
 					                                                *main_poi);
 					if(main_poi_index == -1 || (main_poi->timeout > TIMEOUT_LIMIT && secondary_poi)) {
-						delete main_poi;
+						if (main_poi) {
+							delete main_poi;
+						}
 						main_poi = secondary_poi;
+						secondary_poi = NULL;
 					} else {
 						std::pair<float,float> closest_main_pos (srv.response.mobiles_x[main_poi_index],
 						                                         srv.response.mobiles_y[main_poi_index]);
