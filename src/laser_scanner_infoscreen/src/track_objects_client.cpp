@@ -14,18 +14,24 @@
 #include <chrono>
 #include <thread>
 
-#define timeout_limit  4
-#define poi_threshold 0.4f
-#define BIOMETRICS_FLAG true
-#define HAS_SCREEN_CONTROL true
-#define GESTURES_ENABLED true
+#define TIMEOUT_LIMIT  4
+#define POI_THRESHOLD 0.4f
+#define MAX_RANGE 7.0f
+#define PRESENTATION_RANGE 3.0f
+#define BIOMETRICS_FLAG false
+#define HAS_SCREEN_CONTROL false
+#define GESTURES_ENABLED false
 
 static int poi_constructed = 0;
 static int poi_destructed = 0;
 static int biometrics_id_count = 0;
 static int stepper_filter = 0;
 static int area_last_active_id;
+static int zoom_level;
+static ros::Time last_external_sent;
+static ros::Time biometrics_timestamp;
 
+/* Type for Person Of Interest, i.e. object being tracked */
 struct poi_t {
 	std::pair<float,float> poi_pos;
 	float timeout;
@@ -45,7 +51,8 @@ struct poi_t {
 	}
 };
 
-
+/* Type for presentation areas of sector shape. Includes a test whether POI is
+inside the area */
 struct area_t {
 	float r_min, r_max, th_min, th_max;
 	int id;
@@ -96,8 +103,8 @@ std::vector<poi_t> poi_repository;
 std::vector<area_t> area_repository;
 
 
-
-void visualize_areas() {
+/* Draws a  rough approximation of presentation areas for visualization purposes */
+void visualize_areas() { 
 	int id = 2;
 	for(auto &area : area_repository) {
 		visualization_msgs::Marker line_strip;
@@ -169,7 +176,7 @@ int index_of_shortest_to_point(std::vector<float> vector_x,
 			smallest_distance = cur_distance;
 		}
 	}
-	if(smallest_distance > poi_threshold) {
+	if(smallest_distance > POI_THRESHOLD) {
 		return -1;
 	}
 	return smallest_index;
@@ -203,7 +210,7 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 				                                    srv.response.mobiles_y[smallest_index]);
 				if(!main_poi) {
 					main_poi = new poi_t(closest_pos);
-				} else if ( point_distance (closest_pos,main_poi->poi_pos) < poi_threshold) {
+				} else if ( point_distance (closest_pos,main_poi->poi_pos) < POI_THRESHOLD) {
 					// ROS_INFO("test: [%.2f %.2f]", main_poi->poi_pos.first,
 					//          main_poi->poi_pos.second);
 					main_poi->poi_pos = closest_pos;
@@ -211,20 +218,20 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 				} else {
 					ROS_INFO("main_poi not closest, closest d %f, timeout %f", point_distance (closest_pos,main_poi->poi_pos), main_poi->timeout);
 					if (!secondary_poi || point_distance(closest_pos, secondary_poi->poi_pos)
-				    	> poi_threshold) {
+				    	> POI_THRESHOLD) {
 						if (secondary_poi) {
 							delete secondary_poi;
 						}
 						secondary_poi = new poi_t(closest_pos);
 						ROS_INFO("new secondary_poi, d = %f",point_distance(closest_pos, secondary_poi->poi_pos));
 						main_poi->timeout = 0.0f;
-					} else if (point_distance(closest_pos, secondary_poi->poi_pos) < poi_threshold) {
+					} else if (point_distance(closest_pos, secondary_poi->poi_pos) < POI_THRESHOLD) {
 						secondary_poi->poi_pos = closest_pos;
 					}
 					int main_poi_index = index_of_shortest_to_point(srv.response.mobiles_x,
 					                                                srv.response.mobiles_y,
 					                                                *main_poi);
-					if(main_poi_index == -1 || (main_poi->timeout > timeout_limit && secondary_poi)) {
+					if(main_poi_index == -1 || (main_poi->timeout > TIMEOUT_LIMIT && secondary_poi)) {
 						delete main_poi;
 						main_poi = secondary_poi;
 					} else {
@@ -233,6 +240,9 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 						main_poi->timeout += scan->scan_time;
 					}
 
+				}
+				bool area_set_flag = false;
+				int zoom = (int) (point_distance(main_poi->poi_pos, std::make_pair(0,0)) * 100 - PRESENTATION_RANGE / (MAX_RANGE - PRESENTATION_RANGE));
 				}
 				for(auto & area : area_repository) {
 					area.test_poi(*main_poi);
@@ -244,6 +254,31 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 						ex_msg.gesture = 0;
 						external_control_pointer->publish(ex_msg);
 					}
+					area_set_flag = area_set_flag || area.is_active;
+				}
+				if (!area_set_flag && area_last_active_id != 4 && 
+						point_distance(main_poi->poi_pos, std::make_pair(0,0)) < PRESENTATION_RANGE) {
+					area_last_active_id = 0;
+					aser_scanner_infoscreen::external_control ex_msg;
+					ex_msg.zoom_level = 0; // not implemented (yet)
+					ex_msg.area_active = 4;
+					ex_msg.gesture = 0;
+					external_control_pointer->publish(ex_msg);
+				} else if (!area_set_flag && area_last_active_id != 0 && 
+						point_distance(main_poi->poi_pos, std::make_pair(0,0)) < MAX_RANGE) {
+					area_last_active_id = 0;
+					aser_scanner_infoscreen::external_control ex_msg;
+					ex_msg.zoom_level = zoom; // not implemented (yet)
+					ex_msg.area_active = 0;
+					ex_msg.gesture = 0;
+					external_control_pointer->publish(ex_msg);
+				}
+				if (!area_last_active_id) {
+					aser_scanner_infoscreen::external_control ex_msg;
+					ex_msg.zoom_level = zoom; // not implemented (yet)
+					ex_msg.area_active = 0;
+					ex_msg.gesture = 0;
+					external_control_pointer->publish(ex_msg);
 				}
 		}
 		points.header.frame_id ="/laser";
@@ -258,7 +293,7 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 		c.r = 1.0f;
 		c.g = 0.6f;
 		c.a = 1.0f;
-		ROS_INFO("biometrics_lock: %d", (int) biometrics_lock_ref);
+		// ROS_INFO("biometrics_lock: %d", (int) biometrics_lock_ref);
 		if (main_poi) {
 			if(HAS_SCREEN_CONTROL && (stepper_filter % 3) == 0) {
 			 std_msgs::Int16 sc_msg;

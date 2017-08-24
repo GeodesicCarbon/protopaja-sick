@@ -75,7 +75,7 @@ std::pair<int, int> Scanner_gestures::create_slice_indices(float angle_start, fl
 {
 	float alpha = atan(GESTURE_TRACKING_WIDTH / (2 * this->poi_range));
 	int increments = ceil(alpha / angle_increment);
-	ROS_INFO("poi_angle: %.3f, angle_start %.3f", this->poi_angle, angle_start);
+	//ROS_INFO("poi_angle: %.3f, angle_start %.3f", this->poi_angle, angle_start);
 	int poi_index = ceil((this->poi_angle - angle_start) / angle_increment);
 	// ROS_INFO("poi_index: %d, increments %d", poi_index, increments);
 	return std::make_pair(poi_index - increments, poi_index + increments);
