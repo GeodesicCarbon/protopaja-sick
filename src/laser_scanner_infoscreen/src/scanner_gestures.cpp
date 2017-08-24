@@ -3,8 +3,8 @@
 #include <algorithm>
 #include <visualization_msgs/Marker.h>
 
-#define DIST_MULTI 10.0f
-#define DECAY_CONST 0.4f
+#define DIST_MULTI 5.0f
+#define DECAY_CONST 0.6f
 
 Scanner_gestures::Scanner_gestures() :
 	right_score(0.0f),
@@ -45,7 +45,7 @@ void Scanner_gestures::update_score(float angle_increment)
 	}
 	if(left_closest < 10.0) {
 		float left_dh = delta_h(angle_increment, left_closest_i);
-		this->left_score = std::max(0.0f, this->left_score + std::max(0.0f, std::min(this->left_closest.first - left_dh, 1.0f))*DIST_MULTI - DECAY_CONST);
+		this->left_score = std::max(0.0f, this->left_score + std::max(0.0f, std::min(this->left_closest.first - left_dh, 0.2f))*DIST_MULTI - DECAY_CONST);
 		this->left_closest = std::make_pair(left_dh, left_closest*cos((left_closest_i - mid_i)*angle_increment));
 	} else {
 		this->left_score = std::max(0.0f, this->left_score - DECAY_CONST);
@@ -64,7 +64,8 @@ void Scanner_gestures::update_score(float angle_increment)
 	if (right_closest < 10.0) {
 		float right_dh = delta_h(angle_increment, right_closest_i);
 		// ROS_DEBUG("l_dh: %f, r_dh: %f", left_dh, right_dh);
-		this->right_score = std::max(0.0f, this->right_score + std::max(0.0f, std::min(right_dh - this->right_closest.first, 1.0f))*DIST_MULTI - DECAY_CONST);
+		ROS_INFO("righ ddh: %f ", right_dh - this->right_closest.first);
+		this->right_score = std::max(0.0f, this->right_score + std::max(0.0f, std::min(right_dh - this->right_closest.first, 0.2f))*DIST_MULTI - DECAY_CONST);
 		this->right_closest = std::make_pair(right_dh, right_closest*cos((right_closest_i - mid_i)*angle_increment));
 	} else {
 		this->right_score = std::max(0.0f, this->right_score - DECAY_CONST);

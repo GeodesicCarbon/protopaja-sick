@@ -18,9 +18,9 @@
 #define POI_THRESHOLD 0.4f
 #define MAX_RANGE 7.0f
 #define PRESENTATION_RANGE 3.0f
-#define BIOMETRICS_FLAG false
-#define HAS_SCREEN_CONTROL false
-#define GESTURES_ENABLED false
+#define BIOMETRICS_FLAG true
+#define HAS_SCREEN_CONTROL true
+#define GESTURES_ENABLED true
 
 static int poi_constructed = 0;
 static int poi_destructed = 0;
@@ -239,11 +239,9 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 						                                         srv.response.mobiles_y[main_poi_index]);
 						main_poi->timeout += scan->scan_time;
 					}
-
 				}
 				bool area_set_flag = false;
 				int zoom = (int) (point_distance(main_poi->poi_pos, std::make_pair(0,0)) * 100 - PRESENTATION_RANGE / (MAX_RANGE - PRESENTATION_RANGE));
-				}
 				for(auto & area : area_repository) {
 					area.test_poi(*main_poi);
 					if(area.is_active && area.id != area_last_active_id) {
@@ -252,14 +250,15 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 						ex_msg.zoom_level = 0; // not implemented (yet)
 						ex_msg.area_active = area.id;
 						ex_msg.gesture = 0;
+						area_set_flag = area_set_flag || area.is_active;
 						external_control_pointer->publish(ex_msg);
 					}
-					area_set_flag = area_set_flag || area.is_active;
+					
 				}
 				if (!area_set_flag && area_last_active_id != 4 && 
 						point_distance(main_poi->poi_pos, std::make_pair(0,0)) < PRESENTATION_RANGE) {
 					area_last_active_id = 0;
-					aser_scanner_infoscreen::external_control ex_msg;
+					laser_scanner_infoscreen::external_control ex_msg;
 					ex_msg.zoom_level = 0; // not implemented (yet)
 					ex_msg.area_active = 4;
 					ex_msg.gesture = 0;
@@ -267,14 +266,14 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 				} else if (!area_set_flag && area_last_active_id != 0 && 
 						point_distance(main_poi->poi_pos, std::make_pair(0,0)) < MAX_RANGE) {
 					area_last_active_id = 0;
-					aser_scanner_infoscreen::external_control ex_msg;
+					laser_scanner_infoscreen::external_control ex_msg;
 					ex_msg.zoom_level = zoom; // not implemented (yet)
 					ex_msg.area_active = 0;
 					ex_msg.gesture = 0;
 					external_control_pointer->publish(ex_msg);
 				}
 				if (!area_last_active_id) {
-					aser_scanner_infoscreen::external_control ex_msg;
+					laser_scanner_infoscreen::external_control ex_msg;
 					ex_msg.zoom_level = zoom; // not implemented (yet)
 					ex_msg.area_active = 0;
 					ex_msg.gesture = 0;
@@ -304,7 +303,9 @@ void tracker_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 		 } else {
 			 stepper_filter++;
 		 }
-
+		 	if (biometrics_lock_ref && biometrics_timestamp + ros::Duration(5) < ros::Time::now()) {
+				biometrics_lock_ref = false;
+			}
 			if((!biometrics_lock_ref && main_poi->height < 0.1f) && BIOMETRICS_FLAG) {
 				laser_scanner_infoscreen::biometrics bio_msg;
 				bio_msg.poi_angle = angle_of_point(main_poi->poi_pos);
