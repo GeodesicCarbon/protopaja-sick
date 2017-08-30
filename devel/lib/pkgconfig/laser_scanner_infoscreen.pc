@@ -1,0 +1,8 @@
+prefix=/home/vadim/catkin_ws/devel
+
+Name: laser_scanner_infoscreen
+Description: Description of laser_scanner_infoscreen
+Version: 0.0.0
+Cflags: -I/home/vadim/catkin_ws/devel/include -I/home/vadim/catkin_ws/src/laser_scanner_infoscreen/include
+Libs: -L/home/vadim/catkin_ws/devel/lib 
+Requires: roscpp rospy sensor_msgs std_msgs message_runtime

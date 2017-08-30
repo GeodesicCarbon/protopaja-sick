@@ -1,0 +1,2 @@
+laser_scanner_infoscreen:rosserial:rosserial_arduino:rosserial_client:rosserial_embeddedlinux:rosserial_mbed:rosserial_msgs:rosserial_python:rosserial_server:rosserial_test:rosserial_tivac:rosserial_windows:rosserial_xbee
+-DCATKIN_DEVEL_PREFIX=/home/vadim/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/vadim/catkin_ws/install -G Unix Makefiles
