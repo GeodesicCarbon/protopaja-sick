@@ -35,7 +35,7 @@ bool track(laser_scanner_infoscreen::trackObjects::Request  &req,
 	line_list.type = visualization_msgs::Marker::LINE_LIST;
 	line_list.scale.x = 0.1;
 	line_list.color.b = 1.0;
-	line_list.color.a = 0.3;
+	line_list.color.a = 0.8;
 	int start_index = 0;
 	while(start_index * angle_increment + req.angle_min < -(1.0/3.0)*M_PI) {
 		start_index++;
@@ -64,7 +64,7 @@ bool track(laser_scanner_infoscreen::trackObjects::Request  &req,
       float y1 = ranges[0] * sin(beg_angle);
       float y2 = ranges.back() * sin(beg_angle + angle_increment * ranges.size());
       float width = cart_dist(x1, x2, y1, y2);
-			if(width > 0.3f && width < 0.7f) {
+      if(width > 0.3f && width < 0.7f) {
 				geometry_msgs::Point p;
 				p.z = 0;
 				p.x = ranges[0] * cos(beg_angle);

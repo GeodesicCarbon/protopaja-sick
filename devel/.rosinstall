@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/proto/catkin_ws/devel/setup.sh
+    local-name: /home/proto/catkin_test/devel/setup.sh
