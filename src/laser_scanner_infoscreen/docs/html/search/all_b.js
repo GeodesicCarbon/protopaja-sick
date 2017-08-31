@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['name',['name',['../structarea__t.html#a2ea22ed89ef6801defea98010f1d3446',1,'area_t']]],
-  ['no_5fgesture',['NO_GESTURE',['../scanner__gestures_8h.html#a7439cb1fb2597b68ef2f1f3306500decacbe9c605984148d16737225356e8bc89',1,'scanner_gestures.h']]]
+  ['poi_5fangle',['poi_angle',['../structpoi__t.html#a59b58f432e793217c33691e9c8b921b7',1,'poi_t']]],
+  ['poi_5frange',['poi_range',['../structpoi__t.html#ae5f9ca22bbe2f78476ad6d08bc31a231',1,'poi_t']]],
+  ['poi_5ft',['poi_t',['../structpoi__t.html',1,'']]]
 ];

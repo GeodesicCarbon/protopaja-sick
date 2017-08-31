@@ -2,6 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
   <compounddef id="classlaser__objects" kind="class" language="C++" prot="public">
     <compoundname>laser_objects</compoundname>
+    <includes refid="laser__objects_8hpp" local="no">laser_objects.hpp</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classlaser__objects_1af193b94d6f48b40418f4148402f8528f" prot="private" static="no" mutable="no">
         <type>float</type>
@@ -14,10 +15,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/laser_objects.hpp" line="32" column="1" bodyfile="include/laser_objects.hpp" bodystart="32" bodyend="-1"/>
+        <location file="include/laser_objects.hpp" line="51" column="1" bodyfile="include/laser_objects.hpp" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classlaser__objects_1a33796fdd4a95d6f432351934b08ac7e9" prot="private" static="no" mutable="no">
-        <type>std::vector&lt; laser_object_t &gt;</type>
+        <type>std::vector&lt; <ref refid="classlaser__object__t" kindref="compound">laser_object_t</ref> &gt;</type>
         <definition>std::vector&lt;laser_object_t&gt; laser_objects::laser_object_repository</definition>
         <argsstring></argsstring>
         <name>laser_object_repository</name>
@@ -27,11 +28,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/laser_objects.hpp" line="33" column="1" bodyfile="include/laser_objects.hpp" bodystart="33" bodyend="-1"/>
+        <location file="include/laser_objects.hpp" line="52" column="1" bodyfile="include/laser_objects.hpp" bodystart="52" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classlaser__objects_1a8e139bb70c4e8589e512a71f244b45ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__laser__objects_1ga8e139bb70c4e8589e512a71f244b45ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void laser_objects::update</definition>
         <argsstring>(std::pair&lt; float, float &gt; pos_centerofmass)</argsstring>
@@ -41,14 +42,23 @@
           <declname>pos_centerofmass</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>Update a object&apos;s position and status or create new one. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>If object in repository is within object_threshold then updates its position and status. Otherwise creates new object.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pos_centerofmass</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a &lt;x,y&gt; coordinate pair of some CoM. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para>track_objects_server </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/laser_objects.hpp" line="35" column="1" bodyfile="src/laser_objects.cpp" bodystart="124" bodyend="134"/>
+        <location file="include/laser_objects.hpp" line="54" column="1" bodyfile="src/laser_objects.cpp" bodystart="201" bodyend="211"/>
       </memberdef>
-      <memberdef kind="function" id="classlaser__objects_1a5d288e741d7fca610899fd1b9f822826" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__laser__objects_1ga5d288e741d7fca610899fd1b9f822826" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; float &gt;</type>
         <definition>std::vector&lt; float &gt; laser_objects::get_mobiles_x</definition>
         <argsstring>()</argsstring>
@@ -56,12 +66,14 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Getter for the all mobiles&apos; x coordinate. <simplesect kind="return"><para>list of all mobile object&apos;s x coordinate </para></simplesect>
+<simplesect kind="see"><para><ref refid="group__laser__objects_1gab76cec03e47705fcad27a2cf9d9b62a0" kindref="member">laser_objects::get_mobiles_y</ref> </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/laser_objects.hpp" line="36" column="1" bodyfile="src/laser_objects.cpp" bodystart="136" bodyend="145"/>
+        <location file="include/laser_objects.hpp" line="55" column="1" bodyfile="src/laser_objects.cpp" bodystart="217" bodyend="226"/>
       </memberdef>
-      <memberdef kind="function" id="classlaser__objects_1ab76cec03e47705fcad27a2cf9d9b62a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__laser__objects_1gab76cec03e47705fcad27a2cf9d9b62a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; float &gt;</type>
         <definition>std::vector&lt; float &gt; laser_objects::get_mobiles_y</definition>
         <argsstring>()</argsstring>
@@ -69,12 +81,14 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Getter for the all mobiles&apos; y coordinate. <simplesect kind="return"><para>list of all mobile object&apos;s y coordinate </para></simplesect>
+<simplesect kind="see"><para><ref refid="group__laser__objects_1ga5d288e741d7fca610899fd1b9f822826" kindref="member">laser_objects::get_mobiles_x</ref> </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/laser_objects.hpp" line="37" column="1" bodyfile="src/laser_objects.cpp" bodystart="146" bodyend="155"/>
+        <location file="include/laser_objects.hpp" line="56" column="1" bodyfile="src/laser_objects.cpp" bodystart="232" bodyend="241"/>
       </memberdef>
-      <memberdef kind="function" id="classlaser__objects_1a1f4e68699b3a5ea853dce7e45123a284" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__laser__objects_1ga1f4e68699b3a5ea853dce7e45123a284" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; float &gt;</type>
         <definition>std::vector&lt; float &gt; laser_objects::get_statics_x</definition>
         <argsstring>()</argsstring>
@@ -82,12 +96,14 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Getter for the all static&apos;s x coordinate. <simplesect kind="return"><para>list of all mobile object&apos;s x coordinate </para></simplesect>
+<simplesect kind="see"><para><ref refid="group__laser__objects_1ga6063594fe030d1d8c33e6f4d2e1b3ef0" kindref="member">laser_objects::get_statics_y</ref> </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/laser_objects.hpp" line="38" column="1" bodyfile="src/laser_objects.cpp" bodystart="156" bodyend="165"/>
+        <location file="include/laser_objects.hpp" line="57" column="1" bodyfile="src/laser_objects.cpp" bodystart="247" bodyend="256"/>
       </memberdef>
-      <memberdef kind="function" id="classlaser__objects_1a6063594fe030d1d8c33e6f4d2e1b3ef0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__laser__objects_1ga6063594fe030d1d8c33e6f4d2e1b3ef0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; float &gt;</type>
         <definition>std::vector&lt; float &gt; laser_objects::get_statics_y</definition>
         <argsstring>()</argsstring>
@@ -95,25 +111,27 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Getter for the all static&apos;s y coordinate. <simplesect kind="return"><para>list of all mobile object&apos;s y coordinate </para></simplesect>
+<simplesect kind="see"><para><ref refid="group__laser__objects_1ga1f4e68699b3a5ea853dce7e45123a284" kindref="member">laser_objects::get_statics_x</ref> </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/laser_objects.hpp" line="39" column="1" bodyfile="src/laser_objects.cpp" bodystart="166" bodyend="175"/>
+        <location file="include/laser_objects.hpp" line="58" column="1" bodyfile="src/laser_objects.cpp" bodystart="262" bodyend="271"/>
       </memberdef>
-      <memberdef kind="function" id="classlaser__objects_1a8491aebb670f24305deeb85a9da26ede" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__laser__objects_1ga8491aebb670f24305deeb85a9da26ede" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void laser_objects::update_repository</definition>
         <argsstring>()</argsstring>
         <name>update_repository</name>
         <briefdescription>
-        </briefdescription>
+<para>Culls old objects from repository. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Updates repository Removes all objects that have been updated over CULLING_TIME seconds ago. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/laser_objects.hpp" line="40" column="1" bodyfile="src/laser_objects.cpp" bodystart="177" bodyend="195"/>
+        <location file="include/laser_objects.hpp" line="59" column="1" bodyfile="src/laser_objects.cpp" bodystart="278" bodyend="296"/>
       </memberdef>
-      <memberdef kind="function" id="classlaser__objects_1a9be2a1b55a49c0083bc37ac770ca2fa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__laser__objects_1ga9be2a1b55a49c0083bc37ac770ca2fa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>laser_objects::laser_objects</definition>
         <argsstring>(float scanner_dt)</argsstring>
@@ -123,12 +141,20 @@
           <declname>scanner_dt</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>Constructor. Completes F model matrix with time interval. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><xrefsect id="todo_1_todo000001"><xreftitle>Todo</xreftitle><xrefdescription><para>: Implement get_mobiles_dir() </para></xrefdescription></xrefsect><xrefsect id="todo_1_todo000002"><xreftitle>Todo</xreftitle><xrefdescription><para>Implemetn get_mobiles_spd() </para></xrefdescription></xrefsect></para><para>Since effect of of the velocity on the position depends on the time it takes to update, parameter dt is used to complete the model.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>time interval between updates. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/laser_objects.hpp" line="41" column="1" bodyfile="src/laser_objects.cpp" bodystart="207" bodyend="212"/>
+        <location file="include/laser_objects.hpp" line="60" column="1" bodyfile="src/laser_objects.cpp" bodystart="317" bodyend="322"/>
       </memberdef>
       <memberdef kind="function" id="classlaser__objects_1ae80a2220fefdf144ae5e653d902d36a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -141,24 +167,24 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/laser_objects.hpp" line="42" column="1"/>
+        <location file="include/laser_objects.hpp" line="61" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-    </briefdescription>
+<para>A repository for <ref refid="classlaser__object__t" kindref="compound">laser_object_t</ref>&apos;s. </para>    </briefdescription>
     <detaileddescription>
-    </detaileddescription>
-    <location file="include/laser_objects.hpp" line="30" column="1" bodyfile="include/laser_objects.hpp" bodystart="29" bodyend="52"/>
+<para>Creates a repository that creates, updates and culls objects. </para>    </detaileddescription>
+    <location file="include/laser_objects.hpp" line="49" column="1" bodyfile="include/laser_objects.hpp" bodystart="48" bodyend="71"/>
     <listofallmembers>
       <member refid="classlaser__objects_1af193b94d6f48b40418f4148402f8528f" prot="private" virt="non-virtual"><scope>laser_objects</scope><name>dt</name></member>
-      <member refid="classlaser__objects_1a5d288e741d7fca610899fd1b9f822826" prot="public" virt="non-virtual"><scope>laser_objects</scope><name>get_mobiles_x</name></member>
-      <member refid="classlaser__objects_1ab76cec03e47705fcad27a2cf9d9b62a0" prot="public" virt="non-virtual"><scope>laser_objects</scope><name>get_mobiles_y</name></member>
-      <member refid="classlaser__objects_1a1f4e68699b3a5ea853dce7e45123a284" prot="public" virt="non-virtual"><scope>laser_objects</scope><name>get_statics_x</name></member>
-      <member refid="classlaser__objects_1a6063594fe030d1d8c33e6f4d2e1b3ef0" prot="public" virt="non-virtual"><scope>laser_objects</scope><name>get_statics_y</name></member>
+      <member refid="group__laser__objects_1ga5d288e741d7fca610899fd1b9f822826" prot="public" virt="non-virtual"><scope>laser_objects</scope><name>get_mobiles_x</name></member>
+      <member refid="group__laser__objects_1gab76cec03e47705fcad27a2cf9d9b62a0" prot="public" virt="non-virtual"><scope>laser_objects</scope><name>get_mobiles_y</name></member>
+      <member refid="group__laser__objects_1ga1f4e68699b3a5ea853dce7e45123a284" prot="public" virt="non-virtual"><scope>laser_objects</scope><name>get_statics_x</name></member>
+      <member refid="group__laser__objects_1ga6063594fe030d1d8c33e6f4d2e1b3ef0" prot="public" virt="non-virtual"><scope>laser_objects</scope><name>get_statics_y</name></member>
       <member refid="classlaser__objects_1a33796fdd4a95d6f432351934b08ac7e9" prot="private" virt="non-virtual"><scope>laser_objects</scope><name>laser_object_repository</name></member>
-      <member refid="classlaser__objects_1a9be2a1b55a49c0083bc37ac770ca2fa7" prot="public" virt="non-virtual"><scope>laser_objects</scope><name>laser_objects</name></member>
-      <member refid="classlaser__objects_1a8e139bb70c4e8589e512a71f244b45ef" prot="public" virt="non-virtual"><scope>laser_objects</scope><name>update</name></member>
-      <member refid="classlaser__objects_1a8491aebb670f24305deeb85a9da26ede" prot="public" virt="non-virtual"><scope>laser_objects</scope><name>update_repository</name></member>
+      <member refid="group__laser__objects_1ga9be2a1b55a49c0083bc37ac770ca2fa7" prot="public" virt="non-virtual"><scope>laser_objects</scope><name>laser_objects</name></member>
+      <member refid="group__laser__objects_1ga8e139bb70c4e8589e512a71f244b45ef" prot="public" virt="non-virtual"><scope>laser_objects</scope><name>update</name></member>
+      <member refid="group__laser__objects_1ga8491aebb670f24305deeb85a9da26ede" prot="public" virt="non-virtual"><scope>laser_objects</scope><name>update_repository</name></member>
       <member refid="classlaser__objects_1ae80a2220fefdf144ae5e653d902d36a2" prot="public" virt="non-virtual"><scope>laser_objects</scope><name>~laser_objects</name></member>
     </listofallmembers>
   </compounddef>

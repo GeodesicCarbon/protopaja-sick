@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['scanner_5fgestures_2ecpp',['scanner_gestures.cpp',['../scanner__gestures_8cpp.html',1,'']]],
-  ['scanner_5fgestures_2eh',['scanner_gestures.h',['../scanner__gestures_8h.html',1,'']]],
-  ['server_5faddress',['SERVER_ADDRESS',['../control__tcp__socket_8cpp.html#aa6cecb8c404241c624e83aee8a3979d2',1,'control_tcp_socket.cpp']]],
-  ['servo_5fcontrol_5fpointer',['servo_control_pointer',['../gesture__control_8cpp.html#ad7c4130fa2a9b5b52c9cc9762accfe31',1,'gesture_control.cpp']]],
-  ['servo_5floop_5flen',['servo_loop_len',['../gesture__control_8cpp.html#aafa72341f1113b0939af781b7d63770d',1,'gesture_control.cpp']]],
-  ['servo_5fspeed_5fconst',['servo_speed_const',['../gesture__control_8cpp.html#a652fa32c4482bb0d3805c3c5f5900af5',1,'gesture_control.cpp']]]
+  ['laser_5fobject_5fs',['Laser_object_s',['../group__laser__object__s.html',1,'']]],
+  ['laser_5fobject_5ft',['laser_object_t',['../classlaser__object__t.html',1,'laser_object_t'],['../group__laser__object__t.html#ga86fb4dc51298aedc38f4dea202e86d94',1,'laser_object_t::laser_object_t()'],['../group__laser__object__t.html',1,'(Global Namespace)']]],
+  ['laser_5fobjects',['laser_objects',['../classlaser__objects.html',1,'laser_objects'],['../group__laser__objects.html#ga9be2a1b55a49c0083bc37ac770ca2fa7',1,'laser_objects::laser_objects()'],['../group__laser__objects.html',1,'(Global Namespace)']]],
+  ['laser_5fobjects_2ecpp',['laser_objects.cpp',['../laser__objects_8cpp.html',1,'']]],
+  ['laser_5fobjects_2ehpp',['laser_objects.hpp',['../laser__objects_8hpp.html',1,'']]],
+  ['loop_5fcount',['loop_count',['../gesture__control_8cpp.html#a2ac8bc219bf895e4a3cdd514c1de6ec4',1,'gesture_control.cpp']]]
 ];

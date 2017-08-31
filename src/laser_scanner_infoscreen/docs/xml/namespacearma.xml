@@ -6,6 +6,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="src/laser_objects.cpp" line="17" column="1"/>
+    <location file="src/laser_objects.cpp" line="24" column="1"/>
   </compounddef>
 </doxygen>

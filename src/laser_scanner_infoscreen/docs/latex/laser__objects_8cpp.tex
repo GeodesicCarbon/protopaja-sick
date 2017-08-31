@@ -15,9 +15,31 @@ Implementation of object tracking.
 {\ttfamily \#include $<$algorithm$>$}\\*
 {\ttfamily \#include $<$string$>$}\\*
 {\ttfamily \#include $<$/usr/include/armadillo$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__laser__object__t_gadfe328cba5705e40f91b5cf376c3d94d}{immobile\+\_\+timeout}~5.\+0f
+\item 
+\#define \hyperlink{group__laser__object__t_ga102b2e08f8d8ab1ad176d1e00949c026}{immobile\+\_\+threshold}~1.\+0f
+\item 
+\#define \hyperlink{group__laser__object__s_gaf735b65ab6833fed43b665e828e8b601}{C\+U\+L\+L\+I\+N\+G\+\_\+\+T\+I\+ME}~5
+\item 
+\#define \hyperlink{group__laser__object__s_ga12bd8d1fde7ba659b9d690f0c9a1762f}{object\+\_\+threshold}~0.\+4
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+fmat \hyperlink{group__laser__object__t_ga4a44e170a3630aad3356b3682684f6c8}{Q}
+\begin{DoxyCompactList}\small\item\em Prediction gaussian noise aka covariance matrix. \end{DoxyCompactList}\item 
+static fmat \hyperlink{group__laser__object__t_ga77bf685edecf60761abb55a23d9c9a9b}{R} = fmat(4,4).eye() $\ast$ 1.\+2f
+\begin{DoxyCompactList}\small\item\em Measumerement accuracy matrix. \end{DoxyCompactList}\item 
+static fmat \hyperlink{group__laser__object__t_gadf0b44b0795b5c94956f21a9fb6c199b}{H} = fmat(4,4).eye() $\ast$ 1.\+0f
+\begin{DoxyCompactList}\small\item\em Measumerement covariance matrix. \end{DoxyCompactList}\item 
+static fmat \hyperlink{group__laser__object__t_ga2c9979ba8b6f6b1b92cb6432c0be9087}{F} = fmat(4,4).eye()
+\begin{DoxyCompactList}\small\item\em Model matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Implementation of object tracking. 
 
-Tracks and sorts objects into mobiles and statics from input given by laser\+\_\+objects\+\_\+server.\+cpp. Tracking is achieved with linear Kalman filter 
+Tracks and sorts objects into mobiles and statics from input given by laser\+\_\+objects\+\_\+server.\+cpp. Tracking is achieved with linear Kalman filter. Contains implementation for classes \hyperlink{classlaser__object__t}{laser\+\_\+object\+\_\+t} and \hyperlink{classlaser__objects}{laser\+\_\+objects}. 

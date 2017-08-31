@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="group__laser__object__s" kind="group">
+    <compoundname>Laser_object_s</compoundname>
+    <title>Laser_object_s</title>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__laser__object__s_1gaf735b65ab6833fed43b665e828e8b601" prot="public" static="no">
+        <name>CULLING_TIME</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Inactive time in seconds after which object is culled from the repository </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/laser_objects.cpp" line="40" column="9" bodyfile="src/laser_objects.cpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__laser__object__s_1ga12bd8d1fde7ba659b9d690f0c9a1762f" prot="public" static="no">
+        <name>object_threshold</name>
+        <initializer>0.4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Cartesian distance between points before they are considered same object. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/laser_objects.cpp" line="43" column="9" bodyfile="src/laser_objects.cpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

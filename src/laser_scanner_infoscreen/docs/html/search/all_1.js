@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['external_5fcontrol_5fpointer',['external_control_pointer',['../gesture__control_8cpp.html#a95ade72c9341fa47411a2314df6d9c0c',1,'gesture_control.cpp']]]
+  ['distance',['distance',['../group__laser__object__t.html#ga1306580c845a8e9e37646988d86788c0',1,'laser_object_t']]]
 ];

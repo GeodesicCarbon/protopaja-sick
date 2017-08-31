@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="struct_lock" kind="struct" language="C++" prot="public">
+    <compoundname>Lock</compoundname>
+    <briefdescription>
+<para>servo control (e.g. busy with biometrics) </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/gesture_control.cpp" line="76" column="1"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['object_5fthreshold',['object_threshold',['../laser__objects_8cpp.html#a12bd8d1fde7ba659b9d690f0c9a1762f',1,'laser_objects.cpp']]]
+  ['q',['Q',['../group__laser__object__t.html#ga4a44e170a3630aad3356b3682684f6c8',1,'laser_objects.cpp']]]
 ];

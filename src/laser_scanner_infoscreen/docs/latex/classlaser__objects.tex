@@ -2,106 +2,36 @@
 \label{classlaser__objects}\index{laser\+\_\+objects@{laser\+\_\+objects}}
 
 
+A repository for \hyperlink{classlaser__object__t}{laser\+\_\+object\+\_\+t}\textquotesingle{}s.  
+
+
+
+
 {\ttfamily \#include $<$laser\+\_\+objects.\+hpp$>$}
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{classlaser__objects_a8e139bb70c4e8589e512a71f244b45ef}{update} (std\+::pair$<$ float, float $>$ pos\+\_\+centerofmass)
+void \hyperlink{group__laser__objects_ga8e139bb70c4e8589e512a71f244b45ef}{update} (std\+::pair$<$ float, float $>$ pos\+\_\+centerofmass)
+\begin{DoxyCompactList}\small\item\em Update a object\textquotesingle{}s position and status or create new one. \end{DoxyCompactList}\item 
+std\+::vector$<$ float $>$ \hyperlink{group__laser__objects_ga5d288e741d7fca610899fd1b9f822826}{get\+\_\+mobiles\+\_\+x} ()
 \item 
-std\+::vector$<$ float $>$ \hyperlink{classlaser__objects_a5d288e741d7fca610899fd1b9f822826}{get\+\_\+mobiles\+\_\+x} ()
+std\+::vector$<$ float $>$ \hyperlink{group__laser__objects_gab76cec03e47705fcad27a2cf9d9b62a0}{get\+\_\+mobiles\+\_\+y} ()
 \item 
-std\+::vector$<$ float $>$ \hyperlink{classlaser__objects_ab76cec03e47705fcad27a2cf9d9b62a0}{get\+\_\+mobiles\+\_\+y} ()
+std\+::vector$<$ float $>$ \hyperlink{group__laser__objects_ga1f4e68699b3a5ea853dce7e45123a284}{get\+\_\+statics\+\_\+x} ()
 \item 
-std\+::vector$<$ float $>$ \hyperlink{classlaser__objects_a1f4e68699b3a5ea853dce7e45123a284}{get\+\_\+statics\+\_\+x} ()
+std\+::vector$<$ float $>$ \hyperlink{group__laser__objects_ga6063594fe030d1d8c33e6f4d2e1b3ef0}{get\+\_\+statics\+\_\+y} ()
 \item 
-std\+::vector$<$ float $>$ \hyperlink{classlaser__objects_a6063594fe030d1d8c33e6f4d2e1b3ef0}{get\+\_\+statics\+\_\+y} ()
-\item 
-void \hyperlink{classlaser__objects_a8491aebb670f24305deeb85a9da26ede}{update\+\_\+repository} ()
-\item 
-\hyperlink{classlaser__objects_a9be2a1b55a49c0083bc37ac770ca2fa7}{laser\+\_\+objects} (float scanner\+\_\+dt)
-\item 
-\hyperlink{classlaser__objects_ae80a2220fefdf144ae5e653d902d36a2}{$\sim$laser\+\_\+objects} ()
-\end{DoxyCompactItemize}
-\subsection*{Private Attributes}
-\begin{DoxyCompactItemize}
-\item 
-float \hyperlink{classlaser__objects_af193b94d6f48b40418f4148402f8528f}{dt}
-\item 
-std\+::vector$<$ \hyperlink{classlaser__object__t}{laser\+\_\+object\+\_\+t} $>$ \hyperlink{classlaser__objects_a33796fdd4a95d6f432351934b08ac7e9}{laser\+\_\+object\+\_\+repository}
-\end{DoxyCompactItemize}
+void \hyperlink{group__laser__objects_ga8491aebb670f24305deeb85a9da26ede}{update\+\_\+repository} ()
+\begin{DoxyCompactList}\small\item\em Culls old objects from repository. \end{DoxyCompactList}\item 
+\hyperlink{group__laser__objects_ga9be2a1b55a49c0083bc37ac770ca2fa7}{laser\+\_\+objects} (float scanner\+\_\+dt)
+\begin{DoxyCompactList}\small\item\em Constructor. Completes F model matrix with time interval. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Constructor \& Destructor Documentation}
-\index{laser\+\_\+objects@{laser\+\_\+objects}!laser\+\_\+objects@{laser\+\_\+objects}}
-\index{laser\+\_\+objects@{laser\+\_\+objects}!laser\+\_\+objects@{laser\+\_\+objects}}
-\subsubsection[{\texorpdfstring{laser\+\_\+objects(float scanner\+\_\+dt)}{laser_objects(float scanner_dt)}}]{\setlength{\rightskip}{0pt plus 5cm}laser\+\_\+objects\+::laser\+\_\+objects (
-\begin{DoxyParamCaption}
-\item[{float}]{scanner\+\_\+dt}
-\end{DoxyParamCaption}
-)}\hypertarget{classlaser__objects_a9be2a1b55a49c0083bc37ac770ca2fa7}{}\label{classlaser__objects_a9be2a1b55a49c0083bc37ac770ca2fa7}
-\index{laser\+\_\+objects@{laser\+\_\+objects}!````~laser\+\_\+objects@{$\sim$laser\+\_\+objects}}
-\index{````~laser\+\_\+objects@{$\sim$laser\+\_\+objects}!laser\+\_\+objects@{laser\+\_\+objects}}
-\subsubsection[{\texorpdfstring{$\sim$laser\+\_\+objects()}{~laser_objects()}}]{\setlength{\rightskip}{0pt plus 5cm}laser\+\_\+objects\+::$\sim$laser\+\_\+objects (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\hypertarget{classlaser__objects_ae80a2220fefdf144ae5e653d902d36a2}{}\label{classlaser__objects_ae80a2220fefdf144ae5e653d902d36a2}
+\subsection{Detailed Description}
+A repository for \hyperlink{classlaser__object__t}{laser\+\_\+object\+\_\+t}\textquotesingle{}s. 
 
-
-\subsection{Member Function Documentation}
-\index{laser\+\_\+objects@{laser\+\_\+objects}!get\+\_\+mobiles\+\_\+x@{get\+\_\+mobiles\+\_\+x}}
-\index{get\+\_\+mobiles\+\_\+x@{get\+\_\+mobiles\+\_\+x}!laser\+\_\+objects@{laser\+\_\+objects}}
-\subsubsection[{\texorpdfstring{get\+\_\+mobiles\+\_\+x()}{get_mobiles_x()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ float $>$ laser\+\_\+objects\+::get\+\_\+mobiles\+\_\+x (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\hypertarget{classlaser__objects_a5d288e741d7fca610899fd1b9f822826}{}\label{classlaser__objects_a5d288e741d7fca610899fd1b9f822826}
-\index{laser\+\_\+objects@{laser\+\_\+objects}!get\+\_\+mobiles\+\_\+y@{get\+\_\+mobiles\+\_\+y}}
-\index{get\+\_\+mobiles\+\_\+y@{get\+\_\+mobiles\+\_\+y}!laser\+\_\+objects@{laser\+\_\+objects}}
-\subsubsection[{\texorpdfstring{get\+\_\+mobiles\+\_\+y()}{get_mobiles_y()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ float $>$ laser\+\_\+objects\+::get\+\_\+mobiles\+\_\+y (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\hypertarget{classlaser__objects_ab76cec03e47705fcad27a2cf9d9b62a0}{}\label{classlaser__objects_ab76cec03e47705fcad27a2cf9d9b62a0}
-\index{laser\+\_\+objects@{laser\+\_\+objects}!get\+\_\+statics\+\_\+x@{get\+\_\+statics\+\_\+x}}
-\index{get\+\_\+statics\+\_\+x@{get\+\_\+statics\+\_\+x}!laser\+\_\+objects@{laser\+\_\+objects}}
-\subsubsection[{\texorpdfstring{get\+\_\+statics\+\_\+x()}{get_statics_x()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ float $>$ laser\+\_\+objects\+::get\+\_\+statics\+\_\+x (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\hypertarget{classlaser__objects_a1f4e68699b3a5ea853dce7e45123a284}{}\label{classlaser__objects_a1f4e68699b3a5ea853dce7e45123a284}
-\index{laser\+\_\+objects@{laser\+\_\+objects}!get\+\_\+statics\+\_\+y@{get\+\_\+statics\+\_\+y}}
-\index{get\+\_\+statics\+\_\+y@{get\+\_\+statics\+\_\+y}!laser\+\_\+objects@{laser\+\_\+objects}}
-\subsubsection[{\texorpdfstring{get\+\_\+statics\+\_\+y()}{get_statics_y()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ float $>$ laser\+\_\+objects\+::get\+\_\+statics\+\_\+y (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\hypertarget{classlaser__objects_a6063594fe030d1d8c33e6f4d2e1b3ef0}{}\label{classlaser__objects_a6063594fe030d1d8c33e6f4d2e1b3ef0}
-\index{laser\+\_\+objects@{laser\+\_\+objects}!update@{update}}
-\index{update@{update}!laser\+\_\+objects@{laser\+\_\+objects}}
-\subsubsection[{\texorpdfstring{update(std\+::pair$<$ float, float $>$ pos\+\_\+centerofmass)}{update(std::pair< float, float > pos_centerofmass)}}]{\setlength{\rightskip}{0pt plus 5cm}void laser\+\_\+objects\+::update (
-\begin{DoxyParamCaption}
-\item[{std\+::pair$<$ float, float $>$}]{pos\+\_\+centerofmass}
-\end{DoxyParamCaption}
-)}\hypertarget{classlaser__objects_a8e139bb70c4e8589e512a71f244b45ef}{}\label{classlaser__objects_a8e139bb70c4e8589e512a71f244b45ef}
-\index{laser\+\_\+objects@{laser\+\_\+objects}!update\+\_\+repository@{update\+\_\+repository}}
-\index{update\+\_\+repository@{update\+\_\+repository}!laser\+\_\+objects@{laser\+\_\+objects}}
-\subsubsection[{\texorpdfstring{update\+\_\+repository()}{update_repository()}}]{\setlength{\rightskip}{0pt plus 5cm}void laser\+\_\+objects\+::update\+\_\+repository (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\hypertarget{classlaser__objects_a8491aebb670f24305deeb85a9da26ede}{}\label{classlaser__objects_a8491aebb670f24305deeb85a9da26ede}
-
-
-\subsection{Member Data Documentation}
-\index{laser\+\_\+objects@{laser\+\_\+objects}!dt@{dt}}
-\index{dt@{dt}!laser\+\_\+objects@{laser\+\_\+objects}}
-\subsubsection[{\texorpdfstring{dt}{dt}}]{\setlength{\rightskip}{0pt plus 5cm}float laser\+\_\+objects\+::dt\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classlaser__objects_af193b94d6f48b40418f4148402f8528f}{}\label{classlaser__objects_af193b94d6f48b40418f4148402f8528f}
-\index{laser\+\_\+objects@{laser\+\_\+objects}!laser\+\_\+object\+\_\+repository@{laser\+\_\+object\+\_\+repository}}
-\index{laser\+\_\+object\+\_\+repository@{laser\+\_\+object\+\_\+repository}!laser\+\_\+objects@{laser\+\_\+objects}}
-\subsubsection[{\texorpdfstring{laser\+\_\+object\+\_\+repository}{laser_object_repository}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf laser\+\_\+object\+\_\+t}$>$ laser\+\_\+objects\+::laser\+\_\+object\+\_\+repository\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classlaser__objects_a33796fdd4a95d6f432351934b08ac7e9}{}\label{classlaser__objects_a33796fdd4a95d6f432351934b08ac7e9}
-
+Creates a repository that creates, updates and culls objects. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

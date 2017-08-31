@@ -1,19 +1,29 @@
 #ifndef LASER_OBJECTS_H
 #define LASER_OBJECTS_H
-#include <armadillo>
+
 /*! \file laser_objects.hpp
 */
+/*!
+ *  \addtogroup laser_object_t
+ *  @{
+ */
+#include <armadillo>
 
+/*! \class laser_object_t
+\brief An instance of tracked object
 
+Creates an instance of object that is approximation of existing object.
+*/
 class laser_object_t
 {
-bool is_mobile;
-std::pair<float, float> pos_centerofmass;
-std::pair<float, float> vel_centerofmass;
-float immobile_time;
-ros::Time last_active;
-arma::fmat X, P, K;
-bool test_mobile();
+private:
+	bool is_mobile;
+	std::pair<float, float> pos_centerofmass;
+	std::pair<float, float> vel_centerofmass;
+	float immobile_time;
+	ros::Time last_active;
+	arma::fmat X, P, K;
+	bool test_mobile();
 public:
 	laser_object_t(std::pair<float, float> pos_com,
 	               std::pair<float, float> vel_com);
@@ -25,7 +35,16 @@ public:
 	~laser_object_t();
 	void run_kalman_filter(std::pair<float,float> new_pos, float dt);
 };
+/*! @} End of Doxygen Groups*/
+/*!
+ *  \addtogroup laser_objects
+ *  @{
+ */
+ /*! \class laser_objects
+ \brief A repository for laser_object_t's
 
+ Creates a repository that creates, updates and culls objects.
+ */
 class laser_objects
 {
 private:
@@ -50,4 +69,5 @@ public:
 //
 // }
 };
+/*! @} End of Doxygen Groups*/
 #endif /* end of include guard: LASER_OBJECTS_H */

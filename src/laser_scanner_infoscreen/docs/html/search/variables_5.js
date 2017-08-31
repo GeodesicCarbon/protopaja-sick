@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['timelock',['timelock',['../gesture__control_8cpp.html#a8bc0d59633fb23785a6dc267a7cb0326',1,'gesture_control.cpp']]]
+  ['loop_5fcount',['loop_count',['../gesture__control_8cpp.html#a2ac8bc219bf895e4a3cdd514c1de6ec4',1,'gesture_control.cpp']]]
 ];

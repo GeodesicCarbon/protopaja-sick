@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['laser_5fobjects_2ecpp',['laser_objects.cpp',['../laser__objects_8cpp.html',1,'']]],
-  ['laser_5fobjects_2ehpp',['laser_objects.hpp',['../laser__objects_8hpp.html',1,'']]]
+  ['f',['F',['../group__laser__object__t.html#ga2c9979ba8b6f6b1b92cb6432c0be9087',1,'laser_objects.cpp']]]
 ];

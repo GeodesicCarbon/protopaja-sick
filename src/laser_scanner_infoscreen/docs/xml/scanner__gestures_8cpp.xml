@@ -7,34 +7,34 @@
     <includes local="no">algorithm</includes>
     <includes local="no">visualization_msgs/Marker.h</includes>
     <incdepgraph>
-      <node id="1175">
+      <node id="1189">
         <label>cmath</label>
       </node>
-      <node id="1173">
+      <node id="1187">
         <label>scanner_gestures.h</label>
         <link refid="scanner__gestures_8h"/>
-        <childnode refid="1174" relation="include">
+        <childnode refid="1188" relation="include">
         </childnode>
       </node>
-      <node id="1172">
+      <node id="1186">
         <label>src/scanner_gestures.cpp</label>
         <link refid="scanner_gestures.cpp"/>
-        <childnode refid="1173" relation="include">
+        <childnode refid="1187" relation="include">
         </childnode>
-        <childnode refid="1175" relation="include">
+        <childnode refid="1189" relation="include">
         </childnode>
-        <childnode refid="1176" relation="include">
+        <childnode refid="1190" relation="include">
         </childnode>
-        <childnode refid="1177" relation="include">
+        <childnode refid="1191" relation="include">
         </childnode>
       </node>
-      <node id="1177">
+      <node id="1191">
         <label>visualization_msgs/Marker.h</label>
       </node>
-      <node id="1174">
+      <node id="1188">
         <label>ros/ros.h</label>
       </node>
-      <node id="1176">
+      <node id="1190">
         <label>algorithm</label>
       </node>
     </incdepgraph>

@@ -1,0 +1,281 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="group__laser__object__t" kind="group">
+    <compoundname>Laser_object_t</compoundname>
+    <title>Laser_object_t</title>
+    <innerclass refid="classlaser__object__t" prot="public">laser_object_t</innerclass>
+    <innernamespace refid="namespacearma">arma</innernamespace>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="group__laser__object__t_1ga4a44e170a3630aad3356b3682684f6c8" prot="public" static="no" mutable="no">
+        <type>fmat</type>
+        <definition>fmat Q</definition>
+        <argsstring></argsstring>
+        <name>Q</name>
+        <initializer>= { {0.1f, 0.0f, 0.0f, 0.0f},
+            {0.0f, 0.1f, 0.0f, 0.0f},
+            {0.0f, 0.0f, 1.0f, 0.0f}, 
+            {0.0f, 0.0f, 0.0f, 1.0f}  }</initializer>
+        <briefdescription>
+<para>Prediction gaussian noise aka covariance matrix. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/laser_objects.cpp" line="51" column="1" bodyfile="src/laser_objects.cpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__laser__object__t_1ga77bf685edecf60761abb55a23d9c9a9b" prot="public" static="yes" mutable="no">
+        <type>fmat</type>
+        <definition>fmat R</definition>
+        <argsstring></argsstring>
+        <name>R</name>
+        <initializer>= fmat(4,4).eye() * 1.2f</initializer>
+        <briefdescription>
+<para>Measumerement accuracy matrix. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/laser_objects.cpp" line="56" column="1" bodyfile="src/laser_objects.cpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__laser__object__t_1gadf0b44b0795b5c94956f21a9fb6c199b" prot="public" static="yes" mutable="no">
+        <type>fmat</type>
+        <definition>fmat H</definition>
+        <argsstring></argsstring>
+        <name>H</name>
+        <initializer>= fmat(4,4).eye() * 1.0f</initializer>
+        <briefdescription>
+<para>Measumerement covariance matrix. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/laser_objects.cpp" line="58" column="1" bodyfile="src/laser_objects.cpp" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__laser__object__t_1ga2c9979ba8b6f6b1b92cb6432c0be9087" prot="public" static="yes" mutable="no">
+        <type>fmat</type>
+        <definition>fmat F</definition>
+        <argsstring></argsstring>
+        <name>F</name>
+        <initializer>= fmat(4,4).eye()</initializer>
+        <briefdescription>
+<para>Model matrix. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/laser_objects.cpp" line="62" column="1" bodyfile="src/laser_objects.cpp" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__laser__object__t_1gadfe328cba5705e40f91b5cf376c3d94d" prot="public" static="no">
+        <name>immobile_timeout</name>
+        <initializer>5.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Time in seconds before object is considered immobile. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/laser_objects.cpp" line="28" column="9" bodyfile="src/laser_objects.cpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__laser__object__t_1ga102b2e08f8d8ab1ad176d1e00949c026" prot="public" static="no">
+        <name>immobile_threshold</name>
+        <initializer>1.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Speed in m/s after which object is evaluated as moving. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/laser_objects.cpp" line="32" column="9" bodyfile="src/laser_objects.cpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__laser__object__t_1ga86fb4dc51298aedc38f4dea202e86d94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>laser_object_t::laser_object_t</definition>
+        <argsstring>(std::pair&lt; float, float &gt; pos_com, std::pair&lt; float, float &gt; vel_com)</argsstring>
+        <name>laser_object_t</name>
+        <param>
+          <type>std::pair&lt; float, float &gt;</type>
+          <declname>pos_com</declname>
+        </param>
+        <param>
+          <type>std::pair&lt; float, float &gt;</type>
+          <declname>vel_com</declname>
+        </param>
+        <briefdescription>
+<para>Construct a new <ref refid="classlaser__object__t" kindref="compound">laser_object_t</ref> from postion and velocti pair. </para>        </briefdescription>
+        <detaileddescription>
+<para>Constructor <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pos_com</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a &lt;x,y&gt; position vector of the object&apos;s center of mass. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pos_com</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a &lt;v_x,v_y&gt; velocity vector of the object&apos;s center of mass. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="28" column="1" bodyfile="src/laser_objects.cpp" bodystart="71" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="group__laser__object__t_1gaaf5e27005d394ba00082e17a0804f3b2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool laser_object_t::test_mobile</definition>
+        <argsstring>()</argsstring>
+        <name>test_mobile</name>
+        <briefdescription>
+<para>test whether object has surpassed immobile threshold. </para>        </briefdescription>
+        <detaileddescription>
+<para>Mobile test. <simplesect kind="return"><para>is the object mobile. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="26" column="1" bodyfile="src/laser_objects.cpp" bodystart="88" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="group__laser__object__t_1ga1306580c845a8e9e37646988d86788c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float laser_object_t::distance</definition>
+        <argsstring>(std::pair&lt; float, float &gt; coords_to)</argsstring>
+        <name>distance</name>
+        <param>
+          <type>std::pair&lt; float, float &gt;</type>
+          <declname>coords_to</declname>
+        </param>
+        <briefdescription>
+<para>Calculates the Cartesian distance between coordinate pair and this object. </para>        </briefdescription>
+        <detaileddescription>
+<para>Distance. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coords_to</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A coordinate pair in &lt;x,y&gt; format. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>distance to the coordinate pair </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="30" column="1" bodyfile="src/laser_objects.cpp" bodystart="103" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="group__laser__object__t_1ga7197f41117174159f618bbdcd63f9cc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void laser_object_t::run_kalman_filter</definition>
+        <argsstring>(std::pair&lt; float, float &gt; new_pos, float dt)</argsstring>
+        <name>run_kalman_filter</name>
+        <param>
+          <type>std::pair&lt; float, float &gt;</type>
+          <declname>new_pos</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>runs Kalman filter on the object and new measurements. </para>        </briefdescription>
+        <detaileddescription>
+<para>Update object Construct a column vector in the form of &lt;x, y, v_x, v_y&gt; and updates position by the Kalman filter. Should smooth path and improve tracking.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>new_pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A &lt;x,y&gt; coordinate pair to the new measured position. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>time between measurements </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="36" column="1" bodyfile="src/laser_objects.cpp" bodystart="117" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="group__laser__object__t_1ga5aba73083c62b017d1e09d9e36a35df1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool laser_object_t::get_is_mobile</definition>
+        <argsstring>()</argsstring>
+        <name>get_is_mobile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Getter for variable is_mobile <simplesect kind="return"><para>is this object mobile </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="34" column="1" bodyfile="src/laser_objects.cpp" bodystart="159" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="group__laser__object__t_1ga85ea7644afff4ac0315156a182946110" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ros::Time</type>
+        <definition>ros::Time laser_object_t::get_last_active</definition>
+        <argsstring>()</argsstring>
+        <name>get_last_active</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Getter for variable last_active <simplesect kind="return"><para>time this object was last active </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="31" column="1" bodyfile="src/laser_objects.cpp" bodystart="166" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="group__laser__object__t_1ga02a018369ba1e52d2cec3625f7452c7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::pair&lt; float, float &gt;</type>
+        <definition>std::pair&lt; float, float &gt; laser_object_t::get_pos_centerofmass</definition>
+        <argsstring>()</argsstring>
+        <name>get_pos_centerofmass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Getter for variable pos_centerofmass <simplesect kind="return"><para>&lt;x,y&gt; coordinate pair of the object&apos;s CoM. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="32" column="1" bodyfile="src/laser_objects.cpp" bodystart="173" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="group__laser__object__t_1gadfafd151af0900623901d162260ba234" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::pair&lt; float, float &gt;</type>
+        <definition>std::pair&lt; float, float &gt; laser_object_t::get_vel_centerofmass</definition>
+        <argsstring>()</argsstring>
+        <name>get_vel_centerofmass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Getter for variable vel_centerofmass <simplesect kind="return"><para>&lt;d_x,d_y&gt; vector pair of the object&apos;s CoM velocity. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="33" column="1" bodyfile="src/laser_objects.cpp" bodystart="180" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="group__laser__object__t_1gac9cc27a949e2af39dc4da7fb0fb8f8d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>laser_object_t::~laser_object_t</definition>
+        <argsstring>()</argsstring>
+        <name>~laser_object_t</name>
+        <briefdescription>
+<para>Destructor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="35" column="1" bodyfile="src/laser_objects.cpp" bodystart="184" bodyend="185"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

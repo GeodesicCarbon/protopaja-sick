@@ -14,66 +14,66 @@
     <includes local="no">visualization_msgs/Marker.h</includes>
     <includes local="no">string</includes>
     <incdepgraph>
-      <node id="624">
+      <node id="638">
         <label>laser_scanner_infoscreen/gesture_call.h</label>
       </node>
-      <node id="622">
+      <node id="636">
         <label>laser_scanner_infoscreen/external_control.h</label>
       </node>
-      <node id="627">
+      <node id="641">
         <label>cmath</label>
       </node>
-      <node id="623">
+      <node id="637">
         <label>scanner_gestures.h</label>
         <link refid="scanner__gestures_8h"/>
-        <childnode refid="619" relation="include">
+        <childnode refid="633" relation="include">
         </childnode>
       </node>
-      <node id="629">
+      <node id="643">
         <label>string</label>
       </node>
-      <node id="628">
+      <node id="642">
         <label>visualization_msgs/Marker.h</label>
       </node>
-      <node id="621">
+      <node id="635">
         <label>laser_scanner_infoscreen/servo_feedback.h</label>
       </node>
-      <node id="619">
+      <node id="633">
         <label>ros/ros.h</label>
       </node>
-      <node id="626">
+      <node id="640">
         <label>cstdlib</label>
       </node>
-      <node id="618">
+      <node id="632">
         <label>src/gesture_control.cpp</label>
         <link refid="gesture_control.cpp"/>
-        <childnode refid="619" relation="include">
+        <childnode refid="633" relation="include">
         </childnode>
-        <childnode refid="620" relation="include">
+        <childnode refid="634" relation="include">
         </childnode>
-        <childnode refid="621" relation="include">
+        <childnode refid="635" relation="include">
         </childnode>
-        <childnode refid="622" relation="include">
+        <childnode refid="636" relation="include">
         </childnode>
-        <childnode refid="623" relation="include">
+        <childnode refid="637" relation="include">
         </childnode>
-        <childnode refid="624" relation="include">
+        <childnode refid="638" relation="include">
         </childnode>
-        <childnode refid="625" relation="include">
+        <childnode refid="639" relation="include">
         </childnode>
-        <childnode refid="626" relation="include">
+        <childnode refid="640" relation="include">
         </childnode>
-        <childnode refid="627" relation="include">
+        <childnode refid="641" relation="include">
         </childnode>
-        <childnode refid="628" relation="include">
+        <childnode refid="642" relation="include">
         </childnode>
-        <childnode refid="629" relation="include">
+        <childnode refid="643" relation="include">
         </childnode>
       </node>
-      <node id="625">
+      <node id="639">
         <label>sensor_msgs/LaserScan.h</label>
       </node>
-      <node id="620">
+      <node id="634">
         <label>laser_scanner_infoscreen/servo_control.h</label>
       </node>
     </incdepgraph>
@@ -133,7 +133,7 @@
         <name>sensor_pos</name>
         <initializer>= {0.0,-0.22,0.72}</initializer>
         <briefdescription>
-        </briefdescription>
+<para>Offset of the upper sensor in the relation of lower sensor in {x,y,z}. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
@@ -147,12 +147,13 @@
         <name>loop_count</name>
         <initializer>= 0</initializer>
         <briefdescription>
-        </briefdescription>
+<para>Loop counter fo the servo control. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><simplesect kind="see"><para><ref refid="gesture__control_8cpp_1aafa72341f1113b0939af781b7d63770d" kindref="member">servo_loop_len</ref> </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gesture_control.cpp" line="44" column="1" bodyfile="src/gesture_control.cpp" bodystart="44" bodyend="-1"/>
+        <location file="src/gesture_control.cpp" line="45" column="1" bodyfile="src/gesture_control.cpp" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" prot="public" static="yes" mutable="no">
         <type>Scanner_gestures *</type>
@@ -165,7 +166,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gesture_control.cpp" line="48" column="1" bodyfile="src/gesture_control.cpp" bodystart="48" bodyend="-1"/>
+        <location file="src/gesture_control.cpp" line="49" column="1" bodyfile="src/gesture_control.cpp" bodystart="49" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="gesture__control_8cpp_1a8c9e9fe63fc6db914caeb21d95be5ca0" prot="public" static="yes" mutable="no">
         <type>ros::NodeHandle *</type>
@@ -178,7 +179,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gesture_control.cpp" line="50" column="1" bodyfile="src/gesture_control.cpp" bodystart="50" bodyend="-1"/>
+        <location file="src/gesture_control.cpp" line="51" column="1" bodyfile="src/gesture_control.cpp" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="gesture__control_8cpp_1a63b0cea48d2da7a328302aee063e57b9" prot="public" static="no" mutable="no">
         <type>ros::Publisher *</type>
@@ -191,7 +192,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gesture_control.cpp" line="52" column="1" bodyfile="src/gesture_control.cpp" bodystart="52" bodyend="-1"/>
+        <location file="src/gesture_control.cpp" line="53" column="1" bodyfile="src/gesture_control.cpp" bodystart="53" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="gesture__control_8cpp_1ad7c4130fa2a9b5b52c9cc9762accfe31" prot="public" static="no" mutable="no">
         <type>ros::Publisher *</type>
@@ -204,7 +205,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gesture_control.cpp" line="54" column="1" bodyfile="src/gesture_control.cpp" bodystart="54" bodyend="-1"/>
+        <location file="src/gesture_control.cpp" line="55" column="1" bodyfile="src/gesture_control.cpp" bodystart="55" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="gesture__control_8cpp_1a25374abed3f304c24bfe5098b954d442" prot="public" static="no" mutable="no">
         <type>ros::Subscriber *</type>
@@ -217,7 +218,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gesture_control.cpp" line="56" column="1" bodyfile="src/gesture_control.cpp" bodystart="56" bodyend="-1"/>
+        <location file="src/gesture_control.cpp" line="57" column="1" bodyfile="src/gesture_control.cpp" bodystart="57" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="gesture__control_8cpp_1a95ade72c9341fa47411a2314df6d9c0c" prot="public" static="no" mutable="no">
         <type>ros::Publisher *</type>
@@ -230,7 +231,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gesture_control.cpp" line="58" column="1" bodyfile="src/gesture_control.cpp" bodystart="58" bodyend="-1"/>
+        <location file="src/gesture_control.cpp" line="59" column="1" bodyfile="src/gesture_control.cpp" bodystart="59" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="gesture__control_8cpp_1a8bc0d59633fb23785a6dc267a7cb0326" prot="public" static="yes" mutable="no">
         <type>ros::Time</type>
@@ -243,7 +244,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gesture_control.cpp" line="60" column="1" bodyfile="src/gesture_control.cpp" bodystart="60" bodyend="-1"/>
+        <location file="src/gesture_control.cpp" line="61" column="1" bodyfile="src/gesture_control.cpp" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="gesture__control_8cpp_1a1aa23b898528eadf4c747440d5e8a396" prot="public" static="no" mutable="no">
         <type>struct <ref refid="structpoi__t" kindref="compound">poi_t</ref></type>
@@ -256,10 +257,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gesture_control.cpp" line="69" column="1"/>
+        <location file="src/gesture_control.cpp" line="71" column="1"/>
       </memberdef>
       <memberdef kind="variable" id="gesture__control_8cpp_1afa99a3b6a2c2f964524fdd4cbd5f6be3" prot="public" static="no" mutable="no">
-        <type>struct servo_t</type>
+        <type>struct <ref refid="structservo__t" kindref="compound">servo_t</ref></type>
         <definition>struct servo_t  servo</definition>
         <argsstring></argsstring>
         <name>servo</name>
@@ -269,7 +270,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gesture_control.cpp" line="74" column="1"/>
+        <location file="src/gesture_control.cpp" line="76" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -283,12 +284,20 @@
           <declname>scan</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>if enables, parses LaserScan messages and send them to the gesture tracker. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>LaserScan callback function. Receives raw data from /scan_upper topic in the form of LaserScan messages, collates it with the PoI position and sends it to the Scanner_gestures object for parsing and scoring. If applicable, retrieves gesture. Handles timeouts between gestures to minize jitter and false positives.</para><para>Scanner is read by default. If tracking is disabled, the data is discarded.</para><para>Sends visualization of gesture tracking to the /visualization_gesture topic. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scan</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>LaserScan message from upper (gesture) scanner. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gesture_control.cpp" line="78" column="1" bodyfile="src/gesture_control.cpp" bodystart="78" bodyend="150"/>
+        <location file="src/gesture_control.cpp" line="92" column="1" bodyfile="src/gesture_control.cpp" bodystart="92" bodyend="164"/>
       </memberdef>
       <memberdef kind="function" id="gesture__control_8cpp_1ab4546fc84eafe7c48c81b8f28c5077c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -300,12 +309,12 @@
           <declname>msg</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>handles control messages from /gesture_control topic </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>gesture_control callback function Servo control logic. If tracking is enabled servo is moved into gesture read position. The angle of the upper scanner is kept so that the beam approximately intersects with the lower scanner at the position of POI </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gesture_control.cpp" line="155" column="1" bodyfile="src/gesture_control.cpp" bodystart="155" bodyend="172"/>
+        <location file="src/gesture_control.cpp" line="172" column="1" bodyfile="src/gesture_control.cpp" bodystart="172" bodyend="189"/>
       </memberdef>
       <memberdef kind="function" id="gesture__control_8cpp_1a272dea7f151f9bf75131542422903056" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -317,12 +326,20 @@
           <declname>msg</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>servo controller callback to release servo lock. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>servo_feedback callback Whenever servo has completed its move it should publish on /servo_position topic. This releases lock on gesture tracking. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>servo_feedback.msg of servo position </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gesture_control.cpp" line="174" column="1" bodyfile="src/gesture_control.cpp" bodystart="174" bodyend="177"/>
+        <location file="src/gesture_control.cpp" line="198" column="1" bodyfile="src/gesture_control.cpp" bodystart="198" bodyend="201"/>
       </memberdef>
       <memberdef kind="function" id="gesture__control_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -340,16 +357,16 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Main function. Initializes node and its variables. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gesture_control.cpp" line="179" column="1" bodyfile="src/gesture_control.cpp" bodystart="179" bodyend="198"/>
+        <location file="src/gesture_control.cpp" line="205" column="1" bodyfile="src/gesture_control.cpp" bodystart="205" bodyend="225"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
 <para>Node that handles gesture tracking and associated topics. </para>    </briefdescription>
     <detaileddescription>
-<para><simplesect kind="see"><para>Scanner_gestures </para></simplesect>
+<para><simplesect kind="see"><para>scanner_gestures </para></simplesect>
 <simplesect kind="see"><para>&lt;track_objects_client&gt; </para></simplesect>
 </para>    </detaileddescription>
     <programlisting>
@@ -373,155 +390,146 @@
 <codeline lineno="34"><highlight class="normal"></highlight></codeline>
 <codeline lineno="40"><highlight class="preprocessor">#define<sp/>servo_loop_len<sp/>5</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="41"><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Offset<sp/>of<sp/>the<sp/>upper<sp/>sensor<sp/>in<sp/>the<sp/>relation<sp/>of<sp/>lower<sp/>sensor</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::vector&lt;float&gt;<sp/>sensor_pos<sp/>=<sp/>{0.0,-0.22,0.72};</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>loop_count<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Initializing<sp/>global<sp/>objects</highlight></codeline>
-<codeline lineno="48"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>Scanner_gestures*<sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>;</highlight></codeline>
-<codeline lineno="50"><highlight class="keyword">static</highlight><highlight class="normal"><sp/>ros::NodeHandle<sp/>*<ref refid="gesture__control_8cpp_1a8c9e9fe63fc6db914caeb21d95be5ca0" kindref="member">node_pointer</ref>;</highlight></codeline>
-<codeline lineno="52"><highlight class="normal">ros::Publisher<sp/>*<ref refid="gesture__control_8cpp_1a63b0cea48d2da7a328302aee063e57b9" kindref="member">marker_pub_pointer</ref>;</highlight></codeline>
-<codeline lineno="54"><highlight class="normal">ros::Publisher<sp/>*<ref refid="gesture__control_8cpp_1ad7c4130fa2a9b5b52c9cc9762accfe31" kindref="member">servo_control_pointer</ref>;</highlight></codeline>
-<codeline lineno="56"><highlight class="normal">ros::Subscriber<sp/>*<ref refid="gesture__control_8cpp_1a25374abed3f304c24bfe5098b954d442" kindref="member">gesture_control_pointer</ref>;</highlight></codeline>
-<codeline lineno="58"><highlight class="normal">ros::Publisher<sp/>*<ref refid="gesture__control_8cpp_1a95ade72c9341fa47411a2314df6d9c0c" kindref="member">external_control_pointer</ref>;</highlight></codeline>
-<codeline lineno="60"><highlight class="keyword">static</highlight><highlight class="normal"><sp/>ros::Time<sp/><ref refid="gesture__control_8cpp_1a8bc0d59633fb23785a6dc267a7cb0326" kindref="member">timelock</ref>;</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::vector&lt;float&gt;<sp/><ref refid="gesture__control_8cpp_1ad8662d30f3440d45487607002371a735" kindref="member">sensor_pos</ref><sp/>=<sp/>{0.0,-0.22,0.72};</highlight></codeline>
+<codeline lineno="45"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="gesture__control_8cpp_1a2ac8bc219bf895e4a3cdd514c1de6ec4" kindref="member">loop_count</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Initializing<sp/>global<sp/>objects</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>Scanner_gestures*<sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>;</highlight></codeline>
+<codeline lineno="51"><highlight class="keyword">static</highlight><highlight class="normal"><sp/>ros::NodeHandle<sp/>*<ref refid="gesture__control_8cpp_1a8c9e9fe63fc6db914caeb21d95be5ca0" kindref="member">node_pointer</ref>;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">ros::Publisher<sp/>*<ref refid="gesture__control_8cpp_1a63b0cea48d2da7a328302aee063e57b9" kindref="member">marker_pub_pointer</ref>;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">ros::Publisher<sp/>*<ref refid="gesture__control_8cpp_1ad7c4130fa2a9b5b52c9cc9762accfe31" kindref="member">servo_control_pointer</ref>;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">ros::Subscriber<sp/>*<ref refid="gesture__control_8cpp_1a25374abed3f304c24bfe5098b954d442" kindref="member">gesture_control_pointer</ref>;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">ros::Publisher<sp/>*<ref refid="gesture__control_8cpp_1a95ade72c9341fa47411a2314df6d9c0c" kindref="member">external_control_pointer</ref>;</highlight></codeline>
+<codeline lineno="61"><highlight class="keyword">static</highlight><highlight class="normal"><sp/>ros::Time<sp/><ref refid="gesture__control_8cpp_1a8bc0d59633fb23785a6dc267a7cb0326" kindref="member">timelock</ref>;</highlight></codeline>
 <codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Parameters<sp/>of<sp/>the<sp/>person<sp/>of<sp/>inrerest.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="64"><highlight class="normal"></highlight></codeline>
-<codeline lineno="66" refid="structpoi__t" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structpoi__t" kindref="compound">poi_t</ref><sp/>{</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>poi_range;</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>poi_angle;</highlight></codeline>
-<codeline lineno="69"><highlight class="normal">}<sp/>poi;</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Lock<sp/>for<sp/>the<sp/>servo<sp/>control<sp/>(e.g.<sp/>busy<sp/>with<sp/>biometrics)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">servo_t<sp/>{</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_readable<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="74"><highlight class="normal">}<sp/>servo;</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"></highlight></codeline>
-<codeline lineno="76"><highlight class="normal"></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Scanner<sp/>is<sp/>read<sp/>by<sp/>default.<sp/>If<sp/>tracking<sp/>is<sp/>disabled,<sp/>the<sp/>data<sp/>is<sp/>discarded.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>gestures_callback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>sensor_msgs::LaserScan::ConstPtr&amp;<sp/>scan)</highlight></codeline>
-<codeline lineno="79"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Visualization</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/>visualization_msgs::Marker<sp/>points;</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>std_msgs::ColorRGBA<sp/>c;</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>points.header.frame_id<sp/>=</highlight><highlight class="stringliteral">&quot;/laser&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>points.header.stamp<sp/>=<sp/>ros::Time::now();</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>points.ns<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;points_and_lines&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>points.action<sp/>=<sp/>visualization_msgs::Marker::ADD;</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>points.pose.orientation.w<sp/>=1.0;</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>points.id<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>points.type<sp/>=<sp/>visualization_msgs::Marker::POINTS;</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>points.scale.x<sp/>=<sp/>0.2;</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>points.scale.y<sp/>=<sp/>0.2;</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"></highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/>ROS_DEBUG(</highlight><highlight class="stringliteral">&quot;Tracking<sp/>enabled:<sp/>%d&quot;</highlight><highlight class="normal">,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_tracking());</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_tracking())<sp/>{<sp/></highlight><highlight class="comment">//<sp/>Discard<sp/>or<sp/>continue</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;parse_sensor_data(scan-&gt;ranges,<sp/>scan-&gt;angle_min,<sp/>scan-&gt;angle_increment,<sp/>poi.poi_range,<sp/>poi.poi_angle);</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>ROS_DEBUG(</highlight><highlight class="stringliteral">&quot;right_closest:<sp/>(%.3f,<sp/>%.3f),<sp/>left_closest:<sp/>(%.3f,<sp/>%.3f)&quot;</highlight><highlight class="normal">,</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_right_closest().first,</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_right_closest().second,</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_left_closest().first,</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_left_closest().second);</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"></highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Visualization<sp/>of<sp/>gesture<sp/>tracking<sp/>points.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>c.r<sp/>=<sp/>1.0f;</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>c.a<sp/>=<sp/>1.0f;</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>geometry_msgs::Point<sp/>p;</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>p.z<sp/>=0;</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>p.y<sp/>=<sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_right_closest().first;</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>p.x<sp/>=<sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_right_closest().second;</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>points.points.push_back(p);</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>points.colors.push_back(c);</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"></highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>c.g<sp/>=<sp/>1.0f;</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>c.r<sp/>=<sp/>0.0f;</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>c.a<sp/>=<sp/>1.0f;</highlight></codeline>
+<codeline lineno="68" refid="structpoi__t" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structpoi__t" kindref="compound">poi_t</ref><sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structpoi__t_1ae5f9ca22bbe2f78476ad6d08bc31a231" kindref="member">poi_range</ref>;<sp/></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structpoi__t_1a59b58f432e793217c33691e9c8b921b7" kindref="member">poi_angle</ref>;<sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}<sp/>poi;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="structservo__t" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structservo__t" kindref="compound">servo_t</ref><sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_readable<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}<sp/>servo;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gesture__control_8cpp_1adbf76bdb1d65ea9f9d44ec58eb40d877" kindref="member">gestures_callback</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>sensor_msgs::LaserScan::ConstPtr&amp;<sp/>scan)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Visualization</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>visualization_msgs::Marker<sp/>points;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>std_msgs::ColorRGBA<sp/>c;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>points.header.frame_id<sp/>=</highlight><highlight class="stringliteral">&quot;/laser&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>points.header.stamp<sp/>=<sp/>ros::Time::now();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>points.ns<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;points_and_lines&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>points.action<sp/>=<sp/>visualization_msgs::Marker::ADD;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>points.pose.orientation.w<sp/>=1.0;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>points.id<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>points.type<sp/>=<sp/>visualization_msgs::Marker::POINTS;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>points.scale.x<sp/>=<sp/>0.2;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>points.scale.y<sp/>=<sp/>0.2;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>ROS_DEBUG(</highlight><highlight class="stringliteral">&quot;Tracking<sp/>enabled:<sp/>%d&quot;</highlight><highlight class="normal">,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_tracking());</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_tracking())<sp/>{<sp/></highlight><highlight class="comment">//<sp/>Discard<sp/>or<sp/>continue</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;parse_sensor_data(scan-&gt;ranges,<sp/>scan-&gt;angle_min,<sp/>scan-&gt;angle_increment,<sp/>poi.<ref refid="structpoi__t_1ae5f9ca22bbe2f78476ad6d08bc31a231" kindref="member">poi_range</ref>,<sp/>poi.<ref refid="structpoi__t_1a59b58f432e793217c33691e9c8b921b7" kindref="member">poi_angle</ref>);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>ROS_DEBUG(</highlight><highlight class="stringliteral">&quot;right_closest:<sp/>(%.3f,<sp/>%.3f),<sp/>left_closest:<sp/>(%.3f,<sp/>%.3f)&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_right_closest().first,</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_right_closest().second,</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_left_closest().first,</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_left_closest().second);</highlight></codeline>
 <codeline lineno="115"><highlight class="normal"></highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>p.z<sp/>=0;</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>p.y<sp/>=<sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_left_closest().first;</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>p.x<sp/>=<sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_left_closest().second;</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>points.points.push_back(p);</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>points.colors.push_back(c);</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a63b0cea48d2da7a328302aee063e57b9" kindref="member">marker_pub_pointer</ref>-&gt;publish(points);</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Actions<sp/>upon<sp/>score<sp/>exceeding<sp/>threshold<sp/>score</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Due<sp/>to<sp/>miscomminication<sp/>the<sp/>gestures<sp/>are<sp/>reversed<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="gesture__control_8cpp_1a8bc0d59633fb23785a6dc267a7cb0326" kindref="member">timelock</ref><sp/>+<sp/>ros::Duration(<ref refid="gesture__control_8cpp_1ae50e2e14bc27c23e04b985bd48ebb83b" kindref="member">timeout_limit</ref>)<sp/>&lt;<sp/>ros::Time::now())<sp/>{</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>laser_scanner_infoscreen::external_control<sp/>ex_msg;</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(<ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_gesture(<ref refid="gesture__control_8cpp_1ab013d51a86bf4715a1c261218605c915" kindref="member">gesture_score_threshold</ref>))<sp/>{</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>LEFT_GESTURE<sp/>:</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;Detected<sp/>right<sp/>gesture&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a8bc0d59633fb23785a6dc267a7cb0326" kindref="member">timelock</ref><sp/>=<sp/>ros::Time::now();</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ex_msg.zoom_level<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>not<sp/>implemented<sp/>(yet)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ex_msg.area_active<sp/>=<sp/>5;</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ex_msg.gesture<sp/>=<sp/>1;</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a95ade72c9341fa47411a2314df6d9c0c" kindref="member">external_control_pointer</ref>-&gt;publish(ex_msg);</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>RIGHT_GESTURE<sp/>:</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;Detected<sp/>left<sp/>gesture&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a8bc0d59633fb23785a6dc267a7cb0326" kindref="member">timelock</ref><sp/>=<sp/>ros::Time::now();</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ex_msg.zoom_level<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>not<sp/>implemented<sp/>(yet)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ex_msg.area_active<sp/>=<sp/>5;</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ex_msg.gesture<sp/>=<sp/>2;</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a95ade72c9341fa47411a2314df6d9c0c" kindref="member">external_control_pointer</ref>-&gt;publish(ex_msg);</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0<sp/>:</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal"><sp/>:</highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="150"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="151"><highlight class="normal"></highlight></codeline>
-<codeline lineno="152"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Servo<sp/>control<sp/>logic.<sp/>If<sp/>tracking<sp/>is<sp/>enabled<sp/>servo<sp/>is<sp/>moved<sp/>into<sp/>gesture<sp/>read</highlight></codeline>
-<codeline lineno="153"><highlight class="comment">position.<sp/>The<sp/>angle<sp/>of<sp/>the<sp/>upper<sp/>scanner<sp/>is<sp/>kept<sp/>so<sp/>that<sp/>the<sp/>beam<sp/>approximately</highlight></codeline>
-<codeline lineno="154"><highlight class="comment">intersects<sp/>with<sp/>the<sp/>lower<sp/>scanner<sp/>at<sp/>the<sp/>position<sp/>of<sp/>POI*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="155"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>control_callback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>laser_scanner_infoscreen::gesture_call&amp;<sp/>msg)</highlight></codeline>
-<codeline lineno="156"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/>poi.poi_range<sp/>=<sp/>std::sqrt(std::pow(msg.poi_range<sp/>*<sp/>sin(msg.poi_angle)<sp/>-<sp/>sensor_pos[0],2)<sp/>+</highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pow(msg.poi_range<sp/>*<sp/>cos(msg.poi_angle)<sp/>-<sp/>sensor_pos[1],2)<sp/>+</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pow(sensor_pos[2],2));</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/>ROS_DEBUG(</highlight><highlight class="stringliteral">&quot;poi_range:<sp/>%.3f&quot;</highlight><highlight class="normal">,<sp/>poi.poi_range);</highlight></codeline>
-<codeline lineno="161"><highlight class="normal"><sp/><sp/>poi.poi_angle<sp/>=<sp/>msg.poi_angle;</highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/>laser_scanner_infoscreen::servo_control<sp/>move;</highlight></codeline>
-<codeline lineno="163"><highlight class="normal"><sp/><sp/>move.servo_angle<sp/>=<sp/>std::ceil(asin(-sensor_pos[2]/poi.poi_range)*1000);</highlight></codeline>
-<codeline lineno="164"><highlight class="normal"><sp/><sp/>move.servo_speed<sp/>=<sp/><ref refid="gesture__control_8cpp_1a652fa32c4482bb0d3805c3c5f5900af5" kindref="member">servo_speed_const</ref>;</highlight></codeline>
-<codeline lineno="165"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(loop_count<sp/>%<sp/><ref refid="gesture__control_8cpp_1aafa72341f1113b0939af781b7d63770d" kindref="member">servo_loop_len</ref><sp/>==<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>servo.is_readable<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>Locks<sp/>servo<sp/>for<sp/>readjusting</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1ad7c4130fa2a9b5b52c9cc9762accfe31" kindref="member">servo_control_pointer</ref>-&gt;publish(move);</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>loop_count<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/>loop_count++;</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;set_tracking(msg.is_tracking);</highlight></codeline>
-<codeline lineno="172"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="173"><highlight class="normal"></highlight></codeline>
-<codeline lineno="174"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>servo_feedback_callback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>laser_scanner_infoscreen::servo_feedback&amp;<sp/>msg)</highlight></codeline>
-<codeline lineno="175"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="176"><highlight class="normal"><sp/><sp/>servo.is_readable<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="177"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="178"><highlight class="normal"></highlight></codeline>
-<codeline lineno="179"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="control__tcp__socket_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kindref="member">main</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**argv)</highlight></codeline>
-<codeline lineno="180"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::init(argc,<sp/>argv,<sp/></highlight><highlight class="stringliteral">&quot;track_objects_client&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::NodeHandle<sp/>n;</highlight></codeline>
-<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a8c9e9fe63fc6db914caeb21d95be5ca0" kindref="member">node_pointer</ref><sp/>=<sp/>&amp;n;</highlight></codeline>
-<codeline lineno="184"><highlight class="normal"><sp/><sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Scanner_gestures();</highlight></codeline>
-<codeline lineno="185"><highlight class="normal"></highlight></codeline>
-<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Publisher<sp/>marker_pub<sp/>=<sp/>n.advertise&lt;visualization_msgs::Marker&gt;(</highlight><highlight class="stringliteral">&quot;visualization_gesture&quot;</highlight><highlight class="normal">,<sp/>10);</highlight></codeline>
-<codeline lineno="187"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>servo_pub<sp/>=<sp/>n.advertise&lt;laser_scanner_infoscreen::servo_control&gt;(</highlight><highlight class="stringliteral">&quot;servo_control&quot;</highlight><highlight class="normal">,<sp/>10);</highlight></codeline>
-<codeline lineno="188"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>external_control<sp/>=<sp/>n.advertise&lt;laser_scanner_infoscreen::external_control&gt;(</highlight><highlight class="stringliteral">&quot;external_control&quot;</highlight><highlight class="normal">,10);</highlight></codeline>
-<codeline lineno="189"><highlight class="normal"><sp/><sp/><ref refid="gesture__control_8cpp_1ad7c4130fa2a9b5b52c9cc9762accfe31" kindref="member">servo_control_pointer</ref><sp/>=<sp/>&amp;servo_pub;</highlight></codeline>
-<codeline lineno="190"><highlight class="normal"><sp/><sp/><ref refid="gesture__control_8cpp_1a63b0cea48d2da7a328302aee063e57b9" kindref="member">marker_pub_pointer</ref><sp/>=<sp/>&amp;marker_pub;</highlight></codeline>
-<codeline lineno="191"><highlight class="normal"><sp/><sp/><ref refid="gesture__control_8cpp_1a95ade72c9341fa47411a2314df6d9c0c" kindref="member">external_control_pointer</ref><sp/>=<sp/>&amp;external_control;</highlight></codeline>
-<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>ros::Subscriber<sp/>sub<sp/>=<sp/>n.subscribe(</highlight><highlight class="stringliteral">&quot;scan_upper&quot;</highlight><highlight class="normal">,<sp/>1000,<sp/>gestures_callback);</highlight></codeline>
-<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/>ros::Subscriber<sp/>gesture_control<sp/>=<sp/>n.subscribe(</highlight><highlight class="stringliteral">&quot;gesture_control&quot;</highlight><highlight class="normal">,<sp/>100,<sp/>control_callback);</highlight></codeline>
-<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/>ros::Subscriber<sp/>servo_feedback<sp/>=<sp/>n.subscribe(</highlight><highlight class="stringliteral">&quot;servo_position&quot;</highlight><highlight class="normal">,<sp/>100,<sp/>servo_feedback_callback);</highlight></codeline>
-<codeline lineno="195"><highlight class="normal"><sp/><sp/>ros::spin();</highlight></codeline>
-<codeline lineno="196"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>;</highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="198"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Visualization<sp/>of<sp/>gesture<sp/>tracking<sp/>points.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>c.r<sp/>=<sp/>1.0f;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>c.a<sp/>=<sp/>1.0f;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>geometry_msgs::Point<sp/>p;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>p.z<sp/>=0;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>p.y<sp/>=<sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_right_closest().first;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>p.x<sp/>=<sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_right_closest().second;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>points.points.push_back(p);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>points.colors.push_back(c);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>c.g<sp/>=<sp/>1.0f;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>c.r<sp/>=<sp/>0.0f;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>c.a<sp/>=<sp/>1.0f;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>p.z<sp/>=0;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>p.y<sp/>=<sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_left_closest().first;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>p.x<sp/>=<sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_left_closest().second;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>points.points.push_back(p);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>points.colors.push_back(c);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a63b0cea48d2da7a328302aee063e57b9" kindref="member">marker_pub_pointer</ref>-&gt;publish(points);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Actions<sp/>upon<sp/>score<sp/>exceeding<sp/>threshold<sp/>score</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Due<sp/>to<sp/>miscomminication<sp/>the<sp/>gestures<sp/>are<sp/>reversed<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="gesture__control_8cpp_1a8bc0d59633fb23785a6dc267a7cb0326" kindref="member">timelock</ref><sp/>+<sp/>ros::Duration(<ref refid="gesture__control_8cpp_1ae50e2e14bc27c23e04b985bd48ebb83b" kindref="member">timeout_limit</ref>)<sp/>&lt;<sp/>ros::Time::now())<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>laser_scanner_infoscreen::external_control<sp/>ex_msg;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(<ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;get_gesture(<ref refid="gesture__control_8cpp_1ab013d51a86bf4715a1c261218605c915" kindref="member">gesture_score_threshold</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>LEFT_GESTURE<sp/>:</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;Detected<sp/>right<sp/>gesture&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a8bc0d59633fb23785a6dc267a7cb0326" kindref="member">timelock</ref><sp/>=<sp/>ros::Time::now();</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ex_msg.zoom_level<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>not<sp/>implemented<sp/>(yet)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ex_msg.area_active<sp/>=<sp/>5;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ex_msg.gesture<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a95ade72c9341fa47411a2314df6d9c0c" kindref="member">external_control_pointer</ref>-&gt;publish(ex_msg);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>RIGHT_GESTURE<sp/>:</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;Detected<sp/>left<sp/>gesture&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a8bc0d59633fb23785a6dc267a7cb0326" kindref="member">timelock</ref><sp/>=<sp/>ros::Time::now();</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ex_msg.zoom_level<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>not<sp/>implemented<sp/>(yet)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ex_msg.area_active<sp/>=<sp/>5;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ex_msg.gesture<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a95ade72c9341fa47411a2314df6d9c0c" kindref="member">external_control_pointer</ref>-&gt;publish(ex_msg);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0<sp/>:</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal"><sp/>:</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gesture__control_8cpp_1ab4546fc84eafe7c48c81b8f28c5077c1" kindref="member">control_callback</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>laser_scanner_infoscreen::gesture_call&amp;<sp/>msg)</highlight></codeline>
+<codeline lineno="173"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>poi.<ref refid="structpoi__t_1ae5f9ca22bbe2f78476ad6d08bc31a231" kindref="member">poi_range</ref><sp/>=<sp/>std::sqrt(std::pow(msg.poi_range<sp/>*<sp/>sin(msg.poi_angle)<sp/>-<sp/><ref refid="gesture__control_8cpp_1ad8662d30f3440d45487607002371a735" kindref="member">sensor_pos</ref>[0],2)<sp/>+</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pow(msg.poi_range<sp/>*<sp/>cos(msg.poi_angle)<sp/>-<sp/><ref refid="gesture__control_8cpp_1ad8662d30f3440d45487607002371a735" kindref="member">sensor_pos</ref>[1],2)<sp/>+</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pow(<ref refid="gesture__control_8cpp_1ad8662d30f3440d45487607002371a735" kindref="member">sensor_pos</ref>[2],2));</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/>ROS_DEBUG(</highlight><highlight class="stringliteral">&quot;poi_range:<sp/>%.3f&quot;</highlight><highlight class="normal">,<sp/>poi.<ref refid="structpoi__t_1ae5f9ca22bbe2f78476ad6d08bc31a231" kindref="member">poi_range</ref>);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/>poi.<ref refid="structpoi__t_1a59b58f432e793217c33691e9c8b921b7" kindref="member">poi_angle</ref><sp/>=<sp/>msg.poi_angle;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/>laser_scanner_infoscreen::servo_control<sp/>move;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/>move.servo_angle<sp/>=<sp/>std::ceil(asin(-<ref refid="gesture__control_8cpp_1ad8662d30f3440d45487607002371a735" kindref="member">sensor_pos</ref>[2]/poi.<ref refid="structpoi__t_1ae5f9ca22bbe2f78476ad6d08bc31a231" kindref="member">poi_range</ref>)*1000);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>move.servo_speed<sp/>=<sp/><ref refid="gesture__control_8cpp_1a652fa32c4482bb0d3805c3c5f5900af5" kindref="member">servo_speed_const</ref>;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="gesture__control_8cpp_1a2ac8bc219bf895e4a3cdd514c1de6ec4" kindref="member">loop_count</ref><sp/>%<sp/><ref refid="gesture__control_8cpp_1aafa72341f1113b0939af781b7d63770d" kindref="member">servo_loop_len</ref><sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>servo.<ref refid="structservo__t_1a2d870f86b97b371fff86ac1c02f789f6" kindref="member">is_readable</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>Locks<sp/>servo<sp/>for<sp/>readjusting</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1ad7c4130fa2a9b5b52c9cc9762accfe31" kindref="member">servo_control_pointer</ref>-&gt;publish(move);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a2ac8bc219bf895e4a3cdd514c1de6ec4" kindref="member">loop_count</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><ref refid="gesture__control_8cpp_1a2ac8bc219bf895e4a3cdd514c1de6ec4" kindref="member">loop_count</ref>++;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>-&gt;set_tracking(msg.is_tracking);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gesture__control_8cpp_1a272dea7f151f9bf75131542422903056" kindref="member">servo_feedback_callback</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>laser_scanner_infoscreen::servo_feedback&amp;<sp/>msg)</highlight></codeline>
+<codeline lineno="199"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/>servo.<ref refid="structservo__t_1a2d870f86b97b371fff86ac1c02f789f6" kindref="member">is_readable</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="205"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="gesture__control_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kindref="member">main</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**argv)</highlight></codeline>
+<codeline lineno="206"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::init(argc,<sp/>argv,<sp/></highlight><highlight class="stringliteral">&quot;track_objects_client&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::NodeHandle<sp/>n;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a8c9e9fe63fc6db914caeb21d95be5ca0" kindref="member">node_pointer</ref><sp/>=<sp/>&amp;n;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Initialize<sp/>Scanner_gestures<sp/>object<sp/>that<sp/>implements<sp/>gesture<sp/>tracking.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Scanner_gestures();</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Publisher<sp/>marker_pub<sp/>=<sp/>n.advertise&lt;visualization_msgs::Marker&gt;(</highlight><highlight class="stringliteral">&quot;visualization_gesture&quot;</highlight><highlight class="normal">,<sp/>10);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>servo_pub<sp/>=<sp/>n.advertise&lt;laser_scanner_infoscreen::servo_control&gt;(</highlight><highlight class="stringliteral">&quot;servo_control&quot;</highlight><highlight class="normal">,<sp/>10);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>external_control<sp/>=<sp/>n.advertise&lt;laser_scanner_infoscreen::external_control&gt;(</highlight><highlight class="stringliteral">&quot;external_control&quot;</highlight><highlight class="normal">,10);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><ref refid="gesture__control_8cpp_1ad7c4130fa2a9b5b52c9cc9762accfe31" kindref="member">servo_control_pointer</ref><sp/>=<sp/>&amp;servo_pub;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><ref refid="gesture__control_8cpp_1a63b0cea48d2da7a328302aee063e57b9" kindref="member">marker_pub_pointer</ref><sp/>=<sp/>&amp;marker_pub;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><ref refid="gesture__control_8cpp_1a95ade72c9341fa47411a2314df6d9c0c" kindref="member">external_control_pointer</ref><sp/>=<sp/>&amp;external_control;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>ros::Subscriber<sp/>sub<sp/>=<sp/>n.subscribe(</highlight><highlight class="stringliteral">&quot;scan_upper&quot;</highlight><highlight class="normal">,<sp/>1000,<sp/><ref refid="gesture__control_8cpp_1adbf76bdb1d65ea9f9d44ec58eb40d877" kindref="member">gestures_callback</ref>);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/>ros::Subscriber<sp/>gesture_control<sp/>=<sp/>n.subscribe(</highlight><highlight class="stringliteral">&quot;gesture_control&quot;</highlight><highlight class="normal">,<sp/>100,<sp/><ref refid="gesture__control_8cpp_1ab4546fc84eafe7c48c81b8f28c5077c1" kindref="member">control_callback</ref>);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/>ros::Subscriber<sp/>servo_feedback<sp/>=<sp/>n.subscribe(</highlight><highlight class="stringliteral">&quot;servo_position&quot;</highlight><highlight class="normal">,<sp/>100,<sp/><ref refid="gesture__control_8cpp_1a272dea7f151f9bf75131542422903056" kindref="member">servo_feedback_callback</ref>);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/>ros::spin();</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kindref="member">gestures</ref>;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/gesture_control.cpp"/>
   </compounddef>

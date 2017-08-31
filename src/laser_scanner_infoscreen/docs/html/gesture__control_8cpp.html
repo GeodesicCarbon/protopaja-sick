@@ -40,6 +40,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -89,6 +91,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">gesture_control.cpp File Reference</div>  </div>
@@ -120,7 +123,10 @@ Include dependency graph for gesture_control.cpp:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpoi__t.html">poi_t</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Person of interest.  <a href="structpoi__t.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">position of the PoI in polar coordinates  <a href="structpoi__t.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structservo__t.html">servo_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lock for the servo control (e.g. busy with biometrics)  <a href="structservo__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -136,8 +142,29 @@ Macros</h2></td></tr>
 <tr class="memdesc:aafa72341f1113b0939af781b7d63770d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Length of servo idle loop.  <a href="#aafa72341f1113b0939af781b7d63770d">More...</a><br /></td></tr>
 <tr class="separator:aafa72341f1113b0939af781b7d63770d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:adbf76bdb1d65ea9f9d44ec58eb40d877"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gesture__control_8cpp.html#adbf76bdb1d65ea9f9d44ec58eb40d877">gestures_callback</a> (const sensor_msgs::LaserScan::ConstPtr &amp;scan)</td></tr>
+<tr class="memdesc:adbf76bdb1d65ea9f9d44ec58eb40d877"><td class="mdescLeft">&#160;</td><td class="mdescRight">if enables, parses LaserScan messages and send them to the gesture tracker.  <a href="#adbf76bdb1d65ea9f9d44ec58eb40d877">More...</a><br /></td></tr>
+<tr class="separator:adbf76bdb1d65ea9f9d44ec58eb40d877"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4546fc84eafe7c48c81b8f28c5077c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gesture__control_8cpp.html#ab4546fc84eafe7c48c81b8f28c5077c1">control_callback</a> (const laser_scanner_infoscreen::gesture_call &amp;msg)</td></tr>
+<tr class="memdesc:ab4546fc84eafe7c48c81b8f28c5077c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">handles control messages from /gesture_control topic  <a href="#ab4546fc84eafe7c48c81b8f28c5077c1">More...</a><br /></td></tr>
+<tr class="separator:ab4546fc84eafe7c48c81b8f28c5077c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a272dea7f151f9bf75131542422903056"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gesture__control_8cpp.html#a272dea7f151f9bf75131542422903056">servo_feedback_callback</a> (const laser_scanner_infoscreen::servo_feedback &amp;msg)</td></tr>
+<tr class="memdesc:a272dea7f151f9bf75131542422903056"><td class="mdescLeft">&#160;</td><td class="mdescRight">servo controller callback to release servo lock.  <a href="#a272dea7f151f9bf75131542422903056">More...</a><br /></td></tr>
+<tr class="separator:a272dea7f151f9bf75131542422903056"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gesture__control_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
+<tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:ad8662d30f3440d45487607002371a735"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad8662d30f3440d45487607002371a735"></a>
+static std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gesture__control_8cpp.html#ad8662d30f3440d45487607002371a735">sensor_pos</a> = {0.0,-0.22,0.72}</td></tr>
+<tr class="memdesc:ad8662d30f3440d45487607002371a735"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offset of the upper sensor in the relation of lower sensor in {x,y,z}. <br /></td></tr>
+<tr class="separator:ad8662d30f3440d45487607002371a735"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ac8bc219bf895e4a3cdd514c1de6ec4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gesture__control_8cpp.html#a2ac8bc219bf895e4a3cdd514c1de6ec4">loop_count</a> = 0</td></tr>
+<tr class="memdesc:a2ac8bc219bf895e4a3cdd514c1de6ec4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loop counter fo the servo control.  <a href="#a2ac8bc219bf895e4a3cdd514c1de6ec4">More...</a><br /></td></tr>
+<tr class="separator:a2ac8bc219bf895e4a3cdd514c1de6ec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6565562c39be7f8f9a538a9a216a28cf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6565562c39be7f8f9a538a9a216a28cf"></a>
 static Scanner_gestures *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gesture__control_8cpp.html#a6565562c39be7f8f9a538a9a216a28cf">gestures</a></td></tr>
 <tr class="memdesc:a6565562c39be7f8f9a538a9a216a28cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global pointer to Scanner_gestures object. <br /></td></tr>
@@ -169,7 +196,7 @@ static ros::Time&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Node that handles gesture tracking and associated topics. </p>
-<dl class="section see"><dt>See also</dt><dd>Scanner_gestures </dd>
+<dl class="section see"><dt>See also</dt><dd>scanner_gestures </dd>
 <dd>
 &lt;track_objects_client&gt; </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
@@ -226,6 +253,119 @@ static ros::Time&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p>Seconds after old gesture timeouts. </p>
 <p>A length in seconds after detected gesture that no new gesture is detected. Prevents false positives </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ab4546fc84eafe7c48c81b8f28c5077c1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void control_callback </td>
+          <td>(</td>
+          <td class="paramtype">const laser_scanner_infoscreen::gesture_call &amp;&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>handles control messages from /gesture_control topic </p>
+<p>gesture_control callback function Servo control logic. If tracking is enabled servo is moved into gesture read position. The angle of the upper scanner is kept so that the beam approximately intersects with the lower scanner at the position of POI </p>
+
+</div>
+</div>
+<a class="anchor" id="adbf76bdb1d65ea9f9d44ec58eb40d877"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gestures_callback </td>
+          <td>(</td>
+          <td class="paramtype">const sensor_msgs::LaserScan::ConstPtr &amp;&#160;</td>
+          <td class="paramname"><em>scan</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>if enables, parses LaserScan messages and send them to the gesture tracker. </p>
+<p>LaserScan callback function. Receives raw data from /scan_upper topic in the form of LaserScan messages, collates it with the PoI position and sends it to the Scanner_gestures object for parsing and scoring. If applicable, retrieves gesture. Handles timeouts between gestures to minize jitter and false positives.</p>
+<p>Scanner is read by default. If tracking is disabled, the data is discarded.</p>
+<p>Sends visualization of gesture tracking to the /visualization_gesture topic. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scan</td><td>LaserScan message from upper (gesture) scanner. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a3c04138a5bfe5d72780bb7e82a18e627"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Main function. Initializes node and its variables. </p>
+
+</div>
+</div>
+<a class="anchor" id="a272dea7f151f9bf75131542422903056"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void servo_feedback_callback </td>
+          <td>(</td>
+          <td class="paramtype">const laser_scanner_infoscreen::servo_feedback &amp;&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>servo controller callback to release servo lock. </p>
+<p>servo_feedback callback Whenever servo has completed its move it should publish on /servo_position topic. This releases lock on gesture tracking. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>servo_feedback.msg of servo position </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a2ac8bc219bf895e4a3cdd514c1de6ec4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int loop_count = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loop counter fo the servo control. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="gesture__control_8cpp.html#aafa72341f1113b0939af781b7d63770d" title="Length of servo idle loop. ">servo_loop_len</a> </dd></dl>
 
 </div>
 </div>

@@ -6,30 +6,30 @@
     <includedby refid="laser__objects_8cpp" local="yes">src/laser_objects.cpp</includedby>
     <includedby refid="track__objects__server_8cpp" local="yes">src/track_objects_server.cpp</includedby>
     <incdepgraph>
-      <node id="596">
+      <node id="610">
         <label>include/laser_objects.hpp</label>
         <link refid="laser_objects.hpp"/>
-        <childnode refid="597" relation="include">
+        <childnode refid="611" relation="include">
         </childnode>
       </node>
-      <node id="597">
+      <node id="611">
         <label>armadillo</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="598">
+      <node id="612">
         <label>include/laser_objects.hpp</label>
         <link refid="laser_objects.hpp"/>
-        <childnode refid="599" relation="include">
+        <childnode refid="613" relation="include">
         </childnode>
-        <childnode refid="600" relation="include">
+        <childnode refid="614" relation="include">
         </childnode>
       </node>
-      <node id="600">
+      <node id="614">
         <label>src/track_objects_server.cpp</label>
         <link refid="track__objects__server_8cpp"/>
       </node>
-      <node id="599">
+      <node id="613">
         <label>src/laser_objects.cpp</label>
         <link refid="laser__objects_8cpp"/>
       </node>
@@ -43,53 +43,55 @@
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>LASER_OBJECTS_H</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LASER_OBJECTS_H</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;armadillo&gt;</highlight></codeline>
-<codeline lineno="8"><highlight class="keyword">class<sp/></highlight><highlight class="normal">laser_object_t</highlight></codeline>
-<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_mobile;</highlight></codeline>
-<codeline lineno="11"><highlight class="normal">std::pair&lt;float,<sp/>float&gt;<sp/>pos_centerofmass;</highlight></codeline>
-<codeline lineno="12"><highlight class="normal">std::pair&lt;float,<sp/>float&gt;<sp/>vel_centerofmass;</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>immobile_time;</highlight></codeline>
-<codeline lineno="14"><highlight class="normal">ros::Time<sp/>last_active;</highlight></codeline>
-<codeline lineno="15"><highlight class="normal">arma::fmat<sp/>X,<sp/>P,<sp/>K;</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>test_mobile();</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>laser_object_t(std::pair&lt;float,<sp/>float&gt;<sp/>pos_com,</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pair&lt;float,<sp/>float&gt;<sp/>vel_com);</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>distance(std::pair&lt;float,float&gt;<sp/>coords_to);</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Time<sp/>get_last_active();</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>std::pair&lt;float,<sp/>float&gt;<sp/>get_pos_centerofmass();</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>std::pair&lt;float,<sp/>float&gt;<sp/>get_vel_centerofmass();</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>get_is_mobile();</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>~laser_object_t();</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>run_kalman_filter(std::pair&lt;float,float&gt;<sp/>new_pos,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>dt);</highlight></codeline>
-<codeline lineno="27"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">laser_objects</highlight></codeline>
-<codeline lineno="30"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>dt;</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;laser_object_t&gt;<sp/>laser_object_repository;</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>update(std::pair&lt;float,<sp/>float&gt;<sp/>pos_centerofmass);</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>get_mobiles_x();</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>get_mobiles_y();</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>get_statics_x();</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>get_statics_y();</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>update_repository();</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>laser_objects(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>scanner_dt);</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>~laser_objects();</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//<sp/>std::vector&lt;float&gt;<sp/>get_mobiles_dir()</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">//<sp/>{</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">//<sp/>std::vector&lt;float&gt;<sp/>get_mobiles_spd()</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">//<sp/>{</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>end<sp/>of<sp/>include<sp/>guard:<sp/>LASER_OBJECTS_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="preprocessor">#include<sp/>&lt;armadillo&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="classlaser__object__t" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classlaser__object__t" kindref="compound">laser_object_t</ref></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_mobile;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>std::pair&lt;float,<sp/>float&gt;<sp/>pos_centerofmass;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>std::pair&lt;float,<sp/>float&gt;<sp/>vel_centerofmass;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>immobile_time;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Time<sp/>last_active;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>arma::fmat<sp/>X,<sp/>P,<sp/>K;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__laser__object__t_1gaaf5e27005d394ba00082e17a0804f3b2" kindref="member">test_mobile</ref>();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__laser__object__t_1ga86fb4dc51298aedc38f4dea202e86d94" kindref="member">laser_object_t</ref>(std::pair&lt;float,<sp/>float&gt;<sp/>pos_com,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pair&lt;float,<sp/>float&gt;<sp/>vel_com);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__laser__object__t_1ga1306580c845a8e9e37646988d86788c0" kindref="member">distance</ref>(std::pair&lt;float,float&gt;<sp/>coords_to);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Time<sp/><ref refid="group__laser__object__t_1ga85ea7644afff4ac0315156a182946110" kindref="member">get_last_active</ref>();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>std::pair&lt;float,<sp/>float&gt;<sp/><ref refid="group__laser__object__t_1ga02a018369ba1e52d2cec3625f7452c7b" kindref="member">get_pos_centerofmass</ref>();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>std::pair&lt;float,<sp/>float&gt;<sp/><ref refid="group__laser__object__t_1gadfafd151af0900623901d162260ba234" kindref="member">get_vel_centerofmass</ref>();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__laser__object__t_1ga5aba73083c62b017d1e09d9e36a35df1" kindref="member">get_is_mobile</ref>();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__laser__object__t_1gac9cc27a949e2af39dc4da7fb0fb8f8d4" kindref="member">~laser_object_t</ref>();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__laser__object__t_1ga7197f41117174159f618bbdcd63f9cc3" kindref="member">run_kalman_filter</ref>(std::pair&lt;float,float&gt;<sp/>new_pos,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>dt);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="48" refid="classlaser__objects" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classlaser__objects" kindref="compound">laser_objects</ref></highlight></codeline>
+<codeline lineno="49"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>dt;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;laser_object_t&gt;<sp/>laser_object_repository;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>update(std::pair&lt;float,<sp/>float&gt;<sp/>pos_centerofmass);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>get_mobiles_x();</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>get_mobiles_y();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>get_statics_x();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>get_statics_y();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>update_repository();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classlaser__objects" kindref="compound">laser_objects</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>scanner_dt);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="classlaser__objects" kindref="compound">laser_objects</ref>();</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">//<sp/>std::vector&lt;float&gt;<sp/>get_mobiles_dir()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">//<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="comment">//<sp/>std::vector&lt;float&gt;<sp/>get_mobiles_spd()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="comment">//<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="73"><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>end<sp/>of<sp/>include<sp/>guard:<sp/>LASER_OBJECTS_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
     </programlisting>
     <location file="include/laser_objects.hpp"/>
   </compounddef>

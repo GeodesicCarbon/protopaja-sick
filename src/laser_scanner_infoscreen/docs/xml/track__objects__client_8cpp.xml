@@ -18,83 +18,83 @@
     <includes local="no">chrono</includes>
     <includes local="no">thread</includes>
     <incdepgraph>
-      <node id="1188">
+      <node id="1202">
         <label>std_msgs/Int16.h</label>
       </node>
-      <node id="1186">
+      <node id="1200">
         <label>laser_scanner_infoscreen/gesture_call.h</label>
       </node>
-      <node id="1187">
+      <node id="1201">
         <label>laser_scanner_infoscreen/external_control.h</label>
       </node>
-      <node id="1185">
+      <node id="1199">
         <label>laser_scanner_infoscreen/stepper_control.h</label>
       </node>
-      <node id="1190">
+      <node id="1204">
         <label>cmath</label>
       </node>
-      <node id="1181">
+      <node id="1195">
         <label>laser_scanner_infoscreen/trackObjects.h</label>
       </node>
-      <node id="1192">
+      <node id="1206">
         <label>string</label>
       </node>
-      <node id="1184">
+      <node id="1198">
         <label>laser_scanner_infoscreen/biometrics_results.h</label>
       </node>
-      <node id="1191">
+      <node id="1205">
         <label>visualization_msgs/Marker.h</label>
       </node>
-      <node id="1179">
+      <node id="1193">
         <label>src/track_objects_client.cpp</label>
         <link refid="track_objects_client.cpp"/>
-        <childnode refid="1180" relation="include">
-        </childnode>
-        <childnode refid="1181" relation="include">
-        </childnode>
-        <childnode refid="1182" relation="include">
-        </childnode>
-        <childnode refid="1183" relation="include">
-        </childnode>
-        <childnode refid="1184" relation="include">
-        </childnode>
-        <childnode refid="1185" relation="include">
-        </childnode>
-        <childnode refid="1186" relation="include">
-        </childnode>
-        <childnode refid="1187" relation="include">
-        </childnode>
-        <childnode refid="1188" relation="include">
-        </childnode>
-        <childnode refid="1189" relation="include">
-        </childnode>
-        <childnode refid="1190" relation="include">
-        </childnode>
-        <childnode refid="1191" relation="include">
-        </childnode>
-        <childnode refid="1192" relation="include">
-        </childnode>
-        <childnode refid="1193" relation="include">
-        </childnode>
         <childnode refid="1194" relation="include">
         </childnode>
-      </node>
-      <node id="1180">
-        <label>ros/ros.h</label>
-      </node>
-      <node id="1189">
-        <label>cstdlib</label>
-      </node>
-      <node id="1193">
-        <label>chrono</label>
-      </node>
-      <node id="1182">
-        <label>sensor_msgs/LaserScan.h</label>
+        <childnode refid="1195" relation="include">
+        </childnode>
+        <childnode refid="1196" relation="include">
+        </childnode>
+        <childnode refid="1197" relation="include">
+        </childnode>
+        <childnode refid="1198" relation="include">
+        </childnode>
+        <childnode refid="1199" relation="include">
+        </childnode>
+        <childnode refid="1200" relation="include">
+        </childnode>
+        <childnode refid="1201" relation="include">
+        </childnode>
+        <childnode refid="1202" relation="include">
+        </childnode>
+        <childnode refid="1203" relation="include">
+        </childnode>
+        <childnode refid="1204" relation="include">
+        </childnode>
+        <childnode refid="1205" relation="include">
+        </childnode>
+        <childnode refid="1206" relation="include">
+        </childnode>
+        <childnode refid="1207" relation="include">
+        </childnode>
+        <childnode refid="1208" relation="include">
+        </childnode>
       </node>
       <node id="1194">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="1203">
+        <label>cstdlib</label>
+      </node>
+      <node id="1207">
+        <label>chrono</label>
+      </node>
+      <node id="1196">
+        <label>sensor_msgs/LaserScan.h</label>
+      </node>
+      <node id="1208">
         <label>thread</label>
       </node>
-      <node id="1183">
+      <node id="1197">
         <label>laser_scanner_infoscreen/biometrics.h</label>
       </node>
     </incdepgraph>
@@ -620,7 +620,7 @@
 <para>ROS Client node of object tracker. </para>    </briefdescription>
     <detaileddescription>
 <para>Receives LaserScan topic messages, passes them to the service, tracks the Person of Interest, and handles command of control of other nodes in the project.</para><para><simplesect kind="see"><para><ref refid="track__objects__server_8cpp" kindref="compound">track_objects_server.cpp</ref> </para></simplesect>
-<simplesect kind="see"><para>laser_objects </para></simplesect>
+<simplesect kind="see"><para><ref refid="classlaser__objects" kindref="compound">laser_objects</ref> </para></simplesect>
 </para>    </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;ros/ros.h&quot;</highlight><highlight class="normal"></highlight></codeline>

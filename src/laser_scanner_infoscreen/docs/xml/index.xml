@@ -21,26 +21,26 @@
     <member refid="classlaser__object__t_1aac25929dd97f4189689280e1d13b001a" kind="variable"><name>X</name></member>
     <member refid="classlaser__object__t_1a18884654e291bc9c1349cbf8ff191210" kind="variable"><name>P</name></member>
     <member refid="classlaser__object__t_1a3e9b8a7bb819cdd1461b3e8a6efeeb2b" kind="variable"><name>K</name></member>
-    <member refid="classlaser__object__t_1aaf5e27005d394ba00082e17a0804f3b2" kind="function"><name>test_mobile</name></member>
-    <member refid="classlaser__object__t_1a86fb4dc51298aedc38f4dea202e86d94" kind="function"><name>laser_object_t</name></member>
-    <member refid="classlaser__object__t_1a1306580c845a8e9e37646988d86788c0" kind="function"><name>distance</name></member>
-    <member refid="classlaser__object__t_1a85ea7644afff4ac0315156a182946110" kind="function"><name>get_last_active</name></member>
-    <member refid="classlaser__object__t_1a02a018369ba1e52d2cec3625f7452c7b" kind="function"><name>get_pos_centerofmass</name></member>
-    <member refid="classlaser__object__t_1adfafd151af0900623901d162260ba234" kind="function"><name>get_vel_centerofmass</name></member>
-    <member refid="classlaser__object__t_1a5aba73083c62b017d1e09d9e36a35df1" kind="function"><name>get_is_mobile</name></member>
-    <member refid="classlaser__object__t_1ac9cc27a949e2af39dc4da7fb0fb8f8d4" kind="function"><name>~laser_object_t</name></member>
-    <member refid="classlaser__object__t_1a7197f41117174159f618bbdcd63f9cc3" kind="function"><name>run_kalman_filter</name></member>
+    <member refid="group__laser__object__t_1gaaf5e27005d394ba00082e17a0804f3b2" kind="function"><name>test_mobile</name></member>
+    <member refid="group__laser__object__t_1ga86fb4dc51298aedc38f4dea202e86d94" kind="function"><name>laser_object_t</name></member>
+    <member refid="group__laser__object__t_1ga1306580c845a8e9e37646988d86788c0" kind="function"><name>distance</name></member>
+    <member refid="group__laser__object__t_1ga85ea7644afff4ac0315156a182946110" kind="function"><name>get_last_active</name></member>
+    <member refid="group__laser__object__t_1ga02a018369ba1e52d2cec3625f7452c7b" kind="function"><name>get_pos_centerofmass</name></member>
+    <member refid="group__laser__object__t_1gadfafd151af0900623901d162260ba234" kind="function"><name>get_vel_centerofmass</name></member>
+    <member refid="group__laser__object__t_1ga5aba73083c62b017d1e09d9e36a35df1" kind="function"><name>get_is_mobile</name></member>
+    <member refid="group__laser__object__t_1gac9cc27a949e2af39dc4da7fb0fb8f8d4" kind="function"><name>~laser_object_t</name></member>
+    <member refid="group__laser__object__t_1ga7197f41117174159f618bbdcd63f9cc3" kind="function"><name>run_kalman_filter</name></member>
   </compound>
   <compound refid="classlaser__objects" kind="class"><name>laser_objects</name>
     <member refid="classlaser__objects_1af193b94d6f48b40418f4148402f8528f" kind="variable"><name>dt</name></member>
     <member refid="classlaser__objects_1a33796fdd4a95d6f432351934b08ac7e9" kind="variable"><name>laser_object_repository</name></member>
-    <member refid="classlaser__objects_1a8e139bb70c4e8589e512a71f244b45ef" kind="function"><name>update</name></member>
-    <member refid="classlaser__objects_1a5d288e741d7fca610899fd1b9f822826" kind="function"><name>get_mobiles_x</name></member>
-    <member refid="classlaser__objects_1ab76cec03e47705fcad27a2cf9d9b62a0" kind="function"><name>get_mobiles_y</name></member>
-    <member refid="classlaser__objects_1a1f4e68699b3a5ea853dce7e45123a284" kind="function"><name>get_statics_x</name></member>
-    <member refid="classlaser__objects_1a6063594fe030d1d8c33e6f4d2e1b3ef0" kind="function"><name>get_statics_y</name></member>
-    <member refid="classlaser__objects_1a8491aebb670f24305deeb85a9da26ede" kind="function"><name>update_repository</name></member>
-    <member refid="classlaser__objects_1a9be2a1b55a49c0083bc37ac770ca2fa7" kind="function"><name>laser_objects</name></member>
+    <member refid="group__laser__objects_1ga8e139bb70c4e8589e512a71f244b45ef" kind="function"><name>update</name></member>
+    <member refid="group__laser__objects_1ga5d288e741d7fca610899fd1b9f822826" kind="function"><name>get_mobiles_x</name></member>
+    <member refid="group__laser__objects_1gab76cec03e47705fcad27a2cf9d9b62a0" kind="function"><name>get_mobiles_y</name></member>
+    <member refid="group__laser__objects_1ga1f4e68699b3a5ea853dce7e45123a284" kind="function"><name>get_statics_x</name></member>
+    <member refid="group__laser__objects_1ga6063594fe030d1d8c33e6f4d2e1b3ef0" kind="function"><name>get_statics_y</name></member>
+    <member refid="group__laser__objects_1ga8491aebb670f24305deeb85a9da26ede" kind="function"><name>update_repository</name></member>
+    <member refid="group__laser__objects_1ga9be2a1b55a49c0083bc37ac770ca2fa7" kind="function"><name>laser_objects</name></member>
     <member refid="classlaser__objects_1ae80a2220fefdf144ae5e653d902d36a2" kind="function"><name>~laser_objects</name></member>
   </compound>
   <compound refid="structpoi__t" kind="struct"><name>poi_t</name>
@@ -123,14 +123,14 @@
     <member refid="gesture__control_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
   </compound>
   <compound refid="laser__objects_8cpp" kind="file"><name>laser_objects.cpp</name>
-    <member refid="laser__objects_8cpp_1adfe328cba5705e40f91b5cf376c3d94d" kind="define"><name>immobile_timeout</name></member>
-    <member refid="laser__objects_8cpp_1a12bd8d1fde7ba659b9d690f0c9a1762f" kind="define"><name>object_threshold</name></member>
-    <member refid="laser__objects_8cpp_1a102b2e08f8d8ab1ad176d1e00949c026" kind="define"><name>immobile_threshold</name></member>
-    <member refid="laser__objects_8cpp_1af735b65ab6833fed43b665e828e8b601" kind="define"><name>CULLING_TIME</name></member>
-    <member refid="laser__objects_8cpp_1a4a44e170a3630aad3356b3682684f6c8" kind="variable"><name>Q</name></member>
-    <member refid="laser__objects_8cpp_1a77bf685edecf60761abb55a23d9c9a9b" kind="variable"><name>R</name></member>
-    <member refid="laser__objects_8cpp_1adf0b44b0795b5c94956f21a9fb6c199b" kind="variable"><name>H</name></member>
-    <member refid="laser__objects_8cpp_1a2c9979ba8b6f6b1b92cb6432c0be9087" kind="variable"><name>F</name></member>
+    <member refid="group__laser__object__t_1gadfe328cba5705e40f91b5cf376c3d94d" kind="define"><name>immobile_timeout</name></member>
+    <member refid="group__laser__object__t_1ga102b2e08f8d8ab1ad176d1e00949c026" kind="define"><name>immobile_threshold</name></member>
+    <member refid="group__laser__object__s_1gaf735b65ab6833fed43b665e828e8b601" kind="define"><name>CULLING_TIME</name></member>
+    <member refid="group__laser__object__s_1ga12bd8d1fde7ba659b9d690f0c9a1762f" kind="define"><name>object_threshold</name></member>
+    <member refid="group__laser__object__t_1ga4a44e170a3630aad3356b3682684f6c8" kind="variable"><name>Q</name></member>
+    <member refid="group__laser__object__t_1ga77bf685edecf60761abb55a23d9c9a9b" kind="variable"><name>R</name></member>
+    <member refid="group__laser__object__t_1gadf0b44b0795b5c94956f21a9fb6c199b" kind="variable"><name>H</name></member>
+    <member refid="group__laser__object__t_1ga2c9979ba8b6f6b1b92cb6432c0be9087" kind="variable"><name>F</name></member>
   </compound>
   <compound refid="measure__biometrics_8cpp" kind="file"><name>measure_biometrics.cpp</name>
     <member refid="measure__biometrics_8cpp_1a652fa32c4482bb0d3805c3c5f5900af5" kind="define"><name>servo_speed_const</name></member>
@@ -196,6 +196,38 @@
     <member refid="track__objects__server_8cpp_1a7a8fccf019dd7adfc1195447ae8d8f18" kind="function"><name>cart_dist</name></member>
     <member refid="track__objects__server_8cpp_1ad735d4b9792b5d3ee35866fd08b7b4ce" kind="function"><name>track</name></member>
     <member refid="track__objects__server_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="group__laser__object__t" kind="group"><name>Laser_object_t</name>
+    <member refid="group__laser__object__t_1ga4a44e170a3630aad3356b3682684f6c8" kind="variable"><name>Q</name></member>
+    <member refid="group__laser__object__t_1ga77bf685edecf60761abb55a23d9c9a9b" kind="variable"><name>R</name></member>
+    <member refid="group__laser__object__t_1gadf0b44b0795b5c94956f21a9fb6c199b" kind="variable"><name>H</name></member>
+    <member refid="group__laser__object__t_1ga2c9979ba8b6f6b1b92cb6432c0be9087" kind="variable"><name>F</name></member>
+    <member refid="group__laser__object__t_1gadfe328cba5705e40f91b5cf376c3d94d" kind="define"><name>immobile_timeout</name></member>
+    <member refid="group__laser__object__t_1ga102b2e08f8d8ab1ad176d1e00949c026" kind="define"><name>immobile_threshold</name></member>
+    <member refid="group__laser__object__t_1ga86fb4dc51298aedc38f4dea202e86d94" kind="function"><name>laser_object_t</name></member>
+    <member refid="group__laser__object__t_1gaaf5e27005d394ba00082e17a0804f3b2" kind="function"><name>test_mobile</name></member>
+    <member refid="group__laser__object__t_1ga1306580c845a8e9e37646988d86788c0" kind="function"><name>distance</name></member>
+    <member refid="group__laser__object__t_1ga7197f41117174159f618bbdcd63f9cc3" kind="function"><name>run_kalman_filter</name></member>
+    <member refid="group__laser__object__t_1ga5aba73083c62b017d1e09d9e36a35df1" kind="function"><name>get_is_mobile</name></member>
+    <member refid="group__laser__object__t_1ga85ea7644afff4ac0315156a182946110" kind="function"><name>get_last_active</name></member>
+    <member refid="group__laser__object__t_1ga02a018369ba1e52d2cec3625f7452c7b" kind="function"><name>get_pos_centerofmass</name></member>
+    <member refid="group__laser__object__t_1gadfafd151af0900623901d162260ba234" kind="function"><name>get_vel_centerofmass</name></member>
+    <member refid="group__laser__object__t_1gac9cc27a949e2af39dc4da7fb0fb8f8d4" kind="function"><name>~laser_object_t</name></member>
+  </compound>
+  <compound refid="group__laser__objects" kind="group"><name>laser_objects</name>
+    <member refid="group__laser__objects_1ga8e139bb70c4e8589e512a71f244b45ef" kind="function"><name>update</name></member>
+    <member refid="group__laser__objects_1ga5d288e741d7fca610899fd1b9f822826" kind="function"><name>get_mobiles_x</name></member>
+    <member refid="group__laser__objects_1gab76cec03e47705fcad27a2cf9d9b62a0" kind="function"><name>get_mobiles_y</name></member>
+    <member refid="group__laser__objects_1ga1f4e68699b3a5ea853dce7e45123a284" kind="function"><name>get_statics_x</name></member>
+    <member refid="group__laser__objects_1ga6063594fe030d1d8c33e6f4d2e1b3ef0" kind="function"><name>get_statics_y</name></member>
+    <member refid="group__laser__objects_1ga8491aebb670f24305deeb85a9da26ede" kind="function"><name>update_repository</name></member>
+    <member refid="group__laser__objects_1ga9be2a1b55a49c0083bc37ac770ca2fa7" kind="function"><name>laser_objects</name></member>
+  </compound>
+  <compound refid="group__laser__object__s" kind="group"><name>Laser_object_s</name>
+    <member refid="group__laser__object__s_1gaf735b65ab6833fed43b665e828e8b601" kind="define"><name>CULLING_TIME</name></member>
+    <member refid="group__laser__object__s_1ga12bd8d1fde7ba659b9d690f0c9a1762f" kind="define"><name>object_threshold</name></member>
+  </compound>
+  <compound refid="todo" kind="page"><name>todo</name>
   </compound>
   <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
   </compound>

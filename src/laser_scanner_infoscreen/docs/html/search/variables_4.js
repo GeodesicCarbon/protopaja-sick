@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['servo_5fcontrol_5fpointer',['servo_control_pointer',['../gesture__control_8cpp.html#ad7c4130fa2a9b5b52c9cc9762accfe31',1,'gesture_control.cpp']]]
+  ['is_5freadable',['is_readable',['../structservo__t.html#a2d870f86b97b371fff86ac1c02f789f6',1,'servo_t']]]
 ];

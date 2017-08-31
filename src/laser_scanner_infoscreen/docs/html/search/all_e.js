@@ -1,4 +1,12 @@
 var searchData=
 [
-  ['q',['Q',['../laser__objects_8cpp.html#a4a44e170a3630aad3356b3682684f6c8',1,'laser_objects.cpp']]]
+  ['scanner_5fgestures_2ecpp',['scanner_gestures.cpp',['../scanner__gestures_8cpp.html',1,'']]],
+  ['scanner_5fgestures_2eh',['scanner_gestures.h',['../scanner__gestures_8h.html',1,'']]],
+  ['sensor_5fpos',['sensor_pos',['../gesture__control_8cpp.html#ad8662d30f3440d45487607002371a735',1,'gesture_control.cpp']]],
+  ['server_5faddress',['SERVER_ADDRESS',['../control__tcp__socket_8cpp.html#aa6cecb8c404241c624e83aee8a3979d2',1,'control_tcp_socket.cpp']]],
+  ['servo_5fcontrol_5fpointer',['servo_control_pointer',['../gesture__control_8cpp.html#ad7c4130fa2a9b5b52c9cc9762accfe31',1,'gesture_control.cpp']]],
+  ['servo_5ffeedback_5fcallback',['servo_feedback_callback',['../gesture__control_8cpp.html#a272dea7f151f9bf75131542422903056',1,'gesture_control.cpp']]],
+  ['servo_5floop_5flen',['servo_loop_len',['../gesture__control_8cpp.html#aafa72341f1113b0939af781b7d63770d',1,'gesture_control.cpp']]],
+  ['servo_5fspeed_5fconst',['servo_speed_const',['../gesture__control_8cpp.html#a652fa32c4482bb0d3805c3c5f5900af5',1,'gesture_control.cpp']]],
+  ['servo_5ft',['servo_t',['../structservo__t.html',1,'']]]
 ];

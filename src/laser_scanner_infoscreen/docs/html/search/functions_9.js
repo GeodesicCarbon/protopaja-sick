@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['run_5fkalman_5ffilter',['run_kalman_filter',['../classlaser__object__t.html#a7197f41117174159f618bbdcd63f9cc3',1,'laser_object_t']]]
+  ['_7elaser_5fobject_5ft',['~laser_object_t',['../group__laser__object__t.html#gac9cc27a949e2af39dc4da7fb0fb8f8d4',1,'laser_object_t']]]
 ];

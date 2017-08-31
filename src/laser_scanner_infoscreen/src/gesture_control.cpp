@@ -12,7 +12,7 @@
 /*! \file gesture_control.cpp
 * \brief Node that handles gesture tracking and associated topics.
 * 
-* \sa Scanner_gestures
+* \sa scanner_gestures
 * \sa <track_objects_client>
 */
 
@@ -39,8 +39,9 @@
 */
 #define servo_loop_len 5
 
-// Offset of the upper sensor in the relation of lower sensor
+//! Offset of the upper sensor in the relation of lower sensor in {x,y,z}
 static std::vector<float> sensor_pos = {0.0,-0.22,0.72};
+//! Loop counter fo the servo control. \sa servo_loop_len
 int loop_count = 0;
 
 // Initializing global objects
@@ -59,22 +60,35 @@ ros::Publisher *external_control_pointer;
 //! Global variable of last detected gesture timestamp.
 static ros::Time timelock;
 
-
-// Parameters of the person of inrerest.
-
-//! Person of interest
+/*! \struct poi_t
+* \brief position of the PoI in polar coordinates
+*
+* Contains range and angle data of the object the system is currently tracking.
+*/
 struct poi_t {
-  float poi_range;
-  float poi_angle;
+  float poi_range; /*!< range of the PoI in metres */
+  float poi_angle; /*!< angle of the PoI in radians. 0 is directly at the front. */
 } poi;
 
-// Lock for the servo control (e.g. busy with biometrics)
+//! Lock for the servo control (e.g. busy with biometrics)
 struct servo_t {
-  bool is_readable = false;
+  bool is_readable = false; //!<disables gesture tracking while moving servo
 } servo;
 
 
-// Scanner is read by default. If tracking is disabled, the data is discarded.
+/*! LaserScan callback function.
+\brief if enables, parses LaserScan messages and send them to the gesture tracker.
+
+Receives raw data from /scan_upper topic in the form of LaserScan messages,
+collates it with the PoI position and sends it to the Scanner_gestures object for
+parsing and scoring. If applicable, retrieves gesture. Handles timeouts between
+gestures to minize jitter and false positives.
+
+Scanner is read by default. If tracking is disabled, the data is discarded.
+
+Sends visualization of gesture tracking to the /visualization_gesture topic.
+\param scan LaserScan message from upper (gesture) scanner.
+*/
 void gestures_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
 {
   // Visualization
@@ -149,7 +163,10 @@ void gestures_callback(const sensor_msgs::LaserScan::ConstPtr& scan)
   }
 }
 
-/* Servo control logic. If tracking is enabled servo is moved into gesture read
+/*! gesture_control callback function
+\brief handles control messages from /gesture_control topic
+
+Servo control logic. If tracking is enabled servo is moved into gesture read
 position. The angle of the upper scanner is kept so that the beam approximately
 intersects with the lower scanner at the position of POI*/
 void control_callback(const laser_scanner_infoscreen::gesture_call& msg)
@@ -171,16 +188,26 @@ void control_callback(const laser_scanner_infoscreen::gesture_call& msg)
   gestures->set_tracking(msg.is_tracking);
 }
 
+/*! servo_feedback callback
+\brief servo controller callback to release servo lock.
+
+Whenever servo has completed its move it should publish on /servo_position topic.
+This releases lock on gesture tracking.
+\param msg servo_feedback.msg of servo position
+*/
 void servo_feedback_callback(const laser_scanner_infoscreen::servo_feedback& msg)
 {
   servo.is_readable = true;
 }
-
+/*! Main function.
+Initializes node and its variables.
+*/
 int main(int argc, char **argv)
 {
 	ros::init(argc, argv, "track_objects_client");
 	ros::NodeHandle n;
 	node_pointer = &n;
+  // Initialize Scanner_gestures object that implements gesture tracking.
   gestures = new Scanner_gestures();
 
 	ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_gesture", 10);

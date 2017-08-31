@@ -15,68 +15,68 @@
     <includes local="no">chrono</includes>
     <includes local="no">thread</includes>
     <incdepgraph>
-      <node id="1163">
+      <node id="1177">
         <label>laser_scanner_infoscreen/biometrics_results.h</label>
       </node>
-      <node id="1160">
+      <node id="1174">
         <label>ros/topic.h</label>
       </node>
-      <node id="1167">
+      <node id="1181">
         <label>visualization_msgs/Marker.h</label>
       </node>
-      <node id="1165">
+      <node id="1179">
         <label>laser_scanner_infoscreen/servo_feedback.h</label>
       </node>
-      <node id="1159">
+      <node id="1173">
         <label>ros/ros.h</label>
       </node>
-      <node id="1168">
+      <node id="1182">
         <label>math.h</label>
       </node>
-      <node id="1166">
+      <node id="1180">
         <label>cstdlib</label>
       </node>
-      <node id="1169">
+      <node id="1183">
         <label>chrono</label>
       </node>
-      <node id="1161">
+      <node id="1175">
         <label>sensor_msgs/LaserScan.h</label>
       </node>
-      <node id="1170">
+      <node id="1184">
         <label>thread</label>
       </node>
-      <node id="1162">
+      <node id="1176">
         <label>laser_scanner_infoscreen/biometrics.h</label>
       </node>
-      <node id="1158">
+      <node id="1172">
         <label>src/measure_biometrics.cpp</label>
         <link refid="measure_biometrics.cpp"/>
-        <childnode refid="1159" relation="include">
+        <childnode refid="1173" relation="include">
         </childnode>
-        <childnode refid="1160" relation="include">
+        <childnode refid="1174" relation="include">
         </childnode>
-        <childnode refid="1161" relation="include">
+        <childnode refid="1175" relation="include">
         </childnode>
-        <childnode refid="1162" relation="include">
+        <childnode refid="1176" relation="include">
         </childnode>
-        <childnode refid="1163" relation="include">
+        <childnode refid="1177" relation="include">
         </childnode>
-        <childnode refid="1164" relation="include">
+        <childnode refid="1178" relation="include">
         </childnode>
-        <childnode refid="1165" relation="include">
+        <childnode refid="1179" relation="include">
         </childnode>
-        <childnode refid="1166" relation="include">
+        <childnode refid="1180" relation="include">
         </childnode>
-        <childnode refid="1167" relation="include">
+        <childnode refid="1181" relation="include">
         </childnode>
-        <childnode refid="1168" relation="include">
+        <childnode refid="1182" relation="include">
         </childnode>
-        <childnode refid="1169" relation="include">
+        <childnode refid="1183" relation="include">
         </childnode>
-        <childnode refid="1170" relation="include">
+        <childnode refid="1184" relation="include">
         </childnode>
       </node>
-      <node id="1164">
+      <node id="1178">
         <label>laser_scanner_infoscreen/servo_control.h</label>
       </node>
     </incdepgraph>
@@ -91,7 +91,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/measure_biometrics.cpp" line="14" column="9" bodyfile="src/measure_biometrics.cpp" bodystart="14" bodyend="-1"/>
+        <location file="src/measure_biometrics.cpp" line="18" column="9" bodyfile="src/measure_biometrics.cpp" bodystart="18" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/measure_biometrics.cpp" line="16" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="16" bodyend="-1"/>
+        <location file="src/measure_biometrics.cpp" line="20" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="20" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="measure__biometrics_8cpp_1a63b0cea48d2da7a328302aee063e57b9" prot="public" static="no" mutable="no">
         <type>ros::Publisher *</type>
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/measure_biometrics.cpp" line="17" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="17" bodyend="-1"/>
+        <location file="src/measure_biometrics.cpp" line="21" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="21" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="measure__biometrics_8cpp_1ad7c4130fa2a9b5b52c9cc9762accfe31" prot="public" static="no" mutable="no">
         <type>ros::Publisher *</type>
@@ -132,7 +132,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/measure_biometrics.cpp" line="18" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="18" bodyend="-1"/>
+        <location file="src/measure_biometrics.cpp" line="22" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="22" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="measure__biometrics_8cpp_1a859597d1d3be30a6f99cb8051a03d0c8" prot="public" static="no" mutable="no">
         <type>ros::Publisher *</type>
@@ -145,7 +145,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/measure_biometrics.cpp" line="19" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="19" bodyend="-1"/>
+        <location file="src/measure_biometrics.cpp" line="23" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="23" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="measure__biometrics_8cpp_1ab4dc2f2c04464ab5dfb7ae2780cbbdf7" prot="public" static="yes" mutable="no">
         <type>int</type>
@@ -159,7 +159,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/measure_biometrics.cpp" line="20" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="20" bodyend="-1"/>
+        <location file="src/measure_biometrics.cpp" line="24" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="24" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="measure__biometrics_8cpp_1a399283567404464092d5f64fdc4df99a" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -173,7 +173,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/measure_biometrics.cpp" line="21" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="21" bodyend="-1"/>
+        <location file="src/measure_biometrics.cpp" line="25" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="25" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="measure__biometrics_8cpp_1ad8662d30f3440d45487607002371a735" prot="public" static="yes" mutable="no">
         <type>std::vector&lt; float &gt;</type>
@@ -187,7 +187,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/measure_biometrics.cpp" line="22" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="22" bodyend="-1"/>
+        <location file="src/measure_biometrics.cpp" line="26" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="measure__biometrics_8cpp_1ad1749a3f174e5a1ea7406541575cc99d" prot="public" static="no" mutable="no">
         <type>struct servo_angle_t</type>
@@ -200,7 +200,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/measure_biometrics.cpp" line="26" column="1"/>
+        <location file="src/measure_biometrics.cpp" line="30" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -223,7 +223,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/measure_biometrics.cpp" line="29" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="29" bodyend="33"/>
+        <location file="src/measure_biometrics.cpp" line="33" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="33" bodyend="37"/>
       </memberdef>
       <memberdef kind="function" id="measure__biometrics_8cpp_1a4ad0813f9401699c8840005f44ac4891" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -240,7 +240,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/measure_biometrics.cpp" line="35" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="35" bodyend="47"/>
+        <location file="src/measure_biometrics.cpp" line="39" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="39" bodyend="51"/>
       </memberdef>
       <memberdef kind="function" id="measure__biometrics_8cpp_1a5b62649fd6ccd78f4595bd3e1329e2c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -257,7 +257,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/measure_biometrics.cpp" line="49" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="49" bodyend="88"/>
+        <location file="src/measure_biometrics.cpp" line="53" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="53" bodyend="92"/>
       </memberdef>
       <memberdef kind="function" id="measure__biometrics_8cpp_1a272dea7f151f9bf75131542422903056" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -274,7 +274,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/measure_biometrics.cpp" line="90" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="90" bodyend="93"/>
+        <location file="src/measure_biometrics.cpp" line="94" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="94" bodyend="97"/>
       </memberdef>
       <memberdef kind="function" id="measure__biometrics_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -295,13 +295,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/measure_biometrics.cpp" line="95" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="95" bodyend="112"/>
+        <location file="src/measure_biometrics.cpp" line="99" column="1" bodyfile="src/measure_biometrics.cpp" bodystart="99" bodyend="116"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-    </briefdescription>
+<para>A naive implementation of biometrics measurements. </para>    </briefdescription>
     <detaileddescription>
-    </detaileddescription>
+<para>A ROS Node that uses laserscanner to measure the height of the target. </para>    </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;ros/ros.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ros/topic.h&quot;</highlight><highlight class="normal"></highlight></codeline>
@@ -314,107 +314,106 @@
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;visualization_msgs/Marker.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;chrono&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;thread&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>servo_speed_const<sp/>5235</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>ros::NodeHandle<sp/>*<ref refid="gesture__control_8cpp_1a8c9e9fe63fc6db914caeb21d95be5ca0" kindref="member">node_pointer</ref>;</highlight></codeline>
-<codeline lineno="17"><highlight class="normal">ros::Publisher<sp/>*<ref refid="gesture__control_8cpp_1a63b0cea48d2da7a328302aee063e57b9" kindref="member">marker_pub_pointer</ref>;</highlight></codeline>
-<codeline lineno="18"><highlight class="normal">ros::Publisher<sp/>*<ref refid="gesture__control_8cpp_1ad7c4130fa2a9b5b52c9cc9762accfe31" kindref="member">servo_control_pointer</ref>;</highlight></codeline>
-<codeline lineno="19"><highlight class="normal">ros::Publisher<sp/>*biometrics_results_pointer;</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>binary_depth<sp/>=<sp/>5;</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>level_offset_z<sp/>=<sp/>0.85f;</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::vector&lt;float&gt;<sp/>sensor_pos<sp/>=<sp/>{0.0,-0.2,0.65};<sp/></highlight><highlight class="comment">//<sp/>upper<sp/>sensor<sp/>offset<sp/>in<sp/>{x,y,z}</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">servo_angle_t<sp/>{</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_read<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>angle<sp/>=<sp/>0.0f;</highlight></codeline>
-<codeline lineno="26"><highlight class="normal">}<sp/>servo_angle;</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>calculate_range(<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>angle_h,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>low_range)<sp/>{</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::sqrt(std::pow(low_range<sp/>*<sp/>sin(angle_h)<sp/>+<sp/>sensor_pos[0],2)<sp/>+</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pow(low_range<sp/>*<sp/>cos(angle_h)<sp/>+<sp/>sensor_pos[1],2)<sp/>+</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pow(sensor_pos[2],2));</highlight></codeline>
-<codeline lineno="33"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>set_tilt_uppper_scanner(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>rad)<sp/>{</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/>laser_scanner_infoscreen::servo_control<sp/>msg;</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/>msg.servo_angle<sp/>=<sp/>std::ceil(rad*1000);</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/>msg.servo_speed<sp/>=<sp/><ref refid="gesture__control_8cpp_1a652fa32c4482bb0d3805c3c5f5900af5" kindref="member">servo_speed_const</ref>;</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><ref refid="gesture__control_8cpp_1ad7c4130fa2a9b5b52c9cc9762accfe31" kindref="member">servo_control_pointer</ref>-&gt;publish(msg);</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>ROS_INFO(&quot;Waiting<sp/>for<sp/>servo&quot;);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>(servo_angle.is_read)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>usleep(10);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>servo_angle.is_read<sp/>=<sp/>true;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>ROS_INFO(&quot;Reclevel_offset_zeived<sp/>servo<sp/>angle&quot;);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>return<sp/>servo_angle.angle;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>biometrics_callback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>laser_scanner_infoscreen::biometrics::ConstPtr&amp;<sp/>poi)</highlight></codeline>
-<codeline lineno="50"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>low<sp/>=<sp/>0.5;</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>high<sp/>=<sp/>2.2;</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>low_index;</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>high_index;</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/>sensor_msgs::LaserScan::ConstPtr<sp/>scan;</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>h_neutral<sp/>=<sp/>sensor_pos[2]<sp/>+<sp/>level_offset_z;</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>binary_depth;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>mid<sp/>=<sp/>(low<sp/>+<sp/>high)/2;</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>hit_count<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;Testing<sp/>for<sp/>h<sp/>=<sp/>%f&quot;</highlight><highlight class="normal">,<sp/>mid);</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>scan_range<sp/>=<sp/>calculate_range(poi-&gt;poi_angle,<sp/>poi-&gt;poi_range);</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>angle<sp/>=<sp/>asin((mid<sp/>-<sp/>h_neutral)/scan_range);</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;low<sp/>%.3f,<sp/>high<sp/>%.3f,<sp/>mid<sp/>%.3f<sp/>angle<sp/>%.5f&quot;</highlight><highlight class="normal">,<sp/>low,<sp/>mid,<sp/>high,<sp/>angle);</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>set_tilt_uppper_scanner(angle);</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>scan<sp/>=<sp/>ros::topic::waitForMessage&lt;sensor_msgs::LaserScan&gt;(</highlight><highlight class="stringliteral">&quot;/scan_upper&quot;</highlight><highlight class="normal">,<sp/>*<ref refid="gesture__control_8cpp_1a8c9e9fe63fc6db914caeb21d95be5ca0" kindref="member">node_pointer</ref>);</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>d_index<sp/>=<sp/>std::ceil(1.0f/(scan_range*2*scan-&gt;angle_increment));</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>low_index<sp/>=<sp/><sp/>std::ceil((poi-&gt;poi_angle<sp/><sp/>-<sp/>scan-&gt;angle_min)/scan-&gt;angle_increment)<sp/>-<sp/>d_index;</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>high_index<sp/>=<sp/>low_index<sp/>+<sp/>d_index;</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>low_index;<sp/>j<sp/>&lt;=<sp/>high_index;<sp/>j++)<sp/>{</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(abs(scan-&gt;ranges[j]<sp/>-<sp/>scan_range)<sp/>&lt;<sp/>0.2)<sp/>{</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hit_count++;</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;hit<sp/>count<sp/>%d&quot;</highlight><highlight class="normal">,<sp/>hit_count);</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hit_count<sp/>&lt;<sp/>5)<sp/>{</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>high<sp/>=<sp/>mid;</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>low<sp/>=<sp/>mid;</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>std::this_thread::sleep_for(std::chrono::milliseconds(300/(5-i)));</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/>laser_scanner_infoscreen::biometrics_results<sp/>bio_msg;</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/>bio_msg.height<sp/>=<sp/>(high+low)/2;</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/>bio_msg.id<sp/>=<sp/>poi-&gt;id;</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/>biometrics_results_pointer-&gt;publish(bio_msg);</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;Measured<sp/>height<sp/>=<sp/>%f&quot;</highlight><highlight class="normal">,<sp/>(high+low)/2);</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"></highlight></codeline>
-<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"></highlight></codeline>
-<codeline lineno="90"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>servo_feedback_callback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>laser_scanner_infoscreen::servo_feedback&amp;<sp/>msg)<sp/>{</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/>servo_angle.angle<sp/>=<sp/>msg.servo_angle/1000.0f;</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/>servo_angle.is_read<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"></highlight></codeline>
-<codeline lineno="95"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="control__tcp__socket_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kindref="member">main</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**argv)</highlight></codeline>
-<codeline lineno="96"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::init(argc,<sp/>argv,<sp/></highlight><highlight class="stringliteral">&quot;measure_biometrics&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>std::this_thread::sleep_for(std::chrono::milliseconds(3000));</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::NodeHandle<sp/>n;</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a8c9e9fe63fc6db914caeb21d95be5ca0" kindref="member">node_pointer</ref><sp/>=<sp/>&amp;n;</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>sub<sp/>=<sp/>n.subscribe(</highlight><highlight class="stringliteral">&quot;biometrics&quot;</highlight><highlight class="normal">,<sp/>1000,<sp/>biometrics_callback);</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Publisher<sp/>marker_pub<sp/>=<sp/>n.advertise&lt;visualization_msgs::Marker&gt;(</highlight><highlight class="stringliteral">&quot;visualization_marker&quot;</highlight><highlight class="normal">,<sp/>10);</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>servo_pub<sp/>=<sp/>n.advertise&lt;laser_scanner_infoscreen::servo_control&gt;(</highlight><highlight class="stringliteral">&quot;servo_control&quot;</highlight><highlight class="normal">,<sp/>10);</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>bio_pub<sp/>=<sp/>n.advertise&lt;laser_scanner_infoscreen::biometrics_results&gt;(</highlight><highlight class="stringliteral">&quot;biometrics_results&quot;</highlight><highlight class="normal">,<sp/>10);</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>servo_feedback<sp/>=<sp/>n.subscribe(</highlight><highlight class="stringliteral">&quot;servo_position&quot;</highlight><highlight class="normal">,<sp/>100,<sp/>servo_feedback_callback);</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><ref refid="gesture__control_8cpp_1a63b0cea48d2da7a328302aee063e57b9" kindref="member">marker_pub_pointer</ref><sp/>=<sp/>&amp;marker_pub;</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><ref refid="gesture__control_8cpp_1ad7c4130fa2a9b5b52c9cc9762accfe31" kindref="member">servo_control_pointer</ref><sp/>=<sp/>&amp;servo_pub;</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/>biometrics_results_pointer<sp/>=<sp/>&amp;bio_pub;</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;HELLO<sp/>THERE&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::spin();</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;thread&gt;</highlight></codeline>
+<codeline lineno="18"><highlight class="preprocessor">#define<sp/>servo_speed_const<sp/>5235</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>ros::NodeHandle<sp/>*<ref refid="gesture__control_8cpp_1a8c9e9fe63fc6db914caeb21d95be5ca0" kindref="member">node_pointer</ref>;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">ros::Publisher<sp/>*<ref refid="gesture__control_8cpp_1a63b0cea48d2da7a328302aee063e57b9" kindref="member">marker_pub_pointer</ref>;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">ros::Publisher<sp/>*<ref refid="gesture__control_8cpp_1ad7c4130fa2a9b5b52c9cc9762accfe31" kindref="member">servo_control_pointer</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">ros::Publisher<sp/>*biometrics_results_pointer;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>binary_depth<sp/>=<sp/>5;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>level_offset_z<sp/>=<sp/>0.85f;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::vector&lt;float&gt;<sp/><ref refid="gesture__control_8cpp_1ad8662d30f3440d45487607002371a735" kindref="member">sensor_pos</ref><sp/>=<sp/>{0.0,-0.2,0.65};<sp/></highlight><highlight class="comment">//<sp/>upper<sp/>sensor<sp/>offset<sp/>in<sp/>{x,y,z}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">servo_angle_t<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_read<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>angle<sp/>=<sp/>0.0f;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}<sp/>servo_angle;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>calculate_range(<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>angle_h,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>low_range)<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::sqrt(std::pow(low_range<sp/>*<sp/>sin(angle_h)<sp/>+<sp/><ref refid="gesture__control_8cpp_1ad8662d30f3440d45487607002371a735" kindref="member">sensor_pos</ref>[0],2)<sp/>+</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pow(low_range<sp/>*<sp/>cos(angle_h)<sp/>+<sp/><ref refid="gesture__control_8cpp_1ad8662d30f3440d45487607002371a735" kindref="member">sensor_pos</ref>[1],2)<sp/>+</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pow(<ref refid="gesture__control_8cpp_1ad8662d30f3440d45487607002371a735" kindref="member">sensor_pos</ref>[2],2));</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>set_tilt_uppper_scanner(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>rad)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>laser_scanner_infoscreen::servo_control<sp/>msg;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>msg.servo_angle<sp/>=<sp/>std::ceil(rad*1000);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>msg.servo_speed<sp/>=<sp/><ref refid="gesture__control_8cpp_1a652fa32c4482bb0d3805c3c5f5900af5" kindref="member">servo_speed_const</ref>;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><ref refid="gesture__control_8cpp_1ad7c4130fa2a9b5b52c9cc9762accfe31" kindref="member">servo_control_pointer</ref>-&gt;publish(msg);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>ROS_INFO(&quot;Waiting<sp/>for<sp/>servo&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>(servo_angle.is_read)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>usleep(10);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>servo_angle.is_read<sp/>=<sp/>true;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>ROS_INFO(&quot;Reclevel_offset_zeived<sp/>servo<sp/>angle&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>return<sp/>servo_angle.angle;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>biometrics_callback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>laser_scanner_infoscreen::biometrics::ConstPtr&amp;<sp/>poi)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>low<sp/>=<sp/>0.5;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>high<sp/>=<sp/>2.2;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>low_index;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>high_index;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>sensor_msgs::LaserScan::ConstPtr<sp/>scan;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>h_neutral<sp/>=<sp/><ref refid="gesture__control_8cpp_1ad8662d30f3440d45487607002371a735" kindref="member">sensor_pos</ref>[2]<sp/>+<sp/>level_offset_z;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>binary_depth;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>mid<sp/>=<sp/>(low<sp/>+<sp/>high)/2;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>hit_count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;Testing<sp/>for<sp/>h<sp/>=<sp/>%f&quot;</highlight><highlight class="normal">,<sp/>mid);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>scan_range<sp/>=<sp/>calculate_range(poi-&gt;poi_angle,<sp/>poi-&gt;poi_range);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>angle<sp/>=<sp/>asin((mid<sp/>-<sp/>h_neutral)/scan_range);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;low<sp/>%.3f,<sp/>high<sp/>%.3f,<sp/>mid<sp/>%.3f<sp/>angle<sp/>%.5f&quot;</highlight><highlight class="normal">,<sp/>low,<sp/>mid,<sp/>high,<sp/>angle);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>set_tilt_uppper_scanner(angle);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>scan<sp/>=<sp/>ros::topic::waitForMessage&lt;sensor_msgs::LaserScan&gt;(</highlight><highlight class="stringliteral">&quot;/scan_upper&quot;</highlight><highlight class="normal">,<sp/>*<ref refid="gesture__control_8cpp_1a8c9e9fe63fc6db914caeb21d95be5ca0" kindref="member">node_pointer</ref>);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>d_index<sp/>=<sp/>std::ceil(1.0f/(scan_range*2*scan-&gt;angle_increment));</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>low_index<sp/>=<sp/><sp/>std::ceil((poi-&gt;poi_angle<sp/><sp/>-<sp/>scan-&gt;angle_min)/scan-&gt;angle_increment)<sp/>-<sp/>d_index;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>high_index<sp/>=<sp/>low_index<sp/>+<sp/>d_index;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>low_index;<sp/>j<sp/>&lt;=<sp/>high_index;<sp/>j++)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(abs(scan-&gt;ranges[j]<sp/>-<sp/>scan_range)<sp/>&lt;<sp/>0.2)<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hit_count++;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;hit<sp/>count<sp/>%d&quot;</highlight><highlight class="normal">,<sp/>hit_count);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hit_count<sp/>&lt;<sp/>5)<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>high<sp/>=<sp/>mid;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>low<sp/>=<sp/>mid;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>std::this_thread::sleep_for(std::chrono::milliseconds(300/(1+i)));</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>laser_scanner_infoscreen::biometrics_results<sp/>bio_msg;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>bio_msg.height<sp/>=<sp/>(high+low)/2;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>bio_msg.id<sp/>=<sp/>poi-&gt;id;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>biometrics_results_pointer-&gt;publish(bio_msg);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;Measured<sp/>height<sp/>=<sp/>%f&quot;</highlight><highlight class="normal">,<sp/>(high+low)/2);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gesture__control_8cpp_1a272dea7f151f9bf75131542422903056" kindref="member">servo_feedback_callback</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>laser_scanner_infoscreen::servo_feedback&amp;<sp/>msg)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>servo_angle.angle<sp/>=<sp/>msg.servo_angle/1000.0f;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>servo_angle.is_read<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="control__tcp__socket_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kindref="member">main</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**argv)</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::init(argc,<sp/>argv,<sp/></highlight><highlight class="stringliteral">&quot;measure_biometrics&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>std::this_thread::sleep_for(std::chrono::milliseconds(3000));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::NodeHandle<sp/>n;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gesture__control_8cpp_1a8c9e9fe63fc6db914caeb21d95be5ca0" kindref="member">node_pointer</ref><sp/>=<sp/>&amp;n;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>sub<sp/>=<sp/>n.subscribe(</highlight><highlight class="stringliteral">&quot;biometrics&quot;</highlight><highlight class="normal">,<sp/>1000,<sp/>biometrics_callback);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Publisher<sp/>marker_pub<sp/>=<sp/>n.advertise&lt;visualization_msgs::Marker&gt;(</highlight><highlight class="stringliteral">&quot;visualization_marker&quot;</highlight><highlight class="normal">,<sp/>10);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>servo_pub<sp/>=<sp/>n.advertise&lt;laser_scanner_infoscreen::servo_control&gt;(</highlight><highlight class="stringliteral">&quot;servo_control&quot;</highlight><highlight class="normal">,<sp/>10);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>bio_pub<sp/>=<sp/>n.advertise&lt;laser_scanner_infoscreen::biometrics_results&gt;(</highlight><highlight class="stringliteral">&quot;biometrics_results&quot;</highlight><highlight class="normal">,<sp/>10);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>servo_feedback<sp/>=<sp/>n.subscribe(</highlight><highlight class="stringliteral">&quot;servo_position&quot;</highlight><highlight class="normal">,<sp/>100,<sp/><ref refid="gesture__control_8cpp_1a272dea7f151f9bf75131542422903056" kindref="member">servo_feedback_callback</ref>);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><ref refid="gesture__control_8cpp_1a63b0cea48d2da7a328302aee063e57b9" kindref="member">marker_pub_pointer</ref><sp/>=<sp/>&amp;marker_pub;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><ref refid="gesture__control_8cpp_1ad7c4130fa2a9b5b52c9cc9762accfe31" kindref="member">servo_control_pointer</ref><sp/>=<sp/>&amp;servo_pub;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/>biometrics_results_pointer<sp/>=<sp/>&amp;bio_pub;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;HELLO<sp/>THERE&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::spin();</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/measure_biometrics.cpp"/>
   </compounddef>

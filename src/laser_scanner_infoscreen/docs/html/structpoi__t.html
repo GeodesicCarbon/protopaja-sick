@@ -40,6 +40,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -64,6 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -83,17 +86,54 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structpoi__t-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">poi_t Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Person of interest.  
+<p>position of the PoI in polar coordinates  
  <a href="structpoi__t.html#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ae5f9ca22bbe2f78476ad6d08bc31a231"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpoi__t.html#ae5f9ca22bbe2f78476ad6d08bc31a231">poi_range</a></td></tr>
+<tr class="separator:ae5f9ca22bbe2f78476ad6d08bc31a231"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59b58f432e793217c33691e9c8b921b7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpoi__t.html#a59b58f432e793217c33691e9c8b921b7">poi_angle</a></td></tr>
+<tr class="separator:a59b58f432e793217c33691e9c8b921b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Person of interest. </p>
-</div><hr/>The documentation for this struct was generated from the following files:<ul>
+<div class="textblock"><p>position of the PoI in polar coordinates </p>
+<p>Contains range and angle data of the object the system is currently tracking. </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a59b58f432e793217c33691e9c8b921b7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float poi_t::poi_angle</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>angle of the PoI in radians. 0 is directly at the front. </p>
+
+</div>
+</div>
+<a class="anchor" id="ae5f9ca22bbe2f78476ad6d08bc31a231"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float poi_t::poi_range</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>range of the PoI in metres </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li>src/<a class="el" href="gesture__control_8cpp.html">gesture_control.cpp</a></li>
 <li>src/<a class="el" href="track__objects__client_8cpp.html">track_objects_client.cpp</a></li>
 </ul>

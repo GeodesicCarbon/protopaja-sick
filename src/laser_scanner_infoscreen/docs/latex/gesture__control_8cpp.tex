@@ -27,7 +27,9 @@ Include dependency graph for gesture\+\_\+control.\+cpp\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structpoi__t}{poi\+\_\+t}
-\begin{DoxyCompactList}\small\item\em Person of interest. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em position of the PoI in polar coordinates \end{DoxyCompactList}\item 
+struct \hyperlink{structservo__t}{servo\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Lock for the servo control (e.\+g. busy with biometrics) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -39,9 +41,25 @@ struct \hyperlink{structpoi__t}{poi\+\_\+t}
 \item 
 \#define \hyperlink{gesture__control_8cpp_aafa72341f1113b0939af781b7d63770d}{servo\+\_\+loop\+\_\+len}~5
 \begin{DoxyCompactList}\small\item\em Length of servo idle loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{gesture__control_8cpp_adbf76bdb1d65ea9f9d44ec58eb40d877}{gestures\+\_\+callback} (const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&scan)
+\begin{DoxyCompactList}\small\item\em if enables, parses Laser\+Scan messages and send them to the gesture tracker. \end{DoxyCompactList}\item 
+void \hyperlink{gesture__control_8cpp_ab4546fc84eafe7c48c81b8f28c5077c1}{control\+\_\+callback} (const laser\+\_\+scanner\+\_\+infoscreen\+::gesture\+\_\+call \&msg)
+\begin{DoxyCompactList}\small\item\em handles control messages from /gesture\+\_\+control topic \end{DoxyCompactList}\item 
+void \hyperlink{gesture__control_8cpp_a272dea7f151f9bf75131542422903056}{servo\+\_\+feedback\+\_\+callback} (const laser\+\_\+scanner\+\_\+infoscreen\+::servo\+\_\+feedback \&msg)
+\begin{DoxyCompactList}\small\item\em servo controller callback to release servo lock. \end{DoxyCompactList}\item 
+int \hyperlink{gesture__control_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
+static std\+::vector$<$ float $>$ \hyperlink{gesture__control_8cpp_ad8662d30f3440d45487607002371a735}{sensor\+\_\+pos} = \{0.\+0,-\/0.\+22,0.\+72\}\hypertarget{gesture__control_8cpp_ad8662d30f3440d45487607002371a735}{}\label{gesture__control_8cpp_ad8662d30f3440d45487607002371a735}
+
+\begin{DoxyCompactList}\small\item\em Offset of the upper sensor in the relation of lower sensor in \{x,y,z\}. \end{DoxyCompactList}\item 
+int \hyperlink{gesture__control_8cpp_a2ac8bc219bf895e4a3cdd514c1de6ec4}{loop\+\_\+count} = 0
+\begin{DoxyCompactList}\small\item\em Loop counter fo the servo control. \end{DoxyCompactList}\item 
 static Scanner\+\_\+gestures $\ast$ \hyperlink{gesture__control_8cpp_a6565562c39be7f8f9a538a9a216a28cf}{gestures}\hypertarget{gesture__control_8cpp_a6565562c39be7f8f9a538a9a216a28cf}{}\label{gesture__control_8cpp_a6565562c39be7f8f9a538a9a216a28cf}
 
 \begin{DoxyCompactList}\small\item\em Global pointer to Scanner\+\_\+gestures object. \end{DoxyCompactList}\item 
@@ -69,7 +87,7 @@ static ros\+::\+Time \hyperlink{gesture__control_8cpp_a8bc0d59633fb23785a6dc267a
 Node that handles gesture tracking and associated topics. 
 
 \begin{DoxySeeAlso}{See also}
-Scanner\+\_\+gestures 
+scanner\+\_\+gestures 
 
 $<$track\+\_\+objects\+\_\+client$>$ 
 \end{DoxySeeAlso}
@@ -97,3 +115,73 @@ A speed in rad/s in which servo turns. \index{gesture\+\_\+control.\+cpp@{gestur
 Seconds after old gesture timeouts. 
 
 A length in seconds after detected gesture that no new gesture is detected. Prevents false positives 
+
+\subsection{Function Documentation}
+\index{gesture\+\_\+control.\+cpp@{gesture\+\_\+control.\+cpp}!control\+\_\+callback@{control\+\_\+callback}}
+\index{control\+\_\+callback@{control\+\_\+callback}!gesture\+\_\+control.\+cpp@{gesture\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{control\+\_\+callback(const laser\+\_\+scanner\+\_\+infoscreen\+::gesture\+\_\+call \&msg)}{control_callback(const laser_scanner_infoscreen::gesture_call &msg)}}]{\setlength{\rightskip}{0pt plus 5cm}void control\+\_\+callback (
+\begin{DoxyParamCaption}
+\item[{const laser\+\_\+scanner\+\_\+infoscreen\+::gesture\+\_\+call \&}]{msg}
+\end{DoxyParamCaption}
+)}\hypertarget{gesture__control_8cpp_ab4546fc84eafe7c48c81b8f28c5077c1}{}\label{gesture__control_8cpp_ab4546fc84eafe7c48c81b8f28c5077c1}
+
+
+handles control messages from /gesture\+\_\+control topic 
+
+gesture\+\_\+control callback function Servo control logic. If tracking is enabled servo is moved into gesture read position. The angle of the upper scanner is kept so that the beam approximately intersects with the lower scanner at the position of P\+OI \index{gesture\+\_\+control.\+cpp@{gesture\+\_\+control.\+cpp}!gestures\+\_\+callback@{gestures\+\_\+callback}}
+\index{gestures\+\_\+callback@{gestures\+\_\+callback}!gesture\+\_\+control.\+cpp@{gesture\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{gestures\+\_\+callback(const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&scan)}{gestures_callback(const sensor_msgs::LaserScan::ConstPtr &scan)}}]{\setlength{\rightskip}{0pt plus 5cm}void gestures\+\_\+callback (
+\begin{DoxyParamCaption}
+\item[{const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&}]{scan}
+\end{DoxyParamCaption}
+)}\hypertarget{gesture__control_8cpp_adbf76bdb1d65ea9f9d44ec58eb40d877}{}\label{gesture__control_8cpp_adbf76bdb1d65ea9f9d44ec58eb40d877}
+
+
+if enables, parses Laser\+Scan messages and send them to the gesture tracker. 
+
+Laser\+Scan callback function. Receives raw data from /scan\+\_\+upper topic in the form of Laser\+Scan messages, collates it with the PoI position and sends it to the Scanner\+\_\+gestures object for parsing and scoring. If applicable, retrieves gesture. Handles timeouts between gestures to minize jitter and false positives.
+
+Scanner is read by default. If tracking is disabled, the data is discarded.
+
+Sends visualization of gesture tracking to the /visualization\+\_\+gesture topic. 
+\begin{DoxyParams}{Parameters}
+{\em scan} & Laser\+Scan message from upper (gesture) scanner. \\
+\hline
+\end{DoxyParams}
+\index{gesture\+\_\+control.\+cpp@{gesture\+\_\+control.\+cpp}!main@{main}}
+\index{main@{main}!gesture\+\_\+control.\+cpp@{gesture\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{main(int argc, char $\ast$$\ast$argv)}{main(int argc, char **argv)}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\hypertarget{gesture__control_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{}\label{gesture__control_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+Main function. Initializes node and its variables. \index{gesture\+\_\+control.\+cpp@{gesture\+\_\+control.\+cpp}!servo\+\_\+feedback\+\_\+callback@{servo\+\_\+feedback\+\_\+callback}}
+\index{servo\+\_\+feedback\+\_\+callback@{servo\+\_\+feedback\+\_\+callback}!gesture\+\_\+control.\+cpp@{gesture\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{servo\+\_\+feedback\+\_\+callback(const laser\+\_\+scanner\+\_\+infoscreen\+::servo\+\_\+feedback \&msg)}{servo_feedback_callback(const laser_scanner_infoscreen::servo_feedback &msg)}}]{\setlength{\rightskip}{0pt plus 5cm}void servo\+\_\+feedback\+\_\+callback (
+\begin{DoxyParamCaption}
+\item[{const laser\+\_\+scanner\+\_\+infoscreen\+::servo\+\_\+feedback \&}]{msg}
+\end{DoxyParamCaption}
+)}\hypertarget{gesture__control_8cpp_a272dea7f151f9bf75131542422903056}{}\label{gesture__control_8cpp_a272dea7f151f9bf75131542422903056}
+
+
+servo controller callback to release servo lock. 
+
+servo\+\_\+feedback callback Whenever servo has completed its move it should publish on /servo\+\_\+position topic. This releases lock on gesture tracking. 
+\begin{DoxyParams}{Parameters}
+{\em msg} & servo\+\_\+feedback.\+msg of servo position \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\index{gesture\+\_\+control.\+cpp@{gesture\+\_\+control.\+cpp}!loop\+\_\+count@{loop\+\_\+count}}
+\index{loop\+\_\+count@{loop\+\_\+count}!gesture\+\_\+control.\+cpp@{gesture\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{loop\+\_\+count}{loop_count}}]{\setlength{\rightskip}{0pt plus 5cm}int loop\+\_\+count = 0}\hypertarget{gesture__control_8cpp_a2ac8bc219bf895e4a3cdd514c1de6ec4}{}\label{gesture__control_8cpp_a2ac8bc219bf895e4a3cdd514c1de6ec4}
+
+
+Loop counter fo the servo control. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{gesture__control_8cpp_aafa72341f1113b0939af781b7d63770d}{servo\+\_\+loop\+\_\+len} 
+\end{DoxySeeAlso}

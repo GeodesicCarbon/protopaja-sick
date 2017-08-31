@@ -10,7 +10,11 @@
 #include <math.h>
 #include <chrono>
 #include <thread>
+/*! \file measure_biometrics.cpp
+\brief A naive implementation of biometrics measurements
 
+A ROS Node that uses laserscanner to measure the height of the target.
+*/
 #define servo_speed_const 5235
 
 static ros::NodeHandle *node_pointer;
