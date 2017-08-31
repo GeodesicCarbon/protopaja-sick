@@ -1,4 +1,6 @@
-#include "ros/ros.h"
+
+
+// cqesA-+ *   | |#include "ros/ros.h"
 #include <visualization_msgs/Marker.h>
 #include <vector>
 #include <cmath>
@@ -16,9 +18,9 @@
 */
 using namespace arma;
 
-#define immobile_timeout 10.0f
+#define immobile_timeout 5.0f
 #define object_threshold 0.4
-#define immobile_threshold 100.0f
+#define immobile_threshold 1.0f
 #define CULLING_TIME 5
 
 
