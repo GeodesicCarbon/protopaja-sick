@@ -13,6 +13,15 @@
 #include <string>
 #include <chrono>
 #include <thread>
+/*! \file track_objects_client.cpp
+  \brief ROS Client node of object tracker.
+  
+  Receives LaserScan topic messages, passes them to the service, tracks the Person
+	of Interest, and handles command of control of other nodes in the project.
+  
+  \sa track_objects_server.cpp
+  \sa laser_objects
+*/
 
 #define TIMEOUT_LIMIT  4
 #define POI_THRESHOLD 0.4f

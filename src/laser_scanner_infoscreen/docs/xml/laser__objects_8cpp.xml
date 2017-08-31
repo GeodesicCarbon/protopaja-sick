@@ -1,0 +1,3483 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="laser__objects_8cpp" kind="file" language="C++">
+    <compoundname>laser_objects.cpp</compoundname>
+    <includes local="yes">ros/ros.h</includes>
+    <includes local="no">visualization_msgs/Marker.h</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">cmath</includes>
+    <includes local="no">utility</includes>
+    <includes refid="laser__objects_8hpp" local="yes">laser_objects.hpp</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">algorithm</includes>
+    <includes local="no">string</includes>
+    <includes local="no">/usr/include/armadillo</includes>
+    <includes local="no">cstdlib</includes>
+    <includes local="no">cstring</includes>
+    <includes local="no">climits</includes>
+    <includes local="no">ctime</includes>
+    <includes local="no">cstdio</includes>
+    <includes local="no">fstream</includes>
+    <includes local="no">sstream</includes>
+    <includes local="no">stdexcept</includes>
+    <includes local="no">new</includes>
+    <includes local="no">limits</includes>
+    <includes local="no">complex</includes>
+    <includes local="yes">/usr/include/armadillo_bits/compiler_extra.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/config.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/compiler_setup.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/include_atlas.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/include_hdf5.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/include_superlu.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/arma_forward.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/arma_static_check.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/typedef_elem.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/typedef_elem_check.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/typedef_mat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/arma_str.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/arma_version.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/arma_config.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/traits.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/promote_type.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/upgrade_val.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/restrictors.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/access.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/span.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/distr_param.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/constants.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/constants_old.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/mp_misc.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/arma_rng_cxx98.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/arma_rng_cxx11.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/arma_rng.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/Base_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/BaseCube_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SpBase_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/def_blas.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/def_lapack.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/def_atlas.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/def_arpack.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/def_superlu.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/def_hdf5.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/wrapper_blas.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/wrapper_lapack.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/wrapper_atlas.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/wrapper_arpack.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/wrapper_superlu.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/cond_rel_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/arrayops_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/podarray_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/auxlib_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/sp_auxlib_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/injector_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/Mat_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/Col_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/Row_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/Cube_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/xvec_htrans_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/xtrans_mat_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SizeMat_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SizeCube_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SpValProxy_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SpMat_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SpCol_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SpRow_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SpSubview_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spdiagview_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/typedef_mat_fixed.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/field_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/subview_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/subview_elem1_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/subview_elem2_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/subview_field_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/subview_cube_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/diagview_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/subview_each_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/subview_cube_each_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/diskio_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/wall_clock_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/running_stat_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/running_stat_vec_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/Op_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/OpCube_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SpOp_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/eOp_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/eOpCube_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/mtOp_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/mtOpCube_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/mtSpOp_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/Glue_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/eGlue_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/mtGlue_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SpGlue_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/GlueCube_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/eGlueCube_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/mtGlueCube_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/eop_core_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/eglue_core_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/GenSpecialiser.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/Gen_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/GenCube_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_diagmat_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_diagvec_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_dot_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_inv_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_htrans_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_max_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_min_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_index_max_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_index_min_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_mean_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_median_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_sort_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_sort_index_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_sum_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_stddev_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_strans_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_var_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_repmat_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_reshape_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_vectorise_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_resize_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_cov_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_cor_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_shift_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_shuffle_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_prod_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_pinv_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_dotext_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_flip_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_princomp_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_misc_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_orth_null_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_relational_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_find_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_find_unique_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_chol_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_cx_scalar_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_trimat_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_cumsum_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_cumprod_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_symmat_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_hist_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_unique_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_toeplitz_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_fft_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_any_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_all_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_normalise_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_clamp_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_expmat_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_nonzeros_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_diff_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_norm_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_sqrtmat_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_logmat_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_range_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_times_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_mixed_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_cov_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_cor_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_kron_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_cross_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_join_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_relational_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_solve_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_conv_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_toeplitz_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_hist_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_histc_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_max_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_min_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_trapz_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_atan2_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_hypot_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_polyfit_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_polyval_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/gmm_misc_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/gmm_diag_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/gmm_full_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_max_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_min_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_sum_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_strans_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_htrans_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_misc_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_diagmat_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_mean_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_var_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_trimat_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_symmat_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spglue_plus_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spglue_minus_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spglue_times_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spglue_join_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/newarp_EigsSelect.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/newarp_DenseGenMatProd_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/newarp_SparseGenMatProd_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/newarp_DoubleShiftQR_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/newarp_GenEigsSolver_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/newarp_SymEigsSolver_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/newarp_TridiagEigen_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/newarp_UpperHessenbergEigen_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/newarp_UpperHessenbergQR_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/debug.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/memory.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/arma_cmath.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/unwrap.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/unwrap_cube.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/unwrap_spmat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/Proxy.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/ProxyCube.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SpProxy.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/diagmat_proxy.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/strip.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/Op_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/OpCube_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SpOp_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/mtOp_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/mtOpCube_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/mtSpOp_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/Glue_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/GlueCube_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SpGlue_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/eop_aux.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/eOp_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/eOpCube_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/eGlue_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/eGlueCube_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/mtGlue_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/mtGlueCube_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/Base_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/BaseCube_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SpBase_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/Gen_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/GenCube_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/arma_ostream_bones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/arma_ostream_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_n_unique.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/operator_plus.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/operator_minus.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/operator_times.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/operator_schur.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/operator_div.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/operator_relational.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/operator_cube_plus.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/operator_cube_minus.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/operator_cube_times.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/operator_cube_schur.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/operator_cube_div.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/operator_cube_relational.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/operator_ostream.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_conv_to.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_max.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_min.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_index_max.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_index_min.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_accu.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_sum.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_diagmat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_diagvec.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_inv.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_trace.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_trans.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_det.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_log_det.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_eig_gen.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_eig_sym.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_eig_pair.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_lu.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_zeros.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_ones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_eye.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_misc.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_orth_null.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_regspace.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_find.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_find_unique.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_elem.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_approx_equal.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_norm.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_dot.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_randu.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_randn.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_trig.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_mean.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_median.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_stddev.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_var.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_sort.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_sort_index.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_strans.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_chol.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_qr.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_svd.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_solve.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_repmat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_reshape.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_vectorise.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_resize.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_cov.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_cor.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_shift.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_shuffle.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_prod.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_eps.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_pinv.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_rank.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_kron.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_flip.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_as_scalar.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_princomp.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_cross.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_join.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_conv.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_trunc_exp.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_trunc_log.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_toeplitz.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_trimat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_cumsum.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_cumprod.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_symmat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_syl_lyap.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_hist.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_histc.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_unique.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_fft.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_fft2.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_any.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_all.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_size.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_numel.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_inplace_strans.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_inplace_trans.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_randi.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_randg.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_cond.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_normalise.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_clamp.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_expmat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_nonzeros.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_interp1.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_qz.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_diff.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_schur.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_kmeans.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_sqrtmat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_logmat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_trapz.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_range.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_polyfit.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_polyval.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_speye.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_spones.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_sprandn.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_sprandu.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_eigs_sym.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_eigs_gen.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_spsolve.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fn_svds.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/hdf5_misc.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/fft_engine.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/mul_gemv.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/mul_gemm.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/mul_gemm_mixed.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/mul_syrk.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/mul_herk.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/eop_core_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/eglue_core_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/cond_rel_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/arrayops_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/podarray_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/auxlib_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/sp_auxlib_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/injector_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/Mat_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/Col_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/Row_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/Cube_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/xvec_htrans_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/xtrans_mat_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SizeMat_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SizeCube_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/field_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/subview_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/subview_elem1_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/subview_elem2_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/subview_field_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/subview_cube_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/diagview_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/subview_each_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/subview_cube_each_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SpValProxy_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SpMat_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SpMat_iterators_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SpCol_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SpRow_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SpSubview_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/SpSubview_iterators_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spdiagview_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/diskio_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/wall_clock_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/running_stat_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/running_stat_vec_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_diagmat_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_diagvec_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_dot_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_inv_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_htrans_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_max_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_index_max_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_index_min_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_min_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_mean_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_median_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_sort_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_sort_index_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_sum_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_stddev_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_strans_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_var_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_repmat_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_reshape_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_vectorise_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_resize_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_cov_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_cor_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_shift_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_shuffle_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_prod_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_pinv_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_dotext_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_flip_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_princomp_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_misc_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_orth_null_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_relational_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_find_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_find_unique_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_chol_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_cx_scalar_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_trimat_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_cumsum_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_cumprod_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_symmat_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_hist_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_unique_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_toeplitz_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_fft_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_any_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_all_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_normalise_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_clamp_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_expmat_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_nonzeros_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_diff_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_norm_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_sqrtmat_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_logmat_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/op_range_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_times_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_mixed_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_cov_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_cor_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_kron_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_cross_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_join_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_relational_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_solve_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_conv_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_toeplitz_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_hist_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_histc_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_max_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_min_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_trapz_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_atan2_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_hypot_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_polyfit_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/glue_polyval_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/gmm_misc_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/gmm_diag_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/gmm_full_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_max_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_min_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_sum_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_strans_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_htrans_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_misc_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_diagmat_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_mean_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_var_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_trimat_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spop_symmat_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spglue_plus_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spglue_minus_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spglue_times_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/spglue_join_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/newarp_cx_attrib.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/newarp_SortEigenvalue.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/newarp_DenseGenMatProd_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/newarp_SparseGenMatProd_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/newarp_DoubleShiftQR_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/newarp_GenEigsSolver_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/newarp_SymEigsSolver_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/newarp_TridiagEigen_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/newarp_UpperHessenbergEigen_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/newarp_UpperHessenbergQR_meat.hpp</includes>
+    <includes local="yes">/usr/include/armadillo_bits/compiler_setup_post.hpp</includes>
+    <incdepgraph>
+      <node id="935">
+        <label>/usr/include/armadillo_bits/fn_stddev.hpp</label>
+      </node>
+      <node id="1060">
+        <label>/usr/include/armadillo_bits/op_min_meat.hpp</label>
+      </node>
+      <node id="702">
+        <label>/usr/include/armadillo_bits/Col_bones.hpp</label>
+      </node>
+      <node id="1140">
+        <label>/usr/include/armadillo_bits/spop_trimat_meat.hpp</label>
+      </node>
+      <node id="724">
+        <label>/usr/include/armadillo_bits/subview_cube_each_bones.hpp</label>
+      </node>
+      <node id="1092">
+        <label>/usr/include/armadillo_bits/op_symmat_meat.hpp</label>
+      </node>
+      <node id="665">
+        <label>/usr/include/armadillo_bits/arma_str.hpp</label>
+      </node>
+      <node id="1037">
+        <label>/usr/include/armadillo_bits/diagview_meat.hpp</label>
+      </node>
+      <node id="1012">
+        <label>/usr/include/armadillo_bits/mul_gemm_mixed.hpp</label>
+      </node>
+      <node id="748">
+        <label>/usr/include/armadillo_bits/GenCube_bones.hpp</label>
+      </node>
+      <node id="682">
+        <label>/usr/include/armadillo_bits/BaseCube_bones.hpp</label>
+      </node>
+      <node id="742">
+        <label>/usr/include/armadillo_bits/eGlueCube_bones.hpp</label>
+      </node>
+      <node id="711">
+        <label>/usr/include/armadillo_bits/SpCol_bones.hpp</label>
+      </node>
+      <node id="1005">
+        <label>/usr/include/armadillo_bits/fn_eigs_gen.hpp</label>
+      </node>
+      <node id="790">
+        <label>/usr/include/armadillo_bits/op_hist_bones.hpp</label>
+      </node>
+      <node id="791">
+        <label>/usr/include/armadillo_bits/op_unique_bones.hpp</label>
+      </node>
+      <node id="844">
+        <label>/usr/include/armadillo_bits/newarp_DenseGenMatProd_bones.hpp</label>
+      </node>
+      <node id="676">
+        <label>/usr/include/armadillo_bits/constants_old.hpp</label>
+      </node>
+      <node id="828">
+        <label>/usr/include/armadillo_bits/spop_max_bones.hpp</label>
+      </node>
+      <node id="852">
+        <label>/usr/include/armadillo_bits/debug.hpp</label>
+      </node>
+      <node id="1004">
+        <label>/usr/include/armadillo_bits/fn_eigs_sym.hpp</label>
+      </node>
+      <node id="683">
+        <label>/usr/include/armadillo_bits/SpBase_bones.hpp</label>
+      </node>
+      <node id="1019">
+        <label>/usr/include/armadillo_bits/podarray_meat.hpp</label>
+      </node>
+      <node id="1039">
+        <label>/usr/include/armadillo_bits/subview_cube_each_meat.hpp</label>
+      </node>
+      <node id="913">
+        <label>/usr/include/armadillo_bits/fn_log_det.hpp</label>
+      </node>
+      <node id="970">
+        <label>/usr/include/armadillo_bits/fn_syl_lyap.hpp</label>
+      </node>
+      <node id="1002">
+        <label>/usr/include/armadillo_bits/fn_sprandn.hpp</label>
+      </node>
+      <node id="652">
+        <label>limits</label>
+      </node>
+      <node id="948">
+        <label>/usr/include/armadillo_bits/fn_cov.hpp</label>
+      </node>
+      <node id="1131">
+        <label>/usr/include/armadillo_bits/spop_max_meat.hpp</label>
+      </node>
+      <node id="1111">
+        <label>/usr/include/armadillo_bits/glue_cor_meat.hpp</label>
+      </node>
+      <node id="764">
+        <label>/usr/include/armadillo_bits/op_strans_bones.hpp</label>
+      </node>
+      <node id="996">
+        <label>/usr/include/armadillo_bits/fn_trapz.hpp</label>
+      </node>
+      <node id="767">
+        <label>/usr/include/armadillo_bits/op_reshape_bones.hpp</label>
+      </node>
+      <node id="1151">
+        <label>/usr/include/armadillo_bits/newarp_GenEigsSolver_meat.hpp</label>
+      </node>
+      <node id="1029">
+        <label>/usr/include/armadillo_bits/SizeMat_meat.hpp</label>
+      </node>
+      <node id="927">
+        <label>/usr/include/armadillo_bits/fn_approx_equal.hpp</label>
+      </node>
+      <node id="826">
+        <label>/usr/include/armadillo_bits/gmm_diag_bones.hpp</label>
+      </node>
+      <node id="637">
+        <label>laser_objects.hpp</label>
+        <link refid="laser__objects_8hpp"/>
+        <childnode refid="638" relation="include">
+        </childnode>
+      </node>
+      <node id="806">
+        <label>/usr/include/armadillo_bits/glue_mixed_bones.hpp</label>
+      </node>
+      <node id="701">
+        <label>/usr/include/armadillo_bits/Mat_bones.hpp</label>
+      </node>
+      <node id="698">
+        <label>/usr/include/armadillo_bits/auxlib_bones.hpp</label>
+      </node>
+      <node id="942">
+        <label>/usr/include/armadillo_bits/fn_svd.hpp</label>
+      </node>
+      <node id="684">
+        <label>/usr/include/armadillo_bits/def_blas.hpp</label>
+      </node>
+      <node id="909">
+        <label>/usr/include/armadillo_bits/fn_inv.hpp</label>
+      </node>
+      <node id="814">
+        <label>/usr/include/armadillo_bits/glue_conv_bones.hpp</label>
+      </node>
+      <node id="1050">
+        <label>/usr/include/armadillo_bits/running_stat_meat.hpp</label>
+      </node>
+      <node id="1052">
+        <label>/usr/include/armadillo_bits/op_diagmat_meat.hpp</label>
+      </node>
+      <node id="1095">
+        <label>/usr/include/armadillo_bits/op_toeplitz_meat.hpp</label>
+      </node>
+      <node id="808">
+        <label>/usr/include/armadillo_bits/glue_cor_bones.hpp</label>
+      </node>
+      <node id="818">
+        <label>/usr/include/armadillo_bits/glue_max_bones.hpp</label>
+      </node>
+      <node id="1020">
+        <label>/usr/include/armadillo_bits/auxlib_meat.hpp</label>
+      </node>
+      <node id="834">
+        <label>/usr/include/armadillo_bits/spop_diagmat_bones.hpp</label>
+      </node>
+      <node id="1056">
+        <label>/usr/include/armadillo_bits/op_htrans_meat.hpp</label>
+      </node>
+      <node id="810">
+        <label>/usr/include/armadillo_bits/glue_cross_bones.hpp</label>
+      </node>
+      <node id="781">
+        <label>/usr/include/armadillo_bits/op_relational_bones.hpp</label>
+      </node>
+      <node id="876">
+        <label>/usr/include/armadillo_bits/eGlueCube_meat.hpp</label>
+      </node>
+      <node id="1126">
+        <label>/usr/include/armadillo_bits/glue_polyfit_meat.hpp</label>
+      </node>
+      <node id="772">
+        <label>/usr/include/armadillo_bits/op_shift_bones.hpp</label>
+      </node>
+      <node id="847">
+        <label>/usr/include/armadillo_bits/newarp_GenEigsSolver_bones.hpp</label>
+      </node>
+      <node id="694">
+        <label>/usr/include/armadillo_bits/wrapper_superlu.hpp</label>
+      </node>
+      <node id="775">
+        <label>/usr/include/armadillo_bits/op_pinv_bones.hpp</label>
+      </node>
+      <node id="1132">
+        <label>/usr/include/armadillo_bits/spop_min_meat.hpp</label>
+      </node>
+      <node id="940">
+        <label>/usr/include/armadillo_bits/fn_chol.hpp</label>
+      </node>
+      <node id="879">
+        <label>/usr/include/armadillo_bits/Base_meat.hpp</label>
+      </node>
+      <node id="762">
+        <label>/usr/include/armadillo_bits/op_sum_bones.hpp</label>
+      </node>
+      <node id="678">
+        <label>/usr/include/armadillo_bits/arma_rng_cxx98.hpp</label>
+      </node>
+      <node id="912">
+        <label>/usr/include/armadillo_bits/fn_det.hpp</label>
+      </node>
+      <node id="833">
+        <label>/usr/include/armadillo_bits/spop_misc_bones.hpp</label>
+      </node>
+      <node id="796">
+        <label>/usr/include/armadillo_bits/op_normalise_bones.hpp</label>
+      </node>
+      <node id="885">
+        <label>/usr/include/armadillo_bits/arma_ostream_meat.hpp</label>
+      </node>
+      <node id="825">
+        <label>/usr/include/armadillo_bits/gmm_misc_bones.hpp</label>
+      </node>
+      <node id="1099">
+        <label>/usr/include/armadillo_bits/op_normalise_meat.hpp</label>
+      </node>
+      <node id="749">
+        <label>/usr/include/armadillo_bits/op_diagmat_bones.hpp</label>
+      </node>
+      <node id="921">
+        <label>/usr/include/armadillo_bits/fn_misc.hpp</label>
+      </node>
+      <node id="998">
+        <label>/usr/include/armadillo_bits/fn_polyfit.hpp</label>
+      </node>
+      <node id="880">
+        <label>/usr/include/armadillo_bits/BaseCube_meat.hpp</label>
+      </node>
+      <node id="731">
+        <label>/usr/include/armadillo_bits/SpOp_bones.hpp</label>
+      </node>
+      <node id="1018">
+        <label>/usr/include/armadillo_bits/arrayops_meat.hpp</label>
+      </node>
+      <node id="1156">
+        <label>/usr/include/armadillo_bits/compiler_setup_post.hpp</label>
+      </node>
+      <node id="1093">
+        <label>/usr/include/armadillo_bits/op_hist_meat.hpp</label>
+      </node>
+      <node id="846">
+        <label>/usr/include/armadillo_bits/newarp_DoubleShiftQR_bones.hpp</label>
+      </node>
+      <node id="823">
+        <label>/usr/include/armadillo_bits/glue_polyfit_bones.hpp</label>
+      </node>
+      <node id="690">
+        <label>/usr/include/armadillo_bits/wrapper_blas.hpp</label>
+      </node>
+      <node id="934">
+        <label>/usr/include/armadillo_bits/fn_median.hpp</label>
+      </node>
+      <node id="1125">
+        <label>/usr/include/armadillo_bits/glue_hypot_meat.hpp</label>
+      </node>
+      <node id="816">
+        <label>/usr/include/armadillo_bits/glue_hist_bones.hpp</label>
+      </node>
+      <node id="688">
+        <label>/usr/include/armadillo_bits/def_superlu.hpp</label>
+      </node>
+      <node id="891">
+        <label>/usr/include/armadillo_bits/operator_div.hpp</label>
+      </node>
+      <node id="696">
+        <label>/usr/include/armadillo_bits/arrayops_bones.hpp</label>
+      </node>
+      <node id="695">
+        <label>/usr/include/armadillo_bits/cond_rel_bones.hpp</label>
+      </node>
+      <node id="1118">
+        <label>/usr/include/armadillo_bits/glue_toeplitz_meat.hpp</label>
+      </node>
+      <node id="726">
+        <label>/usr/include/armadillo_bits/wall_clock_bones.hpp</label>
+      </node>
+      <node id="969">
+        <label>/usr/include/armadillo_bits/fn_symmat.hpp</label>
+      </node>
+      <node id="1134">
+        <label>/usr/include/armadillo_bits/spop_strans_meat.hpp</label>
+      </node>
+      <node id="994">
+        <label>/usr/include/armadillo_bits/fn_sqrtmat.hpp</label>
+      </node>
+      <node id="692">
+        <label>/usr/include/armadillo_bits/wrapper_atlas.hpp</label>
+      </node>
+      <node id="859">
+        <label>/usr/include/armadillo_bits/ProxyCube.hpp</label>
+      </node>
+      <node id="1013">
+        <label>/usr/include/armadillo_bits/mul_syrk.hpp</label>
+      </node>
+      <node id="933">
+        <label>/usr/include/armadillo_bits/fn_mean.hpp</label>
+      </node>
+      <node id="1115">
+        <label>/usr/include/armadillo_bits/glue_relational_meat.hpp</label>
+      </node>
+      <node id="1090">
+        <label>/usr/include/armadillo_bits/op_cumsum_meat.hpp</label>
+      </node>
+      <node id="1010">
+        <label>/usr/include/armadillo_bits/mul_gemv.hpp</label>
+      </node>
+      <node id="1127">
+        <label>/usr/include/armadillo_bits/glue_polyval_meat.hpp</label>
+      </node>
+      <node id="777">
+        <label>/usr/include/armadillo_bits/op_flip_bones.hpp</label>
+      </node>
+      <node id="915">
+        <label>/usr/include/armadillo_bits/fn_eig_sym.hpp</label>
+      </node>
+      <node id="801">
+        <label>/usr/include/armadillo_bits/op_norm_bones.hpp</label>
+      </node>
+      <node id="867">
+        <label>/usr/include/armadillo_bits/mtOpCube_meat.hpp</label>
+      </node>
+      <node id="829">
+        <label>/usr/include/armadillo_bits/spop_min_bones.hpp</label>
+      </node>
+      <node id="765">
+        <label>/usr/include/armadillo_bits/op_var_bones.hpp</label>
+      </node>
+      <node id="951">
+        <label>/usr/include/armadillo_bits/fn_shuffle.hpp</label>
+      </node>
+      <node id="1051">
+        <label>/usr/include/armadillo_bits/running_stat_vec_meat.hpp</label>
+      </node>
+      <node id="657">
+        <label>/usr/include/armadillo_bits/include_atlas.hpp</label>
+      </node>
+      <node id="843">
+        <label>/usr/include/armadillo_bits/newarp_EigsSelect.hpp</label>
+      </node>
+      <node id="1082">
+        <label>/usr/include/armadillo_bits/op_misc_meat.hpp</label>
+      </node>
+      <node id="959">
+        <label>/usr/include/armadillo_bits/fn_princomp.hpp</label>
+      </node>
+      <node id="911">
+        <label>/usr/include/armadillo_bits/fn_trans.hpp</label>
+      </node>
+      <node id="1149">
+        <label>/usr/include/armadillo_bits/newarp_SparseGenMatProd_meat.hpp</label>
+      </node>
+      <node id="963">
+        <label>/usr/include/armadillo_bits/fn_trunc_exp.hpp</label>
+      </node>
+      <node id="1153">
+        <label>/usr/include/armadillo_bits/newarp_TridiagEigen_meat.hpp</label>
+      </node>
+      <node id="992">
+        <label>/usr/include/armadillo_bits/fn_schur.hpp</label>
+      </node>
+      <node id="635">
+        <label>cmath</label>
+      </node>
+      <node id="1112">
+        <label>/usr/include/armadillo_bits/glue_kron_meat.hpp</label>
+      </node>
+      <node id="984">
+        <label>/usr/include/armadillo_bits/fn_cond.hpp</label>
+      </node>
+      <node id="729">
+        <label>/usr/include/armadillo_bits/Op_bones.hpp</label>
+      </node>
+      <node id="901">
+        <label>/usr/include/armadillo_bits/fn_max.hpp</label>
+      </node>
+      <node id="1094">
+        <label>/usr/include/armadillo_bits/op_unique_meat.hpp</label>
+      </node>
+      <node id="874">
+        <label>/usr/include/armadillo_bits/eOpCube_meat.hpp</label>
+      </node>
+      <node id="919">
+        <label>/usr/include/armadillo_bits/fn_ones.hpp</label>
+      </node>
+      <node id="793">
+        <label>/usr/include/armadillo_bits/op_fft_bones.hpp</label>
+      </node>
+      <node id="967">
+        <label>/usr/include/armadillo_bits/fn_cumsum.hpp</label>
+      </node>
+      <node id="650">
+        <label>stdexcept</label>
+      </node>
+      <node id="887">
+        <label>/usr/include/armadillo_bits/operator_plus.hpp</label>
+      </node>
+      <node id="1049">
+        <label>/usr/include/armadillo_bits/wall_clock_meat.hpp</label>
+      </node>
+      <node id="763">
+        <label>/usr/include/armadillo_bits/op_stddev_bones.hpp</label>
+      </node>
+      <node id="1152">
+        <label>/usr/include/armadillo_bits/newarp_SymEigsSolver_meat.hpp</label>
+      </node>
+      <node id="1105">
+        <label>/usr/include/armadillo_bits/op_sqrtmat_meat.hpp</label>
+      </node>
+      <node id="924">
+        <label>/usr/include/armadillo_bits/fn_find.hpp</label>
+      </node>
+      <node id="669">
+        <label>/usr/include/armadillo_bits/promote_type.hpp</label>
+      </node>
+      <node id="1145">
+        <label>/usr/include/armadillo_bits/spglue_join_meat.hpp</label>
+      </node>
+      <node id="803">
+        <label>/usr/include/armadillo_bits/op_logmat_bones.hpp</label>
+      </node>
+      <node id="661">
+        <label>/usr/include/armadillo_bits/arma_static_check.hpp</label>
+      </node>
+      <node id="720">
+        <label>/usr/include/armadillo_bits/subview_field_bones.hpp</label>
+      </node>
+      <node id="908">
+        <label>/usr/include/armadillo_bits/fn_diagvec.hpp</label>
+      </node>
+      <node id="778">
+        <label>/usr/include/armadillo_bits/op_princomp_bones.hpp</label>
+      </node>
+      <node id="978">
+        <label>/usr/include/armadillo_bits/fn_size.hpp</label>
+      </node>
+      <node id="804">
+        <label>/usr/include/armadillo_bits/op_range_bones.hpp</label>
+      </node>
+      <node id="920">
+        <label>/usr/include/armadillo_bits/fn_eye.hpp</label>
+      </node>
+      <node id="689">
+        <label>/usr/include/armadillo_bits/def_hdf5.hpp</label>
+      </node>
+      <node id="900">
+        <label>/usr/include/armadillo_bits/fn_conv_to.hpp</label>
+      </node>
+      <node id="641">
+        <label>string</label>
+      </node>
+      <node id="681">
+        <label>/usr/include/armadillo_bits/Base_bones.hpp</label>
+      </node>
+      <node id="723">
+        <label>/usr/include/armadillo_bits/subview_each_bones.hpp</label>
+      </node>
+      <node id="1088">
+        <label>/usr/include/armadillo_bits/op_cx_scalar_meat.hpp</label>
+      </node>
+      <node id="979">
+        <label>/usr/include/armadillo_bits/fn_numel.hpp</label>
+      </node>
+      <node id="820">
+        <label>/usr/include/armadillo_bits/glue_trapz_bones.hpp</label>
+      </node>
+      <node id="807">
+        <label>/usr/include/armadillo_bits/glue_cov_bones.hpp</label>
+      </node>
+      <node id="1146">
+        <label>/usr/include/armadillo_bits/newarp_cx_attrib.hpp</label>
+      </node>
+      <node id="1048">
+        <label>/usr/include/armadillo_bits/diskio_meat.hpp</label>
+      </node>
+      <node id="878">
+        <label>/usr/include/armadillo_bits/mtGlueCube_meat.hpp</label>
+      </node>
+      <node id="659">
+        <label>/usr/include/armadillo_bits/include_superlu.hpp</label>
+      </node>
+      <node id="999">
+        <label>/usr/include/armadillo_bits/fn_polyval.hpp</label>
+      </node>
+      <node id="902">
+        <label>/usr/include/armadillo_bits/fn_min.hpp</label>
+      </node>
+      <node id="855">
+        <label>/usr/include/armadillo_bits/unwrap.hpp</label>
+      </node>
+      <node id="761">
+        <label>/usr/include/armadillo_bits/op_sort_index_bones.hpp</label>
+      </node>
+      <node id="752">
+        <label>/usr/include/armadillo_bits/op_inv_bones.hpp</label>
+      </node>
+      <node id="1130">
+        <label>/usr/include/armadillo_bits/gmm_full_meat.hpp</label>
+      </node>
+      <node id="990">
+        <label>/usr/include/armadillo_bits/fn_qz.hpp</label>
+      </node>
+      <node id="1058">
+        <label>/usr/include/armadillo_bits/op_index_max_meat.hpp</label>
+      </node>
+      <node id="1014">
+        <label>/usr/include/armadillo_bits/mul_herk.hpp</label>
+      </node>
+      <node id="841">
+        <label>/usr/include/armadillo_bits/spglue_times_bones.hpp</label>
+      </node>
+      <node id="699">
+        <label>/usr/include/armadillo_bits/sp_auxlib_bones.hpp</label>
+      </node>
+      <node id="1091">
+        <label>/usr/include/armadillo_bits/op_cumprod_meat.hpp</label>
+      </node>
+      <node id="1068">
+        <label>/usr/include/armadillo_bits/op_var_meat.hpp</label>
+      </node>
+      <node id="755">
+        <label>/usr/include/armadillo_bits/op_min_bones.hpp</label>
+      </node>
+      <node id="905">
+        <label>/usr/include/armadillo_bits/fn_accu.hpp</label>
+      </node>
+      <node id="860">
+        <label>/usr/include/armadillo_bits/SpProxy.hpp</label>
+      </node>
+      <node id="691">
+        <label>/usr/include/armadillo_bits/wrapper_lapack.hpp</label>
+      </node>
+      <node id="1128">
+        <label>/usr/include/armadillo_bits/gmm_misc_meat.hpp</label>
+      </node>
+      <node id="718">
+        <label>/usr/include/armadillo_bits/subview_elem1_bones.hpp</label>
+      </node>
+      <node id="1027">
+        <label>/usr/include/armadillo_bits/xvec_htrans_meat.hpp</label>
+      </node>
+      <node id="840">
+        <label>/usr/include/armadillo_bits/spglue_minus_bones.hpp</label>
+      </node>
+      <node id="895">
+        <label>/usr/include/armadillo_bits/operator_cube_times.hpp</label>
+      </node>
+      <node id="892">
+        <label>/usr/include/armadillo_bits/operator_relational.hpp</label>
+      </node>
+      <node id="1025">
+        <label>/usr/include/armadillo_bits/Row_meat.hpp</label>
+      </node>
+      <node id="986">
+        <label>/usr/include/armadillo_bits/fn_clamp.hpp</label>
+      </node>
+      <node id="851">
+        <label>/usr/include/armadillo_bits/newarp_UpperHessenbergQR_bones.hpp</label>
+      </node>
+      <node id="638">
+        <label>armadillo</label>
+      </node>
+      <node id="955">
+        <label>/usr/include/armadillo_bits/fn_rank.hpp</label>
+      </node>
+      <node id="1147">
+        <label>/usr/include/armadillo_bits/newarp_SortEigenvalue.hpp</label>
+      </node>
+      <node id="1102">
+        <label>/usr/include/armadillo_bits/op_nonzeros_meat.hpp</label>
+      </node>
+      <node id="995">
+        <label>/usr/include/armadillo_bits/fn_logmat.hpp</label>
+      </node>
+      <node id="993">
+        <label>/usr/include/armadillo_bits/fn_kmeans.hpp</label>
+      </node>
+      <node id="849">
+        <label>/usr/include/armadillo_bits/newarp_TridiagEigen_bones.hpp</label>
+      </node>
+      <node id="929">
+        <label>/usr/include/armadillo_bits/fn_dot.hpp</label>
+      </node>
+      <node id="675">
+        <label>/usr/include/armadillo_bits/constants.hpp</label>
+      </node>
+      <node id="721">
+        <label>/usr/include/armadillo_bits/subview_cube_bones.hpp</label>
+      </node>
+      <node id="1011">
+        <label>/usr/include/armadillo_bits/mul_gemm.hpp</label>
+      </node>
+      <node id="758">
+        <label>/usr/include/armadillo_bits/op_mean_bones.hpp</label>
+      </node>
+      <node id="648">
+        <label>fstream</label>
+      </node>
+      <node id="882">
+        <label>/usr/include/armadillo_bits/Gen_meat.hpp</label>
+      </node>
+      <node id="1071">
+        <label>/usr/include/armadillo_bits/op_vectorise_meat.hpp</label>
+      </node>
+      <node id="769">
+        <label>/usr/include/armadillo_bits/op_resize_bones.hpp</label>
+      </node>
+      <node id="953">
+        <label>/usr/include/armadillo_bits/fn_eps.hpp</label>
+      </node>
+      <node id="725">
+        <label>/usr/include/armadillo_bits/diskio_bones.hpp</label>
+      </node>
+      <node id="868">
+        <label>/usr/include/armadillo_bits/mtSpOp_meat.hpp</label>
+      </node>
+      <node id="1123">
+        <label>/usr/include/armadillo_bits/glue_trapz_meat.hpp</label>
+      </node>
+      <node id="1106">
+        <label>/usr/include/armadillo_bits/op_logmat_meat.hpp</label>
+      </node>
+      <node id="1138">
+        <label>/usr/include/armadillo_bits/spop_mean_meat.hpp</label>
+      </node>
+      <node id="1085">
+        <label>/usr/include/armadillo_bits/op_find_meat.hpp</label>
+      </node>
+      <node id="677">
+        <label>/usr/include/armadillo_bits/mp_misc.hpp</label>
+      </node>
+      <node id="977">
+        <label>/usr/include/armadillo_bits/fn_all.hpp</label>
+      </node>
+      <node id="965">
+        <label>/usr/include/armadillo_bits/fn_toeplitz.hpp</label>
+      </node>
+      <node id="1000">
+        <label>/usr/include/armadillo_bits/fn_speye.hpp</label>
+      </node>
+      <node id="832">
+        <label>/usr/include/armadillo_bits/spop_htrans_bones.hpp</label>
+      </node>
+      <node id="753">
+        <label>/usr/include/armadillo_bits/op_htrans_bones.hpp</label>
+      </node>
+      <node id="1081">
+        <label>/usr/include/armadillo_bits/op_princomp_meat.hpp</label>
+      </node>
+      <node id="848">
+        <label>/usr/include/armadillo_bits/newarp_SymEigsSolver_bones.hpp</label>
+      </node>
+      <node id="961">
+        <label>/usr/include/armadillo_bits/fn_join.hpp</label>
+      </node>
+      <node id="872">
+        <label>/usr/include/armadillo_bits/eop_aux.hpp</label>
+      </node>
+      <node id="773">
+        <label>/usr/include/armadillo_bits/op_shuffle_bones.hpp</label>
+      </node>
+      <node id="835">
+        <label>/usr/include/armadillo_bits/spop_mean_bones.hpp</label>
+      </node>
+      <node id="710">
+        <label>/usr/include/armadillo_bits/SpMat_bones.hpp</label>
+      </node>
+      <node id="705">
+        <label>/usr/include/armadillo_bits/xvec_htrans_bones.hpp</label>
+      </node>
+      <node id="660">
+        <label>/usr/include/armadillo_bits/arma_forward.hpp</label>
+      </node>
+      <node id="1084">
+        <label>/usr/include/armadillo_bits/op_relational_meat.hpp</label>
+      </node>
+      <node id="1083">
+        <label>/usr/include/armadillo_bits/op_orth_null_meat.hpp</label>
+      </node>
+      <node id="943">
+        <label>/usr/include/armadillo_bits/fn_solve.hpp</label>
+      </node>
+      <node id="1108">
+        <label>/usr/include/armadillo_bits/glue_times_meat.hpp</label>
+      </node>
+      <node id="1072">
+        <label>/usr/include/armadillo_bits/op_resize_meat.hpp</label>
+      </node>
+      <node id="686">
+        <label>/usr/include/armadillo_bits/def_atlas.hpp</label>
+      </node>
+      <node id="740">
+        <label>/usr/include/armadillo_bits/SpGlue_bones.hpp</label>
+      </node>
+      <node id="918">
+        <label>/usr/include/armadillo_bits/fn_zeros.hpp</label>
+      </node>
+      <node id="1087">
+        <label>/usr/include/armadillo_bits/op_chol_meat.hpp</label>
+      </node>
+      <node id="685">
+        <label>/usr/include/armadillo_bits/def_lapack.hpp</label>
+      </node>
+      <node id="700">
+        <label>/usr/include/armadillo_bits/injector_bones.hpp</label>
+      </node>
+      <node id="1107">
+        <label>/usr/include/armadillo_bits/op_range_meat.hpp</label>
+      </node>
+      <node id="1070">
+        <label>/usr/include/armadillo_bits/op_reshape_meat.hpp</label>
+      </node>
+      <node id="1065">
+        <label>/usr/include/armadillo_bits/op_sum_meat.hpp</label>
+      </node>
+      <node id="672">
+        <label>/usr/include/armadillo_bits/access.hpp</label>
+      </node>
+      <node id="1133">
+        <label>/usr/include/armadillo_bits/spop_sum_meat.hpp</label>
+      </node>
+      <node id="989">
+        <label>/usr/include/armadillo_bits/fn_interp1.hpp</label>
+      </node>
+      <node id="633">
+        <label>visualization_msgs/Marker.h</label>
+      </node>
+      <node id="1035">
+        <label>/usr/include/armadillo_bits/subview_field_meat.hpp</label>
+      </node>
+      <node id="787">
+        <label>/usr/include/armadillo_bits/op_cumsum_bones.hpp</label>
+      </node>
+      <node id="973">
+        <label>/usr/include/armadillo_bits/fn_unique.hpp</label>
+      </node>
+      <node id="988">
+        <label>/usr/include/armadillo_bits/fn_nonzeros.hpp</label>
+      </node>
+      <node id="802">
+        <label>/usr/include/armadillo_bits/op_sqrtmat_bones.hpp</label>
+      </node>
+      <node id="1124">
+        <label>/usr/include/armadillo_bits/glue_atan2_meat.hpp</label>
+      </node>
+      <node id="1036">
+        <label>/usr/include/armadillo_bits/subview_cube_meat.hpp</label>
+      </node>
+      <node id="706">
+        <label>/usr/include/armadillo_bits/xtrans_mat_bones.hpp</label>
+      </node>
+      <node id="747">
+        <label>/usr/include/armadillo_bits/Gen_bones.hpp</label>
+      </node>
+      <node id="1100">
+        <label>/usr/include/armadillo_bits/op_clamp_meat.hpp</label>
+      </node>
+      <node id="1034">
+        <label>/usr/include/armadillo_bits/subview_elem2_meat.hpp</label>
+      </node>
+      <node id="1024">
+        <label>/usr/include/armadillo_bits/Col_meat.hpp</label>
+      </node>
+      <node id="960">
+        <label>/usr/include/armadillo_bits/fn_cross.hpp</label>
+      </node>
+      <node id="783">
+        <label>/usr/include/armadillo_bits/op_find_unique_bones.hpp</label>
+      </node>
+      <node id="786">
+        <label>/usr/include/armadillo_bits/op_trimat_bones.hpp</label>
+      </node>
+      <node id="890">
+        <label>/usr/include/armadillo_bits/operator_schur.hpp</label>
+      </node>
+      <node id="800">
+        <label>/usr/include/armadillo_bits/op_diff_bones.hpp</label>
+      </node>
+      <node id="1150">
+        <label>/usr/include/armadillo_bits/newarp_DoubleShiftQR_meat.hpp</label>
+      </node>
+      <node id="938">
+        <label>/usr/include/armadillo_bits/fn_sort_index.hpp</label>
+      </node>
+      <node id="917">
+        <label>/usr/include/armadillo_bits/fn_lu.hpp</label>
+      </node>
+      <node id="861">
+        <label>/usr/include/armadillo_bits/diagmat_proxy.hpp</label>
+      </node>
+      <node id="751">
+        <label>/usr/include/armadillo_bits/op_dot_bones.hpp</label>
+      </node>
+      <node id="1141">
+        <label>/usr/include/armadillo_bits/spop_symmat_meat.hpp</label>
+      </node>
+      <node id="716">
+        <label>/usr/include/armadillo_bits/field_bones.hpp</label>
+      </node>
+      <node id="1053">
+        <label>/usr/include/armadillo_bits/op_diagvec_meat.hpp</label>
+      </node>
+      <node id="717">
+        <label>/usr/include/armadillo_bits/subview_bones.hpp</label>
+      </node>
+      <node id="1067">
+        <label>/usr/include/armadillo_bits/op_strans_meat.hpp</label>
+      </node>
+      <node id="750">
+        <label>/usr/include/armadillo_bits/op_diagvec_bones.hpp</label>
+      </node>
+      <node id="971">
+        <label>/usr/include/armadillo_bits/fn_hist.hpp</label>
+      </node>
+      <node id="795">
+        <label>/usr/include/armadillo_bits/op_all_bones.hpp</label>
+      </node>
+      <node id="1155">
+        <label>/usr/include/armadillo_bits/newarp_UpperHessenbergQR_meat.hpp</label>
+      </node>
+      <node id="864">
+        <label>/usr/include/armadillo_bits/OpCube_meat.hpp</label>
+      </node>
+      <node id="746">
+        <label>/usr/include/armadillo_bits/GenSpecialiser.hpp</label>
+      </node>
+      <node id="647">
+        <label>cstdio</label>
+      </node>
+      <node id="884">
+        <label>/usr/include/armadillo_bits/arma_ostream_bones.hpp</label>
+      </node>
+      <node id="662">
+        <label>/usr/include/armadillo_bits/typedef_elem.hpp</label>
+      </node>
+      <node id="733">
+        <label>/usr/include/armadillo_bits/eOpCube_bones.hpp</label>
+      </node>
+      <node id="827">
+        <label>/usr/include/armadillo_bits/gmm_full_bones.hpp</label>
+      </node>
+      <node id="930">
+        <label>/usr/include/armadillo_bits/fn_randu.hpp</label>
+      </node>
+      <node id="743">
+        <label>/usr/include/armadillo_bits/mtGlueCube_bones.hpp</label>
+      </node>
+      <node id="836">
+        <label>/usr/include/armadillo_bits/spop_var_bones.hpp</label>
+      </node>
+      <node id="663">
+        <label>/usr/include/armadillo_bits/typedef_elem_check.hpp</label>
+      </node>
+      <node id="1136">
+        <label>/usr/include/armadillo_bits/spop_misc_meat.hpp</label>
+      </node>
+      <node id="950">
+        <label>/usr/include/armadillo_bits/fn_shift.hpp</label>
+      </node>
+      <node id="646">
+        <label>ctime</label>
+      </node>
+      <node id="1148">
+        <label>/usr/include/armadillo_bits/newarp_DenseGenMatProd_meat.hpp</label>
+      </node>
+      <node id="1129">
+        <label>/usr/include/armadillo_bits/gmm_diag_meat.hpp</label>
+      </node>
+      <node id="985">
+        <label>/usr/include/armadillo_bits/fn_normalise.hpp</label>
+      </node>
+      <node id="728">
+        <label>/usr/include/armadillo_bits/running_stat_vec_bones.hpp</label>
+      </node>
+      <node id="889">
+        <label>/usr/include/armadillo_bits/operator_times.hpp</label>
+      </node>
+      <node id="1043">
+        <label>/usr/include/armadillo_bits/SpCol_meat.hpp</label>
+      </node>
+      <node id="1046">
+        <label>/usr/include/armadillo_bits/SpSubview_iterators_meat.hpp</label>
+      </node>
+      <node id="741">
+        <label>/usr/include/armadillo_bits/GlueCube_bones.hpp</label>
+      </node>
+      <node id="1079">
+        <label>/usr/include/armadillo_bits/op_dotext_meat.hpp</label>
+      </node>
+      <node id="888">
+        <label>/usr/include/armadillo_bits/operator_minus.hpp</label>
+      </node>
+      <node id="822">
+        <label>/usr/include/armadillo_bits/glue_hypot_bones.hpp</label>
+      </node>
+      <node id="719">
+        <label>/usr/include/armadillo_bits/subview_elem2_bones.hpp</label>
+      </node>
+      <node id="991">
+        <label>/usr/include/armadillo_bits/fn_diff.hpp</label>
+      </node>
+      <node id="958">
+        <label>/usr/include/armadillo_bits/fn_as_scalar.hpp</label>
+      </node>
+      <node id="707">
+        <label>/usr/include/armadillo_bits/SizeMat_bones.hpp</label>
+      </node>
+      <node id="925">
+        <label>/usr/include/armadillo_bits/fn_find_unique.hpp</label>
+      </node>
+      <node id="738">
+        <label>/usr/include/armadillo_bits/eGlue_bones.hpp</label>
+      </node>
+      <node id="668">
+        <label>/usr/include/armadillo_bits/traits.hpp</label>
+      </node>
+      <node id="842">
+        <label>/usr/include/armadillo_bits/spglue_join_bones.hpp</label>
+      </node>
+      <node id="779">
+        <label>/usr/include/armadillo_bits/op_misc_bones.hpp</label>
+      </node>
+      <node id="1117">
+        <label>/usr/include/armadillo_bits/glue_conv_meat.hpp</label>
+      </node>
+      <node id="634">
+        <label>vector</label>
+      </node>
+      <node id="865">
+        <label>/usr/include/armadillo_bits/SpOp_meat.hpp</label>
+      </node>
+      <node id="744">
+        <label>/usr/include/armadillo_bits/eop_core_bones.hpp</label>
+      </node>
+      <node id="792">
+        <label>/usr/include/armadillo_bits/op_toeplitz_bones.hpp</label>
+      </node>
+      <node id="937">
+        <label>/usr/include/armadillo_bits/fn_sort.hpp</label>
+      </node>
+      <node id="1066">
+        <label>/usr/include/armadillo_bits/op_stddev_meat.hpp</label>
+      </node>
+      <node id="947">
+        <label>/usr/include/armadillo_bits/fn_resize.hpp</label>
+      </node>
+      <node id="745">
+        <label>/usr/include/armadillo_bits/eglue_core_bones.hpp</label>
+      </node>
+      <node id="1007">
+        <label>/usr/include/armadillo_bits/fn_svds.hpp</label>
+      </node>
+      <node id="1077">
+        <label>/usr/include/armadillo_bits/op_prod_meat.hpp</label>
+      </node>
+      <node id="1022">
+        <label>/usr/include/armadillo_bits/injector_meat.hpp</label>
+      </node>
+      <node id="957">
+        <label>/usr/include/armadillo_bits/fn_flip.hpp</label>
+      </node>
+      <node id="1041">
+        <label>/usr/include/armadillo_bits/SpMat_meat.hpp</label>
+      </node>
+      <node id="893">
+        <label>/usr/include/armadillo_bits/operator_cube_plus.hpp</label>
+      </node>
+      <node id="812">
+        <label>/usr/include/armadillo_bits/glue_relational_bones.hpp</label>
+      </node>
+      <node id="656">
+        <label>/usr/include/armadillo_bits/compiler_setup.hpp</label>
+      </node>
+      <node id="1030">
+        <label>/usr/include/armadillo_bits/SizeCube_meat.hpp</label>
+      </node>
+      <node id="824">
+        <label>/usr/include/armadillo_bits/glue_polyval_bones.hpp</label>
+      </node>
+      <node id="1059">
+        <label>/usr/include/armadillo_bits/op_index_min_meat.hpp</label>
+      </node>
+      <node id="651">
+        <label>new</label>
+      </node>
+      <node id="1104">
+        <label>/usr/include/armadillo_bits/op_norm_meat.hpp</label>
+      </node>
+      <node id="830">
+        <label>/usr/include/armadillo_bits/spop_sum_bones.hpp</label>
+      </node>
+      <node id="1017">
+        <label>/usr/include/armadillo_bits/cond_rel_meat.hpp</label>
+      </node>
+      <node id="737">
+        <label>/usr/include/armadillo_bits/Glue_bones.hpp</label>
+      </node>
+      <node id="910">
+        <label>/usr/include/armadillo_bits/fn_trace.hpp</label>
+      </node>
+      <node id="1144">
+        <label>/usr/include/armadillo_bits/spglue_times_meat.hpp</label>
+      </node>
+      <node id="863">
+        <label>/usr/include/armadillo_bits/Op_meat.hpp</label>
+      </node>
+      <node id="906">
+        <label>/usr/include/armadillo_bits/fn_sum.hpp</label>
+      </node>
+      <node id="673">
+        <label>/usr/include/armadillo_bits/span.hpp</label>
+      </node>
+      <node id="1062">
+        <label>/usr/include/armadillo_bits/op_median_meat.hpp</label>
+      </node>
+      <node id="709">
+        <label>/usr/include/armadillo_bits/SpValProxy_bones.hpp</label>
+      </node>
+      <node id="1076">
+        <label>/usr/include/armadillo_bits/op_shuffle_meat.hpp</label>
+      </node>
+      <node id="734">
+        <label>/usr/include/armadillo_bits/mtOp_bones.hpp</label>
+      </node>
+      <node id="956">
+        <label>/usr/include/armadillo_bits/fn_kron.hpp</label>
+      </node>
+      <node id="636">
+        <label>utility</label>
+      </node>
+      <node id="1142">
+        <label>/usr/include/armadillo_bits/spglue_plus_meat.hpp</label>
+      </node>
+      <node id="739">
+        <label>/usr/include/armadillo_bits/mtGlue_bones.hpp</label>
+      </node>
+      <node id="655">
+        <label>/usr/include/armadillo_bits/config.hpp</label>
+      </node>
+      <node id="649">
+        <label>sstream</label>
+      </node>
+      <node id="722">
+        <label>/usr/include/armadillo_bits/diagview_bones.hpp</label>
+      </node>
+      <node id="1073">
+        <label>/usr/include/armadillo_bits/op_cov_meat.hpp</label>
+      </node>
+      <node id="1003">
+        <label>/usr/include/armadillo_bits/fn_sprandu.hpp</label>
+      </node>
+      <node id="1008">
+        <label>/usr/include/armadillo_bits/hdf5_misc.hpp</label>
+      </node>
+      <node id="966">
+        <label>/usr/include/armadillo_bits/fn_trimat.hpp</label>
+      </node>
+      <node id="1001">
+        <label>/usr/include/armadillo_bits/fn_spones.hpp</label>
+      </node>
+      <node id="1078">
+        <label>/usr/include/armadillo_bits/op_pinv_meat.hpp</label>
+      </node>
+      <node id="715">
+        <label>/usr/include/armadillo_bits/typedef_mat_fixed.hpp</label>
+      </node>
+      <node id="871">
+        <label>/usr/include/armadillo_bits/SpGlue_meat.hpp</label>
+      </node>
+      <node id="870">
+        <label>/usr/include/armadillo_bits/GlueCube_meat.hpp</label>
+      </node>
+      <node id="680">
+        <label>/usr/include/armadillo_bits/arma_rng.hpp</label>
+      </node>
+      <node id="980">
+        <label>/usr/include/armadillo_bits/fn_inplace_strans.hpp</label>
+      </node>
+      <node id="862">
+        <label>/usr/include/armadillo_bits/strip.hpp</label>
+      </node>
+      <node id="1038">
+        <label>/usr/include/armadillo_bits/subview_each_meat.hpp</label>
+      </node>
+      <node id="931">
+        <label>/usr/include/armadillo_bits/fn_randn.hpp</label>
+      </node>
+      <node id="679">
+        <label>/usr/include/armadillo_bits/arma_rng_cxx11.hpp</label>
+      </node>
+      <node id="976">
+        <label>/usr/include/armadillo_bits/fn_any.hpp</label>
+      </node>
+      <node id="736">
+        <label>/usr/include/armadillo_bits/mtSpOp_bones.hpp</label>
+      </node>
+      <node id="735">
+        <label>/usr/include/armadillo_bits/mtOpCube_bones.hpp</label>
+      </node>
+      <node id="693">
+        <label>/usr/include/armadillo_bits/wrapper_arpack.hpp</label>
+      </node>
+      <node id="1098">
+        <label>/usr/include/armadillo_bits/op_all_meat.hpp</label>
+      </node>
+      <node id="941">
+        <label>/usr/include/armadillo_bits/fn_qr.hpp</label>
+      </node>
+      <node id="914">
+        <label>/usr/include/armadillo_bits/fn_eig_gen.hpp</label>
+      </node>
+      <node id="632">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="670">
+        <label>/usr/include/armadillo_bits/upgrade_val.hpp</label>
+      </node>
+      <node id="759">
+        <label>/usr/include/armadillo_bits/op_median_bones.hpp</label>
+      </node>
+      <node id="964">
+        <label>/usr/include/armadillo_bits/fn_trunc_log.hpp</label>
+      </node>
+      <node id="850">
+        <label>/usr/include/armadillo_bits/newarp_UpperHessenbergEigen_bones.hpp</label>
+      </node>
+      <node id="1135">
+        <label>/usr/include/armadillo_bits/spop_htrans_meat.hpp</label>
+      </node>
+      <node id="962">
+        <label>/usr/include/armadillo_bits/fn_conv.hpp</label>
+      </node>
+      <node id="730">
+        <label>/usr/include/armadillo_bits/OpCube_bones.hpp</label>
+      </node>
+      <node id="894">
+        <label>/usr/include/armadillo_bits/operator_cube_minus.hpp</label>
+      </node>
+      <node id="838">
+        <label>/usr/include/armadillo_bits/spop_symmat_bones.hpp</label>
+      </node>
+      <node id="794">
+        <label>/usr/include/armadillo_bits/op_any_bones.hpp</label>
+      </node>
+      <node id="858">
+        <label>/usr/include/armadillo_bits/Proxy.hpp</label>
+      </node>
+      <node id="1026">
+        <label>/usr/include/armadillo_bits/Cube_meat.hpp</label>
+      </node>
+      <node id="643">
+        <label>cstdlib</label>
+      </node>
+      <node id="760">
+        <label>/usr/include/armadillo_bits/op_sort_bones.hpp</label>
+      </node>
+      <node id="904">
+        <label>/usr/include/armadillo_bits/fn_index_min.hpp</label>
+      </node>
+      <node id="881">
+        <label>/usr/include/armadillo_bits/SpBase_meat.hpp</label>
+      </node>
+      <node id="936">
+        <label>/usr/include/armadillo_bits/fn_var.hpp</label>
+      </node>
+      <node id="639">
+        <label>iostream</label>
+      </node>
+      <node id="1139">
+        <label>/usr/include/armadillo_bits/spop_var_meat.hpp</label>
+      </node>
+      <node id="1042">
+        <label>/usr/include/armadillo_bits/SpMat_iterators_meat.hpp</label>
+      </node>
+      <node id="1116">
+        <label>/usr/include/armadillo_bits/glue_solve_meat.hpp</label>
+      </node>
+      <node id="1032">
+        <label>/usr/include/armadillo_bits/subview_meat.hpp</label>
+      </node>
+      <node id="697">
+        <label>/usr/include/armadillo_bits/podarray_bones.hpp</label>
+      </node>
+      <node id="877">
+        <label>/usr/include/armadillo_bits/mtGlue_meat.hpp</label>
+      </node>
+      <node id="899">
+        <label>/usr/include/armadillo_bits/operator_ostream.hpp</label>
+      </node>
+      <node id="805">
+        <label>/usr/include/armadillo_bits/glue_times_bones.hpp</label>
+      </node>
+      <node id="1023">
+        <label>/usr/include/armadillo_bits/Mat_meat.hpp</label>
+      </node>
+      <node id="714">
+        <label>/usr/include/armadillo_bits/spdiagview_bones.hpp</label>
+      </node>
+      <node id="1121">
+        <label>/usr/include/armadillo_bits/glue_max_meat.hpp</label>
+      </node>
+      <node id="667">
+        <label>/usr/include/armadillo_bits/arma_config.hpp</label>
+      </node>
+      <node id="974">
+        <label>/usr/include/armadillo_bits/fn_fft.hpp</label>
+      </node>
+      <node id="712">
+        <label>/usr/include/armadillo_bits/SpRow_bones.hpp</label>
+      </node>
+      <node id="898">
+        <label>/usr/include/armadillo_bits/operator_cube_relational.hpp</label>
+      </node>
+      <node id="817">
+        <label>/usr/include/armadillo_bits/glue_histc_bones.hpp</label>
+      </node>
+      <node id="1154">
+        <label>/usr/include/armadillo_bits/newarp_UpperHessenbergEigen_meat.hpp</label>
+      </node>
+      <node id="857">
+        <label>/usr/include/armadillo_bits/unwrap_spmat.hpp</label>
+      </node>
+      <node id="856">
+        <label>/usr/include/armadillo_bits/unwrap_cube.hpp</label>
+      </node>
+      <node id="771">
+        <label>/usr/include/armadillo_bits/op_cor_bones.hpp</label>
+      </node>
+      <node id="703">
+        <label>/usr/include/armadillo_bits/Row_bones.hpp</label>
+      </node>
+      <node id="987">
+        <label>/usr/include/armadillo_bits/fn_expmat.hpp</label>
+      </node>
+      <node id="975">
+        <label>/usr/include/armadillo_bits/fn_fft2.hpp</label>
+      </node>
+      <node id="1103">
+        <label>/usr/include/armadillo_bits/op_diff_meat.hpp</label>
+      </node>
+      <node id="932">
+        <label>/usr/include/armadillo_bits/fn_trig.hpp</label>
+      </node>
+      <node id="886">
+        <label>/usr/include/armadillo_bits/fn_n_unique.hpp</label>
+      </node>
+      <node id="654">
+        <label>/usr/include/armadillo_bits/compiler_extra.hpp</label>
+      </node>
+      <node id="645">
+        <label>climits</label>
+      </node>
+      <node id="1057">
+        <label>/usr/include/armadillo_bits/op_max_meat.hpp</label>
+      </node>
+      <node id="813">
+        <label>/usr/include/armadillo_bits/glue_solve_bones.hpp</label>
+      </node>
+      <node id="713">
+        <label>/usr/include/armadillo_bits/SpSubview_bones.hpp</label>
+      </node>
+      <node id="1114">
+        <label>/usr/include/armadillo_bits/glue_join_meat.hpp</label>
+      </node>
+      <node id="1080">
+        <label>/usr/include/armadillo_bits/op_flip_meat.hpp</label>
+      </node>
+      <node id="1044">
+        <label>/usr/include/armadillo_bits/SpRow_meat.hpp</label>
+      </node>
+      <node id="983">
+        <label>/usr/include/armadillo_bits/fn_randg.hpp</label>
+      </node>
+      <node id="1069">
+        <label>/usr/include/armadillo_bits/op_repmat_meat.hpp</label>
+      </node>
+      <node id="811">
+        <label>/usr/include/armadillo_bits/glue_join_bones.hpp</label>
+      </node>
+      <node id="785">
+        <label>/usr/include/armadillo_bits/op_cx_scalar_bones.hpp</label>
+      </node>
+      <node id="784">
+        <label>/usr/include/armadillo_bits/op_chol_bones.hpp</label>
+      </node>
+      <node id="1113">
+        <label>/usr/include/armadillo_bits/glue_cross_meat.hpp</label>
+      </node>
+      <node id="1006">
+        <label>/usr/include/armadillo_bits/fn_spsolve.hpp</label>
+      </node>
+      <node id="687">
+        <label>/usr/include/armadillo_bits/def_arpack.hpp</label>
+      </node>
+      <node id="1137">
+        <label>/usr/include/armadillo_bits/spop_diagmat_meat.hpp</label>
+      </node>
+      <node id="780">
+        <label>/usr/include/armadillo_bits/op_orth_null_bones.hpp</label>
+      </node>
+      <node id="1009">
+        <label>/usr/include/armadillo_bits/fft_engine.hpp</label>
+      </node>
+      <node id="797">
+        <label>/usr/include/armadillo_bits/op_clamp_bones.hpp</label>
+      </node>
+      <node id="1110">
+        <label>/usr/include/armadillo_bits/glue_cov_meat.hpp</label>
+      </node>
+      <node id="788">
+        <label>/usr/include/armadillo_bits/op_cumprod_bones.hpp</label>
+      </node>
+      <node id="883">
+        <label>/usr/include/armadillo_bits/GenCube_meat.hpp</label>
+      </node>
+      <node id="727">
+        <label>/usr/include/armadillo_bits/running_stat_bones.hpp</label>
+      </node>
+      <node id="1101">
+        <label>/usr/include/armadillo_bits/op_expmat_meat.hpp</label>
+      </node>
+      <node id="776">
+        <label>/usr/include/armadillo_bits/op_dotext_bones.hpp</label>
+      </node>
+      <node id="1086">
+        <label>/usr/include/armadillo_bits/op_find_unique_meat.hpp</label>
+      </node>
+      <node id="922">
+        <label>/usr/include/armadillo_bits/fn_orth_null.hpp</label>
+      </node>
+      <node id="831">
+        <label>/usr/include/armadillo_bits/spop_strans_bones.hpp</label>
+      </node>
+      <node id="708">
+        <label>/usr/include/armadillo_bits/SizeCube_bones.hpp</label>
+      </node>
+      <node id="853">
+        <label>/usr/include/armadillo_bits/memory.hpp</label>
+      </node>
+      <node id="944">
+        <label>/usr/include/armadillo_bits/fn_repmat.hpp</label>
+      </node>
+      <node id="1045">
+        <label>/usr/include/armadillo_bits/SpSubview_meat.hpp</label>
+      </node>
+      <node id="839">
+        <label>/usr/include/armadillo_bits/spglue_plus_bones.hpp</label>
+      </node>
+      <node id="1064">
+        <label>/usr/include/armadillo_bits/op_sort_index_meat.hpp</label>
+      </node>
+      <node id="952">
+        <label>/usr/include/armadillo_bits/fn_prod.hpp</label>
+      </node>
+      <node id="799">
+        <label>/usr/include/armadillo_bits/op_nonzeros_bones.hpp</label>
+      </node>
+      <node id="946">
+        <label>/usr/include/armadillo_bits/fn_vectorise.hpp</label>
+      </node>
+      <node id="923">
+        <label>/usr/include/armadillo_bits/fn_regspace.hpp</label>
+      </node>
+      <node id="671">
+        <label>/usr/include/armadillo_bits/restrictors.hpp</label>
+      </node>
+      <node id="949">
+        <label>/usr/include/armadillo_bits/fn_cor.hpp</label>
+      </node>
+      <node id="897">
+        <label>/usr/include/armadillo_bits/operator_cube_div.hpp</label>
+      </node>
+      <node id="972">
+        <label>/usr/include/armadillo_bits/fn_histc.hpp</label>
+      </node>
+      <node id="968">
+        <label>/usr/include/armadillo_bits/fn_cumprod.hpp</label>
+      </node>
+      <node id="997">
+        <label>/usr/include/armadillo_bits/fn_range.hpp</label>
+      </node>
+      <node id="954">
+        <label>/usr/include/armadillo_bits/fn_pinv.hpp</label>
+      </node>
+      <node id="1031">
+        <label>/usr/include/armadillo_bits/field_meat.hpp</label>
+      </node>
+      <node id="1119">
+        <label>/usr/include/armadillo_bits/glue_hist_meat.hpp</label>
+      </node>
+      <node id="945">
+        <label>/usr/include/armadillo_bits/fn_reshape.hpp</label>
+      </node>
+      <node id="789">
+        <label>/usr/include/armadillo_bits/op_symmat_bones.hpp</label>
+      </node>
+      <node id="1040">
+        <label>/usr/include/armadillo_bits/SpValProxy_meat.hpp</label>
+      </node>
+      <node id="1122">
+        <label>/usr/include/armadillo_bits/glue_min_meat.hpp</label>
+      </node>
+      <node id="1074">
+        <label>/usr/include/armadillo_bits/op_cor_meat.hpp</label>
+      </node>
+      <node id="1075">
+        <label>/usr/include/armadillo_bits/op_shift_meat.hpp</label>
+      </node>
+      <node id="1097">
+        <label>/usr/include/armadillo_bits/op_any_meat.hpp</label>
+      </node>
+      <node id="1120">
+        <label>/usr/include/armadillo_bits/glue_histc_meat.hpp</label>
+      </node>
+      <node id="704">
+        <label>/usr/include/armadillo_bits/Cube_bones.hpp</label>
+      </node>
+      <node id="845">
+        <label>/usr/include/armadillo_bits/newarp_SparseGenMatProd_bones.hpp</label>
+      </node>
+      <node id="982">
+        <label>/usr/include/armadillo_bits/fn_randi.hpp</label>
+      </node>
+      <node id="1096">
+        <label>/usr/include/armadillo_bits/op_fft_meat.hpp</label>
+      </node>
+      <node id="896">
+        <label>/usr/include/armadillo_bits/operator_cube_schur.hpp</label>
+      </node>
+      <node id="658">
+        <label>/usr/include/armadillo_bits/include_hdf5.hpp</label>
+      </node>
+      <node id="1033">
+        <label>/usr/include/armadillo_bits/subview_elem1_meat.hpp</label>
+      </node>
+      <node id="981">
+        <label>/usr/include/armadillo_bits/fn_inplace_trans.hpp</label>
+      </node>
+      <node id="653">
+        <label>complex</label>
+      </node>
+      <node id="1054">
+        <label>/usr/include/armadillo_bits/op_dot_meat.hpp</label>
+      </node>
+      <node id="821">
+        <label>/usr/include/armadillo_bits/glue_atan2_bones.hpp</label>
+      </node>
+      <node id="903">
+        <label>/usr/include/armadillo_bits/fn_index_max.hpp</label>
+      </node>
+      <node id="640">
+        <label>algorithm</label>
+      </node>
+      <node id="1016">
+        <label>/usr/include/armadillo_bits/eglue_core_meat.hpp</label>
+      </node>
+      <node id="926">
+        <label>/usr/include/armadillo_bits/fn_elem.hpp</label>
+      </node>
+      <node id="774">
+        <label>/usr/include/armadillo_bits/op_prod_bones.hpp</label>
+      </node>
+      <node id="1028">
+        <label>/usr/include/armadillo_bits/xtrans_mat_meat.hpp</label>
+      </node>
+      <node id="1143">
+        <label>/usr/include/armadillo_bits/spglue_minus_meat.hpp</label>
+      </node>
+      <node id="907">
+        <label>/usr/include/armadillo_bits/fn_diagmat.hpp</label>
+      </node>
+      <node id="1055">
+        <label>/usr/include/armadillo_bits/op_inv_meat.hpp</label>
+      </node>
+      <node id="1021">
+        <label>/usr/include/armadillo_bits/sp_auxlib_meat.hpp</label>
+      </node>
+      <node id="939">
+        <label>/usr/include/armadillo_bits/fn_strans.hpp</label>
+      </node>
+      <node id="854">
+        <label>/usr/include/armadillo_bits/arma_cmath.hpp</label>
+      </node>
+      <node id="837">
+        <label>/usr/include/armadillo_bits/spop_trimat_bones.hpp</label>
+      </node>
+      <node id="754">
+        <label>/usr/include/armadillo_bits/op_max_bones.hpp</label>
+      </node>
+      <node id="644">
+        <label>cstring</label>
+      </node>
+      <node id="916">
+        <label>/usr/include/armadillo_bits/fn_eig_pair.hpp</label>
+      </node>
+      <node id="674">
+        <label>/usr/include/armadillo_bits/distr_param.hpp</label>
+      </node>
+      <node id="1061">
+        <label>/usr/include/armadillo_bits/op_mean_meat.hpp</label>
+      </node>
+      <node id="869">
+        <label>/usr/include/armadillo_bits/Glue_meat.hpp</label>
+      </node>
+      <node id="1089">
+        <label>/usr/include/armadillo_bits/op_trimat_meat.hpp</label>
+      </node>
+      <node id="1015">
+        <label>/usr/include/armadillo_bits/eop_core_meat.hpp</label>
+      </node>
+      <node id="1047">
+        <label>/usr/include/armadillo_bits/spdiagview_meat.hpp</label>
+      </node>
+      <node id="866">
+        <label>/usr/include/armadillo_bits/mtOp_meat.hpp</label>
+      </node>
+      <node id="798">
+        <label>/usr/include/armadillo_bits/op_expmat_bones.hpp</label>
+      </node>
+      <node id="631">
+        <label>src/laser_objects.cpp</label>
+        <link refid="laser_objects.cpp"/>
+        <childnode refid="632" relation="include">
+        </childnode>
+        <childnode refid="633" relation="include">
+        </childnode>
+        <childnode refid="634" relation="include">
+        </childnode>
+        <childnode refid="635" relation="include">
+        </childnode>
+        <childnode refid="636" relation="include">
+        </childnode>
+        <childnode refid="637" relation="include">
+        </childnode>
+        <childnode refid="639" relation="include">
+        </childnode>
+        <childnode refid="640" relation="include">
+        </childnode>
+        <childnode refid="641" relation="include">
+        </childnode>
+        <childnode refid="642" relation="include">
+        </childnode>
+        <childnode refid="643" relation="include">
+        </childnode>
+        <childnode refid="644" relation="include">
+        </childnode>
+        <childnode refid="645" relation="include">
+        </childnode>
+        <childnode refid="646" relation="include">
+        </childnode>
+        <childnode refid="647" relation="include">
+        </childnode>
+        <childnode refid="648" relation="include">
+        </childnode>
+        <childnode refid="649" relation="include">
+        </childnode>
+        <childnode refid="650" relation="include">
+        </childnode>
+        <childnode refid="651" relation="include">
+        </childnode>
+        <childnode refid="652" relation="include">
+        </childnode>
+        <childnode refid="653" relation="include">
+        </childnode>
+        <childnode refid="654" relation="include">
+        </childnode>
+        <childnode refid="655" relation="include">
+        </childnode>
+        <childnode refid="656" relation="include">
+        </childnode>
+        <childnode refid="657" relation="include">
+        </childnode>
+        <childnode refid="658" relation="include">
+        </childnode>
+        <childnode refid="659" relation="include">
+        </childnode>
+        <childnode refid="660" relation="include">
+        </childnode>
+        <childnode refid="661" relation="include">
+        </childnode>
+        <childnode refid="662" relation="include">
+        </childnode>
+        <childnode refid="663" relation="include">
+        </childnode>
+        <childnode refid="664" relation="include">
+        </childnode>
+        <childnode refid="665" relation="include">
+        </childnode>
+        <childnode refid="666" relation="include">
+        </childnode>
+        <childnode refid="667" relation="include">
+        </childnode>
+        <childnode refid="668" relation="include">
+        </childnode>
+        <childnode refid="669" relation="include">
+        </childnode>
+        <childnode refid="670" relation="include">
+        </childnode>
+        <childnode refid="671" relation="include">
+        </childnode>
+        <childnode refid="672" relation="include">
+        </childnode>
+        <childnode refid="673" relation="include">
+        </childnode>
+        <childnode refid="674" relation="include">
+        </childnode>
+        <childnode refid="675" relation="include">
+        </childnode>
+        <childnode refid="676" relation="include">
+        </childnode>
+        <childnode refid="677" relation="include">
+        </childnode>
+        <childnode refid="678" relation="include">
+        </childnode>
+        <childnode refid="679" relation="include">
+        </childnode>
+        <childnode refid="680" relation="include">
+        </childnode>
+        <childnode refid="681" relation="include">
+        </childnode>
+        <childnode refid="682" relation="include">
+        </childnode>
+        <childnode refid="683" relation="include">
+        </childnode>
+        <childnode refid="684" relation="include">
+        </childnode>
+        <childnode refid="685" relation="include">
+        </childnode>
+        <childnode refid="686" relation="include">
+        </childnode>
+        <childnode refid="687" relation="include">
+        </childnode>
+        <childnode refid="688" relation="include">
+        </childnode>
+        <childnode refid="689" relation="include">
+        </childnode>
+        <childnode refid="690" relation="include">
+        </childnode>
+        <childnode refid="691" relation="include">
+        </childnode>
+        <childnode refid="692" relation="include">
+        </childnode>
+        <childnode refid="693" relation="include">
+        </childnode>
+        <childnode refid="694" relation="include">
+        </childnode>
+        <childnode refid="695" relation="include">
+        </childnode>
+        <childnode refid="696" relation="include">
+        </childnode>
+        <childnode refid="697" relation="include">
+        </childnode>
+        <childnode refid="698" relation="include">
+        </childnode>
+        <childnode refid="699" relation="include">
+        </childnode>
+        <childnode refid="700" relation="include">
+        </childnode>
+        <childnode refid="701" relation="include">
+        </childnode>
+        <childnode refid="702" relation="include">
+        </childnode>
+        <childnode refid="703" relation="include">
+        </childnode>
+        <childnode refid="704" relation="include">
+        </childnode>
+        <childnode refid="705" relation="include">
+        </childnode>
+        <childnode refid="706" relation="include">
+        </childnode>
+        <childnode refid="707" relation="include">
+        </childnode>
+        <childnode refid="708" relation="include">
+        </childnode>
+        <childnode refid="709" relation="include">
+        </childnode>
+        <childnode refid="710" relation="include">
+        </childnode>
+        <childnode refid="711" relation="include">
+        </childnode>
+        <childnode refid="712" relation="include">
+        </childnode>
+        <childnode refid="713" relation="include">
+        </childnode>
+        <childnode refid="714" relation="include">
+        </childnode>
+        <childnode refid="715" relation="include">
+        </childnode>
+        <childnode refid="716" relation="include">
+        </childnode>
+        <childnode refid="717" relation="include">
+        </childnode>
+        <childnode refid="718" relation="include">
+        </childnode>
+        <childnode refid="719" relation="include">
+        </childnode>
+        <childnode refid="720" relation="include">
+        </childnode>
+        <childnode refid="721" relation="include">
+        </childnode>
+        <childnode refid="722" relation="include">
+        </childnode>
+        <childnode refid="723" relation="include">
+        </childnode>
+        <childnode refid="724" relation="include">
+        </childnode>
+        <childnode refid="725" relation="include">
+        </childnode>
+        <childnode refid="726" relation="include">
+        </childnode>
+        <childnode refid="727" relation="include">
+        </childnode>
+        <childnode refid="728" relation="include">
+        </childnode>
+        <childnode refid="729" relation="include">
+        </childnode>
+        <childnode refid="730" relation="include">
+        </childnode>
+        <childnode refid="731" relation="include">
+        </childnode>
+        <childnode refid="732" relation="include">
+        </childnode>
+        <childnode refid="733" relation="include">
+        </childnode>
+        <childnode refid="734" relation="include">
+        </childnode>
+        <childnode refid="735" relation="include">
+        </childnode>
+        <childnode refid="736" relation="include">
+        </childnode>
+        <childnode refid="737" relation="include">
+        </childnode>
+        <childnode refid="738" relation="include">
+        </childnode>
+        <childnode refid="739" relation="include">
+        </childnode>
+        <childnode refid="740" relation="include">
+        </childnode>
+        <childnode refid="741" relation="include">
+        </childnode>
+        <childnode refid="742" relation="include">
+        </childnode>
+        <childnode refid="743" relation="include">
+        </childnode>
+        <childnode refid="744" relation="include">
+        </childnode>
+        <childnode refid="745" relation="include">
+        </childnode>
+        <childnode refid="746" relation="include">
+        </childnode>
+        <childnode refid="747" relation="include">
+        </childnode>
+        <childnode refid="748" relation="include">
+        </childnode>
+        <childnode refid="749" relation="include">
+        </childnode>
+        <childnode refid="750" relation="include">
+        </childnode>
+        <childnode refid="751" relation="include">
+        </childnode>
+        <childnode refid="752" relation="include">
+        </childnode>
+        <childnode refid="753" relation="include">
+        </childnode>
+        <childnode refid="754" relation="include">
+        </childnode>
+        <childnode refid="755" relation="include">
+        </childnode>
+        <childnode refid="756" relation="include">
+        </childnode>
+        <childnode refid="757" relation="include">
+        </childnode>
+        <childnode refid="758" relation="include">
+        </childnode>
+        <childnode refid="759" relation="include">
+        </childnode>
+        <childnode refid="760" relation="include">
+        </childnode>
+        <childnode refid="761" relation="include">
+        </childnode>
+        <childnode refid="762" relation="include">
+        </childnode>
+        <childnode refid="763" relation="include">
+        </childnode>
+        <childnode refid="764" relation="include">
+        </childnode>
+        <childnode refid="765" relation="include">
+        </childnode>
+        <childnode refid="766" relation="include">
+        </childnode>
+        <childnode refid="767" relation="include">
+        </childnode>
+        <childnode refid="768" relation="include">
+        </childnode>
+        <childnode refid="769" relation="include">
+        </childnode>
+        <childnode refid="770" relation="include">
+        </childnode>
+        <childnode refid="771" relation="include">
+        </childnode>
+        <childnode refid="772" relation="include">
+        </childnode>
+        <childnode refid="773" relation="include">
+        </childnode>
+        <childnode refid="774" relation="include">
+        </childnode>
+        <childnode refid="775" relation="include">
+        </childnode>
+        <childnode refid="776" relation="include">
+        </childnode>
+        <childnode refid="777" relation="include">
+        </childnode>
+        <childnode refid="778" relation="include">
+        </childnode>
+        <childnode refid="779" relation="include">
+        </childnode>
+        <childnode refid="780" relation="include">
+        </childnode>
+        <childnode refid="781" relation="include">
+        </childnode>
+        <childnode refid="782" relation="include">
+        </childnode>
+        <childnode refid="783" relation="include">
+        </childnode>
+        <childnode refid="784" relation="include">
+        </childnode>
+        <childnode refid="785" relation="include">
+        </childnode>
+        <childnode refid="786" relation="include">
+        </childnode>
+        <childnode refid="787" relation="include">
+        </childnode>
+        <childnode refid="788" relation="include">
+        </childnode>
+        <childnode refid="789" relation="include">
+        </childnode>
+        <childnode refid="790" relation="include">
+        </childnode>
+        <childnode refid="791" relation="include">
+        </childnode>
+        <childnode refid="792" relation="include">
+        </childnode>
+        <childnode refid="793" relation="include">
+        </childnode>
+        <childnode refid="794" relation="include">
+        </childnode>
+        <childnode refid="795" relation="include">
+        </childnode>
+        <childnode refid="796" relation="include">
+        </childnode>
+        <childnode refid="797" relation="include">
+        </childnode>
+        <childnode refid="798" relation="include">
+        </childnode>
+        <childnode refid="799" relation="include">
+        </childnode>
+        <childnode refid="800" relation="include">
+        </childnode>
+        <childnode refid="801" relation="include">
+        </childnode>
+        <childnode refid="802" relation="include">
+        </childnode>
+        <childnode refid="803" relation="include">
+        </childnode>
+        <childnode refid="804" relation="include">
+        </childnode>
+        <childnode refid="805" relation="include">
+        </childnode>
+        <childnode refid="806" relation="include">
+        </childnode>
+        <childnode refid="807" relation="include">
+        </childnode>
+        <childnode refid="808" relation="include">
+        </childnode>
+        <childnode refid="809" relation="include">
+        </childnode>
+        <childnode refid="810" relation="include">
+        </childnode>
+        <childnode refid="811" relation="include">
+        </childnode>
+        <childnode refid="812" relation="include">
+        </childnode>
+        <childnode refid="813" relation="include">
+        </childnode>
+        <childnode refid="814" relation="include">
+        </childnode>
+        <childnode refid="815" relation="include">
+        </childnode>
+        <childnode refid="816" relation="include">
+        </childnode>
+        <childnode refid="817" relation="include">
+        </childnode>
+        <childnode refid="818" relation="include">
+        </childnode>
+        <childnode refid="819" relation="include">
+        </childnode>
+        <childnode refid="820" relation="include">
+        </childnode>
+        <childnode refid="821" relation="include">
+        </childnode>
+        <childnode refid="822" relation="include">
+        </childnode>
+        <childnode refid="823" relation="include">
+        </childnode>
+        <childnode refid="824" relation="include">
+        </childnode>
+        <childnode refid="825" relation="include">
+        </childnode>
+        <childnode refid="826" relation="include">
+        </childnode>
+        <childnode refid="827" relation="include">
+        </childnode>
+        <childnode refid="828" relation="include">
+        </childnode>
+        <childnode refid="829" relation="include">
+        </childnode>
+        <childnode refid="830" relation="include">
+        </childnode>
+        <childnode refid="831" relation="include">
+        </childnode>
+        <childnode refid="832" relation="include">
+        </childnode>
+        <childnode refid="833" relation="include">
+        </childnode>
+        <childnode refid="834" relation="include">
+        </childnode>
+        <childnode refid="835" relation="include">
+        </childnode>
+        <childnode refid="836" relation="include">
+        </childnode>
+        <childnode refid="837" relation="include">
+        </childnode>
+        <childnode refid="838" relation="include">
+        </childnode>
+        <childnode refid="839" relation="include">
+        </childnode>
+        <childnode refid="840" relation="include">
+        </childnode>
+        <childnode refid="841" relation="include">
+        </childnode>
+        <childnode refid="842" relation="include">
+        </childnode>
+        <childnode refid="843" relation="include">
+        </childnode>
+        <childnode refid="844" relation="include">
+        </childnode>
+        <childnode refid="845" relation="include">
+        </childnode>
+        <childnode refid="846" relation="include">
+        </childnode>
+        <childnode refid="847" relation="include">
+        </childnode>
+        <childnode refid="848" relation="include">
+        </childnode>
+        <childnode refid="849" relation="include">
+        </childnode>
+        <childnode refid="850" relation="include">
+        </childnode>
+        <childnode refid="851" relation="include">
+        </childnode>
+        <childnode refid="852" relation="include">
+        </childnode>
+        <childnode refid="853" relation="include">
+        </childnode>
+        <childnode refid="854" relation="include">
+        </childnode>
+        <childnode refid="855" relation="include">
+        </childnode>
+        <childnode refid="856" relation="include">
+        </childnode>
+        <childnode refid="857" relation="include">
+        </childnode>
+        <childnode refid="858" relation="include">
+        </childnode>
+        <childnode refid="859" relation="include">
+        </childnode>
+        <childnode refid="860" relation="include">
+        </childnode>
+        <childnode refid="861" relation="include">
+        </childnode>
+        <childnode refid="862" relation="include">
+        </childnode>
+        <childnode refid="863" relation="include">
+        </childnode>
+        <childnode refid="864" relation="include">
+        </childnode>
+        <childnode refid="865" relation="include">
+        </childnode>
+        <childnode refid="866" relation="include">
+        </childnode>
+        <childnode refid="867" relation="include">
+        </childnode>
+        <childnode refid="868" relation="include">
+        </childnode>
+        <childnode refid="869" relation="include">
+        </childnode>
+        <childnode refid="870" relation="include">
+        </childnode>
+        <childnode refid="871" relation="include">
+        </childnode>
+        <childnode refid="872" relation="include">
+        </childnode>
+        <childnode refid="873" relation="include">
+        </childnode>
+        <childnode refid="874" relation="include">
+        </childnode>
+        <childnode refid="875" relation="include">
+        </childnode>
+        <childnode refid="876" relation="include">
+        </childnode>
+        <childnode refid="877" relation="include">
+        </childnode>
+        <childnode refid="878" relation="include">
+        </childnode>
+        <childnode refid="879" relation="include">
+        </childnode>
+        <childnode refid="880" relation="include">
+        </childnode>
+        <childnode refid="881" relation="include">
+        </childnode>
+        <childnode refid="882" relation="include">
+        </childnode>
+        <childnode refid="883" relation="include">
+        </childnode>
+        <childnode refid="884" relation="include">
+        </childnode>
+        <childnode refid="885" relation="include">
+        </childnode>
+        <childnode refid="886" relation="include">
+        </childnode>
+        <childnode refid="887" relation="include">
+        </childnode>
+        <childnode refid="888" relation="include">
+        </childnode>
+        <childnode refid="889" relation="include">
+        </childnode>
+        <childnode refid="890" relation="include">
+        </childnode>
+        <childnode refid="891" relation="include">
+        </childnode>
+        <childnode refid="892" relation="include">
+        </childnode>
+        <childnode refid="893" relation="include">
+        </childnode>
+        <childnode refid="894" relation="include">
+        </childnode>
+        <childnode refid="895" relation="include">
+        </childnode>
+        <childnode refid="896" relation="include">
+        </childnode>
+        <childnode refid="897" relation="include">
+        </childnode>
+        <childnode refid="898" relation="include">
+        </childnode>
+        <childnode refid="899" relation="include">
+        </childnode>
+        <childnode refid="900" relation="include">
+        </childnode>
+        <childnode refid="901" relation="include">
+        </childnode>
+        <childnode refid="902" relation="include">
+        </childnode>
+        <childnode refid="903" relation="include">
+        </childnode>
+        <childnode refid="904" relation="include">
+        </childnode>
+        <childnode refid="905" relation="include">
+        </childnode>
+        <childnode refid="906" relation="include">
+        </childnode>
+        <childnode refid="907" relation="include">
+        </childnode>
+        <childnode refid="908" relation="include">
+        </childnode>
+        <childnode refid="909" relation="include">
+        </childnode>
+        <childnode refid="910" relation="include">
+        </childnode>
+        <childnode refid="911" relation="include">
+        </childnode>
+        <childnode refid="912" relation="include">
+        </childnode>
+        <childnode refid="913" relation="include">
+        </childnode>
+        <childnode refid="914" relation="include">
+        </childnode>
+        <childnode refid="915" relation="include">
+        </childnode>
+        <childnode refid="916" relation="include">
+        </childnode>
+        <childnode refid="917" relation="include">
+        </childnode>
+        <childnode refid="918" relation="include">
+        </childnode>
+        <childnode refid="919" relation="include">
+        </childnode>
+        <childnode refid="920" relation="include">
+        </childnode>
+        <childnode refid="921" relation="include">
+        </childnode>
+        <childnode refid="922" relation="include">
+        </childnode>
+        <childnode refid="923" relation="include">
+        </childnode>
+        <childnode refid="924" relation="include">
+        </childnode>
+        <childnode refid="925" relation="include">
+        </childnode>
+        <childnode refid="926" relation="include">
+        </childnode>
+        <childnode refid="927" relation="include">
+        </childnode>
+        <childnode refid="928" relation="include">
+        </childnode>
+        <childnode refid="929" relation="include">
+        </childnode>
+        <childnode refid="930" relation="include">
+        </childnode>
+        <childnode refid="931" relation="include">
+        </childnode>
+        <childnode refid="932" relation="include">
+        </childnode>
+        <childnode refid="933" relation="include">
+        </childnode>
+        <childnode refid="934" relation="include">
+        </childnode>
+        <childnode refid="935" relation="include">
+        </childnode>
+        <childnode refid="936" relation="include">
+        </childnode>
+        <childnode refid="937" relation="include">
+        </childnode>
+        <childnode refid="938" relation="include">
+        </childnode>
+        <childnode refid="939" relation="include">
+        </childnode>
+        <childnode refid="940" relation="include">
+        </childnode>
+        <childnode refid="941" relation="include">
+        </childnode>
+        <childnode refid="942" relation="include">
+        </childnode>
+        <childnode refid="943" relation="include">
+        </childnode>
+        <childnode refid="944" relation="include">
+        </childnode>
+        <childnode refid="945" relation="include">
+        </childnode>
+        <childnode refid="946" relation="include">
+        </childnode>
+        <childnode refid="947" relation="include">
+        </childnode>
+        <childnode refid="948" relation="include">
+        </childnode>
+        <childnode refid="949" relation="include">
+        </childnode>
+        <childnode refid="950" relation="include">
+        </childnode>
+        <childnode refid="951" relation="include">
+        </childnode>
+        <childnode refid="952" relation="include">
+        </childnode>
+        <childnode refid="953" relation="include">
+        </childnode>
+        <childnode refid="954" relation="include">
+        </childnode>
+        <childnode refid="955" relation="include">
+        </childnode>
+        <childnode refid="956" relation="include">
+        </childnode>
+        <childnode refid="957" relation="include">
+        </childnode>
+        <childnode refid="958" relation="include">
+        </childnode>
+        <childnode refid="959" relation="include">
+        </childnode>
+        <childnode refid="960" relation="include">
+        </childnode>
+        <childnode refid="961" relation="include">
+        </childnode>
+        <childnode refid="962" relation="include">
+        </childnode>
+        <childnode refid="963" relation="include">
+        </childnode>
+        <childnode refid="964" relation="include">
+        </childnode>
+        <childnode refid="965" relation="include">
+        </childnode>
+        <childnode refid="966" relation="include">
+        </childnode>
+        <childnode refid="967" relation="include">
+        </childnode>
+        <childnode refid="968" relation="include">
+        </childnode>
+        <childnode refid="969" relation="include">
+        </childnode>
+        <childnode refid="970" relation="include">
+        </childnode>
+        <childnode refid="971" relation="include">
+        </childnode>
+        <childnode refid="972" relation="include">
+        </childnode>
+        <childnode refid="973" relation="include">
+        </childnode>
+        <childnode refid="974" relation="include">
+        </childnode>
+        <childnode refid="975" relation="include">
+        </childnode>
+        <childnode refid="976" relation="include">
+        </childnode>
+        <childnode refid="977" relation="include">
+        </childnode>
+        <childnode refid="978" relation="include">
+        </childnode>
+        <childnode refid="979" relation="include">
+        </childnode>
+        <childnode refid="980" relation="include">
+        </childnode>
+        <childnode refid="981" relation="include">
+        </childnode>
+        <childnode refid="982" relation="include">
+        </childnode>
+        <childnode refid="983" relation="include">
+        </childnode>
+        <childnode refid="984" relation="include">
+        </childnode>
+        <childnode refid="985" relation="include">
+        </childnode>
+        <childnode refid="986" relation="include">
+        </childnode>
+        <childnode refid="987" relation="include">
+        </childnode>
+        <childnode refid="988" relation="include">
+        </childnode>
+        <childnode refid="989" relation="include">
+        </childnode>
+        <childnode refid="990" relation="include">
+        </childnode>
+        <childnode refid="991" relation="include">
+        </childnode>
+        <childnode refid="992" relation="include">
+        </childnode>
+        <childnode refid="993" relation="include">
+        </childnode>
+        <childnode refid="994" relation="include">
+        </childnode>
+        <childnode refid="995" relation="include">
+        </childnode>
+        <childnode refid="996" relation="include">
+        </childnode>
+        <childnode refid="997" relation="include">
+        </childnode>
+        <childnode refid="998" relation="include">
+        </childnode>
+        <childnode refid="999" relation="include">
+        </childnode>
+        <childnode refid="1000" relation="include">
+        </childnode>
+        <childnode refid="1001" relation="include">
+        </childnode>
+        <childnode refid="1002" relation="include">
+        </childnode>
+        <childnode refid="1003" relation="include">
+        </childnode>
+        <childnode refid="1004" relation="include">
+        </childnode>
+        <childnode refid="1005" relation="include">
+        </childnode>
+        <childnode refid="1006" relation="include">
+        </childnode>
+        <childnode refid="1007" relation="include">
+        </childnode>
+        <childnode refid="1008" relation="include">
+        </childnode>
+        <childnode refid="1009" relation="include">
+        </childnode>
+        <childnode refid="1010" relation="include">
+        </childnode>
+        <childnode refid="1011" relation="include">
+        </childnode>
+        <childnode refid="1012" relation="include">
+        </childnode>
+        <childnode refid="1013" relation="include">
+        </childnode>
+        <childnode refid="1014" relation="include">
+        </childnode>
+        <childnode refid="1015" relation="include">
+        </childnode>
+        <childnode refid="1016" relation="include">
+        </childnode>
+        <childnode refid="1017" relation="include">
+        </childnode>
+        <childnode refid="1018" relation="include">
+        </childnode>
+        <childnode refid="1019" relation="include">
+        </childnode>
+        <childnode refid="1020" relation="include">
+        </childnode>
+        <childnode refid="1021" relation="include">
+        </childnode>
+        <childnode refid="1022" relation="include">
+        </childnode>
+        <childnode refid="1023" relation="include">
+        </childnode>
+        <childnode refid="1024" relation="include">
+        </childnode>
+        <childnode refid="1025" relation="include">
+        </childnode>
+        <childnode refid="1026" relation="include">
+        </childnode>
+        <childnode refid="1027" relation="include">
+        </childnode>
+        <childnode refid="1028" relation="include">
+        </childnode>
+        <childnode refid="1029" relation="include">
+        </childnode>
+        <childnode refid="1030" relation="include">
+        </childnode>
+        <childnode refid="1031" relation="include">
+        </childnode>
+        <childnode refid="1032" relation="include">
+        </childnode>
+        <childnode refid="1033" relation="include">
+        </childnode>
+        <childnode refid="1034" relation="include">
+        </childnode>
+        <childnode refid="1035" relation="include">
+        </childnode>
+        <childnode refid="1036" relation="include">
+        </childnode>
+        <childnode refid="1037" relation="include">
+        </childnode>
+        <childnode refid="1038" relation="include">
+        </childnode>
+        <childnode refid="1039" relation="include">
+        </childnode>
+        <childnode refid="1040" relation="include">
+        </childnode>
+        <childnode refid="1041" relation="include">
+        </childnode>
+        <childnode refid="1042" relation="include">
+        </childnode>
+        <childnode refid="1043" relation="include">
+        </childnode>
+        <childnode refid="1044" relation="include">
+        </childnode>
+        <childnode refid="1045" relation="include">
+        </childnode>
+        <childnode refid="1046" relation="include">
+        </childnode>
+        <childnode refid="1047" relation="include">
+        </childnode>
+        <childnode refid="1048" relation="include">
+        </childnode>
+        <childnode refid="1049" relation="include">
+        </childnode>
+        <childnode refid="1050" relation="include">
+        </childnode>
+        <childnode refid="1051" relation="include">
+        </childnode>
+        <childnode refid="1052" relation="include">
+        </childnode>
+        <childnode refid="1053" relation="include">
+        </childnode>
+        <childnode refid="1054" relation="include">
+        </childnode>
+        <childnode refid="1055" relation="include">
+        </childnode>
+        <childnode refid="1056" relation="include">
+        </childnode>
+        <childnode refid="1057" relation="include">
+        </childnode>
+        <childnode refid="1058" relation="include">
+        </childnode>
+        <childnode refid="1059" relation="include">
+        </childnode>
+        <childnode refid="1060" relation="include">
+        </childnode>
+        <childnode refid="1061" relation="include">
+        </childnode>
+        <childnode refid="1062" relation="include">
+        </childnode>
+        <childnode refid="1063" relation="include">
+        </childnode>
+        <childnode refid="1064" relation="include">
+        </childnode>
+        <childnode refid="1065" relation="include">
+        </childnode>
+        <childnode refid="1066" relation="include">
+        </childnode>
+        <childnode refid="1067" relation="include">
+        </childnode>
+        <childnode refid="1068" relation="include">
+        </childnode>
+        <childnode refid="1069" relation="include">
+        </childnode>
+        <childnode refid="1070" relation="include">
+        </childnode>
+        <childnode refid="1071" relation="include">
+        </childnode>
+        <childnode refid="1072" relation="include">
+        </childnode>
+        <childnode refid="1073" relation="include">
+        </childnode>
+        <childnode refid="1074" relation="include">
+        </childnode>
+        <childnode refid="1075" relation="include">
+        </childnode>
+        <childnode refid="1076" relation="include">
+        </childnode>
+        <childnode refid="1077" relation="include">
+        </childnode>
+        <childnode refid="1078" relation="include">
+        </childnode>
+        <childnode refid="1079" relation="include">
+        </childnode>
+        <childnode refid="1080" relation="include">
+        </childnode>
+        <childnode refid="1081" relation="include">
+        </childnode>
+        <childnode refid="1082" relation="include">
+        </childnode>
+        <childnode refid="1083" relation="include">
+        </childnode>
+        <childnode refid="1084" relation="include">
+        </childnode>
+        <childnode refid="1085" relation="include">
+        </childnode>
+        <childnode refid="1086" relation="include">
+        </childnode>
+        <childnode refid="1087" relation="include">
+        </childnode>
+        <childnode refid="1088" relation="include">
+        </childnode>
+        <childnode refid="1089" relation="include">
+        </childnode>
+        <childnode refid="1090" relation="include">
+        </childnode>
+        <childnode refid="1091" relation="include">
+        </childnode>
+        <childnode refid="1092" relation="include">
+        </childnode>
+        <childnode refid="1093" relation="include">
+        </childnode>
+        <childnode refid="1094" relation="include">
+        </childnode>
+        <childnode refid="1095" relation="include">
+        </childnode>
+        <childnode refid="1096" relation="include">
+        </childnode>
+        <childnode refid="1097" relation="include">
+        </childnode>
+        <childnode refid="1098" relation="include">
+        </childnode>
+        <childnode refid="1099" relation="include">
+        </childnode>
+        <childnode refid="1100" relation="include">
+        </childnode>
+        <childnode refid="1101" relation="include">
+        </childnode>
+        <childnode refid="1102" relation="include">
+        </childnode>
+        <childnode refid="1103" relation="include">
+        </childnode>
+        <childnode refid="1104" relation="include">
+        </childnode>
+        <childnode refid="1105" relation="include">
+        </childnode>
+        <childnode refid="1106" relation="include">
+        </childnode>
+        <childnode refid="1107" relation="include">
+        </childnode>
+        <childnode refid="1108" relation="include">
+        </childnode>
+        <childnode refid="1109" relation="include">
+        </childnode>
+        <childnode refid="1110" relation="include">
+        </childnode>
+        <childnode refid="1111" relation="include">
+        </childnode>
+        <childnode refid="1112" relation="include">
+        </childnode>
+        <childnode refid="1113" relation="include">
+        </childnode>
+        <childnode refid="1114" relation="include">
+        </childnode>
+        <childnode refid="1115" relation="include">
+        </childnode>
+        <childnode refid="1116" relation="include">
+        </childnode>
+        <childnode refid="1117" relation="include">
+        </childnode>
+        <childnode refid="1118" relation="include">
+        </childnode>
+        <childnode refid="1119" relation="include">
+        </childnode>
+        <childnode refid="1120" relation="include">
+        </childnode>
+        <childnode refid="1121" relation="include">
+        </childnode>
+        <childnode refid="1122" relation="include">
+        </childnode>
+        <childnode refid="1123" relation="include">
+        </childnode>
+        <childnode refid="1124" relation="include">
+        </childnode>
+        <childnode refid="1125" relation="include">
+        </childnode>
+        <childnode refid="1126" relation="include">
+        </childnode>
+        <childnode refid="1127" relation="include">
+        </childnode>
+        <childnode refid="1128" relation="include">
+        </childnode>
+        <childnode refid="1129" relation="include">
+        </childnode>
+        <childnode refid="1130" relation="include">
+        </childnode>
+        <childnode refid="1131" relation="include">
+        </childnode>
+        <childnode refid="1132" relation="include">
+        </childnode>
+        <childnode refid="1133" relation="include">
+        </childnode>
+        <childnode refid="1134" relation="include">
+        </childnode>
+        <childnode refid="1135" relation="include">
+        </childnode>
+        <childnode refid="1136" relation="include">
+        </childnode>
+        <childnode refid="1137" relation="include">
+        </childnode>
+        <childnode refid="1138" relation="include">
+        </childnode>
+        <childnode refid="1139" relation="include">
+        </childnode>
+        <childnode refid="1140" relation="include">
+        </childnode>
+        <childnode refid="1141" relation="include">
+        </childnode>
+        <childnode refid="1142" relation="include">
+        </childnode>
+        <childnode refid="1143" relation="include">
+        </childnode>
+        <childnode refid="1144" relation="include">
+        </childnode>
+        <childnode refid="1145" relation="include">
+        </childnode>
+        <childnode refid="1146" relation="include">
+        </childnode>
+        <childnode refid="1147" relation="include">
+        </childnode>
+        <childnode refid="1148" relation="include">
+        </childnode>
+        <childnode refid="1149" relation="include">
+        </childnode>
+        <childnode refid="1150" relation="include">
+        </childnode>
+        <childnode refid="1151" relation="include">
+        </childnode>
+        <childnode refid="1152" relation="include">
+        </childnode>
+        <childnode refid="1153" relation="include">
+        </childnode>
+        <childnode refid="1154" relation="include">
+        </childnode>
+        <childnode refid="1155" relation="include">
+        </childnode>
+        <childnode refid="1156" relation="include">
+        </childnode>
+      </node>
+      <node id="875">
+        <label>/usr/include/armadillo_bits/eGlue_meat.hpp</label>
+      </node>
+      <node id="815">
+        <label>/usr/include/armadillo_bits/glue_toeplitz_bones.hpp</label>
+      </node>
+      <node id="642">
+        <label>/usr/include/armadillo</label>
+      </node>
+      <node id="1063">
+        <label>/usr/include/armadillo_bits/op_sort_meat.hpp</label>
+      </node>
+      <node id="819">
+        <label>/usr/include/armadillo_bits/glue_min_bones.hpp</label>
+      </node>
+      <node id="873">
+        <label>/usr/include/armadillo_bits/eOp_meat.hpp</label>
+      </node>
+      <node id="770">
+        <label>/usr/include/armadillo_bits/op_cov_bones.hpp</label>
+      </node>
+      <node id="1109">
+        <label>/usr/include/armadillo_bits/glue_mixed_meat.hpp</label>
+      </node>
+      <node id="756">
+        <label>/usr/include/armadillo_bits/op_index_max_bones.hpp</label>
+      </node>
+      <node id="664">
+        <label>/usr/include/armadillo_bits/typedef_mat.hpp</label>
+      </node>
+      <node id="928">
+        <label>/usr/include/armadillo_bits/fn_norm.hpp</label>
+      </node>
+      <node id="809">
+        <label>/usr/include/armadillo_bits/glue_kron_bones.hpp</label>
+      </node>
+      <node id="666">
+        <label>/usr/include/armadillo_bits/arma_version.hpp</label>
+      </node>
+      <node id="768">
+        <label>/usr/include/armadillo_bits/op_vectorise_bones.hpp</label>
+      </node>
+      <node id="732">
+        <label>/usr/include/armadillo_bits/eOp_bones.hpp</label>
+      </node>
+      <node id="766">
+        <label>/usr/include/armadillo_bits/op_repmat_bones.hpp</label>
+      </node>
+      <node id="782">
+        <label>/usr/include/armadillo_bits/op_find_bones.hpp</label>
+      </node>
+      <node id="757">
+        <label>/usr/include/armadillo_bits/op_index_min_bones.hpp</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacearma">arma</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="laser__objects_8cpp_1adfe328cba5705e40f91b5cf376c3d94d" prot="public" static="no">
+        <name>immobile_timeout</name>
+        <initializer>10.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/laser_objects.cpp" line="19" column="9" bodyfile="src/laser_objects.cpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="laser__objects_8cpp_1a12bd8d1fde7ba659b9d690f0c9a1762f" prot="public" static="no">
+        <name>object_threshold</name>
+        <initializer>0.4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/laser_objects.cpp" line="20" column="9" bodyfile="src/laser_objects.cpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="laser__objects_8cpp_1a102b2e08f8d8ab1ad176d1e00949c026" prot="public" static="no">
+        <name>immobile_threshold</name>
+        <initializer>100.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/laser_objects.cpp" line="21" column="9" bodyfile="src/laser_objects.cpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="laser__objects_8cpp_1af735b65ab6833fed43b665e828e8b601" prot="public" static="no">
+        <name>CULLING_TIME</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/laser_objects.cpp" line="22" column="9" bodyfile="src/laser_objects.cpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="laser__objects_8cpp_1a4a44e170a3630aad3356b3682684f6c8" prot="public" static="no" mutable="no">
+        <type>fmat</type>
+        <definition>fmat Q</definition>
+        <argsstring></argsstring>
+        <name>Q</name>
+        <initializer>= { {0.1f, 0.0f, 0.0f, 0.0f},
+            {0.0f, 0.1f, 0.0f, 0.0f},
+            {0.0f, 0.0f, 1.0f, 0.0f}, 
+            {0.0f, 0.0f, 0.0f, 1.0f}  }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/laser_objects.cpp" line="25" column="1" bodyfile="src/laser_objects.cpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="laser__objects_8cpp_1a77bf685edecf60761abb55a23d9c9a9b" prot="public" static="yes" mutable="no">
+        <type>fmat</type>
+        <definition>fmat R</definition>
+        <argsstring></argsstring>
+        <name>R</name>
+        <initializer>= fmat(4,4).eye() * 1.2f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/laser_objects.cpp" line="29" column="1" bodyfile="src/laser_objects.cpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="laser__objects_8cpp_1adf0b44b0795b5c94956f21a9fb6c199b" prot="public" static="yes" mutable="no">
+        <type>fmat</type>
+        <definition>fmat H</definition>
+        <argsstring></argsstring>
+        <name>H</name>
+        <initializer>= fmat(4,4).eye() * 1.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/laser_objects.cpp" line="30" column="1" bodyfile="src/laser_objects.cpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="laser__objects_8cpp_1a2c9979ba8b6f6b1b92cb6432c0be9087" prot="public" static="yes" mutable="no">
+        <type>fmat</type>
+        <definition>fmat F</definition>
+        <argsstring></argsstring>
+        <name>F</name>
+        <initializer>= fmat(4,4).eye()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/laser_objects.cpp" line="33" column="1" bodyfile="src/laser_objects.cpp" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Implementation of object tracking. </para>    </briefdescription>
+    <detaileddescription>
+<para>Tracks and sorts objects into mobiles and statics from input given by laser_objects_server.cpp. Tracking is achieved with linear Kalman filter </para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;ros/ros.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;visualization_msgs/Marker.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;utility&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="laser__objects_8hpp" kindref="compound">laser_objects.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;/usr/include/armadillo&gt;</highlight></codeline>
+<codeline lineno="17"><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacearma" kindref="compound">arma</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>immobile_timeout<sp/>10.0f</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>object_threshold<sp/>0.4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>immobile_threshold<sp/>100.0f</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CULLING_TIME<sp/>5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">fmat<sp/>Q<sp/><sp/>=<sp/>{<sp/>{0.1f,<sp/>0.0f,<sp/>0.0f,<sp/>0.0f},</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{0.0f,<sp/>0.1f,<sp/>0.0f,<sp/>0.0f},</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{0.0f,<sp/>0.0f,<sp/>1.0f,<sp/>0.0f},<sp/></highlight><highlight class="comment">//TODO:change<sp/>real<sp/>values</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{0.0f,<sp/>0.0f,<sp/>0.0f,<sp/>1.0f}<sp/><sp/>};</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>fmat<sp/>R<sp/>=<sp/>fmat(4,4).eye()<sp/>*<sp/>1.2f;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>fmat<sp/>H<sp/>=<sp/>fmat(4,4).eye()<sp/>*<sp/>1.0f;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//<sp/>static<sp/>fmat<sp/>H<sp/>=<sp/>{<sp/>{1.0f,<sp/>0.0f,<sp/>0.0f,<sp/>0.0f},</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>{0.0f,<sp/>1.0f,<sp/>0.0f,<sp/>0.0f}<sp/>};</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>fmat<sp/>F<sp/>=<sp/>fmat(4,4).eye();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal">laser_object_t::laser_object_t(std::pair&lt;float,<sp/>float&gt;<sp/>pos_com,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pair&lt;float,<sp/>float&gt;<sp/>vel_com)<sp/>:</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>is_mobile(false),</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>pos_centerofmass(pos_com),</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>vel_centerofmass(vel_com),</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>immobile_time(0.0)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>X<sp/>=<sp/>fmat({pos_centerofmass.first,<sp/>pos_centerofmass.second,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vel_centerofmass.first,<sp/>vel_centerofmass.second}).t();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>P.eye(4,4);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>last_active<sp/>=<sp/>ros::Time::now();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>laser_object_t::test_mobile()<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(immobile_time<sp/>&gt;<sp/>immobile_timeout)<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;is_mobile<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;is_mobile<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>laser_object_t::distance(std::pair&lt;float,float&gt;<sp/>coords_to)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::sqrt(std::pow(this-&gt;pos_centerofmass.first<sp/>-<sp/>coords_to.first,2)<sp/>+</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pow(this-&gt;pos_centerofmass.second<sp/>-<sp/>coords_to.second,2));</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>laser_object_t::run_kalman_filter(std::pair&lt;float,float&gt;<sp/>new_pos,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>dt)<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>populate<sp/>observations<sp/>matrix,<sp/>velocity<sp/>calculated<sp/>differentially</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>fmat<sp/>Z<sp/>=<sp/>fmat({new_pos.first,<sp/>new_pos.second,</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(new_pos.first<sp/>-<sp/>this-&gt;pos_centerofmass.first)/dt,</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(new_pos.second<sp/>-<sp/>this-&gt;pos_centerofmass.second)/dt}).t();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>fmat<sp/>Z<sp/>=<sp/>fmat({new_pos.first,<sp/>new_pos.second});</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Z.print(&quot;Z:<sp/>&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>predict<sp/>step</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//this-&gt;X.print(&quot;start<sp/>X:<sp/>&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;X<sp/>=<sp/>F<sp/>*<sp/>this-&gt;X;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;P<sp/>=<sp/>(F<sp/>*<sp/>this-&gt;P)<sp/>*<sp/>F.t()<sp/>+Q;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//this-&gt;X.print(&quot;predict<sp/>X:<sp/>&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>kalman<sp/>gain</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;K<sp/>=<sp/>this-&gt;P<sp/>*<sp/>H.t()<sp/>*<sp/>(H<sp/>*<sp/>this-&gt;P<sp/>*<sp/>H.t()<sp/>+<sp/>R).i();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>update<sp/>step</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;X<sp/>=<sp/>this-&gt;X<sp/>+<sp/>this-&gt;K<sp/>*<sp/>(Z<sp/>-<sp/>H<sp/>*<sp/>this-&gt;X);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;P<sp/>=<sp/>this-&gt;P<sp/>-<sp/>K<sp/>*<sp/>H<sp/>*<sp/>this-&gt;P;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//this-&gt;X.print(&quot;update<sp/>X:&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>update<sp/>pairs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;pos_centerofmass.first<sp/>=<sp/>this-&gt;X(0,0);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;pos_centerofmass.second<sp/>=<sp/>this-&gt;X(1,0);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;vel_centerofmass.first<sp/>=<sp/>this-&gt;X(2,0);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;vel_centerofmass.second<sp/>=<sp/>this-&gt;X(3,0);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>update<sp/>attributes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(std::abs(this-&gt;vel_centerofmass.first)<sp/>+</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::abs(this-&gt;vel_centerofmass.second)<sp/>&lt;<sp/>immobile_threshold)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;immobile_time<sp/>=<sp/>std::min(this-&gt;immobile_time<sp/>+<sp/>dt,<sp/>10.0f);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;immobile_time<sp/>=<sp/>std::max(this-&gt;immobile_time<sp/>-<sp/>dt*10,<sp/>0.0f);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;is_mobile<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;test_mobile();</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;last_active<sp/>=<sp/>ros::Time::now();</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>laser_object_t::get_is_mobile(){</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;is_mobile;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal">ros::Time<sp/>laser_object_t::get_last_active()<sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;last_active;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">std::pair&lt;float,<sp/>float&gt;<sp/>laser_object_t::get_pos_centerofmass(){</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;pos_centerofmass;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">std::pair&lt;float,<sp/>float&gt;<sp/>laser_object_t::get_vel_centerofmass(){</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;vel_centerofmass;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">laser_object_t::~laser_object_t(){</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="comment">//<sp/>class<sp/>laser_objects<sp/>implementation<sp/>starts<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>laser_objects::update(std::pair&lt;float,<sp/>float&gt;<sp/>pos_centerofmass)</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;laser_object<sp/>:<sp/>laser_object_repository)<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(laser_object.distance(pos_centerofmass)<sp/>&lt;<sp/>object_threshold)<sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>laser_object.run_kalman_filter(pos_centerofmass,<sp/>dt);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>laser_object_t<sp/>temp(pos_centerofmass,<sp/>std::make_pair(0,0));</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>laser_object_repository.push_back(temp);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal">std::vector&lt;float&gt;<sp/>laser_objects::get_mobiles_x()</highlight></codeline>
+<codeline lineno="137"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>temp;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>laser_object<sp/>:<sp/>laser_object_repository)<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(laser_object.get_is_mobile())<sp/>{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temp.push_back(laser_object.get_pos_centerofmass().first);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>temp;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal">std::vector&lt;float&gt;<sp/>laser_objects::get_mobiles_y()</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>temp;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;laser_object<sp/>:<sp/>laser_object_repository)<sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(laser_object.get_is_mobile())<sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temp.push_back(laser_object.get_pos_centerofmass().second);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>temp;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal">std::vector&lt;float&gt;<sp/>laser_objects::get_statics_x()</highlight></codeline>
+<codeline lineno="157"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>temp;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;laser_object<sp/>:<sp/>laser_object_repository)<sp/>{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!laser_object.get_is_mobile())<sp/>{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temp.push_back(laser_object.get_pos_centerofmass().first);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>temp;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal">std::vector&lt;float&gt;<sp/>laser_objects::get_statics_y()</highlight></codeline>
+<codeline lineno="167"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>temp;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;laser_object<sp/>:<sp/>laser_object_repository)<sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!laser_object.get_is_mobile())<sp/>{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temp.push_back(laser_object.get_pos_centerofmass().second);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>temp;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>laser_objects::update_repository()<sp/>{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//ROS_INFO(&quot;Objects<sp/>before<sp/>cull:<sp/>%d&quot;,(int)<sp/>this-&gt;laser_object_repository.size());</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>laser_object_repository.erase(</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::remove_if(laser_object_repository.begin(),<sp/>laser_object_repository.end(),</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[]<sp/>(laser_object_t<sp/>&amp;laser_object){</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(laser_object.get_last_active()<sp/>+<sp/>ros::Duration(CULLING_TIME))<sp/>&lt;<sp/>ros::Time::now();</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}),</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>laser_object_repository.end());</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//ROS_INFO(&quot;Objects<sp/>after<sp/>cull:<sp/>%d&quot;,<sp/>(int)this-&gt;laser_object_repository.size());</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>s(</highlight><highlight class="stringliteral">&quot;Vel<sp/>of<sp/>mobiles:<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>c[50];</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>laser_object<sp/>:<sp/>laser_object_repository)<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(laser_object.get_is_mobile())<sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sprintf(c,<sp/></highlight><highlight class="stringliteral">&quot;<sp/>[%.2f<sp/>%.2f],<sp/>&quot;</highlight><highlight class="normal">,<sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)<sp/>laser_object.get_vel_centerofmass().first,(float)<sp/>laser_object.get_vel_centerofmass().second);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s.append(c);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//ROS_INFO(&quot;%s&quot;,<sp/>s.c_str());</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="comment">//<sp/>std::vector&lt;float&gt;<sp/>get_mobiles_dir()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight><highlight class="comment">//<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight><highlight class="comment">//<sp/>std::vector&lt;float&gt;<sp/>get_mobiles_spd()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="comment">//<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal">laser_objects::laser_objects(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>scanner_dt)<sp/>:</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>dt(scanner_dt)</highlight></codeline>
+<codeline lineno="209"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>F(0,2)<sp/>=<sp/>dt;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>F(1,3)<sp/>=<sp/>dt;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="src/laser_objects.cpp"/>
+  </compounddef>
+</doxygen>

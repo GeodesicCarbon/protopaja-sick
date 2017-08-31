@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
+    <compoundname>src</compoundname>
+    <innerfile refid="control__tcp__socket_8cpp">control_tcp_socket.cpp</innerfile>
+    <innerfile refid="gesture__control_8cpp">gesture_control.cpp</innerfile>
+    <innerfile refid="laser__objects_8cpp">laser_objects.cpp</innerfile>
+    <innerfile refid="measure__biometrics_8cpp">measure_biometrics.cpp</innerfile>
+    <innerfile refid="scanner__gestures_8cpp">scanner_gestures.cpp</innerfile>
+    <innerfile refid="track__objects__client_8cpp">track_objects_client.cpp</innerfile>
+    <innerfile refid="track__objects__server_8cpp">track_objects_server.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/"/>
+  </compounddef>
+</doxygen>

@@ -7,6 +7,19 @@
 #include <armadillo>
 #include "laser_objects.hpp"
 
+/*! \file track_objects_server.cpp
+  \brief ROS Service node of object tracker.
+  
+  Handles low-level parsing LaserScan message, and detecting and tracking objects.
+  First culling is limiting wihtin 120deg cone to the front. Then points are broken
+  into continuities of which between 0.4m and 0.7m long are passed to laser_objects
+  for further processing.  
+  
+  \sa track_objects_client.cpp
+  \sa laser_objects
+*/
+
+
 ros::Publisher *marker_pub_pointer;
 laser_objects *repository = NULL;
 

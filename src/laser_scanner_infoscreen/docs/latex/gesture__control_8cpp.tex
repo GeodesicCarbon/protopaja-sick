@@ -1,0 +1,99 @@
+\hypertarget{gesture__control_8cpp}{}\section{src/gesture\+\_\+control.cpp File Reference}
+\label{gesture__control_8cpp}\index{src/gesture\+\_\+control.\+cpp@{src/gesture\+\_\+control.\+cpp}}
+
+
+Node that handles gesture tracking and associated topics.  
+
+
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}laser\+\_\+scanner\+\_\+infoscreen/servo\+\_\+control.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}laser\+\_\+scanner\+\_\+infoscreen/servo\+\_\+feedback.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}laser\+\_\+scanner\+\_\+infoscreen/external\+\_\+control.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}scanner\+\_\+gestures.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}laser\+\_\+scanner\+\_\+infoscreen/gesture\+\_\+call.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sensor\+\_\+msgs/\+Laser\+Scan.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$cstdlib$>$}\\*
+{\ttfamily \#include $<$cmath$>$}\\*
+{\ttfamily \#include $<$visualization\+\_\+msgs/\+Marker.\+h$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+Include dependency graph for gesture\+\_\+control.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gesture__control_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structpoi__t}{poi\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Person of interest. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{gesture__control_8cpp_ae50e2e14bc27c23e04b985bd48ebb83b}{timeout\+\_\+limit}~4
+\begin{DoxyCompactList}\small\item\em Seconds after old gesture timeouts. \end{DoxyCompactList}\item 
+\#define \hyperlink{gesture__control_8cpp_ab013d51a86bf4715a1c261218605c915}{gesture\+\_\+score\+\_\+threshold}~1.\+0f
+\item 
+\#define \hyperlink{gesture__control_8cpp_a652fa32c4482bb0d3805c3c5f5900af5}{servo\+\_\+speed\+\_\+const}~5235
+\item 
+\#define \hyperlink{gesture__control_8cpp_aafa72341f1113b0939af781b7d63770d}{servo\+\_\+loop\+\_\+len}~5
+\begin{DoxyCompactList}\small\item\em Length of servo idle loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static Scanner\+\_\+gestures $\ast$ \hyperlink{gesture__control_8cpp_a6565562c39be7f8f9a538a9a216a28cf}{gestures}\hypertarget{gesture__control_8cpp_a6565562c39be7f8f9a538a9a216a28cf}{}\label{gesture__control_8cpp_a6565562c39be7f8f9a538a9a216a28cf}
+
+\begin{DoxyCompactList}\small\item\em Global pointer to Scanner\+\_\+gestures object. \end{DoxyCompactList}\item 
+static ros\+::\+Node\+Handle $\ast$ \hyperlink{gesture__control_8cpp_a8c9e9fe63fc6db914caeb21d95be5ca0}{node\+\_\+pointer}\hypertarget{gesture__control_8cpp_a8c9e9fe63fc6db914caeb21d95be5ca0}{}\label{gesture__control_8cpp_a8c9e9fe63fc6db914caeb21d95be5ca0}
+
+\begin{DoxyCompactList}\small\item\em Global pointer to ros\+::\+Node\+Handle object. \end{DoxyCompactList}\item 
+ros\+::\+Publisher $\ast$ \hyperlink{gesture__control_8cpp_a63b0cea48d2da7a328302aee063e57b9}{marker\+\_\+pub\+\_\+pointer}\hypertarget{gesture__control_8cpp_a63b0cea48d2da7a328302aee063e57b9}{}\label{gesture__control_8cpp_a63b0cea48d2da7a328302aee063e57b9}
+
+\begin{DoxyCompactList}\small\item\em Global pointer to rviz marker object. \end{DoxyCompactList}\item 
+ros\+::\+Publisher $\ast$ \hyperlink{gesture__control_8cpp_ad7c4130fa2a9b5b52c9cc9762accfe31}{servo\+\_\+control\+\_\+pointer}\hypertarget{gesture__control_8cpp_ad7c4130fa2a9b5b52c9cc9762accfe31}{}\label{gesture__control_8cpp_ad7c4130fa2a9b5b52c9cc9762accfe31}
+
+\begin{DoxyCompactList}\small\item\em Global pointer to \textquotesingle{}servo\+\_\+control\textquotesingle{} publisher. \end{DoxyCompactList}\item 
+ros\+::\+Subscriber $\ast$ \hyperlink{gesture__control_8cpp_a25374abed3f304c24bfe5098b954d442}{gesture\+\_\+control\+\_\+pointer}\hypertarget{gesture__control_8cpp_a25374abed3f304c24bfe5098b954d442}{}\label{gesture__control_8cpp_a25374abed3f304c24bfe5098b954d442}
+
+\begin{DoxyCompactList}\small\item\em Global pointer to \textquotesingle{}gestures\+\_\+control\textquotesingle{} subscriber. \end{DoxyCompactList}\item 
+ros\+::\+Publisher $\ast$ \hyperlink{gesture__control_8cpp_a95ade72c9341fa47411a2314df6d9c0c}{external\+\_\+control\+\_\+pointer}\hypertarget{gesture__control_8cpp_a95ade72c9341fa47411a2314df6d9c0c}{}\label{gesture__control_8cpp_a95ade72c9341fa47411a2314df6d9c0c}
+
+\begin{DoxyCompactList}\small\item\em Global pointer to \textquotesingle{}external\+\_\+control\textquotesingle{} publisher. Used to relay commands to external applications. \end{DoxyCompactList}\item 
+static ros\+::\+Time \hyperlink{gesture__control_8cpp_a8bc0d59633fb23785a6dc267a7cb0326}{timelock}\hypertarget{gesture__control_8cpp_a8bc0d59633fb23785a6dc267a7cb0326}{}\label{gesture__control_8cpp_a8bc0d59633fb23785a6dc267a7cb0326}
+
+\begin{DoxyCompactList}\small\item\em Global variable of last detected gesture timestamp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Node that handles gesture tracking and associated topics. 
+
+\begin{DoxySeeAlso}{See also}
+Scanner\+\_\+gestures 
+
+$<$track\+\_\+objects\+\_\+client$>$ 
+\end{DoxySeeAlso}
+
+
+\subsection{Macro Definition Documentation}
+\index{gesture\+\_\+control.\+cpp@{gesture\+\_\+control.\+cpp}!gesture\+\_\+score\+\_\+threshold@{gesture\+\_\+score\+\_\+threshold}}
+\index{gesture\+\_\+score\+\_\+threshold@{gesture\+\_\+score\+\_\+threshold}!gesture\+\_\+control.\+cpp@{gesture\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{gesture\+\_\+score\+\_\+threshold}{gesture_score_threshold}}]{\setlength{\rightskip}{0pt plus 5cm}\#define gesture\+\_\+score\+\_\+threshold~1.\+0f}\hypertarget{gesture__control_8cpp_ab013d51a86bf4715a1c261218605c915}{}\label{gesture__control_8cpp_ab013d51a86bf4715a1c261218605c915}
+A score after which gesture is confirmed. Bigger is less likely \index{gesture\+\_\+control.\+cpp@{gesture\+\_\+control.\+cpp}!servo\+\_\+loop\+\_\+len@{servo\+\_\+loop\+\_\+len}}
+\index{servo\+\_\+loop\+\_\+len@{servo\+\_\+loop\+\_\+len}!gesture\+\_\+control.\+cpp@{gesture\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{servo\+\_\+loop\+\_\+len}{servo_loop_len}}]{\setlength{\rightskip}{0pt plus 5cm}\#define servo\+\_\+loop\+\_\+len~5}\hypertarget{gesture__control_8cpp_aafa72341f1113b0939af781b7d63770d}{}\label{gesture__control_8cpp_aafa72341f1113b0939af781b7d63770d}
+
+
+Length of servo idle loop. 
+
+To prevent servo from moving too often, it moves each servo\+\_\+loop\+\_\+len message received. If S\+I\+CK T\+IM 561 is used, this is 15/servo\+\_\+loop\+\_\+len times a second \index{gesture\+\_\+control.\+cpp@{gesture\+\_\+control.\+cpp}!servo\+\_\+speed\+\_\+const@{servo\+\_\+speed\+\_\+const}}
+\index{servo\+\_\+speed\+\_\+const@{servo\+\_\+speed\+\_\+const}!gesture\+\_\+control.\+cpp@{gesture\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{servo\+\_\+speed\+\_\+const}{servo_speed_const}}]{\setlength{\rightskip}{0pt plus 5cm}\#define servo\+\_\+speed\+\_\+const~5235}\hypertarget{gesture__control_8cpp_a652fa32c4482bb0d3805c3c5f5900af5}{}\label{gesture__control_8cpp_a652fa32c4482bb0d3805c3c5f5900af5}
+A speed in rad/s in which servo turns. \index{gesture\+\_\+control.\+cpp@{gesture\+\_\+control.\+cpp}!timeout\+\_\+limit@{timeout\+\_\+limit}}
+\index{timeout\+\_\+limit@{timeout\+\_\+limit}!gesture\+\_\+control.\+cpp@{gesture\+\_\+control.\+cpp}}
+\subsubsection[{\texorpdfstring{timeout\+\_\+limit}{timeout_limit}}]{\setlength{\rightskip}{0pt plus 5cm}\#define timeout\+\_\+limit~4}\hypertarget{gesture__control_8cpp_ae50e2e14bc27c23e04b985bd48ebb83b}{}\label{gesture__control_8cpp_ae50e2e14bc27c23e04b985bd48ebb83b}
+
+
+Seconds after old gesture timeouts. 
+
+A length in seconds after detected gesture that no new gesture is detected. Prevents false positives 

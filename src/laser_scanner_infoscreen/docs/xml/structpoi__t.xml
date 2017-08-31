@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="structpoi__t" kind="struct" language="C++" prot="public">
+    <compoundname>poi_t</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structpoi__t_1ae5f9ca22bbe2f78476ad6d08bc31a231" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float poi_t::poi_range</definition>
+        <argsstring></argsstring>
+        <name>poi_range</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gesture_control.cpp" line="67" column="1" bodyfile="src/gesture_control.cpp" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpoi__t_1a59b58f432e793217c33691e9c8b921b7" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float poi_t::poi_angle</definition>
+        <argsstring></argsstring>
+        <name>poi_angle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gesture_control.cpp" line="68" column="1" bodyfile="src/gesture_control.cpp" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpoi__t_1a685a84d41a381955a9cdaf8a4917f24d" prot="public" static="no" mutable="no">
+        <type>std::pair&lt; float, float &gt;</type>
+        <definition>std::pair&lt;float,float&gt; poi_t::poi_pos</definition>
+        <argsstring></argsstring>
+        <name>poi_pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/track_objects_client.cpp" line="45" column="1" bodyfile="src/track_objects_client.cpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpoi__t_1ac130f893ec3e5cfeef9c03cc82757dad" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float poi_t::timeout</definition>
+        <argsstring></argsstring>
+        <name>timeout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/track_objects_client.cpp" line="46" column="1" bodyfile="src/track_objects_client.cpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpoi__t_1a9e5f8e5bf5b770c40862a30108bc5e25" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float poi_t::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/track_objects_client.cpp" line="47" column="1" bodyfile="src/track_objects_client.cpp" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpoi__t_1aaab21c083e9b6389819fe53c9eb27357" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int poi_t::biometrics_id</definition>
+        <argsstring></argsstring>
+        <name>biometrics_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/track_objects_client.cpp" line="48" column="1" bodyfile="src/track_objects_client.cpp" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structpoi__t_1a1e2e2e4e9b0ef7a80b9b39eaf3c0ff43" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>poi_t::poi_t</definition>
+        <argsstring>(std::pair&lt; float, float &gt; pos)</argsstring>
+        <name>poi_t</name>
+        <param>
+          <type>std::pair&lt; float, float &gt;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/track_objects_client.cpp" line="49" column="1" bodyfile="src/track_objects_client.cpp" bodystart="49" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="structpoi__t_1aa737d2de6e851aaeef6fa48ea599d877" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>poi_t::~poi_t</definition>
+        <argsstring>()</argsstring>
+        <name>~poi_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/track_objects_client.cpp" line="57" column="1" bodyfile="src/track_objects_client.cpp" bodystart="57" bodyend="60"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Person of interest. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/gesture_control.cpp" line="66" column="1" bodyfile="src/gesture_control.cpp" bodystart="66" bodyend="69"/>
+    <listofallmembers>
+      <member refid="structpoi__t_1aaab21c083e9b6389819fe53c9eb27357" prot="public" virt="non-virtual"><scope>poi_t</scope><name>biometrics_id</name></member>
+      <member refid="structpoi__t_1a9e5f8e5bf5b770c40862a30108bc5e25" prot="public" virt="non-virtual"><scope>poi_t</scope><name>height</name></member>
+      <member refid="structpoi__t_1a59b58f432e793217c33691e9c8b921b7" prot="public" virt="non-virtual"><scope>poi_t</scope><name>poi_angle</name></member>
+      <member refid="structpoi__t_1a685a84d41a381955a9cdaf8a4917f24d" prot="public" virt="non-virtual"><scope>poi_t</scope><name>poi_pos</name></member>
+      <member refid="structpoi__t_1ae5f9ca22bbe2f78476ad6d08bc31a231" prot="public" virt="non-virtual"><scope>poi_t</scope><name>poi_range</name></member>
+      <member refid="structpoi__t_1a1e2e2e4e9b0ef7a80b9b39eaf3c0ff43" prot="public" virt="non-virtual"><scope>poi_t</scope><name>poi_t</name></member>
+      <member refid="structpoi__t_1ac130f893ec3e5cfeef9c03cc82757dad" prot="public" virt="non-virtual"><scope>poi_t</scope><name>timeout</name></member>
+      <member refid="structpoi__t_1aa737d2de6e851aaeef6fa48ea599d877" prot="public" virt="non-virtual"><scope>poi_t</scope><name>~poi_t</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

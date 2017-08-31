@@ -1,0 +1,77 @@
+\hypertarget{control__tcp__socket_8cpp}{}\section{src/control\+\_\+tcp\+\_\+socket.cpp File Reference}
+\label{control__tcp__socket_8cpp}\index{src/control\+\_\+tcp\+\_\+socket.\+cpp@{src/control\+\_\+tcp\+\_\+socket.\+cpp}}
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}laser\+\_\+scanner\+\_\+infoscreen/external\+\_\+control.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$netinet/in.\+h$>$}\\*
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$netdb.\+h$>$}\\*
+Include dependency graph for control\+\_\+tcp\+\_\+socket.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{control__tcp__socket_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{control__tcp__socket_8cpp_a22cfe843bbfa92fae8f2e4f0692ece94}{C\+H\+A\+R\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}~512
+\item 
+\#define \hyperlink{control__tcp__socket_8cpp_aa6cecb8c404241c624e83aee8a3979d2}{S\+E\+R\+V\+E\+R\+\_\+\+A\+D\+D\+R\+E\+SS}~localhost
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{control__tcp__socket_8cpp_ae394a55d4227c16bca1b6e1ba6a5e8b4}{tcp\+\_\+message\+\_\+callback} (const laser\+\_\+scanner\+\_\+infoscreen\+::external\+\_\+control\+::\+Const\+Ptr \&msg)
+\begin{DoxyCompactList}\small\item\em external\+\_\+control callback function. \end{DoxyCompactList}\item 
+int \hyperlink{control__tcp__socket_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+R\+OS node for the running infoscreen. Subscribes to the \textquotesingle{}/external\+\_\+control\textquotesingle{} topic, receives, parses and send messages on the T\+CP socket for the G\+UI. \begin{DoxySeeAlso}{See also}
+$<$track\+\_\+objects\+\_\+client$>$ 
+\end{DoxySeeAlso}
+
+
+\subsection{Macro Definition Documentation}
+\index{control\+\_\+tcp\+\_\+socket.\+cpp@{control\+\_\+tcp\+\_\+socket.\+cpp}!C\+H\+A\+R\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE@{C\+H\+A\+R\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}}
+\index{C\+H\+A\+R\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE@{C\+H\+A\+R\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}!control\+\_\+tcp\+\_\+socket.\+cpp@{control\+\_\+tcp\+\_\+socket.\+cpp}}
+\subsubsection[{\texorpdfstring{C\+H\+A\+R\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}{CHAR_BUFFER_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+H\+A\+R\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE~512}\hypertarget{control__tcp__socket_8cpp_a22cfe843bbfa92fae8f2e4f0692ece94}{}\label{control__tcp__socket_8cpp_a22cfe843bbfa92fae8f2e4f0692ece94}
+Size of the buffer used by the T\+CP node. \index{control\+\_\+tcp\+\_\+socket.\+cpp@{control\+\_\+tcp\+\_\+socket.\+cpp}!S\+E\+R\+V\+E\+R\+\_\+\+A\+D\+D\+R\+E\+SS@{S\+E\+R\+V\+E\+R\+\_\+\+A\+D\+D\+R\+E\+SS}}
+\index{S\+E\+R\+V\+E\+R\+\_\+\+A\+D\+D\+R\+E\+SS@{S\+E\+R\+V\+E\+R\+\_\+\+A\+D\+D\+R\+E\+SS}!control\+\_\+tcp\+\_\+socket.\+cpp@{control\+\_\+tcp\+\_\+socket.\+cpp}}
+\subsubsection[{\texorpdfstring{S\+E\+R\+V\+E\+R\+\_\+\+A\+D\+D\+R\+E\+SS}{SERVER_ADDRESS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+R\+V\+E\+R\+\_\+\+A\+D\+D\+R\+E\+SS~localhost}\hypertarget{control__tcp__socket_8cpp_aa6cecb8c404241c624e83aee8a3979d2}{}\label{control__tcp__socket_8cpp_aa6cecb8c404241c624e83aee8a3979d2}
+Address of the T\+CP node. Currently runs only one localhost. 
+
+\subsection{Function Documentation}
+\index{control\+\_\+tcp\+\_\+socket.\+cpp@{control\+\_\+tcp\+\_\+socket.\+cpp}!main@{main}}
+\index{main@{main}!control\+\_\+tcp\+\_\+socket.\+cpp@{control\+\_\+tcp\+\_\+socket.\+cpp}}
+\subsubsection[{\texorpdfstring{main(int argc, char $\ast$$\ast$argv)}{main(int argc, char **argv)}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\hypertarget{control__tcp__socket_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{}\label{control__tcp__socket_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+Main function of the node Main function of the node. Creates socket, binds it and sets R\+OS to run. Handles cleanup.
+
+Node currently uses port 2259 as it is free per \href{https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtm}{\tt https\+://www.\+iana.\+org/assignments/service-\/names-\/port-\/numbers/service-\/names-\/port-\/numbers.\+xhtm} \index{control\+\_\+tcp\+\_\+socket.\+cpp@{control\+\_\+tcp\+\_\+socket.\+cpp}!tcp\+\_\+message\+\_\+callback@{tcp\+\_\+message\+\_\+callback}}
+\index{tcp\+\_\+message\+\_\+callback@{tcp\+\_\+message\+\_\+callback}!control\+\_\+tcp\+\_\+socket.\+cpp@{control\+\_\+tcp\+\_\+socket.\+cpp}}
+\subsubsection[{\texorpdfstring{tcp\+\_\+message\+\_\+callback(const laser\+\_\+scanner\+\_\+infoscreen\+::external\+\_\+control\+::\+Const\+Ptr \&msg)}{tcp_message_callback(const laser_scanner_infoscreen::external_control::ConstPtr &msg)}}]{\setlength{\rightskip}{0pt plus 5cm}void tcp\+\_\+message\+\_\+callback (
+\begin{DoxyParamCaption}
+\item[{const laser\+\_\+scanner\+\_\+infoscreen\+::external\+\_\+control\+::\+Const\+Ptr \&}]{msg}
+\end{DoxyParamCaption}
+)}\hypertarget{control__tcp__socket_8cpp_ae394a55d4227c16bca1b6e1ba6a5e8b4}{}\label{control__tcp__socket_8cpp_ae394a55d4227c16bca1b6e1ba6a5e8b4}
+
+
+external\+\_\+control callback function. 
+
+A callback function of topic external\+\_\+control. Parses and send message by T\+CP. 
+\begin{DoxyParams}{Parameters}
+{\em msg} & topic message outlined in msg/external\+\_\+control.\+msg \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="structarea__t" kind="struct" language="C++" prot="public">
+    <compoundname>area_t</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structarea__t_1ab7462395e064eec625efb60399ffd7dd" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float area_t::r_min</definition>
+        <argsstring></argsstring>
+        <name>r_min</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/track_objects_client.cpp" line="66" column="1" bodyfile="src/track_objects_client.cpp" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structarea__t_1aff46fdf51fe9f94aba74455e4a15426a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float area_t::r_max</definition>
+        <argsstring></argsstring>
+        <name>r_max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/track_objects_client.cpp" line="66" column="1" bodyfile="src/track_objects_client.cpp" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structarea__t_1a930a0c418008eb2f369737fd97c75b3d" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float area_t::th_min</definition>
+        <argsstring></argsstring>
+        <name>th_min</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/track_objects_client.cpp" line="66" column="1" bodyfile="src/track_objects_client.cpp" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structarea__t_1a0e7df586bb9df7e6d28bf3f9bbe32ca0" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float area_t::th_max</definition>
+        <argsstring></argsstring>
+        <name>th_max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/track_objects_client.cpp" line="66" column="1" bodyfile="src/track_objects_client.cpp" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structarea__t_1a5f0ca53f7fab9d65b2726310e98cad63" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int area_t::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/track_objects_client.cpp" line="67" column="1" bodyfile="src/track_objects_client.cpp" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structarea__t_1a2a6b84b8af35f8aa4e77237357a5a54c" prot="public" static="no" mutable="no">
+        <type>std_msgs::ColorRGBA</type>
+        <definition>std_msgs::ColorRGBA area_t::c</definition>
+        <argsstring></argsstring>
+        <name>c</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/track_objects_client.cpp" line="68" column="1" bodyfile="src/track_objects_client.cpp" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structarea__t_1a2ea22ed89ef6801defea98010f1d3446" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string area_t::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/track_objects_client.cpp" line="69" column="1" bodyfile="src/track_objects_client.cpp" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structarea__t_1a5b6ffeb319ff8cdf95717851bedf1204" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool area_t::is_active</definition>
+        <argsstring></argsstring>
+        <name>is_active</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/track_objects_client.cpp" line="70" column="1" bodyfile="src/track_objects_client.cpp" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structarea__t_1a1b5cd0e73b7c2790f22b647083d823ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>area_t::area_t</definition>
+        <argsstring>(float draw_r_min, float draw_r_max, float draw_th_min, float draw_th_max, std_msgs::ColorRGBA area_c, std::string area_name, int area_id)</argsstring>
+        <name>area_t</name>
+        <param>
+          <type>float</type>
+          <declname>draw_r_min</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>draw_r_max</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>draw_th_min</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>draw_th_max</declname>
+        </param>
+        <param>
+          <type>std_msgs::ColorRGBA</type>
+          <declname>area_c</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>area_name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>area_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/track_objects_client.cpp" line="71" column="1" bodyfile="src/track_objects_client.cpp" bodystart="71" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="structarea__t_1af678e3be272d68922251bb039de67db2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool area_t::test_poi</definition>
+        <argsstring>(poi_t &amp;poi)</argsstring>
+        <name>test_poi</name>
+        <param>
+          <type><ref refid="structpoi__t" kindref="compound">poi_t</ref> &amp;</type>
+          <declname>poi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/track_objects_client.cpp" line="83" column="1" bodyfile="src/track_objects_client.cpp" bodystart="83" bodyend="95"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/track_objects_client.cpp" line="65" column="1" bodyfile="src/track_objects_client.cpp" bodystart="65" bodyend="96"/>
+    <listofallmembers>
+      <member refid="structarea__t_1a1b5cd0e73b7c2790f22b647083d823ca" prot="public" virt="non-virtual"><scope>area_t</scope><name>area_t</name></member>
+      <member refid="structarea__t_1a2a6b84b8af35f8aa4e77237357a5a54c" prot="public" virt="non-virtual"><scope>area_t</scope><name>c</name></member>
+      <member refid="structarea__t_1a5f0ca53f7fab9d65b2726310e98cad63" prot="public" virt="non-virtual"><scope>area_t</scope><name>id</name></member>
+      <member refid="structarea__t_1a5b6ffeb319ff8cdf95717851bedf1204" prot="public" virt="non-virtual"><scope>area_t</scope><name>is_active</name></member>
+      <member refid="structarea__t_1a2ea22ed89ef6801defea98010f1d3446" prot="public" virt="non-virtual"><scope>area_t</scope><name>name</name></member>
+      <member refid="structarea__t_1aff46fdf51fe9f94aba74455e4a15426a" prot="public" virt="non-virtual"><scope>area_t</scope><name>r_max</name></member>
+      <member refid="structarea__t_1ab7462395e064eec625efb60399ffd7dd" prot="public" virt="non-virtual"><scope>area_t</scope><name>r_min</name></member>
+      <member refid="structarea__t_1af678e3be272d68922251bb039de67db2" prot="public" virt="non-virtual"><scope>area_t</scope><name>test_poi</name></member>
+      <member refid="structarea__t_1a0e7df586bb9df7e6d28bf3f9bbe32ca0" prot="public" virt="non-virtual"><scope>area_t</scope><name>th_max</name></member>
+      <member refid="structarea__t_1a930a0c418008eb2f369737fd97c75b3d" prot="public" virt="non-virtual"><scope>area_t</scope><name>th_min</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

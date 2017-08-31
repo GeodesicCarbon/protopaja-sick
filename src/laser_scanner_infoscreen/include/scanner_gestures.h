@@ -2,6 +2,10 @@
 #define SCANNER_GESTURES_H
 #include "ros/ros.h"
 
+/*! \file scanner_gestures.h
+*
+*/
+
 #define GESTURE_TRACKING_WIDTH 1.2f
 #define GESTURE_TRACKING_LENGTH 0.9f
 	enum gest_e

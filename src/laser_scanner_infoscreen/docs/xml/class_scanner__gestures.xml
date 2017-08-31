@@ -1,0 +1,337 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_scanner__gestures" kind="class" language="C++" prot="public">
+    <compoundname>Scanner_gestures</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_scanner__gestures_1ac70d55167bb745213abadfb06a615e91" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Scanner_gestures::right_score</definition>
+        <argsstring></argsstring>
+        <name>right_score</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/scanner_gestures.h" line="20" column="1" bodyfile="include/scanner_gestures.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scanner__gestures_1a42ac1f24eee3f92065743f0a23452dd5" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Scanner_gestures::left_score</definition>
+        <argsstring></argsstring>
+        <name>left_score</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/scanner_gestures.h" line="20" column="1" bodyfile="include/scanner_gestures.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scanner__gestures_1a55694caa26cbfbc83f349a11a15a6980" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Scanner_gestures::poi_range</definition>
+        <argsstring></argsstring>
+        <name>poi_range</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/scanner_gestures.h" line="20" column="1" bodyfile="include/scanner_gestures.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scanner__gestures_1a191a5090d123ef3ab2f3ae7e7c83c59b" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Scanner_gestures::poi_angle</definition>
+        <argsstring></argsstring>
+        <name>poi_angle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/scanner_gestures.h" line="20" column="1" bodyfile="include/scanner_gestures.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scanner__gestures_1ad51010037fec39cc18a5ccd23bb52d02" prot="private" static="no" mutable="no">
+        <type>std::pair&lt; float, float &gt;</type>
+        <definition>std::pair&lt;float, float&gt; Scanner_gestures::right_closest</definition>
+        <argsstring></argsstring>
+        <name>right_closest</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/scanner_gestures.h" line="21" column="1" bodyfile="include/scanner_gestures.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scanner__gestures_1aaa7bab014f2c47eab1314c5dd6a5c25e" prot="private" static="no" mutable="no">
+        <type>std::pair&lt; float, float &gt;</type>
+        <definition>std::pair&lt;float, float&gt; Scanner_gestures::left_closest</definition>
+        <argsstring></argsstring>
+        <name>left_closest</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/scanner_gestures.h" line="21" column="1" bodyfile="include/scanner_gestures.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scanner__gestures_1af41d7e1707fce466c71119a52999913a" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; Scanner_gestures::slice</definition>
+        <argsstring></argsstring>
+        <name>slice</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/scanner_gestures.h" line="22" column="1" bodyfile="include/scanner_gestures.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scanner__gestures_1a31783191e1afd1ab1e9c295aa243b6ac" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Scanner_gestures::is_tracking</definition>
+        <argsstring></argsstring>
+        <name>is_tracking</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/scanner_gestures.h" line="23" column="1" bodyfile="include/scanner_gestures.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_scanner__gestures_1a8239d96119dc8c87737774dcb786d5d4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Scanner_gestures::is_in_tracking_area</definition>
+        <argsstring>(int index)</argsstring>
+        <name>is_in_tracking_area</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/scanner_gestures.h" line="24" column="1" bodyfile="src/scanner_gestures.cpp" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scanner__gestures_1afb846c8368b20e533e283fda2af2962e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Scanner_gestures::delta_h</definition>
+        <argsstring>(float angle_increment, int index)</argsstring>
+        <name>delta_h</name>
+        <param>
+          <type>float</type>
+          <declname>angle_increment</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/scanner_gestures.h" line="25" column="1" bodyfile="src/scanner_gestures.cpp" bodystart="26" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scanner__gestures_1a46c81fb4179dda97e52e83323d6f6f93" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::pair&lt; int, int &gt;</type>
+        <definition>std::pair&lt; int, int &gt; Scanner_gestures::create_slice_indices</definition>
+        <argsstring>(float angle_start, float angle_increment)</argsstring>
+        <name>create_slice_indices</name>
+        <param>
+          <type>float</type>
+          <declname>angle_start</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>angle_increment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/scanner_gestures.h" line="26" column="1" bodyfile="src/scanner_gestures.cpp" bodystart="78" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scanner__gestures_1add7d6045dd42c8a7409f7100ced6e27d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Scanner_gestures::update_score</definition>
+        <argsstring>(float angle_increment)</argsstring>
+        <name>update_score</name>
+        <param>
+          <type>float</type>
+          <declname>angle_increment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/scanner_gestures.h" line="27" column="1" bodyfile="src/scanner_gestures.cpp" bodystart="35" bodyend="76"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_scanner__gestures_1a7bb0ce7e1b2d40a3f5b2b55f8a8508e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Scanner_gestures::Scanner_gestures</definition>
+        <argsstring>()</argsstring>
+        <name>Scanner_gestures</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/scanner_gestures.h" line="29" column="1" bodyfile="src/scanner_gestures.cpp" bodystart="12" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scanner__gestures_1a6dc7d1dc6802ea02d94f730b32a81e87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Scanner_gestures::parse_sensor_data</definition>
+        <argsstring>(std::vector&lt; float &gt; range, float angle_start, float angle_increment, float poi_range, float poi_angle)</argsstring>
+        <name>parse_sensor_data</name>
+        <param>
+          <type>std::vector&lt; float &gt;</type>
+          <declname>range</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>angle_start</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>angle_increment</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>poi_range</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>poi_angle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/scanner_gestures.h" line="30" column="1" bodyfile="src/scanner_gestures.cpp" bodystart="88" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scanner__gestures_1a8b8caf958afa2915e37a521c634ce694" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Scanner_gestures::set_tracking</definition>
+        <argsstring>(bool is_tracking)</argsstring>
+        <name>set_tracking</name>
+        <param>
+          <type>bool</type>
+          <declname>is_tracking</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/scanner_gestures.h" line="31" column="1" bodyfile="src/scanner_gestures.cpp" bodystart="111" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scanner__gestures_1a17ea1a511a53a07fb1f407f5229e0363" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Scanner_gestures::get_tracking</definition>
+        <argsstring>()</argsstring>
+        <name>get_tracking</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/scanner_gestures.h" line="32" column="1" bodyfile="src/scanner_gestures.cpp" bodystart="116" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scanner__gestures_1a8c02a5520f94f676b2e3f510ed6765bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>gest_e</type>
+        <definition>gest_e Scanner_gestures::get_gesture</definition>
+        <argsstring>(float threshold)</argsstring>
+        <name>get_gesture</name>
+        <param>
+          <type>float</type>
+          <declname>threshold</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/scanner_gestures.h" line="33" column="1" bodyfile="src/scanner_gestures.cpp" bodystart="99" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scanner__gestures_1a07e953de14a41b97f5d66b8431760c37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::pair&lt; float, float &gt;</type>
+        <definition>std::pair&lt; float, float &gt; Scanner_gestures::get_right_closest</definition>
+        <argsstring>()</argsstring>
+        <name>get_right_closest</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/scanner_gestures.h" line="34" column="1" bodyfile="src/scanner_gestures.cpp" bodystart="120" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scanner__gestures_1ad657d904d60e85f53dd7f9dc11ccf41e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::pair&lt; float, float &gt;</type>
+        <definition>std::pair&lt; float, float &gt; Scanner_gestures::get_left_closest</definition>
+        <argsstring>()</argsstring>
+        <name>get_left_closest</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/scanner_gestures.h" line="35" column="1" bodyfile="src/scanner_gestures.cpp" bodystart="123" bodyend="125"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/scanner_gestures.h" line="18" column="1" bodyfile="include/scanner_gestures.h" bodystart="18" bodyend="36"/>
+    <listofallmembers>
+      <member refid="class_scanner__gestures_1a46c81fb4179dda97e52e83323d6f6f93" prot="private" virt="non-virtual"><scope>Scanner_gestures</scope><name>create_slice_indices</name></member>
+      <member refid="class_scanner__gestures_1afb846c8368b20e533e283fda2af2962e" prot="private" virt="non-virtual"><scope>Scanner_gestures</scope><name>delta_h</name></member>
+      <member refid="class_scanner__gestures_1a8c02a5520f94f676b2e3f510ed6765bb" prot="public" virt="non-virtual"><scope>Scanner_gestures</scope><name>get_gesture</name></member>
+      <member refid="class_scanner__gestures_1ad657d904d60e85f53dd7f9dc11ccf41e" prot="public" virt="non-virtual"><scope>Scanner_gestures</scope><name>get_left_closest</name></member>
+      <member refid="class_scanner__gestures_1a07e953de14a41b97f5d66b8431760c37" prot="public" virt="non-virtual"><scope>Scanner_gestures</scope><name>get_right_closest</name></member>
+      <member refid="class_scanner__gestures_1a17ea1a511a53a07fb1f407f5229e0363" prot="public" virt="non-virtual"><scope>Scanner_gestures</scope><name>get_tracking</name></member>
+      <member refid="class_scanner__gestures_1a8239d96119dc8c87737774dcb786d5d4" prot="private" virt="non-virtual"><scope>Scanner_gestures</scope><name>is_in_tracking_area</name></member>
+      <member refid="class_scanner__gestures_1a31783191e1afd1ab1e9c295aa243b6ac" prot="private" virt="non-virtual"><scope>Scanner_gestures</scope><name>is_tracking</name></member>
+      <member refid="class_scanner__gestures_1aaa7bab014f2c47eab1314c5dd6a5c25e" prot="private" virt="non-virtual"><scope>Scanner_gestures</scope><name>left_closest</name></member>
+      <member refid="class_scanner__gestures_1a42ac1f24eee3f92065743f0a23452dd5" prot="private" virt="non-virtual"><scope>Scanner_gestures</scope><name>left_score</name></member>
+      <member refid="class_scanner__gestures_1a6dc7d1dc6802ea02d94f730b32a81e87" prot="public" virt="non-virtual"><scope>Scanner_gestures</scope><name>parse_sensor_data</name></member>
+      <member refid="class_scanner__gestures_1a191a5090d123ef3ab2f3ae7e7c83c59b" prot="private" virt="non-virtual"><scope>Scanner_gestures</scope><name>poi_angle</name></member>
+      <member refid="class_scanner__gestures_1a55694caa26cbfbc83f349a11a15a6980" prot="private" virt="non-virtual"><scope>Scanner_gestures</scope><name>poi_range</name></member>
+      <member refid="class_scanner__gestures_1ad51010037fec39cc18a5ccd23bb52d02" prot="private" virt="non-virtual"><scope>Scanner_gestures</scope><name>right_closest</name></member>
+      <member refid="class_scanner__gestures_1ac70d55167bb745213abadfb06a615e91" prot="private" virt="non-virtual"><scope>Scanner_gestures</scope><name>right_score</name></member>
+      <member refid="class_scanner__gestures_1a7bb0ce7e1b2d40a3f5b2b55f8a8508e2" prot="public" virt="non-virtual"><scope>Scanner_gestures</scope><name>Scanner_gestures</name></member>
+      <member refid="class_scanner__gestures_1a8b8caf958afa2915e37a521c634ce694" prot="public" virt="non-virtual"><scope>Scanner_gestures</scope><name>set_tracking</name></member>
+      <member refid="class_scanner__gestures_1af41d7e1707fce466c71119a52999913a" prot="private" virt="non-virtual"><scope>Scanner_gestures</scope><name>slice</name></member>
+      <member refid="class_scanner__gestures_1add7d6045dd42c8a7409f7100ced6e27d" prot="private" virt="non-virtual"><scope>Scanner_gestures</scope><name>update_score</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.11">
+  <compound refid="structarea__t" kind="struct"><name>area_t</name>
+    <member refid="structarea__t_1ab7462395e064eec625efb60399ffd7dd" kind="variable"><name>r_min</name></member>
+    <member refid="structarea__t_1aff46fdf51fe9f94aba74455e4a15426a" kind="variable"><name>r_max</name></member>
+    <member refid="structarea__t_1a930a0c418008eb2f369737fd97c75b3d" kind="variable"><name>th_min</name></member>
+    <member refid="structarea__t_1a0e7df586bb9df7e6d28bf3f9bbe32ca0" kind="variable"><name>th_max</name></member>
+    <member refid="structarea__t_1a5f0ca53f7fab9d65b2726310e98cad63" kind="variable"><name>id</name></member>
+    <member refid="structarea__t_1a2a6b84b8af35f8aa4e77237357a5a54c" kind="variable"><name>c</name></member>
+    <member refid="structarea__t_1a2ea22ed89ef6801defea98010f1d3446" kind="variable"><name>name</name></member>
+    <member refid="structarea__t_1a5b6ffeb319ff8cdf95717851bedf1204" kind="variable"><name>is_active</name></member>
+    <member refid="structarea__t_1a1b5cd0e73b7c2790f22b647083d823ca" kind="function"><name>area_t</name></member>
+    <member refid="structarea__t_1af678e3be272d68922251bb039de67db2" kind="function"><name>test_poi</name></member>
+  </compound>
+  <compound refid="classlaser__object__t" kind="class"><name>laser_object_t</name>
+    <member refid="classlaser__object__t_1aba4fd9f128509e1f7c1dc928cf2b727c" kind="variable"><name>is_mobile</name></member>
+    <member refid="classlaser__object__t_1a13f0ed1ba0a9050bae6db84f3d5f2650" kind="variable"><name>pos_centerofmass</name></member>
+    <member refid="classlaser__object__t_1a7d49fa1260aa38bba4b9ab57d56567ba" kind="variable"><name>vel_centerofmass</name></member>
+    <member refid="classlaser__object__t_1ae9ac1608a29ea1050bb2c46b2a6e3fd9" kind="variable"><name>immobile_time</name></member>
+    <member refid="classlaser__object__t_1a86a17f06cdf56e6effcdffb561fe26eb" kind="variable"><name>last_active</name></member>
+    <member refid="classlaser__object__t_1aac25929dd97f4189689280e1d13b001a" kind="variable"><name>X</name></member>
+    <member refid="classlaser__object__t_1a18884654e291bc9c1349cbf8ff191210" kind="variable"><name>P</name></member>
+    <member refid="classlaser__object__t_1a3e9b8a7bb819cdd1461b3e8a6efeeb2b" kind="variable"><name>K</name></member>
+    <member refid="classlaser__object__t_1aaf5e27005d394ba00082e17a0804f3b2" kind="function"><name>test_mobile</name></member>
+    <member refid="classlaser__object__t_1a86fb4dc51298aedc38f4dea202e86d94" kind="function"><name>laser_object_t</name></member>
+    <member refid="classlaser__object__t_1a1306580c845a8e9e37646988d86788c0" kind="function"><name>distance</name></member>
+    <member refid="classlaser__object__t_1a85ea7644afff4ac0315156a182946110" kind="function"><name>get_last_active</name></member>
+    <member refid="classlaser__object__t_1a02a018369ba1e52d2cec3625f7452c7b" kind="function"><name>get_pos_centerofmass</name></member>
+    <member refid="classlaser__object__t_1adfafd151af0900623901d162260ba234" kind="function"><name>get_vel_centerofmass</name></member>
+    <member refid="classlaser__object__t_1a5aba73083c62b017d1e09d9e36a35df1" kind="function"><name>get_is_mobile</name></member>
+    <member refid="classlaser__object__t_1ac9cc27a949e2af39dc4da7fb0fb8f8d4" kind="function"><name>~laser_object_t</name></member>
+    <member refid="classlaser__object__t_1a7197f41117174159f618bbdcd63f9cc3" kind="function"><name>run_kalman_filter</name></member>
+  </compound>
+  <compound refid="classlaser__objects" kind="class"><name>laser_objects</name>
+    <member refid="classlaser__objects_1af193b94d6f48b40418f4148402f8528f" kind="variable"><name>dt</name></member>
+    <member refid="classlaser__objects_1a33796fdd4a95d6f432351934b08ac7e9" kind="variable"><name>laser_object_repository</name></member>
+    <member refid="classlaser__objects_1a8e139bb70c4e8589e512a71f244b45ef" kind="function"><name>update</name></member>
+    <member refid="classlaser__objects_1a5d288e741d7fca610899fd1b9f822826" kind="function"><name>get_mobiles_x</name></member>
+    <member refid="classlaser__objects_1ab76cec03e47705fcad27a2cf9d9b62a0" kind="function"><name>get_mobiles_y</name></member>
+    <member refid="classlaser__objects_1a1f4e68699b3a5ea853dce7e45123a284" kind="function"><name>get_statics_x</name></member>
+    <member refid="classlaser__objects_1a6063594fe030d1d8c33e6f4d2e1b3ef0" kind="function"><name>get_statics_y</name></member>
+    <member refid="classlaser__objects_1a8491aebb670f24305deeb85a9da26ede" kind="function"><name>update_repository</name></member>
+    <member refid="classlaser__objects_1a9be2a1b55a49c0083bc37ac770ca2fa7" kind="function"><name>laser_objects</name></member>
+    <member refid="classlaser__objects_1ae80a2220fefdf144ae5e653d902d36a2" kind="function"><name>~laser_objects</name></member>
+  </compound>
+  <compound refid="structpoi__t" kind="struct"><name>poi_t</name>
+    <member refid="structpoi__t_1ae5f9ca22bbe2f78476ad6d08bc31a231" kind="variable"><name>poi_range</name></member>
+    <member refid="structpoi__t_1a59b58f432e793217c33691e9c8b921b7" kind="variable"><name>poi_angle</name></member>
+    <member refid="structpoi__t_1a685a84d41a381955a9cdaf8a4917f24d" kind="variable"><name>poi_pos</name></member>
+    <member refid="structpoi__t_1ac130f893ec3e5cfeef9c03cc82757dad" kind="variable"><name>timeout</name></member>
+    <member refid="structpoi__t_1a9e5f8e5bf5b770c40862a30108bc5e25" kind="variable"><name>height</name></member>
+    <member refid="structpoi__t_1aaab21c083e9b6389819fe53c9eb27357" kind="variable"><name>biometrics_id</name></member>
+    <member refid="structpoi__t_1a1e2e2e4e9b0ef7a80b9b39eaf3c0ff43" kind="function"><name>poi_t</name></member>
+    <member refid="structpoi__t_1aa737d2de6e851aaeef6fa48ea599d877" kind="function"><name>~poi_t</name></member>
+  </compound>
+  <compound refid="class_scanner__gestures" kind="class"><name>Scanner_gestures</name>
+    <member refid="class_scanner__gestures_1ac70d55167bb745213abadfb06a615e91" kind="variable"><name>right_score</name></member>
+    <member refid="class_scanner__gestures_1a42ac1f24eee3f92065743f0a23452dd5" kind="variable"><name>left_score</name></member>
+    <member refid="class_scanner__gestures_1a55694caa26cbfbc83f349a11a15a6980" kind="variable"><name>poi_range</name></member>
+    <member refid="class_scanner__gestures_1a191a5090d123ef3ab2f3ae7e7c83c59b" kind="variable"><name>poi_angle</name></member>
+    <member refid="class_scanner__gestures_1ad51010037fec39cc18a5ccd23bb52d02" kind="variable"><name>right_closest</name></member>
+    <member refid="class_scanner__gestures_1aaa7bab014f2c47eab1314c5dd6a5c25e" kind="variable"><name>left_closest</name></member>
+    <member refid="class_scanner__gestures_1af41d7e1707fce466c71119a52999913a" kind="variable"><name>slice</name></member>
+    <member refid="class_scanner__gestures_1a31783191e1afd1ab1e9c295aa243b6ac" kind="variable"><name>is_tracking</name></member>
+    <member refid="class_scanner__gestures_1a8239d96119dc8c87737774dcb786d5d4" kind="function"><name>is_in_tracking_area</name></member>
+    <member refid="class_scanner__gestures_1afb846c8368b20e533e283fda2af2962e" kind="function"><name>delta_h</name></member>
+    <member refid="class_scanner__gestures_1a46c81fb4179dda97e52e83323d6f6f93" kind="function"><name>create_slice_indices</name></member>
+    <member refid="class_scanner__gestures_1add7d6045dd42c8a7409f7100ced6e27d" kind="function"><name>update_score</name></member>
+    <member refid="class_scanner__gestures_1a7bb0ce7e1b2d40a3f5b2b55f8a8508e2" kind="function"><name>Scanner_gestures</name></member>
+    <member refid="class_scanner__gestures_1a6dc7d1dc6802ea02d94f730b32a81e87" kind="function"><name>parse_sensor_data</name></member>
+    <member refid="class_scanner__gestures_1a8b8caf958afa2915e37a521c634ce694" kind="function"><name>set_tracking</name></member>
+    <member refid="class_scanner__gestures_1a17ea1a511a53a07fb1f407f5229e0363" kind="function"><name>get_tracking</name></member>
+    <member refid="class_scanner__gestures_1a8c02a5520f94f676b2e3f510ed6765bb" kind="function"><name>get_gesture</name></member>
+    <member refid="class_scanner__gestures_1a07e953de14a41b97f5d66b8431760c37" kind="function"><name>get_right_closest</name></member>
+    <member refid="class_scanner__gestures_1ad657d904d60e85f53dd7f9dc11ccf41e" kind="function"><name>get_left_closest</name></member>
+  </compound>
+  <compound refid="structservo__angle__t" kind="struct"><name>servo_angle_t</name>
+    <member refid="structservo__angle__t_1acb64fb4017475a2cfc25a473b78f91e7" kind="variable"><name>is_read</name></member>
+    <member refid="structservo__angle__t_1afaeab20c2e0504aba257026c70ca3bc2" kind="variable"><name>angle</name></member>
+  </compound>
+  <compound refid="structservo__t" kind="struct"><name>servo_t</name>
+    <member refid="structservo__t_1a2d870f86b97b371fff86ac1c02f789f6" kind="variable"><name>is_readable</name></member>
+  </compound>
+  <compound refid="namespacearma" kind="namespace"><name>arma</name>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="laser__objects_8hpp" kind="file"><name>laser_objects.hpp</name>
+  </compound>
+  <compound refid="scanner__gestures_8h" kind="file"><name>scanner_gestures.h</name>
+    <member refid="scanner__gestures_8h_1aa6d53d3a17704e6bf562e2657ae168f9" kind="define"><name>GESTURE_TRACKING_WIDTH</name></member>
+    <member refid="scanner__gestures_8h_1a9520e8189f24f4daaf8ab260c8529b14" kind="define"><name>GESTURE_TRACKING_LENGTH</name></member>
+    <member refid="scanner__gestures_8h_1a7439cb1fb2597b68ef2f1f3306500dec" kind="enum"><name>gest_e</name></member>
+    <member refid="scanner__gestures_8h_1a7439cb1fb2597b68ef2f1f3306500decacbe9c605984148d16737225356e8bc89" kind="enumvalue"><name>NO_GESTURE</name></member>
+    <member refid="scanner__gestures_8h_1a7439cb1fb2597b68ef2f1f3306500decabe0d099422589d2adb9c67707c457742" kind="enumvalue"><name>LEFT_GESTURE</name></member>
+    <member refid="scanner__gestures_8h_1a7439cb1fb2597b68ef2f1f3306500decae6f70a81b941403b477ae3072952cdc5" kind="enumvalue"><name>RIGHT_GESTURE</name></member>
+  </compound>
+  <compound refid="control__tcp__socket_8cpp" kind="file"><name>control_tcp_socket.cpp</name>
+    <member refid="control__tcp__socket_8cpp_1a22cfe843bbfa92fae8f2e4f0692ece94" kind="define"><name>CHAR_BUFFER_SIZE</name></member>
+    <member refid="control__tcp__socket_8cpp_1aa6cecb8c404241c624e83aee8a3979d2" kind="define"><name>SERVER_ADDRESS</name></member>
+    <member refid="control__tcp__socket_8cpp_1ae394a55d4227c16bca1b6e1ba6a5e8b4" kind="function"><name>tcp_message_callback</name></member>
+    <member refid="control__tcp__socket_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="gesture__control_8cpp" kind="file"><name>gesture_control.cpp</name>
+    <member refid="gesture__control_8cpp_1ae50e2e14bc27c23e04b985bd48ebb83b" kind="define"><name>timeout_limit</name></member>
+    <member refid="gesture__control_8cpp_1ab013d51a86bf4715a1c261218605c915" kind="define"><name>gesture_score_threshold</name></member>
+    <member refid="gesture__control_8cpp_1a652fa32c4482bb0d3805c3c5f5900af5" kind="define"><name>servo_speed_const</name></member>
+    <member refid="gesture__control_8cpp_1aafa72341f1113b0939af781b7d63770d" kind="define"><name>servo_loop_len</name></member>
+    <member refid="gesture__control_8cpp_1ad8662d30f3440d45487607002371a735" kind="variable"><name>sensor_pos</name></member>
+    <member refid="gesture__control_8cpp_1a2ac8bc219bf895e4a3cdd514c1de6ec4" kind="variable"><name>loop_count</name></member>
+    <member refid="gesture__control_8cpp_1a6565562c39be7f8f9a538a9a216a28cf" kind="variable"><name>gestures</name></member>
+    <member refid="gesture__control_8cpp_1a8c9e9fe63fc6db914caeb21d95be5ca0" kind="variable"><name>node_pointer</name></member>
+    <member refid="gesture__control_8cpp_1a63b0cea48d2da7a328302aee063e57b9" kind="variable"><name>marker_pub_pointer</name></member>
+    <member refid="gesture__control_8cpp_1ad7c4130fa2a9b5b52c9cc9762accfe31" kind="variable"><name>servo_control_pointer</name></member>
+    <member refid="gesture__control_8cpp_1a25374abed3f304c24bfe5098b954d442" kind="variable"><name>gesture_control_pointer</name></member>
+    <member refid="gesture__control_8cpp_1a95ade72c9341fa47411a2314df6d9c0c" kind="variable"><name>external_control_pointer</name></member>
+    <member refid="gesture__control_8cpp_1a8bc0d59633fb23785a6dc267a7cb0326" kind="variable"><name>timelock</name></member>
+    <member refid="gesture__control_8cpp_1a1aa23b898528eadf4c747440d5e8a396" kind="variable"><name>poi</name></member>
+    <member refid="gesture__control_8cpp_1afa99a3b6a2c2f964524fdd4cbd5f6be3" kind="variable"><name>servo</name></member>
+    <member refid="gesture__control_8cpp_1adbf76bdb1d65ea9f9d44ec58eb40d877" kind="function"><name>gestures_callback</name></member>
+    <member refid="gesture__control_8cpp_1ab4546fc84eafe7c48c81b8f28c5077c1" kind="function"><name>control_callback</name></member>
+    <member refid="gesture__control_8cpp_1a272dea7f151f9bf75131542422903056" kind="function"><name>servo_feedback_callback</name></member>
+    <member refid="gesture__control_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="laser__objects_8cpp" kind="file"><name>laser_objects.cpp</name>
+    <member refid="laser__objects_8cpp_1adfe328cba5705e40f91b5cf376c3d94d" kind="define"><name>immobile_timeout</name></member>
+    <member refid="laser__objects_8cpp_1a12bd8d1fde7ba659b9d690f0c9a1762f" kind="define"><name>object_threshold</name></member>
+    <member refid="laser__objects_8cpp_1a102b2e08f8d8ab1ad176d1e00949c026" kind="define"><name>immobile_threshold</name></member>
+    <member refid="laser__objects_8cpp_1af735b65ab6833fed43b665e828e8b601" kind="define"><name>CULLING_TIME</name></member>
+    <member refid="laser__objects_8cpp_1a4a44e170a3630aad3356b3682684f6c8" kind="variable"><name>Q</name></member>
+    <member refid="laser__objects_8cpp_1a77bf685edecf60761abb55a23d9c9a9b" kind="variable"><name>R</name></member>
+    <member refid="laser__objects_8cpp_1adf0b44b0795b5c94956f21a9fb6c199b" kind="variable"><name>H</name></member>
+    <member refid="laser__objects_8cpp_1a2c9979ba8b6f6b1b92cb6432c0be9087" kind="variable"><name>F</name></member>
+  </compound>
+  <compound refid="measure__biometrics_8cpp" kind="file"><name>measure_biometrics.cpp</name>
+    <member refid="measure__biometrics_8cpp_1a652fa32c4482bb0d3805c3c5f5900af5" kind="define"><name>servo_speed_const</name></member>
+    <member refid="measure__biometrics_8cpp_1a8c9e9fe63fc6db914caeb21d95be5ca0" kind="variable"><name>node_pointer</name></member>
+    <member refid="measure__biometrics_8cpp_1a63b0cea48d2da7a328302aee063e57b9" kind="variable"><name>marker_pub_pointer</name></member>
+    <member refid="measure__biometrics_8cpp_1ad7c4130fa2a9b5b52c9cc9762accfe31" kind="variable"><name>servo_control_pointer</name></member>
+    <member refid="measure__biometrics_8cpp_1a859597d1d3be30a6f99cb8051a03d0c8" kind="variable"><name>biometrics_results_pointer</name></member>
+    <member refid="measure__biometrics_8cpp_1ab4dc2f2c04464ab5dfb7ae2780cbbdf7" kind="variable"><name>binary_depth</name></member>
+    <member refid="measure__biometrics_8cpp_1a399283567404464092d5f64fdc4df99a" kind="variable"><name>level_offset_z</name></member>
+    <member refid="measure__biometrics_8cpp_1ad8662d30f3440d45487607002371a735" kind="variable"><name>sensor_pos</name></member>
+    <member refid="measure__biometrics_8cpp_1ad1749a3f174e5a1ea7406541575cc99d" kind="variable"><name>servo_angle</name></member>
+    <member refid="measure__biometrics_8cpp_1a4097f5bdd8d9b874738cfeb7fd72828c" kind="function"><name>calculate_range</name></member>
+    <member refid="measure__biometrics_8cpp_1a4ad0813f9401699c8840005f44ac4891" kind="function"><name>set_tilt_uppper_scanner</name></member>
+    <member refid="measure__biometrics_8cpp_1a5b62649fd6ccd78f4595bd3e1329e2c3" kind="function"><name>biometrics_callback</name></member>
+    <member refid="measure__biometrics_8cpp_1a272dea7f151f9bf75131542422903056" kind="function"><name>servo_feedback_callback</name></member>
+    <member refid="measure__biometrics_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="scanner__gestures_8cpp" kind="file"><name>scanner_gestures.cpp</name>
+    <member refid="scanner__gestures_8cpp_1a1d4463d923d0c190a5d47f3a454660de" kind="define"><name>DIST_MULTI</name></member>
+    <member refid="scanner__gestures_8cpp_1a7d98b34332a38e9d60b68a38f5640103" kind="define"><name>DECAY_CONST</name></member>
+  </compound>
+  <compound refid="track__objects__client_8cpp" kind="file"><name>track_objects_client.cpp</name>
+    <member refid="track__objects__client_8cpp_1a1aab8cdd97f4c3cf6efc68d785dbc72a" kind="define"><name>TIMEOUT_LIMIT</name></member>
+    <member refid="track__objects__client_8cpp_1a18406303b8b5e80476cd417d47a8a7ab" kind="define"><name>POI_THRESHOLD</name></member>
+    <member refid="track__objects__client_8cpp_1ab06d3e8dbb4b7ee5c62d9cf3df4aa3e3" kind="define"><name>MAX_RANGE</name></member>
+    <member refid="track__objects__client_8cpp_1a1ca3e4f838fb8f6e708e85a4ab27ca28" kind="define"><name>PRESENTATION_RANGE</name></member>
+    <member refid="track__objects__client_8cpp_1a6264415bad662e611fca5ea58d32d406" kind="define"><name>BIOMETRICS_FLAG</name></member>
+    <member refid="track__objects__client_8cpp_1acc36d9944095be1d442a1af730c4de87" kind="define"><name>HAS_SCREEN_CONTROL</name></member>
+    <member refid="track__objects__client_8cpp_1a6719796d5b385e8d71ad104f90c1b4bc" kind="define"><name>GESTURES_ENABLED</name></member>
+    <member refid="track__objects__client_8cpp_1a02a9eb361467c8af0ac93da77e7166a4" kind="variable"><name>poi_constructed</name></member>
+    <member refid="track__objects__client_8cpp_1ae2803282285f739b819e7bf544f54da0" kind="variable"><name>poi_destructed</name></member>
+    <member refid="track__objects__client_8cpp_1a966aefe16305c6f9b7bad0f8fd6df01d" kind="variable"><name>biometrics_id_count</name></member>
+    <member refid="track__objects__client_8cpp_1a6263228a98b11df6b9aee72534e9a9af" kind="variable"><name>stepper_filter</name></member>
+    <member refid="track__objects__client_8cpp_1abb9cb46f35ecf81fb834df16d602a9ea" kind="variable"><name>area_last_active_id</name></member>
+    <member refid="track__objects__client_8cpp_1ad26f4b524a9abcdc31bd506ed692e932" kind="variable"><name>zoom_level</name></member>
+    <member refid="track__objects__client_8cpp_1a2edaa5514090de2732a1612c9befa675" kind="variable"><name>last_external_sent</name></member>
+    <member refid="track__objects__client_8cpp_1acf52408ba9ebcc9818c63c4a13528573" kind="variable"><name>biometrics_timestamp</name></member>
+    <member refid="track__objects__client_8cpp_1a8c9e9fe63fc6db914caeb21d95be5ca0" kind="variable"><name>node_pointer</name></member>
+    <member refid="track__objects__client_8cpp_1a957c5f9c262d12530043933d9bd90c08" kind="variable"><name>client_pointer</name></member>
+    <member refid="track__objects__client_8cpp_1a63b0cea48d2da7a328302aee063e57b9" kind="variable"><name>marker_pub_pointer</name></member>
+    <member refid="track__objects__client_8cpp_1a5eb3f01caf7c44b359833d8471adf381" kind="variable"><name>stepper_control_pointer</name></member>
+    <member refid="track__objects__client_8cpp_1a7a099da53fd489b4acc40caa31fce7e1" kind="variable"><name>biometrics_pointer</name></member>
+    <member refid="track__objects__client_8cpp_1a13740c40932156f56f0b6c2b6b8705c5" kind="variable"><name>gestures_pointer</name></member>
+    <member refid="track__objects__client_8cpp_1a95ade72c9341fa47411a2314df6d9c0c" kind="variable"><name>external_control_pointer</name></member>
+    <member refid="track__objects__client_8cpp_1a015074a520f8cfaaaa01c108d66f40af" kind="variable"><name>biometrics_lock</name></member>
+    <member refid="track__objects__client_8cpp_1a24fc33541014774c959e08ccc01f875c" kind="variable"><name>biometrics_lock_ref</name></member>
+    <member refid="track__objects__client_8cpp_1a7e3e2d81fd70af827d4b62c552baf3e0" kind="variable"><name>main_poi</name></member>
+    <member refid="track__objects__client_8cpp_1a775e1fe97a9a761e39367c781ab2560e" kind="variable"><name>secondary_poi</name></member>
+    <member refid="track__objects__client_8cpp_1a6de8bad70820f9f21ef78c21ff7a9838" kind="variable"><name>poi_repository</name></member>
+    <member refid="track__objects__client_8cpp_1ad4d89be1a10dcb46194b3d94346e2bf1" kind="variable"><name>area_repository</name></member>
+    <member refid="track__objects__client_8cpp_1a5d861d555c38b2b115d7e3eed2ebc560" kind="function"><name>visualize_areas</name></member>
+    <member refid="track__objects__client_8cpp_1a21220d1d759856330c3fa7123beb8058" kind="function"><name>point_distance</name></member>
+    <member refid="track__objects__client_8cpp_1af1132126f5252aef7858889b02e5e49b" kind="function"><name>index_of_shortest_to_sensor</name></member>
+    <member refid="track__objects__client_8cpp_1ab211511420b6766585fd914838c8bf10" kind="function"><name>index_of_shortest_to_point</name></member>
+    <member refid="track__objects__client_8cpp_1a07c392b2fe4eed7c364592fca5aed3e0" kind="function"><name>angle_of_point</name></member>
+    <member refid="track__objects__client_8cpp_1a4e588ab8069d95fd09a5c1a42c7109df" kind="function"><name>tracker_callback</name></member>
+    <member refid="track__objects__client_8cpp_1a93789efb76a4ef23f37f93135dae9bad" kind="function"><name>biometrics_callback</name></member>
+    <member refid="track__objects__client_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="track__objects__server_8cpp" kind="file"><name>track_objects_server.cpp</name>
+    <member refid="track__objects__server_8cpp_1a63b0cea48d2da7a328302aee063e57b9" kind="variable"><name>marker_pub_pointer</name></member>
+    <member refid="track__objects__server_8cpp_1af49f87564ff0f7dc67e14a86b3056b4a" kind="variable"><name>repository</name></member>
+    <member refid="track__objects__server_8cpp_1a7a8fccf019dd7adfc1195447ae8d8f18" kind="function"><name>cart_dist</name></member>
+    <member refid="track__objects__server_8cpp_1ad735d4b9792b5d3ee35866fd08b7b4ce" kind="function"><name>track</name></member>
+    <member refid="track__objects__server_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

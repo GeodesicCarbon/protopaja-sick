@@ -9,13 +9,34 @@
 #include <cmath>
 #include <visualization_msgs/Marker.h>
 #include <string>
-
+/*! \file gesture_control.cpp
+* \brief Node that handles gesture tracking and associated topics.
+* 
+* \sa Scanner_gestures
+* \sa <track_objects_client>
+*/
 
 // Magic parameters for the gesture detect
+/*! \def timeout_limit
+* \brief Seconds after old gesture timeouts
 
+* A length in seconds after detected gesture that no new gesture is detected. Prevents false positives
+*/
 #define timeout_limit  4
+/*! \def gesture_score_threshold
+* A score after which gesture is confirmed. Bigger is less likely
+*/
 #define gesture_score_threshold 1.0f
+/*! \def servo_speed_const
+* A speed in rad/s in which servo turns.
+*/
 #define servo_speed_const 5235
+/*! \def servo_loop_len
+* \brief Length of servo idle loop
+
+* To prevent servo from moving too often, it moves each servo_loop_len message 
+* received. If SICK TIM 561 is used, this is 15/servo_loop_len times a second
+*/
 #define servo_loop_len 5
 
 // Offset of the upper sensor in the relation of lower sensor
@@ -23,16 +44,25 @@ static std::vector<float> sensor_pos = {0.0,-0.22,0.72};
 int loop_count = 0;
 
 // Initializing global objects
+//! Global pointer to Scanner_gestures object.
 static Scanner_gestures* gestures;
+//! Global pointer to ros::NodeHandle object.
 static ros::NodeHandle *node_pointer;
+//! Global pointer to rviz marker object.
 ros::Publisher *marker_pub_pointer;
+//! Global pointer to 'servo_control' publisher.
 ros::Publisher *servo_control_pointer;
+//! Global pointer to 'gestures_control' subscriber.
 ros::Subscriber *gesture_control_pointer;
+//! Global pointer to 'external_control' publisher. Used to relay commands to external applications.
 ros::Publisher *external_control_pointer;
+//! Global variable of last detected gesture timestamp.
 static ros::Time timelock;
 
 
 // Parameters of the person of inrerest.
+
+//! Person of interest
 struct poi_t {
   float poi_range;
   float poi_angle;

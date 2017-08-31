@@ -1,0 +1,277 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="classlaser__object__t" kind="class" language="C++" prot="public">
+    <compoundname>laser_object_t</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlaser__object__t_1aba4fd9f128509e1f7c1dc928cf2b727c" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool laser_object_t::is_mobile</definition>
+        <argsstring></argsstring>
+        <name>is_mobile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="10" column="1" bodyfile="include/laser_objects.hpp" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlaser__object__t_1a13f0ed1ba0a9050bae6db84f3d5f2650" prot="private" static="no" mutable="no">
+        <type>std::pair&lt; float, float &gt;</type>
+        <definition>std::pair&lt;float, float&gt; laser_object_t::pos_centerofmass</definition>
+        <argsstring></argsstring>
+        <name>pos_centerofmass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="11" column="1" bodyfile="include/laser_objects.hpp" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlaser__object__t_1a7d49fa1260aa38bba4b9ab57d56567ba" prot="private" static="no" mutable="no">
+        <type>std::pair&lt; float, float &gt;</type>
+        <definition>std::pair&lt;float, float&gt; laser_object_t::vel_centerofmass</definition>
+        <argsstring></argsstring>
+        <name>vel_centerofmass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="12" column="1" bodyfile="include/laser_objects.hpp" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlaser__object__t_1ae9ac1608a29ea1050bb2c46b2a6e3fd9" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float laser_object_t::immobile_time</definition>
+        <argsstring></argsstring>
+        <name>immobile_time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="13" column="1" bodyfile="include/laser_objects.hpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlaser__object__t_1a86a17f06cdf56e6effcdffb561fe26eb" prot="private" static="no" mutable="no">
+        <type>ros::Time</type>
+        <definition>ros::Time laser_object_t::last_active</definition>
+        <argsstring></argsstring>
+        <name>last_active</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="14" column="1" bodyfile="include/laser_objects.hpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlaser__object__t_1aac25929dd97f4189689280e1d13b001a" prot="private" static="no" mutable="no">
+        <type>arma::fmat</type>
+        <definition>arma::fmat laser_object_t::X</definition>
+        <argsstring></argsstring>
+        <name>X</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="15" column="1" bodyfile="include/laser_objects.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlaser__object__t_1a18884654e291bc9c1349cbf8ff191210" prot="private" static="no" mutable="no">
+        <type>arma::fmat</type>
+        <definition>arma::fmat laser_object_t::P</definition>
+        <argsstring></argsstring>
+        <name>P</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="15" column="1" bodyfile="include/laser_objects.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlaser__object__t_1a3e9b8a7bb819cdd1461b3e8a6efeeb2b" prot="private" static="no" mutable="no">
+        <type>arma::fmat</type>
+        <definition>arma::fmat laser_object_t::K</definition>
+        <argsstring></argsstring>
+        <name>K</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="15" column="1" bodyfile="include/laser_objects.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classlaser__object__t_1aaf5e27005d394ba00082e17a0804f3b2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool laser_object_t::test_mobile</definition>
+        <argsstring>()</argsstring>
+        <name>test_mobile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="16" column="1" bodyfile="src/laser_objects.cpp" bodystart="49" bodyend="57"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlaser__object__t_1a86fb4dc51298aedc38f4dea202e86d94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>laser_object_t::laser_object_t</definition>
+        <argsstring>(std::pair&lt; float, float &gt; pos_com, std::pair&lt; float, float &gt; vel_com)</argsstring>
+        <name>laser_object_t</name>
+        <param>
+          <type>std::pair&lt; float, float &gt;</type>
+          <declname>pos_com</declname>
+        </param>
+        <param>
+          <type>std::pair&lt; float, float &gt;</type>
+          <declname>vel_com</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="18" column="1" bodyfile="src/laser_objects.cpp" bodystart="36" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classlaser__object__t_1a1306580c845a8e9e37646988d86788c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float laser_object_t::distance</definition>
+        <argsstring>(std::pair&lt; float, float &gt; coords_to)</argsstring>
+        <name>distance</name>
+        <param>
+          <type>std::pair&lt; float, float &gt;</type>
+          <declname>coords_to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="20" column="1" bodyfile="src/laser_objects.cpp" bodystart="59" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classlaser__object__t_1a85ea7644afff4ac0315156a182946110" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ros::Time</type>
+        <definition>ros::Time laser_object_t::get_last_active</definition>
+        <argsstring>()</argsstring>
+        <name>get_last_active</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="21" column="1" bodyfile="src/laser_objects.cpp" bodystart="109" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classlaser__object__t_1a02a018369ba1e52d2cec3625f7452c7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::pair&lt; float, float &gt;</type>
+        <definition>std::pair&lt; float, float &gt; laser_object_t::get_pos_centerofmass</definition>
+        <argsstring>()</argsstring>
+        <name>get_pos_centerofmass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="22" column="1" bodyfile="src/laser_objects.cpp" bodystart="112" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classlaser__object__t_1adfafd151af0900623901d162260ba234" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::pair&lt; float, float &gt;</type>
+        <definition>std::pair&lt; float, float &gt; laser_object_t::get_vel_centerofmass</definition>
+        <argsstring>()</argsstring>
+        <name>get_vel_centerofmass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="23" column="1" bodyfile="src/laser_objects.cpp" bodystart="115" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classlaser__object__t_1a5aba73083c62b017d1e09d9e36a35df1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool laser_object_t::get_is_mobile</definition>
+        <argsstring>()</argsstring>
+        <name>get_is_mobile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="24" column="1" bodyfile="src/laser_objects.cpp" bodystart="105" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classlaser__object__t_1ac9cc27a949e2af39dc4da7fb0fb8f8d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>laser_object_t::~laser_object_t</definition>
+        <argsstring>()</argsstring>
+        <name>~laser_object_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="25" column="1" bodyfile="src/laser_objects.cpp" bodystart="118" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classlaser__object__t_1a7197f41117174159f618bbdcd63f9cc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void laser_object_t::run_kalman_filter</definition>
+        <argsstring>(std::pair&lt; float, float &gt; new_pos, float dt)</argsstring>
+        <name>run_kalman_filter</name>
+        <param>
+          <type>std::pair&lt; float, float &gt;</type>
+          <declname>new_pos</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/laser_objects.hpp" line="26" column="1" bodyfile="src/laser_objects.cpp" bodystart="64" bodyend="103"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/laser_objects.hpp" line="9" column="1" bodyfile="include/laser_objects.hpp" bodystart="8" bodyend="27"/>
+    <listofallmembers>
+      <member refid="classlaser__object__t_1a1306580c845a8e9e37646988d86788c0" prot="public" virt="non-virtual"><scope>laser_object_t</scope><name>distance</name></member>
+      <member refid="classlaser__object__t_1a5aba73083c62b017d1e09d9e36a35df1" prot="public" virt="non-virtual"><scope>laser_object_t</scope><name>get_is_mobile</name></member>
+      <member refid="classlaser__object__t_1a85ea7644afff4ac0315156a182946110" prot="public" virt="non-virtual"><scope>laser_object_t</scope><name>get_last_active</name></member>
+      <member refid="classlaser__object__t_1a02a018369ba1e52d2cec3625f7452c7b" prot="public" virt="non-virtual"><scope>laser_object_t</scope><name>get_pos_centerofmass</name></member>
+      <member refid="classlaser__object__t_1adfafd151af0900623901d162260ba234" prot="public" virt="non-virtual"><scope>laser_object_t</scope><name>get_vel_centerofmass</name></member>
+      <member refid="classlaser__object__t_1ae9ac1608a29ea1050bb2c46b2a6e3fd9" prot="private" virt="non-virtual"><scope>laser_object_t</scope><name>immobile_time</name></member>
+      <member refid="classlaser__object__t_1aba4fd9f128509e1f7c1dc928cf2b727c" prot="private" virt="non-virtual"><scope>laser_object_t</scope><name>is_mobile</name></member>
+      <member refid="classlaser__object__t_1a3e9b8a7bb819cdd1461b3e8a6efeeb2b" prot="private" virt="non-virtual"><scope>laser_object_t</scope><name>K</name></member>
+      <member refid="classlaser__object__t_1a86fb4dc51298aedc38f4dea202e86d94" prot="public" virt="non-virtual"><scope>laser_object_t</scope><name>laser_object_t</name></member>
+      <member refid="classlaser__object__t_1a86a17f06cdf56e6effcdffb561fe26eb" prot="private" virt="non-virtual"><scope>laser_object_t</scope><name>last_active</name></member>
+      <member refid="classlaser__object__t_1a18884654e291bc9c1349cbf8ff191210" prot="private" virt="non-virtual"><scope>laser_object_t</scope><name>P</name></member>
+      <member refid="classlaser__object__t_1a13f0ed1ba0a9050bae6db84f3d5f2650" prot="private" virt="non-virtual"><scope>laser_object_t</scope><name>pos_centerofmass</name></member>
+      <member refid="classlaser__object__t_1a7197f41117174159f618bbdcd63f9cc3" prot="public" virt="non-virtual"><scope>laser_object_t</scope><name>run_kalman_filter</name></member>
+      <member refid="classlaser__object__t_1aaf5e27005d394ba00082e17a0804f3b2" prot="private" virt="non-virtual"><scope>laser_object_t</scope><name>test_mobile</name></member>
+      <member refid="classlaser__object__t_1a7d49fa1260aa38bba4b9ab57d56567ba" prot="private" virt="non-virtual"><scope>laser_object_t</scope><name>vel_centerofmass</name></member>
+      <member refid="classlaser__object__t_1aac25929dd97f4189689280e1d13b001a" prot="private" virt="non-virtual"><scope>laser_object_t</scope><name>X</name></member>
+      <member refid="classlaser__object__t_1ac9cc27a949e2af39dc4da7fb0fb8f8d4" prot="public" virt="non-virtual"><scope>laser_object_t</scope><name>~laser_object_t</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
