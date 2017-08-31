@@ -1,6 +1,10 @@
 #ifndef LASER_OBJECTS_H
 #define LASER_OBJECTS_H
 #include <armadillo>
+/*! \file laser_objects.hpp
+*/
+
+
 class laser_object_t
 {
 bool is_mobile;

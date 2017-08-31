@@ -1,0 +1,46 @@
+\hypertarget{track__objects__client_8cpp}{}\section{src/track\+\_\+objects\+\_\+client.cpp File Reference}
+\label{track__objects__client_8cpp}\index{src/track\+\_\+objects\+\_\+client.\+cpp@{src/track\+\_\+objects\+\_\+client.\+cpp}}
+
+
+R\+OS Client node of object tracker.  
+
+
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}laser\+\_\+scanner\+\_\+infoscreen/track\+Objects.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sensor\+\_\+msgs/\+Laser\+Scan.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}laser\+\_\+scanner\+\_\+infoscreen/biometrics.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}laser\+\_\+scanner\+\_\+infoscreen/biometrics\+\_\+results.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}laser\+\_\+scanner\+\_\+infoscreen/stepper\+\_\+control.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}laser\+\_\+scanner\+\_\+infoscreen/gesture\+\_\+call.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}laser\+\_\+scanner\+\_\+infoscreen/external\+\_\+control.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}std\+\_\+msgs/\+Int16.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$cstdlib$>$}\\*
+{\ttfamily \#include $<$cmath$>$}\\*
+{\ttfamily \#include $<$visualization\+\_\+msgs/\+Marker.\+h$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$chrono$>$}\\*
+{\ttfamily \#include $<$thread$>$}\\*
+Include dependency graph for track\+\_\+objects\+\_\+client.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{track__objects__client_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structpoi__t}{poi\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Person of interest. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+R\+OS Client node of object tracker. 
+
+Receives Laser\+Scan topic messages, passes them to the service, tracks the Person of Interest, and handles command of control of other nodes in the project.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{track__objects__server_8cpp}{track\+\_\+objects\+\_\+server.\+cpp} 
+
+laser\+\_\+objects 
+\end{DoxySeeAlso}

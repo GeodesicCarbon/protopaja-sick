@@ -10,15 +10,29 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <netdb.h>
+/*! \file control_tcp_socket.cpp
+  ROS node for the running infoscreen. Subscribes to the '/external_control' topic,
+  receives, parses and send messages on the TCP socket for the GUI.
+  \sa <track_objects_client>
+*/
 
+
+/*! \def CHAR_BUFFER_SIZE 
+Size of the buffer used by the TCP node.
+*/
 #define CHAR_BUFFER_SIZE 512 // Size of message buffer, message itself is small
+/*! \def SERVER_ADDRESS 
+Address of the TCP node. Currently runs only one localhost.
+*/
 #define SERVER_ADDRESS localhost // Only local run now
 
 using namespace std;
 
-int client = -1;
-int server = -1;
-
+//! external_control callback function.
+/*!
+  A callback function of topic external_control. Parses and send message by TCP.
+  \param msg topic message outlined in msg/external_control.msg
+*/
 void tcp_message_callback(const laser_scanner_infoscreen::external_control::ConstPtr& msg)
 {
   char char_buf[CHAR_BUFFER_SIZE] = {0};
@@ -33,10 +47,23 @@ void tcp_message_callback(const laser_scanner_infoscreen::external_control::Cons
   send(server, char_buf, strlen(char_buf)+1, 0);
 }
 
+/*! Main function of the node
+  Main function of the node. Creates socket, binds it and sets ROS to run. Handles cleanup.
+  
+  Node currently uses port 2259 as it is free per 
+  https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtm
+*/
 int main(int argc, char **argv)
 {
-  int tcp_port = 2259; // https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml
+  
+  int client = -1;
+  int server = -1;
+  
+
+  int tcp_port = 2259;
+  // Server adress struct
   struct sockaddr_in server_address;
+  // Hostent struct
   struct hostent *he;
   socklen_t address_size;
 
@@ -59,6 +86,7 @@ int main(int argc, char **argv)
   server_address.sin_family = AF_INET;
   server_address.sin_port = htons(tcp_port);
 
+  // Bind TCP socket
   if ((bind(client, (struct sockaddr*)&server_address,sizeof(server_address))) < 0)
   {
       perror("bind failed. Error");

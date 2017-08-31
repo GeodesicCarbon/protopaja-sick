@@ -1,3 +1,5 @@
+
+
 #include "ros/ros.h"
 #include <visualization_msgs/Marker.h>
 #include <vector>
@@ -8,12 +10,17 @@
 #include <algorithm>
 #include <string>
 #include </usr/include/armadillo>
-
+/*! \file laser_objects.cpp
+* \brief Implementation of object tracking
+*
+* Tracks and sorts objects into mobiles and statics from input given by laser_objects_server.cpp.
+* Tracking is achieved with linear Kalman filter
+*/
 using namespace arma;
 
-#define immobile_timeout 10.0f
+#define immobile_timeout 5.0f
 #define object_threshold 0.4
-#define immobile_threshold 100.0f
+#define immobile_threshold 1.0f
 #define CULLING_TIME 5
 
 
@@ -21,7 +28,7 @@ fmat Q  = { {0.1f, 0.0f, 0.0f, 0.0f},
             {0.0f, 0.1f, 0.0f, 0.0f},
             {0.0f, 0.0f, 1.0f, 0.0f}, //TODO:change real values
             {0.0f, 0.0f, 0.0f, 1.0f}  };
-static fmat R = fmat(4,4).eye() * 1.0f;
+static fmat R = fmat(4,4).eye() * 1.2f;
 static fmat H = fmat(4,4).eye() * 1.0f;
 // static fmat H = { {1.0f, 0.0f, 0.0f, 0.0f},
             // {0.0f, 1.0f, 0.0f, 0.0f} };

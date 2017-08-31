@@ -1,0 +1,153 @@
+\hypertarget{classlaser__object__t}{}\section{laser\+\_\+object\+\_\+t Class Reference}
+\label{classlaser__object__t}\index{laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}}
+
+
+{\ttfamily \#include $<$laser\+\_\+objects.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classlaser__object__t_a86fb4dc51298aedc38f4dea202e86d94}{laser\+\_\+object\+\_\+t} (std\+::pair$<$ float, float $>$ pos\+\_\+com, std\+::pair$<$ float, float $>$ vel\+\_\+com)
+\item 
+float \hyperlink{classlaser__object__t_a1306580c845a8e9e37646988d86788c0}{distance} (std\+::pair$<$ float, float $>$ coords\+\_\+to)
+\item 
+ros\+::\+Time \hyperlink{classlaser__object__t_a85ea7644afff4ac0315156a182946110}{get\+\_\+last\+\_\+active} ()
+\item 
+std\+::pair$<$ float, float $>$ \hyperlink{classlaser__object__t_a02a018369ba1e52d2cec3625f7452c7b}{get\+\_\+pos\+\_\+centerofmass} ()
+\item 
+std\+::pair$<$ float, float $>$ \hyperlink{classlaser__object__t_adfafd151af0900623901d162260ba234}{get\+\_\+vel\+\_\+centerofmass} ()
+\item 
+bool \hyperlink{classlaser__object__t_a5aba73083c62b017d1e09d9e36a35df1}{get\+\_\+is\+\_\+mobile} ()
+\item 
+\hyperlink{classlaser__object__t_ac9cc27a949e2af39dc4da7fb0fb8f8d4}{$\sim$laser\+\_\+object\+\_\+t} ()
+\item 
+void \hyperlink{classlaser__object__t_a7197f41117174159f618bbdcd63f9cc3}{run\+\_\+kalman\+\_\+filter} (std\+::pair$<$ float, float $>$ new\+\_\+pos, float dt)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classlaser__object__t_aaf5e27005d394ba00082e17a0804f3b2}{test\+\_\+mobile} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classlaser__object__t_aba4fd9f128509e1f7c1dc928cf2b727c}{is\+\_\+mobile}
+\item 
+std\+::pair$<$ float, float $>$ \hyperlink{classlaser__object__t_a13f0ed1ba0a9050bae6db84f3d5f2650}{pos\+\_\+centerofmass}
+\item 
+std\+::pair$<$ float, float $>$ \hyperlink{classlaser__object__t_a7d49fa1260aa38bba4b9ab57d56567ba}{vel\+\_\+centerofmass}
+\item 
+float \hyperlink{classlaser__object__t_ae9ac1608a29ea1050bb2c46b2a6e3fd9}{immobile\+\_\+time}
+\item 
+ros\+::\+Time \hyperlink{classlaser__object__t_a86a17f06cdf56e6effcdffb561fe26eb}{last\+\_\+active}
+\item 
+arma\+::fmat \hyperlink{classlaser__object__t_aac25929dd97f4189689280e1d13b001a}{X}
+\item 
+arma\+::fmat \hyperlink{classlaser__object__t_a18884654e291bc9c1349cbf8ff191210}{P}
+\item 
+arma\+::fmat \hyperlink{classlaser__object__t_a3e9b8a7bb819cdd1461b3e8a6efeeb2b}{K}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}!laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}}
+\index{laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}!laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}}
+\subsubsection[{\texorpdfstring{laser\+\_\+object\+\_\+t(std\+::pair$<$ float, float $>$ pos\+\_\+com, std\+::pair$<$ float, float $>$ vel\+\_\+com)}{laser_object_t(std::pair< float, float > pos_com, std::pair< float, float > vel_com)}}]{\setlength{\rightskip}{0pt plus 5cm}laser\+\_\+object\+\_\+t\+::laser\+\_\+object\+\_\+t (
+\begin{DoxyParamCaption}
+\item[{std\+::pair$<$ float, float $>$}]{pos\+\_\+com, }
+\item[{std\+::pair$<$ float, float $>$}]{vel\+\_\+com}
+\end{DoxyParamCaption}
+)}\hypertarget{classlaser__object__t_a86fb4dc51298aedc38f4dea202e86d94}{}\label{classlaser__object__t_a86fb4dc51298aedc38f4dea202e86d94}
+\index{laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}!````~laser\+\_\+object\+\_\+t@{$\sim$laser\+\_\+object\+\_\+t}}
+\index{````~laser\+\_\+object\+\_\+t@{$\sim$laser\+\_\+object\+\_\+t}!laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}}
+\subsubsection[{\texorpdfstring{$\sim$laser\+\_\+object\+\_\+t()}{~laser_object_t()}}]{\setlength{\rightskip}{0pt plus 5cm}laser\+\_\+object\+\_\+t\+::$\sim$laser\+\_\+object\+\_\+t (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classlaser__object__t_ac9cc27a949e2af39dc4da7fb0fb8f8d4}{}\label{classlaser__object__t_ac9cc27a949e2af39dc4da7fb0fb8f8d4}
+
+
+\subsection{Member Function Documentation}
+\index{laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}!distance@{distance}}
+\index{distance@{distance}!laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}}
+\subsubsection[{\texorpdfstring{distance(std\+::pair$<$ float, float $>$ coords\+\_\+to)}{distance(std::pair< float, float > coords_to)}}]{\setlength{\rightskip}{0pt plus 5cm}float laser\+\_\+object\+\_\+t\+::distance (
+\begin{DoxyParamCaption}
+\item[{std\+::pair$<$ float, float $>$}]{coords\+\_\+to}
+\end{DoxyParamCaption}
+)}\hypertarget{classlaser__object__t_a1306580c845a8e9e37646988d86788c0}{}\label{classlaser__object__t_a1306580c845a8e9e37646988d86788c0}
+\index{laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}!get\+\_\+is\+\_\+mobile@{get\+\_\+is\+\_\+mobile}}
+\index{get\+\_\+is\+\_\+mobile@{get\+\_\+is\+\_\+mobile}!laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}}
+\subsubsection[{\texorpdfstring{get\+\_\+is\+\_\+mobile()}{get_is_mobile()}}]{\setlength{\rightskip}{0pt plus 5cm}bool laser\+\_\+object\+\_\+t\+::get\+\_\+is\+\_\+mobile (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classlaser__object__t_a5aba73083c62b017d1e09d9e36a35df1}{}\label{classlaser__object__t_a5aba73083c62b017d1e09d9e36a35df1}
+\index{laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}!get\+\_\+last\+\_\+active@{get\+\_\+last\+\_\+active}}
+\index{get\+\_\+last\+\_\+active@{get\+\_\+last\+\_\+active}!laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}}
+\subsubsection[{\texorpdfstring{get\+\_\+last\+\_\+active()}{get_last_active()}}]{\setlength{\rightskip}{0pt plus 5cm}ros\+::\+Time laser\+\_\+object\+\_\+t\+::get\+\_\+last\+\_\+active (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classlaser__object__t_a85ea7644afff4ac0315156a182946110}{}\label{classlaser__object__t_a85ea7644afff4ac0315156a182946110}
+\index{laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}!get\+\_\+pos\+\_\+centerofmass@{get\+\_\+pos\+\_\+centerofmass}}
+\index{get\+\_\+pos\+\_\+centerofmass@{get\+\_\+pos\+\_\+centerofmass}!laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}}
+\subsubsection[{\texorpdfstring{get\+\_\+pos\+\_\+centerofmass()}{get_pos_centerofmass()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::pair$<$ float, float $>$ laser\+\_\+object\+\_\+t\+::get\+\_\+pos\+\_\+centerofmass (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classlaser__object__t_a02a018369ba1e52d2cec3625f7452c7b}{}\label{classlaser__object__t_a02a018369ba1e52d2cec3625f7452c7b}
+\index{laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}!get\+\_\+vel\+\_\+centerofmass@{get\+\_\+vel\+\_\+centerofmass}}
+\index{get\+\_\+vel\+\_\+centerofmass@{get\+\_\+vel\+\_\+centerofmass}!laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}}
+\subsubsection[{\texorpdfstring{get\+\_\+vel\+\_\+centerofmass()}{get_vel_centerofmass()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::pair$<$ float, float $>$ laser\+\_\+object\+\_\+t\+::get\+\_\+vel\+\_\+centerofmass (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classlaser__object__t_adfafd151af0900623901d162260ba234}{}\label{classlaser__object__t_adfafd151af0900623901d162260ba234}
+\index{laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}!run\+\_\+kalman\+\_\+filter@{run\+\_\+kalman\+\_\+filter}}
+\index{run\+\_\+kalman\+\_\+filter@{run\+\_\+kalman\+\_\+filter}!laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}}
+\subsubsection[{\texorpdfstring{run\+\_\+kalman\+\_\+filter(std\+::pair$<$ float, float $>$ new\+\_\+pos, float dt)}{run_kalman_filter(std::pair< float, float > new_pos, float dt)}}]{\setlength{\rightskip}{0pt plus 5cm}void laser\+\_\+object\+\_\+t\+::run\+\_\+kalman\+\_\+filter (
+\begin{DoxyParamCaption}
+\item[{std\+::pair$<$ float, float $>$}]{new\+\_\+pos, }
+\item[{float}]{dt}
+\end{DoxyParamCaption}
+)}\hypertarget{classlaser__object__t_a7197f41117174159f618bbdcd63f9cc3}{}\label{classlaser__object__t_a7197f41117174159f618bbdcd63f9cc3}
+\index{laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}!test\+\_\+mobile@{test\+\_\+mobile}}
+\index{test\+\_\+mobile@{test\+\_\+mobile}!laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}}
+\subsubsection[{\texorpdfstring{test\+\_\+mobile()}{test_mobile()}}]{\setlength{\rightskip}{0pt plus 5cm}bool laser\+\_\+object\+\_\+t\+::test\+\_\+mobile (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classlaser__object__t_aaf5e27005d394ba00082e17a0804f3b2}{}\label{classlaser__object__t_aaf5e27005d394ba00082e17a0804f3b2}
+
+
+\subsection{Member Data Documentation}
+\index{laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}!immobile\+\_\+time@{immobile\+\_\+time}}
+\index{immobile\+\_\+time@{immobile\+\_\+time}!laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}}
+\subsubsection[{\texorpdfstring{immobile\+\_\+time}{immobile_time}}]{\setlength{\rightskip}{0pt plus 5cm}float laser\+\_\+object\+\_\+t\+::immobile\+\_\+time\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classlaser__object__t_ae9ac1608a29ea1050bb2c46b2a6e3fd9}{}\label{classlaser__object__t_ae9ac1608a29ea1050bb2c46b2a6e3fd9}
+\index{laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}!is\+\_\+mobile@{is\+\_\+mobile}}
+\index{is\+\_\+mobile@{is\+\_\+mobile}!laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}}
+\subsubsection[{\texorpdfstring{is\+\_\+mobile}{is_mobile}}]{\setlength{\rightskip}{0pt plus 5cm}bool laser\+\_\+object\+\_\+t\+::is\+\_\+mobile\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classlaser__object__t_aba4fd9f128509e1f7c1dc928cf2b727c}{}\label{classlaser__object__t_aba4fd9f128509e1f7c1dc928cf2b727c}
+\index{laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}!K@{K}}
+\index{K@{K}!laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}}
+\subsubsection[{\texorpdfstring{K}{K}}]{\setlength{\rightskip}{0pt plus 5cm}arma\+::fmat laser\+\_\+object\+\_\+t\+::K\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classlaser__object__t_a3e9b8a7bb819cdd1461b3e8a6efeeb2b}{}\label{classlaser__object__t_a3e9b8a7bb819cdd1461b3e8a6efeeb2b}
+\index{laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}!last\+\_\+active@{last\+\_\+active}}
+\index{last\+\_\+active@{last\+\_\+active}!laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}}
+\subsubsection[{\texorpdfstring{last\+\_\+active}{last_active}}]{\setlength{\rightskip}{0pt plus 5cm}ros\+::\+Time laser\+\_\+object\+\_\+t\+::last\+\_\+active\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classlaser__object__t_a86a17f06cdf56e6effcdffb561fe26eb}{}\label{classlaser__object__t_a86a17f06cdf56e6effcdffb561fe26eb}
+\index{laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}!P@{P}}
+\index{P@{P}!laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}}
+\subsubsection[{\texorpdfstring{P}{P}}]{\setlength{\rightskip}{0pt plus 5cm}arma\+::fmat laser\+\_\+object\+\_\+t\+::P\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classlaser__object__t_a18884654e291bc9c1349cbf8ff191210}{}\label{classlaser__object__t_a18884654e291bc9c1349cbf8ff191210}
+\index{laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}!pos\+\_\+centerofmass@{pos\+\_\+centerofmass}}
+\index{pos\+\_\+centerofmass@{pos\+\_\+centerofmass}!laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}}
+\subsubsection[{\texorpdfstring{pos\+\_\+centerofmass}{pos_centerofmass}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::pair$<$float, float$>$ laser\+\_\+object\+\_\+t\+::pos\+\_\+centerofmass\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classlaser__object__t_a13f0ed1ba0a9050bae6db84f3d5f2650}{}\label{classlaser__object__t_a13f0ed1ba0a9050bae6db84f3d5f2650}
+\index{laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}!vel\+\_\+centerofmass@{vel\+\_\+centerofmass}}
+\index{vel\+\_\+centerofmass@{vel\+\_\+centerofmass}!laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}}
+\subsubsection[{\texorpdfstring{vel\+\_\+centerofmass}{vel_centerofmass}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::pair$<$float, float$>$ laser\+\_\+object\+\_\+t\+::vel\+\_\+centerofmass\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classlaser__object__t_a7d49fa1260aa38bba4b9ab57d56567ba}{}\label{classlaser__object__t_a7d49fa1260aa38bba4b9ab57d56567ba}
+\index{laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}!X@{X}}
+\index{X@{X}!laser\+\_\+object\+\_\+t@{laser\+\_\+object\+\_\+t}}
+\subsubsection[{\texorpdfstring{X}{X}}]{\setlength{\rightskip}{0pt plus 5cm}arma\+::fmat laser\+\_\+object\+\_\+t\+::X\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classlaser__object__t_aac25929dd97f4189689280e1d13b001a}{}\label{classlaser__object__t_aac25929dd97f4189689280e1d13b001a}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{laser__objects_8hpp}{laser\+\_\+objects.\+hpp}\item 
+src/\hyperlink{laser__objects_8cpp}{laser\+\_\+objects.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="structservo__t" kind="struct" language="C++" prot="public">
+    <compoundname>servo_t</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structservo__t_1a2d870f86b97b371fff86ac1c02f789f6" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool servo_t::is_readable</definition>
+        <argsstring></argsstring>
+        <name>is_readable</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gesture_control.cpp" line="73" column="1" bodyfile="src/gesture_control.cpp" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/gesture_control.cpp" line="72" column="1" bodyfile="src/gesture_control.cpp" bodystart="72" bodyend="74"/>
+    <listofallmembers>
+      <member refid="structservo__t_1a2d870f86b97b371fff86ac1c02f789f6" prot="public" virt="non-virtual"><scope>servo_t</scope><name>is_readable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

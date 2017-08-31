@@ -1,0 +1,8 @@
+var searchData=
+[
+  ['main',['main',['../control__tcp__socket_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;control_tcp_socket.cpp'],['../gesture__control_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;gesture_control.cpp'],['../measure__biometrics_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;measure_biometrics.cpp'],['../track__objects__client_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;track_objects_client.cpp'],['../track__objects__server_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;track_objects_server.cpp']]],
+  ['main_5fpoi',['main_poi',['../track__objects__client_8cpp.html#a7e3e2d81fd70af827d4b62c552baf3e0',1,'track_objects_client.cpp']]],
+  ['marker_5fpub_5fpointer',['marker_pub_pointer',['../gesture__control_8cpp.html#a63b0cea48d2da7a328302aee063e57b9',1,'marker_pub_pointer():&#160;gesture_control.cpp'],['../measure__biometrics_8cpp.html#a63b0cea48d2da7a328302aee063e57b9',1,'marker_pub_pointer():&#160;measure_biometrics.cpp'],['../track__objects__client_8cpp.html#a63b0cea48d2da7a328302aee063e57b9',1,'marker_pub_pointer():&#160;track_objects_client.cpp'],['../track__objects__server_8cpp.html#a63b0cea48d2da7a328302aee063e57b9',1,'marker_pub_pointer():&#160;track_objects_server.cpp']]],
+  ['max_5frange',['MAX_RANGE',['../track__objects__client_8cpp.html#ab06d3e8dbb4b7ee5c62d9cf3df4aa3e3',1,'track_objects_client.cpp']]],
+  ['measure_5fbiometrics_2ecpp',['measure_biometrics.cpp',['../measure__biometrics_8cpp.html',1,'']]]
+];

@@ -1,0 +1,116 @@
+\hypertarget{measure__biometrics_8cpp}{}\section{src/measure\+\_\+biometrics.cpp File Reference}
+\label{measure__biometrics_8cpp}\index{src/measure\+\_\+biometrics.\+cpp@{src/measure\+\_\+biometrics.\+cpp}}
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ros/topic.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sensor\+\_\+msgs/\+Laser\+Scan.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}laser\+\_\+scanner\+\_\+infoscreen/biometrics.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}laser\+\_\+scanner\+\_\+infoscreen/biometrics\+\_\+results.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}laser\+\_\+scanner\+\_\+infoscreen/servo\+\_\+control.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}laser\+\_\+scanner\+\_\+infoscreen/servo\+\_\+feedback.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$cstdlib$>$}\\*
+{\ttfamily \#include $<$visualization\+\_\+msgs/\+Marker.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$chrono$>$}\\*
+{\ttfamily \#include $<$thread$>$}\\*
+Include dependency graph for measure\+\_\+biometrics.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{measure__biometrics_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structservo__angle__t}{servo\+\_\+angle\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{measure__biometrics_8cpp_a652fa32c4482bb0d3805c3c5f5900af5}{servo\+\_\+speed\+\_\+const}~5235
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{measure__biometrics_8cpp_a4097f5bdd8d9b874738cfeb7fd72828c}{calculate\+\_\+range} (float angle\+\_\+h, float low\+\_\+range)
+\item 
+float \hyperlink{measure__biometrics_8cpp_a4ad0813f9401699c8840005f44ac4891}{set\+\_\+tilt\+\_\+uppper\+\_\+scanner} (float rad)
+\item 
+void \hyperlink{measure__biometrics_8cpp_a5b62649fd6ccd78f4595bd3e1329e2c3}{biometrics\+\_\+callback} (const laser\+\_\+scanner\+\_\+infoscreen\+::biometrics\+::\+Const\+Ptr \&\hyperlink{gesture__control_8cpp_a1aa23b898528eadf4c747440d5e8a396}{poi})
+\item 
+void \hyperlink{measure__biometrics_8cpp_a272dea7f151f9bf75131542422903056}{servo\+\_\+feedback\+\_\+callback} (const laser\+\_\+scanner\+\_\+infoscreen\+::servo\+\_\+feedback \&msg)
+\item 
+int \hyperlink{measure__biometrics_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+ros\+::\+Publisher $\ast$ \hyperlink{measure__biometrics_8cpp_a63b0cea48d2da7a328302aee063e57b9}{marker\+\_\+pub\+\_\+pointer}
+\item 
+ros\+::\+Publisher $\ast$ \hyperlink{measure__biometrics_8cpp_ad7c4130fa2a9b5b52c9cc9762accfe31}{servo\+\_\+control\+\_\+pointer}
+\item 
+ros\+::\+Publisher $\ast$ \hyperlink{measure__biometrics_8cpp_a859597d1d3be30a6f99cb8051a03d0c8}{biometrics\+\_\+results\+\_\+pointer}
+\item 
+struct \hyperlink{structservo__angle__t}{servo\+\_\+angle\+\_\+t} \hyperlink{measure__biometrics_8cpp_ad1749a3f174e5a1ea7406541575cc99d}{servo\+\_\+angle}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{measure\+\_\+biometrics.\+cpp@{measure\+\_\+biometrics.\+cpp}!servo\+\_\+speed\+\_\+const@{servo\+\_\+speed\+\_\+const}}
+\index{servo\+\_\+speed\+\_\+const@{servo\+\_\+speed\+\_\+const}!measure\+\_\+biometrics.\+cpp@{measure\+\_\+biometrics.\+cpp}}
+\subsubsection[{\texorpdfstring{servo\+\_\+speed\+\_\+const}{servo_speed_const}}]{\setlength{\rightskip}{0pt plus 5cm}\#define servo\+\_\+speed\+\_\+const~5235}\hypertarget{measure__biometrics_8cpp_a652fa32c4482bb0d3805c3c5f5900af5}{}\label{measure__biometrics_8cpp_a652fa32c4482bb0d3805c3c5f5900af5}
+
+
+\subsection{Function Documentation}
+\index{measure\+\_\+biometrics.\+cpp@{measure\+\_\+biometrics.\+cpp}!biometrics\+\_\+callback@{biometrics\+\_\+callback}}
+\index{biometrics\+\_\+callback@{biometrics\+\_\+callback}!measure\+\_\+biometrics.\+cpp@{measure\+\_\+biometrics.\+cpp}}
+\subsubsection[{\texorpdfstring{biometrics\+\_\+callback(const laser\+\_\+scanner\+\_\+infoscreen\+::biometrics\+::\+Const\+Ptr \&poi)}{biometrics_callback(const laser_scanner_infoscreen::biometrics::ConstPtr &poi)}}]{\setlength{\rightskip}{0pt plus 5cm}void biometrics\+\_\+callback (
+\begin{DoxyParamCaption}
+\item[{const laser\+\_\+scanner\+\_\+infoscreen\+::biometrics\+::\+Const\+Ptr \&}]{poi}
+\end{DoxyParamCaption}
+)}\hypertarget{measure__biometrics_8cpp_a5b62649fd6ccd78f4595bd3e1329e2c3}{}\label{measure__biometrics_8cpp_a5b62649fd6ccd78f4595bd3e1329e2c3}
+\index{measure\+\_\+biometrics.\+cpp@{measure\+\_\+biometrics.\+cpp}!calculate\+\_\+range@{calculate\+\_\+range}}
+\index{calculate\+\_\+range@{calculate\+\_\+range}!measure\+\_\+biometrics.\+cpp@{measure\+\_\+biometrics.\+cpp}}
+\subsubsection[{\texorpdfstring{calculate\+\_\+range(float angle\+\_\+h, float low\+\_\+range)}{calculate_range(float angle_h, float low_range)}}]{\setlength{\rightskip}{0pt plus 5cm}float calculate\+\_\+range (
+\begin{DoxyParamCaption}
+\item[{float}]{angle\+\_\+h, }
+\item[{float}]{low\+\_\+range}
+\end{DoxyParamCaption}
+)}\hypertarget{measure__biometrics_8cpp_a4097f5bdd8d9b874738cfeb7fd72828c}{}\label{measure__biometrics_8cpp_a4097f5bdd8d9b874738cfeb7fd72828c}
+\index{measure\+\_\+biometrics.\+cpp@{measure\+\_\+biometrics.\+cpp}!main@{main}}
+\index{main@{main}!measure\+\_\+biometrics.\+cpp@{measure\+\_\+biometrics.\+cpp}}
+\subsubsection[{\texorpdfstring{main(int argc, char $\ast$$\ast$argv)}{main(int argc, char **argv)}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\hypertarget{measure__biometrics_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{}\label{measure__biometrics_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+\index{measure\+\_\+biometrics.\+cpp@{measure\+\_\+biometrics.\+cpp}!servo\+\_\+feedback\+\_\+callback@{servo\+\_\+feedback\+\_\+callback}}
+\index{servo\+\_\+feedback\+\_\+callback@{servo\+\_\+feedback\+\_\+callback}!measure\+\_\+biometrics.\+cpp@{measure\+\_\+biometrics.\+cpp}}
+\subsubsection[{\texorpdfstring{servo\+\_\+feedback\+\_\+callback(const laser\+\_\+scanner\+\_\+infoscreen\+::servo\+\_\+feedback \&msg)}{servo_feedback_callback(const laser_scanner_infoscreen::servo_feedback &msg)}}]{\setlength{\rightskip}{0pt plus 5cm}void servo\+\_\+feedback\+\_\+callback (
+\begin{DoxyParamCaption}
+\item[{const laser\+\_\+scanner\+\_\+infoscreen\+::servo\+\_\+feedback \&}]{msg}
+\end{DoxyParamCaption}
+)}\hypertarget{measure__biometrics_8cpp_a272dea7f151f9bf75131542422903056}{}\label{measure__biometrics_8cpp_a272dea7f151f9bf75131542422903056}
+\index{measure\+\_\+biometrics.\+cpp@{measure\+\_\+biometrics.\+cpp}!set\+\_\+tilt\+\_\+uppper\+\_\+scanner@{set\+\_\+tilt\+\_\+uppper\+\_\+scanner}}
+\index{set\+\_\+tilt\+\_\+uppper\+\_\+scanner@{set\+\_\+tilt\+\_\+uppper\+\_\+scanner}!measure\+\_\+biometrics.\+cpp@{measure\+\_\+biometrics.\+cpp}}
+\subsubsection[{\texorpdfstring{set\+\_\+tilt\+\_\+uppper\+\_\+scanner(float rad)}{set_tilt_uppper_scanner(float rad)}}]{\setlength{\rightskip}{0pt plus 5cm}float set\+\_\+tilt\+\_\+uppper\+\_\+scanner (
+\begin{DoxyParamCaption}
+\item[{float}]{rad}
+\end{DoxyParamCaption}
+)}\hypertarget{measure__biometrics_8cpp_a4ad0813f9401699c8840005f44ac4891}{}\label{measure__biometrics_8cpp_a4ad0813f9401699c8840005f44ac4891}
+
+
+\subsection{Variable Documentation}
+\index{measure\+\_\+biometrics.\+cpp@{measure\+\_\+biometrics.\+cpp}!biometrics\+\_\+results\+\_\+pointer@{biometrics\+\_\+results\+\_\+pointer}}
+\index{biometrics\+\_\+results\+\_\+pointer@{biometrics\+\_\+results\+\_\+pointer}!measure\+\_\+biometrics.\+cpp@{measure\+\_\+biometrics.\+cpp}}
+\subsubsection[{\texorpdfstring{biometrics\+\_\+results\+\_\+pointer}{biometrics_results_pointer}}]{\setlength{\rightskip}{0pt plus 5cm}ros\+::\+Publisher$\ast$ biometrics\+\_\+results\+\_\+pointer}\hypertarget{measure__biometrics_8cpp_a859597d1d3be30a6f99cb8051a03d0c8}{}\label{measure__biometrics_8cpp_a859597d1d3be30a6f99cb8051a03d0c8}
+\index{measure\+\_\+biometrics.\+cpp@{measure\+\_\+biometrics.\+cpp}!marker\+\_\+pub\+\_\+pointer@{marker\+\_\+pub\+\_\+pointer}}
+\index{marker\+\_\+pub\+\_\+pointer@{marker\+\_\+pub\+\_\+pointer}!measure\+\_\+biometrics.\+cpp@{measure\+\_\+biometrics.\+cpp}}
+\subsubsection[{\texorpdfstring{marker\+\_\+pub\+\_\+pointer}{marker_pub_pointer}}]{\setlength{\rightskip}{0pt plus 5cm}ros\+::\+Publisher$\ast$ marker\+\_\+pub\+\_\+pointer}\hypertarget{measure__biometrics_8cpp_a63b0cea48d2da7a328302aee063e57b9}{}\label{measure__biometrics_8cpp_a63b0cea48d2da7a328302aee063e57b9}
+\index{measure\+\_\+biometrics.\+cpp@{measure\+\_\+biometrics.\+cpp}!servo\+\_\+angle@{servo\+\_\+angle}}
+\index{servo\+\_\+angle@{servo\+\_\+angle}!measure\+\_\+biometrics.\+cpp@{measure\+\_\+biometrics.\+cpp}}
+\subsubsection[{\texorpdfstring{servo\+\_\+angle}{servo_angle}}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf servo\+\_\+angle\+\_\+t}  servo\+\_\+angle}\hypertarget{measure__biometrics_8cpp_ad1749a3f174e5a1ea7406541575cc99d}{}\label{measure__biometrics_8cpp_ad1749a3f174e5a1ea7406541575cc99d}
+\index{measure\+\_\+biometrics.\+cpp@{measure\+\_\+biometrics.\+cpp}!servo\+\_\+control\+\_\+pointer@{servo\+\_\+control\+\_\+pointer}}
+\index{servo\+\_\+control\+\_\+pointer@{servo\+\_\+control\+\_\+pointer}!measure\+\_\+biometrics.\+cpp@{measure\+\_\+biometrics.\+cpp}}
+\subsubsection[{\texorpdfstring{servo\+\_\+control\+\_\+pointer}{servo_control_pointer}}]{\setlength{\rightskip}{0pt plus 5cm}ros\+::\+Publisher$\ast$ servo\+\_\+control\+\_\+pointer}\hypertarget{measure__biometrics_8cpp_ad7c4130fa2a9b5b52c9cc9762accfe31}{}\label{measure__biometrics_8cpp_ad7c4130fa2a9b5b52c9cc9762accfe31}

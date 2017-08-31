@@ -2,6 +2,9 @@
 #include <cmath>
 #include <algorithm>
 #include <visualization_msgs/Marker.h>
+/*! \file scanner_gestures.cpp
+*
+*/
 
 #define DIST_MULTI 10.0f
 #define DECAY_CONST 0.4f

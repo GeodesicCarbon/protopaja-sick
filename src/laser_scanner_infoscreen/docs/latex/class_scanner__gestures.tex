@@ -1,0 +1,175 @@
+\hypertarget{class_scanner__gestures}{}\section{Scanner\+\_\+gestures Class Reference}
+\label{class_scanner__gestures}\index{Scanner\+\_\+gestures@{Scanner\+\_\+gestures}}
+
+
+{\ttfamily \#include $<$scanner\+\_\+gestures.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_scanner__gestures_a7bb0ce7e1b2d40a3f5b2b55f8a8508e2}{Scanner\+\_\+gestures} ()
+\item 
+void \hyperlink{class_scanner__gestures_a6dc7d1dc6802ea02d94f730b32a81e87}{parse\+\_\+sensor\+\_\+data} (std\+::vector$<$ float $>$ range, float angle\+\_\+start, float angle\+\_\+increment, float \hyperlink{class_scanner__gestures_a55694caa26cbfbc83f349a11a15a6980}{poi\+\_\+range}, float \hyperlink{class_scanner__gestures_a191a5090d123ef3ab2f3ae7e7c83c59b}{poi\+\_\+angle})
+\item 
+void \hyperlink{class_scanner__gestures_a8b8caf958afa2915e37a521c634ce694}{set\+\_\+tracking} (bool \hyperlink{class_scanner__gestures_a31783191e1afd1ab1e9c295aa243b6ac}{is\+\_\+tracking})
+\item 
+bool \hyperlink{class_scanner__gestures_a17ea1a511a53a07fb1f407f5229e0363}{get\+\_\+tracking} ()
+\item 
+\hyperlink{scanner__gestures_8h_a7439cb1fb2597b68ef2f1f3306500dec}{gest\+\_\+e} \hyperlink{class_scanner__gestures_a8c02a5520f94f676b2e3f510ed6765bb}{get\+\_\+gesture} (float threshold)
+\item 
+std\+::pair$<$ float, float $>$ \hyperlink{class_scanner__gestures_a07e953de14a41b97f5d66b8431760c37}{get\+\_\+right\+\_\+closest} ()
+\item 
+std\+::pair$<$ float, float $>$ \hyperlink{class_scanner__gestures_ad657d904d60e85f53dd7f9dc11ccf41e}{get\+\_\+left\+\_\+closest} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_scanner__gestures_a8239d96119dc8c87737774dcb786d5d4}{is\+\_\+in\+\_\+tracking\+\_\+area} (int index)
+\item 
+float \hyperlink{class_scanner__gestures_afb846c8368b20e533e283fda2af2962e}{delta\+\_\+h} (float angle\+\_\+increment, int index)
+\item 
+std\+::pair$<$ int, int $>$ \hyperlink{class_scanner__gestures_a46c81fb4179dda97e52e83323d6f6f93}{create\+\_\+slice\+\_\+indices} (float angle\+\_\+start, float angle\+\_\+increment)
+\item 
+void \hyperlink{class_scanner__gestures_add7d6045dd42c8a7409f7100ced6e27d}{update\+\_\+score} (float angle\+\_\+increment)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{class_scanner__gestures_ac70d55167bb745213abadfb06a615e91}{right\+\_\+score}
+\item 
+float \hyperlink{class_scanner__gestures_a42ac1f24eee3f92065743f0a23452dd5}{left\+\_\+score}
+\item 
+float \hyperlink{class_scanner__gestures_a55694caa26cbfbc83f349a11a15a6980}{poi\+\_\+range}
+\item 
+float \hyperlink{class_scanner__gestures_a191a5090d123ef3ab2f3ae7e7c83c59b}{poi\+\_\+angle}
+\item 
+std\+::pair$<$ float, float $>$ \hyperlink{class_scanner__gestures_ad51010037fec39cc18a5ccd23bb52d02}{right\+\_\+closest}
+\item 
+std\+::pair$<$ float, float $>$ \hyperlink{class_scanner__gestures_aaa7bab014f2c47eab1314c5dd6a5c25e}{left\+\_\+closest}
+\item 
+std\+::vector$<$ float $>$ \hyperlink{class_scanner__gestures_af41d7e1707fce466c71119a52999913a}{slice}
+\item 
+bool \hyperlink{class_scanner__gestures_a31783191e1afd1ab1e9c295aa243b6ac}{is\+\_\+tracking}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Scanner\+\_\+gestures@{Scanner\+\_\+gestures}!Scanner\+\_\+gestures@{Scanner\+\_\+gestures}}
+\index{Scanner\+\_\+gestures@{Scanner\+\_\+gestures}!Scanner\+\_\+gestures@{Scanner\+\_\+gestures}}
+\subsubsection[{\texorpdfstring{Scanner\+\_\+gestures()}{Scanner_gestures()}}]{\setlength{\rightskip}{0pt plus 5cm}Scanner\+\_\+gestures\+::\+Scanner\+\_\+gestures (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_scanner__gestures_a7bb0ce7e1b2d40a3f5b2b55f8a8508e2}{}\label{class_scanner__gestures_a7bb0ce7e1b2d40a3f5b2b55f8a8508e2}
+
+
+\subsection{Member Function Documentation}
+\index{Scanner\+\_\+gestures@{Scanner\+\_\+gestures}!create\+\_\+slice\+\_\+indices@{create\+\_\+slice\+\_\+indices}}
+\index{create\+\_\+slice\+\_\+indices@{create\+\_\+slice\+\_\+indices}!Scanner\+\_\+gestures@{Scanner\+\_\+gestures}}
+\subsubsection[{\texorpdfstring{create\+\_\+slice\+\_\+indices(float angle\+\_\+start, float angle\+\_\+increment)}{create_slice_indices(float angle_start, float angle_increment)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::pair$<$ int, int $>$ Scanner\+\_\+gestures\+::create\+\_\+slice\+\_\+indices (
+\begin{DoxyParamCaption}
+\item[{float}]{angle\+\_\+start, }
+\item[{float}]{angle\+\_\+increment}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_scanner__gestures_a46c81fb4179dda97e52e83323d6f6f93}{}\label{class_scanner__gestures_a46c81fb4179dda97e52e83323d6f6f93}
+\index{Scanner\+\_\+gestures@{Scanner\+\_\+gestures}!delta\+\_\+h@{delta\+\_\+h}}
+\index{delta\+\_\+h@{delta\+\_\+h}!Scanner\+\_\+gestures@{Scanner\+\_\+gestures}}
+\subsubsection[{\texorpdfstring{delta\+\_\+h(float angle\+\_\+increment, int index)}{delta_h(float angle_increment, int index)}}]{\setlength{\rightskip}{0pt plus 5cm}float Scanner\+\_\+gestures\+::delta\+\_\+h (
+\begin{DoxyParamCaption}
+\item[{float}]{angle\+\_\+increment, }
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_scanner__gestures_afb846c8368b20e533e283fda2af2962e}{}\label{class_scanner__gestures_afb846c8368b20e533e283fda2af2962e}
+\index{Scanner\+\_\+gestures@{Scanner\+\_\+gestures}!get\+\_\+gesture@{get\+\_\+gesture}}
+\index{get\+\_\+gesture@{get\+\_\+gesture}!Scanner\+\_\+gestures@{Scanner\+\_\+gestures}}
+\subsubsection[{\texorpdfstring{get\+\_\+gesture(float threshold)}{get_gesture(float threshold)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf gest\+\_\+e} Scanner\+\_\+gestures\+::get\+\_\+gesture (
+\begin{DoxyParamCaption}
+\item[{float}]{threshold}
+\end{DoxyParamCaption}
+)}\hypertarget{class_scanner__gestures_a8c02a5520f94f676b2e3f510ed6765bb}{}\label{class_scanner__gestures_a8c02a5520f94f676b2e3f510ed6765bb}
+\index{Scanner\+\_\+gestures@{Scanner\+\_\+gestures}!get\+\_\+left\+\_\+closest@{get\+\_\+left\+\_\+closest}}
+\index{get\+\_\+left\+\_\+closest@{get\+\_\+left\+\_\+closest}!Scanner\+\_\+gestures@{Scanner\+\_\+gestures}}
+\subsubsection[{\texorpdfstring{get\+\_\+left\+\_\+closest()}{get_left_closest()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::pair$<$ float, float $>$ Scanner\+\_\+gestures\+::get\+\_\+left\+\_\+closest (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_scanner__gestures_ad657d904d60e85f53dd7f9dc11ccf41e}{}\label{class_scanner__gestures_ad657d904d60e85f53dd7f9dc11ccf41e}
+\index{Scanner\+\_\+gestures@{Scanner\+\_\+gestures}!get\+\_\+right\+\_\+closest@{get\+\_\+right\+\_\+closest}}
+\index{get\+\_\+right\+\_\+closest@{get\+\_\+right\+\_\+closest}!Scanner\+\_\+gestures@{Scanner\+\_\+gestures}}
+\subsubsection[{\texorpdfstring{get\+\_\+right\+\_\+closest()}{get_right_closest()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::pair$<$ float, float $>$ Scanner\+\_\+gestures\+::get\+\_\+right\+\_\+closest (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_scanner__gestures_a07e953de14a41b97f5d66b8431760c37}{}\label{class_scanner__gestures_a07e953de14a41b97f5d66b8431760c37}
+\index{Scanner\+\_\+gestures@{Scanner\+\_\+gestures}!get\+\_\+tracking@{get\+\_\+tracking}}
+\index{get\+\_\+tracking@{get\+\_\+tracking}!Scanner\+\_\+gestures@{Scanner\+\_\+gestures}}
+\subsubsection[{\texorpdfstring{get\+\_\+tracking()}{get_tracking()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Scanner\+\_\+gestures\+::get\+\_\+tracking (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_scanner__gestures_a17ea1a511a53a07fb1f407f5229e0363}{}\label{class_scanner__gestures_a17ea1a511a53a07fb1f407f5229e0363}
+\index{Scanner\+\_\+gestures@{Scanner\+\_\+gestures}!is\+\_\+in\+\_\+tracking\+\_\+area@{is\+\_\+in\+\_\+tracking\+\_\+area}}
+\index{is\+\_\+in\+\_\+tracking\+\_\+area@{is\+\_\+in\+\_\+tracking\+\_\+area}!Scanner\+\_\+gestures@{Scanner\+\_\+gestures}}
+\subsubsection[{\texorpdfstring{is\+\_\+in\+\_\+tracking\+\_\+area(int index)}{is_in_tracking_area(int index)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Scanner\+\_\+gestures\+::is\+\_\+in\+\_\+tracking\+\_\+area (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_scanner__gestures_a8239d96119dc8c87737774dcb786d5d4}{}\label{class_scanner__gestures_a8239d96119dc8c87737774dcb786d5d4}
+\index{Scanner\+\_\+gestures@{Scanner\+\_\+gestures}!parse\+\_\+sensor\+\_\+data@{parse\+\_\+sensor\+\_\+data}}
+\index{parse\+\_\+sensor\+\_\+data@{parse\+\_\+sensor\+\_\+data}!Scanner\+\_\+gestures@{Scanner\+\_\+gestures}}
+\subsubsection[{\texorpdfstring{parse\+\_\+sensor\+\_\+data(std\+::vector$<$ float $>$ range, float angle\+\_\+start, float angle\+\_\+increment, float poi\+\_\+range, float poi\+\_\+angle)}{parse_sensor_data(std::vector< float > range, float angle_start, float angle_increment, float poi_range, float poi_angle)}}]{\setlength{\rightskip}{0pt plus 5cm}void Scanner\+\_\+gestures\+::parse\+\_\+sensor\+\_\+data (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ float $>$}]{range, }
+\item[{float}]{angle\+\_\+start, }
+\item[{float}]{angle\+\_\+increment, }
+\item[{float}]{poi\+\_\+range, }
+\item[{float}]{poi\+\_\+angle}
+\end{DoxyParamCaption}
+)}\hypertarget{class_scanner__gestures_a6dc7d1dc6802ea02d94f730b32a81e87}{}\label{class_scanner__gestures_a6dc7d1dc6802ea02d94f730b32a81e87}
+\index{Scanner\+\_\+gestures@{Scanner\+\_\+gestures}!set\+\_\+tracking@{set\+\_\+tracking}}
+\index{set\+\_\+tracking@{set\+\_\+tracking}!Scanner\+\_\+gestures@{Scanner\+\_\+gestures}}
+\subsubsection[{\texorpdfstring{set\+\_\+tracking(bool is\+\_\+tracking)}{set_tracking(bool is_tracking)}}]{\setlength{\rightskip}{0pt plus 5cm}void Scanner\+\_\+gestures\+::set\+\_\+tracking (
+\begin{DoxyParamCaption}
+\item[{bool}]{is\+\_\+tracking}
+\end{DoxyParamCaption}
+)}\hypertarget{class_scanner__gestures_a8b8caf958afa2915e37a521c634ce694}{}\label{class_scanner__gestures_a8b8caf958afa2915e37a521c634ce694}
+\index{Scanner\+\_\+gestures@{Scanner\+\_\+gestures}!update\+\_\+score@{update\+\_\+score}}
+\index{update\+\_\+score@{update\+\_\+score}!Scanner\+\_\+gestures@{Scanner\+\_\+gestures}}
+\subsubsection[{\texorpdfstring{update\+\_\+score(float angle\+\_\+increment)}{update_score(float angle_increment)}}]{\setlength{\rightskip}{0pt plus 5cm}void Scanner\+\_\+gestures\+::update\+\_\+score (
+\begin{DoxyParamCaption}
+\item[{float}]{angle\+\_\+increment}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_scanner__gestures_add7d6045dd42c8a7409f7100ced6e27d}{}\label{class_scanner__gestures_add7d6045dd42c8a7409f7100ced6e27d}
+
+
+\subsection{Member Data Documentation}
+\index{Scanner\+\_\+gestures@{Scanner\+\_\+gestures}!is\+\_\+tracking@{is\+\_\+tracking}}
+\index{is\+\_\+tracking@{is\+\_\+tracking}!Scanner\+\_\+gestures@{Scanner\+\_\+gestures}}
+\subsubsection[{\texorpdfstring{is\+\_\+tracking}{is_tracking}}]{\setlength{\rightskip}{0pt plus 5cm}bool Scanner\+\_\+gestures\+::is\+\_\+tracking\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_scanner__gestures_a31783191e1afd1ab1e9c295aa243b6ac}{}\label{class_scanner__gestures_a31783191e1afd1ab1e9c295aa243b6ac}
+\index{Scanner\+\_\+gestures@{Scanner\+\_\+gestures}!left\+\_\+closest@{left\+\_\+closest}}
+\index{left\+\_\+closest@{left\+\_\+closest}!Scanner\+\_\+gestures@{Scanner\+\_\+gestures}}
+\subsubsection[{\texorpdfstring{left\+\_\+closest}{left_closest}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::pair$<$float, float$>$ Scanner\+\_\+gestures\+::left\+\_\+closest\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_scanner__gestures_aaa7bab014f2c47eab1314c5dd6a5c25e}{}\label{class_scanner__gestures_aaa7bab014f2c47eab1314c5dd6a5c25e}
+\index{Scanner\+\_\+gestures@{Scanner\+\_\+gestures}!left\+\_\+score@{left\+\_\+score}}
+\index{left\+\_\+score@{left\+\_\+score}!Scanner\+\_\+gestures@{Scanner\+\_\+gestures}}
+\subsubsection[{\texorpdfstring{left\+\_\+score}{left_score}}]{\setlength{\rightskip}{0pt plus 5cm}float Scanner\+\_\+gestures\+::left\+\_\+score\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_scanner__gestures_a42ac1f24eee3f92065743f0a23452dd5}{}\label{class_scanner__gestures_a42ac1f24eee3f92065743f0a23452dd5}
+\index{Scanner\+\_\+gestures@{Scanner\+\_\+gestures}!poi\+\_\+angle@{poi\+\_\+angle}}
+\index{poi\+\_\+angle@{poi\+\_\+angle}!Scanner\+\_\+gestures@{Scanner\+\_\+gestures}}
+\subsubsection[{\texorpdfstring{poi\+\_\+angle}{poi_angle}}]{\setlength{\rightskip}{0pt plus 5cm}float Scanner\+\_\+gestures\+::poi\+\_\+angle\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_scanner__gestures_a191a5090d123ef3ab2f3ae7e7c83c59b}{}\label{class_scanner__gestures_a191a5090d123ef3ab2f3ae7e7c83c59b}
+\index{Scanner\+\_\+gestures@{Scanner\+\_\+gestures}!poi\+\_\+range@{poi\+\_\+range}}
+\index{poi\+\_\+range@{poi\+\_\+range}!Scanner\+\_\+gestures@{Scanner\+\_\+gestures}}
+\subsubsection[{\texorpdfstring{poi\+\_\+range}{poi_range}}]{\setlength{\rightskip}{0pt plus 5cm}float Scanner\+\_\+gestures\+::poi\+\_\+range\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_scanner__gestures_a55694caa26cbfbc83f349a11a15a6980}{}\label{class_scanner__gestures_a55694caa26cbfbc83f349a11a15a6980}
+\index{Scanner\+\_\+gestures@{Scanner\+\_\+gestures}!right\+\_\+closest@{right\+\_\+closest}}
+\index{right\+\_\+closest@{right\+\_\+closest}!Scanner\+\_\+gestures@{Scanner\+\_\+gestures}}
+\subsubsection[{\texorpdfstring{right\+\_\+closest}{right_closest}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::pair$<$float, float$>$ Scanner\+\_\+gestures\+::right\+\_\+closest\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_scanner__gestures_ad51010037fec39cc18a5ccd23bb52d02}{}\label{class_scanner__gestures_ad51010037fec39cc18a5ccd23bb52d02}
+\index{Scanner\+\_\+gestures@{Scanner\+\_\+gestures}!right\+\_\+score@{right\+\_\+score}}
+\index{right\+\_\+score@{right\+\_\+score}!Scanner\+\_\+gestures@{Scanner\+\_\+gestures}}
+\subsubsection[{\texorpdfstring{right\+\_\+score}{right_score}}]{\setlength{\rightskip}{0pt plus 5cm}float Scanner\+\_\+gestures\+::right\+\_\+score\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_scanner__gestures_ac70d55167bb745213abadfb06a615e91}{}\label{class_scanner__gestures_ac70d55167bb745213abadfb06a615e91}
+\index{Scanner\+\_\+gestures@{Scanner\+\_\+gestures}!slice@{slice}}
+\index{slice@{slice}!Scanner\+\_\+gestures@{Scanner\+\_\+gestures}}
+\subsubsection[{\texorpdfstring{slice}{slice}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$float$>$ Scanner\+\_\+gestures\+::slice\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_scanner__gestures_af41d7e1707fce466c71119a52999913a}{}\label{class_scanner__gestures_af41d7e1707fce466c71119a52999913a}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{scanner__gestures_8h}{scanner\+\_\+gestures.\+h}\item 
+src/\hyperlink{scanner__gestures_8cpp}{scanner\+\_\+gestures.\+cpp}\end{DoxyCompactItemize}

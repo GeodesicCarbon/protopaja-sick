@@ -1,0 +1,23 @@
+\hypertarget{laser__objects_8cpp}{}\section{src/laser\+\_\+objects.cpp File Reference}
+\label{laser__objects_8cpp}\index{src/laser\+\_\+objects.\+cpp@{src/laser\+\_\+objects.\+cpp}}
+
+
+Implementation of object tracking.  
+
+
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$visualization\+\_\+msgs/\+Marker.\+h$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$cmath$>$}\\*
+{\ttfamily \#include $<$utility$>$}\\*
+{\ttfamily \#include \char`\"{}laser\+\_\+objects.\+hpp\char`\"{}}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$algorithm$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$/usr/include/armadillo$>$}\\*
+
+
+\subsection{Detailed Description}
+Implementation of object tracking. 
+
+Tracks and sorts objects into mobiles and statics from input given by laser\+\_\+objects\+\_\+server.\+cpp. Tracking is achieved with linear Kalman filter 
