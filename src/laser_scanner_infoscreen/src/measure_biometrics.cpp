@@ -77,7 +77,7 @@ void biometrics_callback(const laser_scanner_infoscreen::biometrics::ConstPtr& p
     } else {
       low = mid;
     }
-    std::this_thread::sleep_for(std::chrono::milliseconds(300/(5-i)));
+    std::this_thread::sleep_for(std::chrono::milliseconds(300/(1+i)));
   }
   laser_scanner_infoscreen::biometrics_results bio_msg;
   bio_msg.height = (high+low)/2;
